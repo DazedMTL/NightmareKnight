@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "修道院",
+    "displayName": "Monastery",
     "encounterList": [],
     "encounterStep": 30,
     "height": 24,
@@ -5868,14 +5868,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「冒険者集会所は\\C[17]ここから南東\\C[0]にあります。"
+                                "\\OC[30]\\N<Phils>The adventurer's guild is located\n\\C[17] southeast from here. I will also listen to\nthe stories from those who visit the church."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "私も教会に訪れる方々から話を聞いて見ますね。"
+                                ""
                             ]
                         },
                         {
@@ -5902,14 +5902,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「私や修道院のみんなは今のところ『ナイトメアヘブン』の影響は"
+                                "\\OC[30]\\N<Phils>For me and everyone at the\nmonastery, it seems that we haven't been affected\nmuch by 'Nightmare Heaven' so far. This is also\nthanks to the blessings of the Holy Demon."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "あまりなさそうです。これも聖魔様の加護のおかげです。"
+                                ""
                             ]
                         },
                         {
@@ -5926,7 +5926,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「レインさんにも、引き続きご加護がありますように。"
+                                "\\OC[30]\\N<Phils>May Rain-san continue to be\nblessed."
                             ]
                         },
                         {
@@ -6170,7 +6170,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「ダンジョンにいたあの冒険者の様子はどうですか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>How is that adventurer we\nencountered in the dungeon doing?"
                             ]
                         },
                         {
@@ -6216,14 +6216,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「だいぶ落ち着いていますよ。まだ個室に入ってもらってはいますが、日常会話をする"
+                                "\\CE[94]\\OC[30]\\N<Phils>They have calmed down quite\na bit. Although they are still staying in a\nprivate room, there shouldn't be any issues with\nhaving everyday conversations."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ぐらいは問題ありません。"
+                                ""
                             ]
                         },
                         {
@@ -6251,38 +6251,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「ただ、ダンジョンでの出来事についてはほとんど覚えていないようであまり情報を得られ"
+                                "\\CE[94]\\OC[30]\\N<Phils>However, it seems like they\ndon't remember much about what happened in the\ndungeon, so it's unlikely that we'll be able to\ngather much information..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "そうにはありません……。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 2,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 2,
-                            "parameters": [
-                                "\\OC[31]\\N<レイン>「そうですか。でも『ナイトメアヘヴン』についてのことは調査できる方が見つかった"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 2,
-                            "parameters": [
-                                "ので、問題ありません。"
+                                ""
                             ]
                         },
                         {
@@ -6299,7 +6275,31 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「なので、彼には身体を治すことに専念してもらいましょう。"
+                                "\\OC[31]\\N<Rain>I see. However, we have found\nsomeone who can investigate about 'Nightmare\nHeaven', so there shouldn't be any issues."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "\\OC[31]\\N<Rain>So, let's have him focus on healing\nhis body."
                             ]
                         },
                         {
@@ -6327,7 +6327,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「そうですね。今の私では解呪できませんが、地道に対処法を見つけて見せます。"
+                                "\\CE[94]\\OC[30]\\N<Phils>Yes, that's right. I can't\ndispel the curse right now, but I will diligently\nfind a way to deal with it and show you."
                             ]
                         },
                         {
@@ -6344,7 +6344,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「では、私はこれで失礼します。"
+                                "\\OC[31]\\N<Rain>Well then, I'll take my leave now."
                             ]
                         },
                         {
@@ -6361,7 +6361,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「はい、お気をつけて。聖魔様の加護がありますように。"
+                                "\\OC[30]\\N<Phils>Yes, take care. May the blessings\nof the Holy Demon be with you."
                             ]
                         },
                         {
@@ -6627,7 +6627,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「…………………──────────"
+                                "\\OC[30]\\N<Phils>「.....................──────────"
                             ]
                         },
                         {
@@ -6673,7 +6673,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「フィルスさん……？\\.ぼーっとしてますが、大丈夫ですか……？"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Phils-san...? \\.Are\nyou spacing out? Are you okay...?"
                             ]
                         },
                         {
@@ -6712,14 +6712,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\CE[96]\\OC[30]\\N<フィルス>「───────あっ、\\.す、すみません……！\\.大丈夫です……っ！"
+                                "\\CE[94]\\CE[96]\\OC[30]\\N<Phils>Ah, s-sorry...!\nI-I'm fine...! I was just lost in thought..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.ちょっと考え事をしてただけなので──────────"
+                                ""
                             ]
                         },
                         {
@@ -6747,7 +6747,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「そうですか………\\.私でよければ、なにかあったら相談してくださいね。"
+                                "\\CE[79]\\OC[31]\\N<Rain>I see... If it's okay with\nme, please feel free to consult with me if\nanything happens."
                             ]
                         },
                         {
@@ -7072,7 +7072,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「フィルスさん、様子を見に来ました。\\.その後、あの冒険者の様子はどうですか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>Phils-san, I came to check\non you. \\. How is that adventurer doing?"
                             ]
                         },
                         {
@@ -7165,7 +7165,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[30]\\N<フィルス>「そ、その後ですか………\\.えっと………─────"
+                                "\\CE[79]\\CE[94]\\OC[30]\\N<Phils>S-So, what happened\nafter that... umm...─────"
                             ]
                         },
                         {
@@ -7193,7 +7193,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「そう、ですね………\\.げ、元気で、落ち着いてきていると思います。"
+                                "\\CE[94]\\OC[30]\\N<Phils>Yes, umm... \\. well, I\nthink they're doing fine and starting to calm down\na bit."
                             ]
                         },
                         {
@@ -7230,7 +7230,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「────歯切れが良くないですが……\\.なにか問題でもあったんですか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>────Although it's not very\nclear... Was there any problem or something?"
                             ]
                         },
                         {
@@ -7265,14 +7265,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「い、いえ………そういうことは……────。"
+                                "\\CE[94]\\OC[30]\\N<Phils>N-No... umm... that kind of\nthing...────. It's just that, \\. using up my\nenergy for 'treatment', so I might be a little\ntired..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\!ただちょっと、\\.\"処置\"に体力を使うので、少し疲れているのかもしれません……。"
+                                ""
                             ]
                         },
                         {
@@ -7300,14 +7300,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「そうでしたか……。\\.いま修道院で『ナイトメアヘブン』に対抗できるレベルの"
+                                "\\CE[79]\\OC[31]\\N<Rain>I see... So, \\. Phils-san is\nthe only one receiving a level of protection that\ncan rival 'Nightmare Heaven' at the monastery...\nIt must be putting a lot of strain on you."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "加護を受けているのはフィルスさんだけですから………負担が大きくなっているんですね。"
+                                ""
                             ]
                         },
                         {
@@ -7335,14 +7335,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「一刻も早く魔術装置を見つけるので、もう少し待っていてください……！"
+                                "\\CE[79]\\OC[31]\\N<Rain>Please wait a little longer\nas I find the magic device as soon as possible...!\n\\. Well then, excuse me!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.では、失礼します！"
+                                ""
                             ]
                         },
                         {
@@ -7569,7 +7569,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「あ………─────"
+                                "\\OC[30]\\N<Phils>Ah.........─────"
                             ]
                         },
                         {
@@ -7609,38 +7609,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>(────い、言えない………。\\.えっちなことをして、射精の手伝いをしてる"
+                                "\\OC[30]\\N<Phils>(────I, I can't say it... that\nwe're doing... \\. naughty things and helping each\nother reach climax...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "だなんて………。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 1,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "\\OC[30]\\N<フィルス>(でも、そうすることで彼は大分落ち着いてきてるって言ってたし………。\\."
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "せっかくここまできたから、今更やめるわけには……。"
+                                ""
                             ]
                         },
                         {
@@ -7657,14 +7633,38 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>(加護の力と、\"お手伝い\"で『ナイトメアヘブン』に対抗できるなら………、\\.私も"
+                                "\\OC[30]\\N<Phils>(But, he said that doing that has\nhelped him calm down quite a bit..........\\.Since\nwe've come this far, I can't just stop now......."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "がんばらなきゃ……。\\.レインさんに頼りきりというわけにはいきません……っ"
+                                "\\OC[30]\\N<Phils>(If I can rival the power of\nNightmare Heaven with the help of \\.protection and\nassistance... then, I have to do my best too...\\.I\ncan't just rely on Rain-san completely...)"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
                             ]
                         },
                         {
@@ -8187,7 +8187,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\CE[78]\\OC[31]\\N<レイン>「そうですか………フィルスさんほどの加護の力でも………。"
+                                "\\CE[79]\\CE[84]\\CE[78]\\OC[31]\\N<Rain>I see... Even\nwith the power of Phils-san's blessing..."
                             ]
                         },
                         {
@@ -8262,7 +8262,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[30]\\N<フィルス>「はい………完全に『ナイトメアヘブン』を防ぐことは難しそうです……。"
+                                "\\CE[79]\\CE[94]\\OC[30]\\N<Phils>Yes... It seems\ndifficult to completely prevent 'Nightmare\nHeaven'..."
                             ]
                         },
                         {
@@ -8279,14 +8279,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「あの魔術は、空気のように常に空間を巡り続けているようなので、"
+                                "\\OC[30]\\N<Phils>That magic seems to constantly\ncirculate through space like air, so even if we\ntemporarily negate its effects, it will only\namplify desires again over time..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "一時的に効果を打ち消しても時間が経てばまた欲望を増幅させてしまいます……。"
+                                ""
                             ]
                         },
                         {
@@ -8321,14 +8321,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「そういえば………\\.聖魔様の加護に守られている場所や人は比較的"
+                                "\\CE[94]\\OC[30]\\N<Phils>By the way... I think\nplaces and people protected by the divine\nblessings of \\. are relatively safe, but how are\nwe dealing with those who are not protected?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "無事だと思いますが、\\.守られていない人々には、どのように対処をしているのですか？"
+                                ""
                             ]
                         },
                         {
@@ -8401,14 +8401,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[83]\\OC[31]\\N<レイン>「────欲望が増幅した方は、金銭の要求か……\\.身体を求めてくることが"
+                                "\\CE[79]\\CE[78]\\CE[83]\\OC[31]\\N<Rain>────Those\nwhose desires have been amplified often seek\nmoney... or they frequently come seeking physical\nintimacy..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "多いんです……。"
+                                ""
                             ]
                         },
                         {
@@ -8447,7 +8447,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\CE[95]\\OC[30]\\N<フィルス>「え──────────"
+                                "\\CE[94]\\CE[95]\\OC[30]\\N<Phils>Uh──────"
                             ]
                         },
                         {
@@ -8475,14 +8475,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「性的な欲望はほとんどの人が増幅しやすいみたいで………。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>It seems that most\npeople easily amplify their sexual desires... \\.\nSo, for those individuals... we try to respond to\ntheir desires as much as possible..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.そういう方には……可能な限り、望み通りの対応をしています………。"
+                                ""
                             ]
                         },
                         {
@@ -8510,7 +8510,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「───そ、それは、つまり\\.…\\.…\\.…\\.えっちな─────"
+                                "\\CE[94]\\OC[30]\\N<Phils>───S-So, that means...\nsomething lewd─────"
                             ]
                         },
                         {
@@ -8527,7 +8527,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「────一般人に被害がでるよりは、と………。"
+                                "\\CE[79]\\OC[31]\\N<Rain>────Rather than causing harm\nto ordinary people, and..."
                             ]
                         },
                         {
@@ -8555,14 +8555,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「それに………私にも『ナイトメアヘブン』の効果が少なからず出てきて"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>And... I've also been\naffected by the effects of 'Nightmare Heaven' to\nsome extent... S-So, in other words, there are\ntimes when it gets resolved for me too..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "しまっていて………。\\.\\.つ、つまり、\\.私も解消されることがありまして………。"
+                                ""
                             ]
                         },
                         {
@@ -8590,7 +8590,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「────な、なるほど………──────。"
+                                "\\CE[94]\\OC[30]\\N<Phils>I see... I understand..."
                             ]
                         },
                         {
@@ -8607,14 +8607,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「す、すみません、驚かせてしまって………。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>I-I'm sorry for\nsurprising you... B-But, this is the only solution\nwe can currently come up with..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.でも、これぐらいしか現状でできる対処法が………。"
+                                ""
                             ]
                         },
                         {
@@ -8642,14 +8642,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「そ、そうですよね……！\\.いえ、自分の身を削って町のみなさんを魔の手から"
+                                "\\CE[94]\\OC[30]\\N<Phils>Y-Yes, that's right...! \\.\nNo, sacrificing myself to protect the people of\nthe town from the clutches of evil.........!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "守っているなんて………！"
+                                ""
                             ]
                         },
                         {
@@ -8666,7 +8666,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「────カルドさんやフリストさんには秘密でお願いします……。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>────Please keep this\na secret from Caldo-san and Fristo-san..."
                             ]
                         },
                         {
@@ -8694,14 +8694,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「はい………。\\.でも……お身体には十分に気を付けてくださいね……。"
+                                "\\CE[94]\\OC[30]\\N<Phils>Yes..........\\. But......\nplease take good care of your body.......\\. If you\nneed any treatment, please let me know\nanytime......."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.治療が必要だったら、いつでも言ってください……。"
+                                ""
                             ]
                         },
                         {
@@ -8740,7 +8740,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「はい……。ありがとうございます。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Yes... Thank you very\nmuch."
                             ]
                         },
                         {
@@ -9029,7 +9029,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「…………………──────────"
+                                "\\OC[30]\\N<Phils>「.....................──────────"
                             ]
                         },
                         {
@@ -9075,7 +9075,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「あれ、フィルスさん……顔が赤いんじゃないですか？"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Hey, Phils... Your\nface is all red, isn't it?"
                             ]
                         },
                         {
@@ -9103,7 +9103,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\CE[96]\\OC[30]\\N<フィルス>「─────えっ……そう、ですか……？\\.なんともないんですが……。"
+                                "\\CE[94]\\CE[96]\\OC[30]\\N<Phils>Eh... Is that so?\nWell, there's nothing wrong with me..."
                             ]
                         },
                         {
@@ -9131,7 +9131,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「そうですか……こんな状況ですから、無理せず休んでくださいね。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Is that so... considering\nthe situation, please take a rest without pushing\nyourself."
                             ]
                         },
                         {
@@ -9446,14 +9446,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フィルス>「レインさん……、その、目のやりどころに困ってしまうので………、もう少し"
+                                "\\N<Phils>Rain-san... um, I'm having trouble with\nwhere to look... so if you could wear clothing\nwith a little less exposure, I would appreciate\nit..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "露出の少ない服装にしてもらえると、ありがたいです………。"
+                                ""
                             ]
                         },
                         {
@@ -9514,7 +9514,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「す、すみません…………っ。"
+                                "\\CE[77]\\OC[31]\\N<Rain>I-I'm sorry............"
                             ]
                         },
                         {
@@ -10385,21 +10385,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「えっ……なんでここにこんな"
+                                "\\EMP Huh... why is there someone dressed so\nprovocatively here... m-maybe they're just\ntired..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "エッチな恰好の人が……。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "つ、疲れてるのかも……っ。"
+                                ""
                             ]
                         },
                         {
@@ -10426,14 +10426,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「最近なんでか集中力が乱れがちだ……"
+                                "\\EMP Lately, my concentration has been easily\ndisrupted... Focus, focus...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "集中集中……！"
+                                ""
                             ]
                         },
                         {
@@ -10740,14 +10740,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「とりあえず個室に入ってもらいましたが……、本当にここで保護する形で"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>For now, I had them\nenter a private room... but is it really okay to\nprotect them here?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "いいんですか？"
+                                ""
                             ]
                         },
                         {
@@ -10764,14 +10764,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「魔術のせいとはいえ、彼はこのままでは危険です。衛兵詰所の牢に入って"
+                                "\\OC[31]\\N<Rain>Even though it's because of magic,\nhe is still in danger like this. Shouldn't we have\nhim enter the prison cell in the guard station...?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "もらったほうがいいんじゃ………。"
+                                ""
                             ]
                         },
                         {
@@ -10828,7 +10828,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\CE[79]\\OC[30]\\N<フィルス>「そうですね……、でもあの方は被害者ですし、牢屋は可哀そうなので……。"
+                                "\\CE[94]\\CE[79]\\OC[30]\\N<Phils>I see... but that\nperson is the victim, so it would be pitiful to\nput them in a prison cell..."
                             ]
                         },
                         {
@@ -10856,7 +10856,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「それにここなら他の修道者もいるし、きっと大丈夫です！"
+                                "\\CE[94]\\OC[30]\\N<Phils>Besides, there are other\nmonks here, so I'm sure it'll be fine!"
                             ]
                         },
                         {
@@ -10895,7 +10895,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「───……わかりました。ですが、助けが必要なときはすぐに言ってください。"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>───... I understand.\nHowever, please let me know immediately if you\nneed any help."
                             ]
                         },
                         {
@@ -10934,7 +10934,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\CE[79]\\OC[30]\\N<フィルス>「はい、ありがとうございます。"
+                                "\\CE[94]\\CE[79]\\OC[30]\\N<Phils>Yes, thank you."
                             ]
                         },
                         {
@@ -10962,7 +10962,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「レインさんは、これからどうするんですか？"
+                                "\\CE[94]\\OC[30]\\N<Phils>Rain-san, what are you\ngoing to do from now on?"
                             ]
                         },
                         {
@@ -10990,14 +10990,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「とりあえず、『ナイトメアヘヴン』は通常の解呪方法では解けないということは"
+                                "\\CE[79]\\OC[31]\\N<Rain>For now, I understand that\n'Nightmare Heaven' cannot be dispelled by the\nusual method."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "わかりました。"
+                                ""
                             ]
                         },
                         {
@@ -11036,14 +11036,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[84]\\OC[31]\\N<レイン>「治療や解呪のエキスパートである教会の人にも解けないのであれば、正直いまは"
+                                "\\CE[78]\\CE[84]\\OC[31]\\N<Rain>If even the experts\nin healing and dispelling curses from the church\ncan't undo it, honestly, right now we have no\nchoice but to accept it..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "打つ手なしですね………。"
+                                ""
                             ]
                         },
                         {
@@ -11093,21 +11093,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「でも、フィルスさんの治療で彼の症状は少し和らいでいました。"
+                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<Rain>But, Phils-\nsan's treatment has slightly alleviated his\nsymptoms. And the fact that he can resist with\nmagic and mental strength like me means that there\nmust be a solution."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "それに私のように魔力や精神力で抵抗できるってことは、きっと対処法がある"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "はずなんです。"
+                                ""
                             ]
                         },
                         {
@@ -11124,14 +11124,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「それを見つけるためにも、私はダンジョンで拾った装置の破片を手掛かりに、"
+                                "\\OC[31]\\N<Rain>In order to find that, I will try\nto find someone who can analyze this magic using\nthe fragments of the device I picked up in the\ndungeon as a clue."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "この魔術の解析をできる人を探してみます。"
+                                ""
                             ]
                         },
                         {
@@ -11159,7 +11159,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「なるほど……！解析ができれば解呪の方法も見つかるかもしれないですね！"
+                                "\\CE[94]\\OC[30]\\N<Phils>I see...! If we can analyze\nit, we might be able to find a way to dispel the\ncurse!"
                             ]
                         },
                         {
@@ -11198,7 +11198,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「どこかこの町で、魔術師が集まるようなところに心当たりはありませんか？"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Do you have any idea\nof a place in this town where magicians gather?"
                             ]
                         },
                         {
@@ -11237,14 +11237,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[30]\\N<フィルス>「それなら、この町には\\C[17]ここから南東\\C[0]に\\C[17]冒険者集会所\\C[0]があるので、"
+                                "\\CE[79]\\CE[94]\\OC[30]\\N<Phils>In that case, in\nthis town there is a Adventurer's Guild located\nsoutheast from here, so there might be magicians\nthere."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "そこなら魔術師がいるかもしれません。"
+                                ""
                             ]
                         },
                         {
@@ -11272,7 +11272,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「わかりました、ありがとうございます。"
+                                "\\CE[79]\\OC[31]\\N<Rain>I understand, thank you."
                             ]
                         },
                         {
@@ -11300,14 +11300,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「お任せする形になってすみません……。"
+                                "\\CE[94]\\OC[30]\\N<Phils>I'm sorry for becoming a\nburden... I don't seem to be of much help right\nnow..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "今の私はお役に立てそうにありませんね………。"
+                                ""
                             ]
                         },
                         {
@@ -11346,14 +11346,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\CE[78]\\OC[31]\\N<レイン>「いえ、私もまだ何もできていませんから。"
+                                "\\CE[79]\\CE[84]\\CE[78]\\OC[31]\\N<Rain>No, I haven't\nbeen able to do anything yet. \\. Phils-san, I'm\ncounting on you to take care of him on the second\nfloor."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.フィルスさんは二階の彼のことをよろしく頼みます。"
+                                ""
                             ]
                         },
                         {
@@ -11381,7 +11381,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「わかりました。\\.聖魔様の加護がありますように。"
+                                "\\CE[94]\\OC[30]\\N<Phils>Understood. \\. May the\nblessings of the Holy Demon be with us."
                             ]
                         },
                         {
@@ -11497,14 +11497,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[84]\\C[13]\\OC[31]\\N<内なるレイン>(あの不気味なオーラ……、ダンジョンで私を襲ったときにも出てた……。"
+                                "\\CE[79]\\CE[78]\\CE[84]\\C[13]\\OC[31]\\N<Inner\nRain>(That eerie aura... It was present when it\nattacked me in the dungeon too... That's probably\nthe very desire that overflowed from Nightmare\nHeaven...!)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "たぶんあれは\\C[17]『ナイトメアヘブン』によって溢れ出た欲望\\C[13]そのもの……！"
+                                ""
                             ]
                         },
                         {
@@ -11532,14 +11532,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(このままじゃあの魔人……、ディモンの言う通り、この町の住人全員が"
+                                "\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(If things\ncontinue like this... according to Demon's words,\ndoes that mean all the residents of this town will\nend up in a state like him...?)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "あの人みたいな状態になっちゃうってことか……。"
+                                ""
                             ]
                         },
                         {
@@ -11567,14 +11567,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[13]\\OC[31]\\N<内なるレイン>(対処法が見つかるまでは、\\C[17]何とかして欲望を解消させて、少しでも理性を"
+                                "\\C[13]\\OC[31]\\N<Inner Rain>(Until we find a\nsolution, we have to somehow satisfy \\C[17]desires\nand help them regain some rationality\\C[13]...!)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "取り戻させて\\C[13]いかないと………！"
+                                ""
                             ]
                         },
                         {
@@ -11617,7 +11617,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[17]町中のイベントが開放されました"
+                                "All the events in town have been unlocked."
                             ]
                         },
                         {
@@ -11909,7 +11909,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フリスト>「……そうですか、清晶石は盗賊に……"
+                                "\\N<Frist>...I see, the clear crystal was stolen by\nthe thief..."
                             ]
                         },
                         {
@@ -11926,31 +11926,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フリスト>「ですが、シスターフィルスもレインさんも無事に戻って来てくれてよかった。"
+                                "\\N<Frist>However, I'm glad that Sister Phils and\nRain-san have both returned safely. First, let's\nrejoice in that fact."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "まずは、そのことを喜びましょう。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\N<フリスト>「ですがシスターフィルス、無茶しすぎです。状況が状況とはいえ単身で行ってしまうなんて……"
+                                ""
                             ]
                         },
                         {
@@ -11967,7 +11950,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フィルス>「申し訳ありません…ですが、このままでは……"
+                                "\\N<Frist>However, Sister Phils, you're being too\nreckless. Even considering the circumstances,\ngoing alone like that..."
                             ]
                         },
                         {
@@ -11984,7 +11967,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<レイン>「清晶石は衛兵に捜索を頼みましょう。すぐには見つからないでしょうが、やらないよりはマシだと思うので…。"
+                                "\\N<Phils>I'm sorry... but if we continue like\nthis..."
                             ]
                         },
                         {
@@ -12001,7 +11984,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フリスト>「そうですね…しかし、やはり根本的な解決を急がねばいけませんね…"
+                                "\\N<Rain>Let's ask the guards to search for the\nclear crystal. It may not be found immediately,\nbut I think it's better than doing nothing..."
                             ]
                         },
                         {
@@ -12018,14 +12001,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<レイン>「ええ…。盗賊は私やフィルスの動きを先回りしてたので、監視されている可能性が高いです。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "ヘタに動いても、また邪魔をされてしまうでしょう…。"
+                                "\\N<Frist>I see... However, we still need to hurry\nand find a fundamental solution..."
                             ]
                         },
                         {
@@ -12042,14 +12018,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<レイン>「そろそろ三つ目の装置の場所がわかると思いますので私は行きますが"
+                                "\\N<Rain>Yes... Since the thief was always one step\nahead of me and Phils, there's a high possibility\nthat we're being watched. If we act recklessly,\nwe'll just end up getting in the way again..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "ここや教会も気を付けてください。"
+                                ""
                             ]
                         },
                         {
@@ -12066,7 +12042,31 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フィルス>「あ、レインさん、これを持って行ってください！"
+                                "\\N<Rain>I think I know the location of the third\ndevice soon, so I'll go there. But please be\ncareful here and at the church as well."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\N<Phils>Ah, Rain-san, please take this!"
                             ]
                         },
                         {
@@ -12100,7 +12100,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<レイン>「これは……"
+                                "\\N<Rain>This is..."
                             ]
                         },
                         {
@@ -12117,7 +12117,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フィルス>「取り返せた清晶石でひとつだけ作れたんです。レインさんが持っていた方がいいと思いますので。"
+                                "\\N<Phils>I was able to make one with the clear\ncrystal we retrieved. I think it's better if Rain-\nsan has it."
                             ]
                         },
                         {
@@ -12134,7 +12134,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フィルス>「多少は\"欲望操作術\"を防げるでしょうし、一度きりですが、壊せば一時的に強力な加護の力が発動します！"
+                                "\\N<Phils>It should be able to prevent some 'Desire\nManipulation Techniques', and although it's only\nonce, if you break it, a temporarily powerful\nprotective force will be activated!"
                             ]
                         },
                         {
@@ -12151,7 +12151,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<レイン>「ありがとうございます。これは切り札になりますね。"
+                                "\\N<Rain>Thank you very much. This will be our\ntrump card."
                             ]
                         },
                         {
@@ -12168,7 +12168,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フィルス>「私が言うのもなんですが…レインさんも無茶しすぎないように、お気をつけて…！"
+                                "\\N<Phils>I hate to say this... but Rain-san,\nplease be careful not to push yourself too hard!"
                             ]
                         },
                         {

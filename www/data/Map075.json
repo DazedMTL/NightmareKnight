@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "聖魔教会",
+    "displayName": "Holy Demon Church",
     "encounterList": [],
     "encounterStep": 30,
     "height": 30,
@@ -6801,7 +6801,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「司祭様、王都から来ました、聖騎士のレインです。はじめまして。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Greetings, priest-sama. I am\nRain, a holy knight who has come from the capital\ncity. It's a pleasure to meet you."
                             ]
                         },
                         {
@@ -6829,14 +6829,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<司祭>「よくおいでくださいました。私は名は\\C[17]フリスト\\C[0]と申します。"
+                                "\\CE[79]\\n<Priest>Welcome, thank you for coming. My\nname is \\C[17]Priest\\C[0]. I am grateful that you\nhave come from a distant place, and I──────"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.遠いところからお越しいただき、感謝いたしま──────"
+                                ""
                             ]
                         },
                         {
@@ -6862,7 +6862,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「レインさん、ちょっと失礼……───────"
+                                "\\n<Frist>Excuse me, Rain-san...───────"
                             ]
                         },
                         {
@@ -7034,7 +7034,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「───ふんふん……、なるほど。すばらしい！"
+                                "\\n<Frist>Hmm... I see. Wonderful!"
                             ]
                         },
                         {
@@ -7096,7 +7096,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「ふ、フリストさん……？なにがでしょうか………？"
+                                "\\OC[31]\\N<Rain>P-Priest-san...? What is it...?"
                             ]
                         },
                         {
@@ -7125,7 +7125,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「レインさんの美しい身体に惚れ惚れしていたのです。"
+                                "\\n<Frist>I was captivated by Rain-san's beautiful\nbody."
                             ]
                         },
                         {
@@ -7142,45 +7142,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「そのセイントクロスはすばらしいですね。体形がしっかりでていつつ、大事な箇所は"
+                                "\\n<Frist>That Saint Cross is amazing. It\naccentuates the figure nicely, while properly\nhiding the important parts... The level of\nexposure is just right!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ちゃんと隠れて……、露出の具合がとてもいい！"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 2,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 2,
-                            "parameters": [
-                                "\\n<フリスト>「ああ、よく誤解されるのですが、下劣な意味ではありませんよ。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 2,
-                            "parameters": [
-                                "私は美しいもの……、特に肉体の美しさに惹かれていまして。さすが聖騎士の方は"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 2,
-                            "parameters": [
-                                "整ってらっしゃいますね。"
+                                ""
                             ]
                         },
                         {
@@ -7197,7 +7166,38 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「そう、ですか………。"
+                                "\\n<Frist>Ah, I often get misunderstood, but it's\nnot in a vulgar sense. I am attracted to beautiful\nthings... especially the beauty of the body. As\nexpected, holy knights like you have well-\nproportioned figures."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 2,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 2,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 2,
+                            "parameters": [
+                                "\\OC[31]\\N<Rain>Is that so.........."
                             ]
                         },
                         {
@@ -7254,7 +7254,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[84]\\C[13]\\OC[31]\\N<内なるレイン>(ええ……、初対面でこのふるまい……、大丈夫かなこの人………。"
+                                "\\CE[79]\\CE[78]\\CE[84]\\C[13]\\OC[31]\\N<Inner\nRain>(Hmm... this behavior on our first meeting...\nI wonder if this person is okay...)"
                             ]
                         },
                         {
@@ -7271,14 +7271,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\C[13]\\OC[31]\\N<内なるレイン>(いやらしい感じはしないけど、こんなに目をキラキラさせて人の身体を"
+                                "\\C[13]\\OC[31]\\N<Inner Rain>(It doesn't feel lewd,\nbut to have such sparkling eyes while looking at\nsomeone's body... There really are some peculiar\npeople among the priests...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "見てくるなんて………。司祭にも変わった人がいるんだな………。"
+                                ""
                             ]
                         },
                         {
@@ -7331,14 +7331,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「────と、ところで、衛兵長のカルドさんとは顔を合わせました。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>By the way, I\nhappened to meet Captain Caldo. It seems that he\nwas the one who noticed the abnormality in this\ntown."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "この町の異変に気づいたのは教会の方だとか。"
+                                ""
                             ]
                         },
                         {
@@ -7355,7 +7355,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「おっと、失礼しました。本題に入りましょう。"
+                                "\\n<Frist>Oops, my apologies. Let's get to the main\ntopic."
                             ]
                         },
                         {
@@ -7519,14 +7519,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\n<フリスト>「その通りです。気づいたのはシスターのフィルスです。"
+                                "\\CE[79]\\CE[84]\\n<Frist>That's right. Sister Phils\nwas the one who noticed. She also found the\ndungeon."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ダンジョンを見つけたのも彼女です。"
+                                ""
                             ]
                         },
                         {
@@ -7582,7 +7582,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「シスターフィルス、いますか？こちらに来てもらえますか。"
+                                "\\n<Frist>Sister Phils, are you here? Can you come\nover here?"
                             ]
                         },
                         {
@@ -7676,7 +7676,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「シスターフィルス。こちらに来てもらえますか？"
+                                "\\n<Fristo>Sister Phils, can you come over here?"
                             ]
                         },
                         {
@@ -7841,14 +7841,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「す、すみません！お待たせしました！"
+                                "\\OC[30]\\N<Phils>I-I'm sorry! I kept you waiting!\nI'm sorry, I was so focused on my work that I\ndidn't hear..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ごめんなさい、仕事に集中していて聞こえてなくて……。"
+                                ""
                             ]
                         },
                         {
@@ -7876,14 +7876,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「構いませんよ。"
+                                "\\n<Frist>It's alright, Rain-san. She is Sister\n\\C[17]Phils\\C[0], the one who discovered it."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "レインさん、彼女が発見者のシスター\\C[17]フィルス\\C[0]です。"
+                                ""
                             ]
                         },
                         {
@@ -7984,7 +7984,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「はじめまして、レインです。よろしくお願いします。"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Nice to meet you, I'm\nRain. Pleased to make your acquaintance."
                             ]
                         },
                         {
@@ -8023,7 +8023,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[30]\\N<フィルス>「こ、こちらこそ……、はじめまして！"
+                                "\\CE[79]\\CE[94]\\OC[30]\\N<Phils>N-Nice to meet you\ntoo... for the first time!"
                             ]
                         },
                         {
@@ -8049,7 +8049,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「ふわわわっ、さっ、さすが聖騎士さま…っ すごい魔力を感じますっ！"
+                                "\\OC[30]\\N<Phils>Oh my, the Holy Knight-sama truly\nlives up to their reputation... I can feel such\nincredible magical power!"
                             ]
                         },
                         {
@@ -8066,14 +8066,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「シスターフィルス、落ち着いて。"
+                                "\\n<Frist>Sister Phils, calm down. Can you please\nexplain to Rain-san about the abnormality in the\ntown and the dungeon right away?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "早速なんですが、レインさんに町の異変とダンジョンについての説明をお願いできますか？"
+                                ""
                             ]
                         },
                         {
@@ -8101,14 +8101,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「は、はい、ごめんなさい！"
+                                "\\CE[94]\\OC[30]\\N<Phils>Y-Yes, I'm sorry! It's my\nfirst time meeting a Holy Knight, so..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "聖騎士の方と会うのは初めてだったので……っ"
+                                ""
                             ]
                         },
                         {
@@ -8162,14 +8162,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「ええと……、違和感を覚えたのは、半年ほど前なんです。"
+                                "\\CE[94]\\OC[30]\\N<Phils>Um... I started feeling a\nsense of discomfort about half a year ago. At\nfirst, I just thought it was because the days were\ngetting colder..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "最初はなんとなく肌寒い日が続くなと思っていただけなんですが……。"
+                                ""
                             ]
                         },
                         {
@@ -8203,17 +8203,17 @@
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「そういえば、この町に入るときに私も感じました。"
+                                ""
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "なにかこう、空気が気持ちの悪い感じというか。"
+                                "It's like, there's this uncomfortable atmosphere\nor something."
                             ]
                         },
                         {
@@ -8291,21 +8291,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[30]\\N<フィルス>「そうです！そういう感じです。"
+                                "\\CE[79]\\CE[94]\\OC[30]\\N<Phils>Yes! That's exactly\nit. At first, it seemed like I was the only one\nfeeling it, but about three months ago, everyone\nelse started sensing something too."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "最初は私以外の人はあまり感じていなかったみたいなんですが、3カ月ほど前には"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "他のみんなも何かを感じていたようです。"
+                                ""
                             ]
                         },
                         {
@@ -8333,14 +8333,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]\\N<フィルス>「それで、私はよく森に散歩に行ったり薬草を摘みに行くのですが、明らかに"
+                                "\\CE[94]\\OC[30]\\N<Phils>So, I often go for walks\nin the forest and gather herbs, but it's clear\nthat there has been an increase in monsters\ncompared to a year ago."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "1年前と比べて魔物が増えていました。"
+                                ""
                             ]
                         },
                         {
@@ -8357,7 +8357,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[30]\\N<フィルス>「怖いのでいつもと違う道を進んだら、偶然ダンジョンを見つけたんです。"
+                                "\\OC[30]\\N<Phils>Because I was scared, I took a\ndifferent path than usual and happened to find a\ndungeon."
                             ]
                         },
                         {
@@ -8396,7 +8396,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\CE[79]\\OC[31]\\N<レイン>「なるほど………。"
+                                "\\CE[94]\\CE[79]\\OC[31]\\N<Rain>I see..."
                             ]
                         },
                         {
@@ -8438,14 +8438,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「シスターフィルスが真っ先に違和感を感じたのは、彼女が教会内でも"
+                                "\\n<Frist>Sister Phils was the first to feel a\nsense of discomfort, probably because she has a\nparticularly strong divine protection even within\nthe church."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "特に聖魔様の加護が強いからでしょう。"
+                                ""
                             ]
                         },
                         {
@@ -8531,14 +8531,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「カルドさんに話して情報を照らし合わせると、町の治安の悪化と"
+                                "\\n<Frist>When I spoke to Caldo-san and compared\nthe information, it matched the time when the\ntown's public order deteriorated and Sister Phils\nbegan feeling a sense of discomfort."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "シスターフィルスが違和感を感じ始めた時期が一致しました。"
+                                ""
                             ]
                         },
                         {
@@ -8555,7 +8555,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「そしてそこに新たなダンジョンの発見。偶然とは思えないのです。"
+                                "\\n<Frist>And the discovery of a new dungeon\nthere. It doesn't seem like a coincidence."
                             ]
                         },
                         {
@@ -8583,7 +8583,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「確かにそうですね。まずは、そのダンジョンを調査する必要がありますね。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Indeed, you're right.\nFirst, we need to investigate that dungeon."
                             ]
                         },
                         {
@@ -8662,7 +8662,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「フィルスさん、私が護衛しますので、案内をお願いできますか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>Phils-san, I will be your\nescort. Can you guide us, please?"
                             ]
                         },
                         {
@@ -8752,7 +8752,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[30]\\N<フィルス>「はい、もちろんです！"
+                                "\\CE[79]\\CE[94]\\OC[30]\\N<Phils>Yes, of course!"
                             ]
                         },
                         {
@@ -8860,14 +8860,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\n<フリスト>「シスターフィルスも治療や防御魔術が使えますが、二人ともくれぐれもお気をつけて。"
+                                "\\CE[79]\\CE[94]\\n<Frist>Sister Phils can also use\nhealing and defensive magic, but please be\ncareful, both of you. We don't know what might\nhappen..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "何があるかわかりませんからね……。"
+                                ""
                             ]
                         },
                         {
@@ -8947,14 +8947,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「\\{なにより\\}、レインさんもシスターフィルスも美しい肉体の持ち主。"
+                                "\\n<Frist>Above all, both Rain-san and Sister\nPhils have beautiful bodies. If anything were to\nhappen to that physical beauty, it would be a\ngreat loss for humanity!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "その肉体美に何かあったら、\\{人類にとって大きな損失です！"
+                                ""
                             ]
                         },
                         {
@@ -9004,7 +9004,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<レイン>「え？"
+                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>Huh?"
                             ]
                         },
                         {
@@ -9044,14 +9044,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<フリスト>「ああ、聖魔様！何卒二人を…そしてその肉体美を、人類のためにも"
+                                "\\CE[79]\\n<Frist>Oh, Holy Demon Lord! Please\nprotect both of them... and their physical beauty,\nfor the sake of humanity...───!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "お守りください…───！"
+                                ""
                             ]
                         },
                         {
@@ -9167,14 +9167,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]「…ちょっと変なところもありますが、"
+                                "\\CE[94]\\OC[30] ...There are some strange parts,\nbut don't worry, it's okay..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "気にしなくて大丈夫…です。"
+                                ""
                             ]
                         },
                         {
@@ -9202,7 +9202,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[94]\\OC[30]「一応、立派な方なんですよ…。"
+                                "\\CE[94]\\OC[30] For now, they seem like a\nrespectable person..."
                             ]
                         },
                         {
@@ -9455,7 +9455,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<フリスト>「おお、修道服も大変お似合いですね！きっと聖魔様もお喜びだ！"
+                                "\\n<Frist>Oh, the nun's habit suits you very well!\nI'm sure the Holy Demon Lord would be delighted!"
                             ]
                         },
                         {
@@ -9482,7 +9482,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<フリスト>「くれぐれもお気をつけて。聖魔様のご加護がありますように。"
+                                "\\n<Frist>Please take care. May the Holy Demon\nLord bless you."
                             ]
                         },
                         {
@@ -9663,7 +9663,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<フリスト>「おや！修道服ですか。いいですね、とても似合っていますよ。"
+                                "\\N<Frist>Oh! A nun's habit, huh? It looks great on\nyou, suits you very well."
                             ]
                         },
                         {
@@ -9702,14 +9702,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\N<フリスト>「聖魔教の修道服はスタイルがよくでる素晴らしいデザインですからね。"
+                                "\\CE[79]\\CE[84]\\N<Frist>The nun's habit of the Holy\nDemon Church is a wonderfully designed outfit that\nbrings out your style. Even with modest exposure,\nRain's physical beauty is clearly evident. Yes,\nyes."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "露出は控えめでもレインさんの肉体美はよくわかります。うんうん。"
+                                ""
                             ]
                         },
                         {
@@ -9743,14 +9743,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<フリスト>「『ナイトメアヘヴン』とやらのせいか、いまのこの町は少々乱暴な方が多いようです。"
+                                "\\N<Frist>Perhaps due to 'Nightmare Heaven,' it\nseems that this town has become a bit rough.\nEspecially at night, there may be people who flock\nto your beautiful body, so please be careful."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\C[17]特に夜\\C[0]は、その美しい身体に群がる輩がいるでしょうから、くれぐれもお気をつけて。"
+                                ""
                             ]
                         },
                         {
@@ -10136,14 +10136,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「レインさんっ！！相変わらず美しい肉体で眼福ですが、そんなにふらついて"
+                                "\\n<Frist>Rain-san!! Your beautiful body is as\nstunning as ever, but what happened to make you so\nunsteady on your feet!?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "一体なにがあったんですか！？"
+                                ""
                             ]
                         },
                         {
@@ -10207,7 +10207,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「『ナイトメアヘヴン』を受けてしまって………っ。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>I ended up playing\n'Nightmare Heaven'..."
                             ]
                         },
                         {
@@ -10224,14 +10224,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「私の魔力では、この術の効果をこれ以上防ぐことが難しいかも"
+                                "\\OC[31]\\N<Rain>With my magical power, it may be\ndifficult to further prevent the effects of this\nspell... That's why I would like to borrow the\npower of the priest."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "しれません……。だから、司祭様の加護の力をお借りしたいんです。"
+                                ""
                             ]
                         },
                         {
@@ -10287,7 +10287,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「それは大変だ！わかりました、とにかくなんとかしてみましょう。"
+                                "\\n<Frist>That's terrible! I understand, let's try\nto figure something out anyway."
                             ]
                         },
                         {
@@ -10343,7 +10343,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「どうでしょうか……？"
+                                "\\n<Frist>I wonder...?"
                             ]
                         },
                         {
@@ -10405,7 +10405,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「だいぶ楽になりました……！ありがとうございます。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>I feel much better\nnow...! Thank you very much."
                             ]
                         },
                         {
@@ -10422,7 +10422,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「それはよかった。顔色も少し良くなりましたね。"
+                                "\\n<Frist>That's good. Your complexion has improved\na bit, hasn't it?"
                             ]
                         },
                         {
@@ -10450,21 +10450,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\n<フリスト>「しかし、やはり私の加護の力だけでは足りなかったのでレインさんの"
+                                "\\CE[79]\\n<Frist>However, it seems that my divine\nprotection alone was not enough, so I also\nborrowed Rain-san's power. But even then, we\ncannot completely nullify it... It's like a curse,\na deeply rooted and powerful magic..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "力もお借りしましたが、それでも完全に打ち消すことはできないですね……。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "まるで呪いのような、根が深い強力な魔術だ……。"
+                                ""
                             ]
                         },
                         {
@@ -10503,7 +10503,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「ええ……。しかも、この術を使うのは、魔人ディモンだけではありませんでした。"
+                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Yes... And not\nonly the demon Dimon uses this spell."
                             ]
                         },
                         {
@@ -10520,31 +10520,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「正体はわかりませんが、冒険者訓練場の地下闘技場で私に術を"
+                                "\\OC[31]\\N<Rain>I don't know his true identity, but\nthe person who cast a spell on me in the\nunderground arena of the adventurer training\ngrounds was a human man named Buster..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "かけたのは、バスタという人間の男性でした……。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 1,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "\\n<フリスト>「バスタ……、知らない名前ですね。"
+                                ""
                             ]
                         },
                         {
@@ -10561,14 +10544,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「冒険者と言っていましたが、明らかに裏がある人物です。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "『ナイトメアヘヴン』が使えるということはディモンと繋がりがあるかもしれません。"
+                                "\\n<Frist>Buster... that's a name I don't know."
                             ]
                         },
                         {
@@ -10585,21 +10561,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「魔人以外にもそんな者が……。"
+                                "\\OC[31]\\N<Rain>He claimed to be an adventurer, but\nhe's clearly a shady character. The fact that he\ncan use 'Nightmare Heaven' might indicate a\nconnection to Dimon."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.修道士達も術に侵され始めている兆候が見られますし、状況がどんどん悪化して"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "しまっていますね……。"
+                                ""
                             ]
                         },
                         {
@@ -10616,14 +10585,45 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「ええ……早くなんとかしないと……。"
+                                "\\n<Frist>Not only demons, but there are also\npeople like that... \\. The priests are starting to\nshow signs of being affected by the spell, and the\nsituation is getting worse and worse..."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "次の装置の場所ももうすぐわかるはずなので、判明次第すぐに向かいます。"
+                                "\\OC[31]\\N<Rain>Yes... We need to do something\nquickly... I should be able to find the location\nof the next device soon, so as soon as it's\nconfirmed, we'll head there right away."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
                             ]
                         },
                         {
@@ -10662,14 +10662,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\n<フリスト>「そうですか………。"
+                                "\\CE[79]\\CE[84]\\n<Frist>I see... If there's\nanything else I can do for you, please let me\nknow."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.他に私にできることがあれば、なんでも言ってください。"
+                                ""
                             ]
                         },
                         {
@@ -10686,14 +10686,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「先程のように\\C[17]レインさんの加護の力をお借りすれば『ナイトメアヘブン』の効果を"
+                                "\\n<Frist>If we borrow the power of Rain-san's\nprotection like earlier, we can reduce the effects\nof 'Nightmare Heaven' \\C[17].\\C[0]. When you're\nfeeling down, please come here right away."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "軽減することができます\\C[0]。\\.辛いときはすぐここに来てください。"
+                                ""
                             ]
                         },
                         {
@@ -10739,14 +10739,38 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「ありがとうございます。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Thank you very much.\nHowever, please use the power of Phils-san's\nprotection for the citizens as much as possible."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\.でも、フリストさんの加護の力は、できるだけ市民の方々に使ってください。"
+                                "\\.Since I'm making you go through all this\ntrouble, it's only natural."
                             ]
                         },
                         {
@@ -10763,38 +10787,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「それはもちろんですが、必ずレインさんの分の力も残しておきますよ。"
+                                "\\n<Frist>Yes, if it means even a slight reduction\nin the curse that corrupts your beautiful body, I\nwill kneel before the Holy Demon Lord and use my\npower...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.あなたにばかり身を削らせているのですから、それくらいは当然です。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 1,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "\\n<フリスト>「そう、その美しい肉体を蝕む呪いが少しでも減るのなら、聖魔様に"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "土下座してでも力を使ってみせます……！"
+                                ""
                             ]
                         },
                         {
@@ -10844,7 +10844,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「わ、わかりました。では、私はこれで。"
+                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<Rain>I-I\nunderstand. Then, I'll be going now."
                             ]
                         },
                         {
@@ -10877,14 +10877,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\n<フリスト>「────そうだレインさん。胸の徽章を少しお借りしてもいいですか？"
+                                "\\CE[79]\\CE[84]\\n<Frist>────Rain-san, may I borrow\nyour chest badge for a moment? \\."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\."
+                                ""
                             ]
                         },
                         {
@@ -10923,7 +10923,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「え────はい、いいですが……。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Umm... y-yes, that's\nfine..."
                             ]
                         },
                         {
@@ -10940,7 +10940,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「ありがとございます。少しお待ちください。"
+                                "\\n<Frist>Thank you very much. Please wait a\nmoment."
                             ]
                         },
                         {
@@ -11319,14 +11319,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<フリスト>「お待たせしました。徽章に私の加護の力を込めた霊霊石を組み込みました。"
+                                "\\n<Frist>I apologize for the wait. I have\nembedded a spirit stone infused with my protective\npower into the badge. It may be a makeshift\nsolution, but it should be able to activate once\nwhenever needed."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.付け焼刃かもしれませんが、一度だけいつでも発動することができるはずです。"
+                                ""
                             ]
                         },
                         {
@@ -11387,14 +11387,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「────付け焼刃なんてとんでもない、とても心強いです。"
+                                "\\CE[77]\\OC[31]\\N<Rain>────It's not just for show,\nit's very reassuring. Thank you very much!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "ありがとうございます！"
+                                ""
                             ]
                         },
                         {
@@ -11422,14 +11422,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\n<フリスト>「その力を使うことがないよう願っていますよ。"
+                                "\\CE[79]\\n<Frist>I hope you won't have to use that\npower. Take care, and may the Holy Demon Lord's\nprotection be with you..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.お気をつけて、聖魔様のご加護がありますように………。"
+                                ""
                             ]
                         },
                         {
@@ -11662,7 +11662,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\N<フリスト>「レインさん、加護の力を使って『ナイトメアヘブン』の効果を軽減しますか？"
+                                "\\N<Frist>Rain, would you like to use your\nprotective power to reduce the effect of\n'Nightmare Heaven'?"
                             ]
                         },
                         {
@@ -11719,7 +11719,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "フリスト「どれくらい加護の力を使いましょうか？"
+                                "Phils: How much should we use the power of\nprotection?"
                             ]
                         },
                         {
@@ -11818,21 +11818,21 @@
                             "code": 401,
                             "indent": 5,
                             "parameters": [
-                                "フリスト「加護の力が足りないようです……。"
+                                "First: It seems that the power of protection is\nnot enough... I'm sorry, but my power alone is not\nsufficient, so please find a way to gather the\npower of protection somehow."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 5,
                             "parameters": [
-                                "\\.申し訳ありませんが私の力だけでは足りないので、なんとか加護の力を溜めてきて"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 5,
                             "parameters": [
-                                "ください。"
+                                ""
                             ]
                         },
                         {
@@ -12163,7 +12163,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<フリスト>「わかりました。では………──────────"
+                                "\\n<Frist>Understood. Then...──────────"
                             ]
                         },
                         {
@@ -12266,7 +12266,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「────楽になりました。ありがとうございます。"
+                                "\\CE[77]\\OC[31]\\N<Rain>────I feel relieved. Thank\nyou very much."
                             ]
                         },
                         {
@@ -12305,14 +12305,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\n<フリスト>「いえいえ。\\.その美しい肉体が少しでも綺麗に保たれたと思うと"
+                                "\\CE[79]\\CE[84]\\n<Frist>Oh no, not at all. It\nbrings me great joy to think that your beautiful\nbody has been preserved even just a little."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "喜ばしい限りです。"
+                                ""
                             ]
                         },
                         {
@@ -12329,7 +12329,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<フリスト>「では、お気をつけて。聖魔様のご加護がありますように………。"
+                                "\\n<Frist>Well then, please take care. May you be\nblessed by the protection of the Holy Demon..."
                             ]
                         },
                         {
@@ -12377,14 +12377,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<フリスト>「おや、今のレインには私の力は必要なさそうですよ。"
+                                "\\n<Frist>Oh, it seems that Rain doesn't need my\npower right now. \\.She must be suppressing\n'Nightmare Heaven' on her own. Impressive."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "\\.きっと自力で『ナイトメアヘブン』を抑え込んでいるんですね。流石です。"
+                                ""
                             ]
                         },
                         {
@@ -12445,14 +12445,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<フリスト>「わかりました。辛くなったらいつでも来てください。"
+                                "\\n<Frist>Understood. Please come anytime if it\nbecomes difficult. May you be blessed by the\nprotection of the Holy Demon..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.聖魔様のご加護がありますように………。"
+                                ""
                             ]
                         },
                         {
@@ -12595,7 +12595,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<フリスト>「おや！修道服ですか。いいですね、とても似合っていますよ。"
+                                "\\N<Frist>Oh! A nun's habit, huh? It looks great on\nyou, suits you very well."
                             ]
                         },
                         {
@@ -12634,14 +12634,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\N<フリスト>「聖魔教の修道服はスタイルがよくでる素晴らしいデザインですからね。"
+                                "\\CE[79]\\CE[84]\\N<Frist>The nun's habit of the Holy\nDemon Church is a wonderfully designed outfit that\nreally brings out your style. Even with modest\nexposure, Rain's physical beauty is clearly\nevident. Mmm, yes."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "露出は控えめでもレインさんの肉体美はよくわかります。うんうん。"
+                                ""
                             ]
                         },
                         {
@@ -12675,14 +12675,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<フリスト>「『ナイトメアヘヴン』とやらのせいか、いまのこの町は少々乱暴な方が多いようです。"
+                                "\\N<Frist>Perhaps due to 'Nightmare Heaven,' it\nseems that this town has become a bit rough.\nEspecially at night, there may be people who flock\nto your beautiful body, so please be careful."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\C[17]特に夜\\C[0]は、その美しい身体に群がる輩がいるでしょうから、くれぐれもお気をつけて。"
+                                ""
                             ]
                         },
                         {
@@ -12843,14 +12843,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フリスト>「────やっぱり何度見てもすばらしい肉体だ………。"
+                                "\\N<Frist>────No matter how many times I see it,\nyour body is truly amazing..........I want to\nnuzzle against it so much......"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "頬ずりしたいぐらいに……。"
+                                ""
                             ]
                         },
                         {
@@ -12867,14 +12867,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<フリスト>「しかし、ここは教会です。残念ですがその恰好は刺激的すぎますね。"
+                                "\\N<Frist>However, this is a church. It's\nunfortunate, but that outfit is too provocative.\\.\nIt's really a shame, but could you change your\nclothes?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.本当に惜しいですが、着替えてもらえますか？"
+                                ""
                             ]
                         },
                         {
@@ -12946,7 +12946,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「────その通りですね……。失礼しました……。"
+                                "\\CE[77]\\OC[31]\\N<Rain>────You're right... I\napologize..."
                             ]
                         },
                         {
@@ -13291,14 +13291,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「……ふあぁ………"
+                                "\\EMP ...hmm... I can sleep well here..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "ここはよく眠れるんだ………"
+                                ""
                             ]
                         },
                         {
@@ -13495,14 +13495,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「あと10年はやけりゃねぇ。あたしの魅力で"
+                                "\\EMP If only I had ten more years. I could have\nseduced even Frisuto-sama with my charm. Hehe."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "フリスト様だって落とせたのにねぇ。ヒヒッ。"
+                                ""
                             ]
                         },
                         {
@@ -13761,7 +13761,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「せ、聖騎士様────！\\.こんなところへ、なにか御用でしょうか……？"
+                                "\\N<Young Monk>M-Master Holy Knight────! \\.Do you\nhave any business here...?"
                             ]
                         },
                         {
@@ -13789,14 +13789,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「レインでいいですよ───特に用事はないのですが、まだハクデティに来て日が"
+                                "\\CE[79]\\OC[31]\\N<Rain>It's Rain. ── I don't have\nany particular business, but since I'm still new\nto Hakudeti, I was just looking around. Did I\ndisturb you?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "浅いので、見回っていました。お邪魔してしまいましたか？"
+                                ""
                             ]
                         },
                         {
@@ -13813,7 +13813,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「いえ、そんなことは………特になにもありませんが、ご自由にどうぞ。"
+                                "\\N<Young Monk>No, it's nothing in particular...\nPlease feel free to do as you please."
                             ]
                         },
                         {
@@ -13841,21 +13841,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「ありがとうございます。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Thank you very much. \\.\\.\nBut more importantly, you seem to have a pale\ncomplexion. Are you okay? If you're feeling\nunwell, it's better not to push yourself..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.それより、顔色が悪いように見えますが、大丈夫ですか？"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "体調を崩されてるなら、無理をしない方が………。"
+                                ""
                             ]
                         },
                         {
@@ -13892,7 +13892,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<若い修道士>「いえ、大丈夫です…\\.…\\.…\\.ご心配ありがとうございます。"
+                                "\\CE[79]\\N<Young Monk>No, I'm fine... Thank you\nfor your concern."
                             ]
                         },
                         {
@@ -13909,14 +13909,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「最近悩みごとがありまして……そのことについて考え込んでいるせいでしょう。"
+                                "\\N<Young Monk>Lately, I've been troubled... It's\nbecause I've been thinking too much about that\nmatter. Please don't worry about it───."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.どうか、お気にせず───。"
+                                ""
                             ]
                         },
                         {
@@ -13944,14 +13944,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「そうでしたか……。思い悩みながら仕事をするのは辛いでしょう。"
+                                "\\CE[79]\\OC[31]\\N<Rain>I see... It must be tough\nto work while being troubled by your thoughts. If\nyou're okay with it, would you like to talk to\nme?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.私でよければ話を聞きましょうか？"
+                                ""
                             ]
                         },
                         {
@@ -14011,7 +14011,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「では…\\.…\\.…\\.よければ、レイン様に懺悔をさせてもらえないでしょうか？"
+                                "\\N<Young Monk>Then... if it's alright with you,\ncould I confess my sins to Rain-sama?"
                             ]
                         },
                         {
@@ -14050,14 +14050,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「懺悔ですか。\\.一応私も権限があるのでそれでも構いませんが、"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Confession, huh?\nWell, I do have the authority for that, so it's\nfine if you want to confess to me. But are you\nsure you don't want to confess to Phils instead?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "相手はフリストさんじゃなくていいんですか？"
+                                ""
                             ]
                         },
                         {
@@ -14074,7 +14074,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「はい……是非とも、レインさんにお願いしたいです。"
+                                "\\N<Young Monk>Yes... I would definitely like to\nask you, Rain-san."
                             ]
                         },
                         {
@@ -14102,7 +14102,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「────わかりました。では僭越ながら、私が受けさせていただきます。"
+                                "\\CE[79]\\OC[31]\\N<Rain>────Understood. In that\ncase, allow me to take your confession."
                             ]
                         },
                         {
@@ -14130,7 +14130,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<若い修道士>「ありがとうございます……！"
+                                "\\CE[79]\\N<Young Monk>Thank you very much...!"
                             ]
                         },
                         {
@@ -14218,14 +14218,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「では、修道服はそこのタンスにありますので、お着替えください。"
+                                "\\N<Young Monk>Well then, the monk's robes are in\nthat chest over there, so please change into them.\nOnce you're ready, please enter from the left\nstaircase."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.準備ができましたら、\\C[17]左側の階段から\\C[0]入ってください。"
+                                ""
                             ]
                         },
                         {
@@ -14350,7 +14350,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\N<若い修道士>「集中だ集中………なにかいい方法を考えよう……。"
+                                "\\N<Young Monk>Focus, focus... Let's think of a\ngood method..."
                             ]
                         },
                         {
@@ -14592,14 +14592,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\N<若い修道士>「はぁ、はぁ────うぅ……もう、限界だ……ッ。"
+                                "\\N<Young Monk>Haa, haa... I can't take it\nanymore... If Lady Rain were to appear now, I\nwouldn't be able to handle it..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "\\.\\.いまレイン様が現れたりしたら、もう……─────"
+                                ""
                             ]
                         },
                         {
@@ -14641,7 +14641,7 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「私がどうかしましたか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>Is there something wrong\nwith me?"
                             ]
                         },
                         {
@@ -14698,7 +14698,7 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\N<若い修道士>「レ、レイン様！"
+                                "\\N<Young Monk>L-Lady Rain!"
                             ]
                         },
                         {
@@ -14757,14 +14757,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<レイン>「わっ───隈がひどいじゃないですか！それに顔色も！"
+                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>W-Wow... Your\ndark circles are really bad! And your complexion\ntoo! Could it be that you've become like this to\nsuppress your sexual desires...!?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "\\!まさか、性欲を抑えるためにそうなったんですか……！？"
+                                ""
                             ]
                         },
                         {
@@ -14803,14 +14803,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\N<若い修道士>「はい………恥ずかしながら─────。"
+                                "\\CE[79]\\CE[78]\\N<Young Monk>Um... Embarrassingly\nenough... you've arrived at just the right\ntime...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "\\!ですが、ちょうどいいところに来てくださいました……！"
+                                ""
                             ]
                         },
                         {
@@ -14827,14 +14827,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\N<若い修道士>「お手間をかけるのですが……またレイン様を頼らせてくださいっ。"
+                                "\\N<Young Monk>I apologize for the trouble... but\nplease, let me rely on Lady Rain once again. \\.\\.\nI can't hold back my sinful desires anymore... I'm\nat my limit..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "\\.\\.また私の罪魔を吐き出さないと───もう限界なのです……っ。"
+                                ""
                             ]
                         },
                         {
@@ -14862,14 +14862,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「もちろん構いません！\\.でもその様子じゃあ、まずは横になったほうがいいのでは"
+                                "\\CE[79]\\OC[31]\\N<Rain>Of course, it's no problem!\n\\. But judging from your condition, wouldn't it be\nbetter for you to lie down first?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "ないですか？"
+                                ""
                             ]
                         },
                         {
@@ -14886,14 +14886,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\N<若い修道士>「いえ、それよりすぐに修道服へ着替えて懺悔室へお願いします……！"
+                                "\\N<Young Monk>No, rather than that, please change\ninto your monk's robe immediately and come to the\nconfession room...! \\. I'm already prepared..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "\\.もう準備はできていますので─────。"
+                                ""
                             ]
                         },
                         {
@@ -14921,7 +14921,7 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「準備……？\\.\\.よくわかりませんが、そういうなら……。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Preparations...? I'm not\nquite sure what you mean, but if that's the\ncase..."
                             ]
                         },
                         {
@@ -14938,14 +14938,14 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\N<若い修道士>「ありがとうございます……では着替え終わったら、また\\C[17]左側の階段\\C[0]から"
+                                "\\N<Young Monk>Thank you very much... Then, please\ncome up again from the \\C[17]left side\nstaircase\\C[0] once you're done changing..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 7,
                             "parameters": [
-                                "上がってきてください……。"
+                                ""
                             ]
                         },
                         {
@@ -15077,7 +15077,7 @@
                             "code": 401,
                             "indent": 7,
                             "parameters": [
-                                "\\N<若い修道士>「ああ、なんて清々しい気分なんだ……やはりあの方法は間違っていなかったんだ！"
+                                "\\N<Young Monk>Ah, what a refreshing feeling... I\nknew that method wasn't wrong after all!"
                             ]
                         },
                         {
@@ -15202,21 +15202,21 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "【イベント解放条件】※()内は現在値"
+                                "【Event Unlock Conditions】※Values in () are current\nvalues. Unlock Desires: Touch Lv1 (\\v[366]),\nOral Lv1 (\\v[368]), Service Lv1 (\\v[373]).\nRequires Lust Level \\C[27] and above (currently\n\\C[17]\\V[13]\\C[0])."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "・欲望\\C[27]『触りたい Lv1(\\v[366])』『口淫 Lv1(\\v[368])』『ご奉仕 Lv1(\\v[373])』\\C[0]を解放"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "・淫乱度\\C[27]10\\C[0]以上(現在\\C[17]\\V[13]\\C[0])"
+                                ""
                             ]
                         },
                         {
@@ -15262,7 +15262,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「集中だ集中………なにかいい方法を考えよう……。"
+                                "\\N<Young Monk>Focus, focus... Let's think of a\ngood method..."
                             ]
                         },
                         {
@@ -15562,14 +15562,14 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\N<若い修道士>「レイン様！先日はどうもありがとうございました。"
+                                "\\N<Young Monk>Thank you very much, Rain-sama!\nThanks to you, I have been able to control myself\nsince that day."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "\\!おかげさまで、あれ以来自分を抑えることができるようになりました。"
+                                ""
                             ]
                         },
                         {
@@ -15633,7 +15633,7 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[83]\\OC[31]\\N<レイン>「そ、そうですか。それはよかったです。"
+                                "\\CE[79]\\CE[78]\\CE[83]\\OC[31]\\N<Rain>I-I see.\nThat's good to hear."
                             ]
                         },
                         {
@@ -15661,14 +15661,14 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\N<若い修道士>「実は、このことを同じ悩みを抱えていた修道士に話したところ、彼らも是非"
+                                "\\CE[79]\\N<Young Monk>Actually, when I talked to\nother monks who were struggling with the same\nissue, they also expressed their desire to receive\nRain-sama's blessings..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "レイン様の施しを受けたいとのことなんですが………。"
+                                ""
                             ]
                         },
                         {
@@ -15707,7 +15707,7 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「えっ……─────"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Huh......─────"
                             ]
                         },
                         {
@@ -15724,21 +15724,21 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\N<若い修道士>「中には私よりも症状がひどい者もいて、かなり苦しんでいます。"
+                                "\\N<Young Monk>There are some who have even worse\nsymptoms than me and are suffering greatly. It may\nonly be a matter of time before they break their\nvows and turn to brothels and prostitution."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "もう戒律を破り、娼館や売春に手を出してしまう者がでるのも時間の問題かも"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "しれません。"
+                                ""
                             ]
                         },
                         {
@@ -15777,14 +15777,14 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\N<若い修道士>「情けない限りですが、皆レイン様の救いの手を求めています。"
+                                "\\CE[79]\\CE[78]\\N<Young Monk>It's truly pathetic,\nbut everyone is seeking Rain-sama's saving grace.\nIf possible, please extend your helping hand as\nmuch as you can...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "\\.どうが、可能な限り差し伸べてあげていただけると……！"
+                                ""
                             ]
                         },
                         {
@@ -15837,14 +15837,14 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(すでに一人にしてあげてるし………、一人も二人も同じか……。"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(I've\nalready taken care of one person... and whether\nit's one or two, it's all the same... \\. Besides,\nthis is my duty as a holy knight...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "\\.それにこれは聖騎士としての仕事だし……！"
+                                ""
                             ]
                         },
                         {
@@ -15897,14 +15897,14 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「わかりました。\\.すぐ全員にというわけにはいきませんが、私で皆さんの"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Understood. \\. I\ncan't help everyone immediately, but if I can be\nof assistance to all of you, I won't hesitate to\ncooperate."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "力になれるのであれば、協力は惜しみません。"
+                                ""
                             ]
                         },
                         {
@@ -15932,7 +15932,7 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\CE[79]\\N<若い修道士>「おぉ………それは皆喜びますよ！"
+                                "\\CE[79]\\N<Young Monk>Oh... Everyone will be\ndelighted by that!"
                             ]
                         },
                         {
@@ -15949,14 +15949,14 @@
                             "code": 401,
                             "indent": 6,
                             "parameters": [
-                                "\\N<若い修道士>「では早速、症状が重い者から呼んできます。"
+                                "\\N<Young Monk>Then, let me call those with severe\nsymptoms right away. Please change into your holy\nknight attire again, Rain-sama, and wait in the\nconfessional room."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 6,
                             "parameters": [
-                                "\\.レイン様はまた\\C[17]修道服に着替えて\\C[0]いただいて、\\C[17]懺悔室\\C[0]にてお待ちください。"
+                                ""
                             ]
                         },
                         {
@@ -16158,21 +16158,21 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "【イベント解放条件】※()内は現在値"
+                                "【Event Unlock Conditions】※Values in () are current\nvalues. To unlock Desire\\C[27], unlock Anal\nLv3(\\v[371]), M Play Lv3(\\v[372]), and Service\nLv3(\\v[373]). The Lewdness Level must be at least\n35\\C[0] or higher (currently \\C[17]\\V[13]\\C[0])."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "・欲望\\C[27]『アナル Lv3(\\v[371])』『Mプレイ Lv3(\\v[372])』『ご奉仕 Lv3(\\v[373])』\\C[0]を解放"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "・淫乱度\\C[27]35\\C[0]以上(現在\\C[17]\\V[13]\\C[0])"
+                                ""
                             ]
                         },
                         {
@@ -16218,7 +16218,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「ああ、なんて清々しい気分なんだ……やはりあの方法は間違っていなかったんだ！"
+                                "\\N<Young Monk>Ah, what a refreshing feeling... I\nknew that method was not wrong after all!"
                             ]
                         },
                         {
@@ -16381,7 +16381,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "懺悔を受けますか？"
+                                "Will you receive confession?"
                             ]
                         },
                         {
@@ -16434,7 +16434,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<若い修道士>「ではレイン様はまた\\C[17]修道服に着替えて\\C[0]いただいて、\\C[17]懺悔室\\C[0]にてお待ちください。"
+                                "\\N<Young Monk>Then, Rain-sama, please change back\ninto your \\C[17]monastic robe\\C[0] and wait for me\nin the \\C[17]confessional room\\C[0]."
                             ]
                         },
                         {
@@ -16618,14 +16618,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\N<若い修道士>「本日も懺悔をうけていただいてありがとうございました。"
+                                "\\N<Young Monk>Thank you for confessing today as\nwell. If it's alright with you, I would be happy\nif I could ask for your confession again\ntomorrow...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.よければ\\C[17]また明日\\C[0]もお願いできると嬉しいです……！"
+                                ""
                             ]
                         },
                         {
@@ -16817,14 +16817,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<若い修道士>「せ、聖魔教は性に寛容ですが、そのような格好はちょっと……。"
+                                "\\N<Young Monk>U-Um, the Holy Demon Sect is\naccepting of sexuality, but that kind of attire is\na bit... Please change into something with less\n\\.\\C[17]revealing clothing\\C[0]...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\C[17]露出の少ない服\\C[0]に着替えてください……！"
+                                ""
                             ]
                         },
                         {
@@ -17564,7 +17564,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(ふぅ、とりあえずなんとかなったかな………。"
+                                "\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(Phew, for now,\nI wonder if I managed to pull it off.........."
                             ]
                         },
                         {
@@ -17603,14 +17603,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\C[13]\\OC[31]\\N<内なるレイン>(でも、みんながああやって自分を抑え込めるわけじゃない……。"
+                                "\\CE[79]\\CE[84]\\C[13]\\OC[31]\\N<Inner Rain>(But not\neveryone can restrain themselves like that... We\nneed to fix the device quickly...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "早く装置をなんとかしないと……。"
+                                ""
                             ]
                         },
                         {
@@ -17697,14 +17697,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[83]\\C[13]\\OC[31]\\N<内なるレイン>(それにしても………懺悔とはいえ、あんなに直にエッチな目で見てるって"
+                                "\\CE[79]\\CE[78]\\CE[83]\\C[13]\\OC[31]\\N<Inner\nRain>(But still... even though it was a\nconfession, being told that you were looking at me\nwith such lustful eyes... I can't help but feel\nembarrassed..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "言われるなんて………っ。\\.こっちが恥ずかしくなっちゃうよ………。"
+                                ""
                             ]
                         },
                         {
@@ -17743,7 +17743,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(それにどちらかというと、こういう懺悔は私こそすべきな気がする………。"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner\nRain>(Moreover, if anything, I feel like I should\nbe the one confessing and repenting...)"
                             ]
                         },
                         {
@@ -18191,7 +18191,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(やり方はともかく……彼が落ち着いてよかった……。"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner\nRain>(Regardless of the method... I'm glad he's\ncalmed down...)"
                             ]
                         },
                         {
@@ -18230,7 +18230,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(…\\.…\\.…\\.けど、このやり方じゃ、私のほうがいずれ………。"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner\nRain>(...\\....\\....\\. But with this method, I'll\neventually...)"
                             ]
                         },
                         {
@@ -18682,14 +18682,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(────また一人助けることができた……。"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(────I\nwas able to help someone again... \\. It felt good\nfor me too... This way, we both might benefit from\nit... ♥"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.私も気持ちよかったし……このやり方ならお互いに得かも……♥"
+                                ""
                             ]
                         },
                         {
@@ -18717,14 +18717,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(きっとまだまだ懺悔したい人はいるだろうし、定期的に来て、悩んでいる人の"
+                                "\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(There are\nsurely still people who want to confess and seek\nguidance. I should come regularly and help those\nwho are troubled... ♥)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "手助けをしてあげないとね……♥"
+                                ""
                             ]
                         },
                         {
@@ -18767,7 +18767,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[17]一日一回、懺悔を受けることができるようになりました。"
+                                "\\C[17] I can now receive confession once a day."
                             ]
                         },
                         {
@@ -19204,21 +19204,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<シスター>「聖魔教会では、活動支援のための寄付を募っております。"
+                                "\\N<Sister>At the Holy Demon Church, we are\ncollecting donations to support our activities.\nDepending on the amount, we have prepared small\ntokens of appreciation. We kindly ask for your\ncooperation. (They seem to have money...♪ I hope\nthey donate a lot~)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "金額に応じて、心ばかりの返礼品を用意しています。何卒ご協力お願い致します。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\}(お金持ってそう……♪たくさん寄付してほしいなぁ～)\\$"
+                                ""
                             ]
                         },
                         {
@@ -19264,7 +19264,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "いくら寄付するか選択してください。"
+                                "Please choose how much to donate."
                             ]
                         },
                         {
@@ -20221,21 +20221,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<シスター>「お持ちの金銭が足りていないようですね……。"
+                                "\\N<Sister>It seems that you don't have enough\nmoney... However, faith and the amount of donation\nare unrelated, so please don't force yourself if\nit's not possible. (Please come back after earning\na lot~)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.ですが信仰心と寄付金額は無関係ですので、無理ならさないでくださいね。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\}(いっぱい稼いで、また来てね♪)"
+                                ""
                             ]
                         },
                         {
@@ -20289,7 +20289,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<シスター>「ご協力感謝いたします。\\.聖魔様のご加護がありますように……。"
+                                "\\N<Sister>Thank you for your cooperation. May you\nbe blessed by the Holy Demon..."
                             ]
                         },
                         {

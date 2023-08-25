@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "宿",
+    "displayName": "Inn",
     "encounterList": [],
     "encounterStep": 30,
     "height": 15,
@@ -3453,14 +3453,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<宿の主人>「────え、鍵の落とし物？\\.しかもお兄ちゃんの？"
+                                "\\n<Innkeeper>──Oh, a lost key? And it's your big\nbrother's? Ahh, I haven't received anything like\nthat. But thank you for looking for it ♥"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\.え～、届いてないわねぇ。でも探してくれてありがとねぇ♥"
+                                ""
                             ]
                         },
                         {
@@ -3622,7 +3622,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<宿の主人>「ちょっとぉ、さっき連れていかれた人達はなんなのぉ？？いつのまにいたのぉ？"
+                                "\\n<Innkeeper>Hey, who were those people taken away\nearlier? When did they arrive?"
                             ]
                         },
                         {
@@ -3650,7 +3650,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「彼らは盗賊です。どうやら二階の窓から侵入していたようです。"
+                                "\\CE[79]\\OC[31]\\N<Rain>They are thieves. It seems\nlike they entered through the window on the second\nfloor."
                             ]
                         },
                         {
@@ -3667,14 +3667,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「目的はここに泊まっていたメイルという女性だったのですが、彼女はいつ宿を"
+                                "\\OC[31]\\N<Rain>Our target was a woman named Meryl\nwho was staying here. When did she leave the inn?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "出たのですか？"
+                                ""
                             ]
                         },
                         {
@@ -3702,7 +3702,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\n<宿の主人>「\\{ええ！\\}メイルちゃんが狙われてたの！？なんであの娘がそんなことされるのよぉっ"
+                                "\\CE[79]\\n<Innkeeper>What! Meryl-chan was\ntargeted!? Why would something like that happen to\nthat girl?"
                             ]
                         },
                         {
@@ -3719,14 +3719,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\n<宿の主人>「メイルちゃんね、急に出て行っちゃったのよぉ。あんまり急だからびっくりしたわよ。"
+                                "\\CE[79]\\n<Innkeeper>Meryl-chan suddenly left in a\nhurry, you know. It was so sudden that it\nsurprised me. Now that I think about it, she must\nhave been trying to escape from those thieves."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "今思うと、その盗賊から逃げるためだったのねぇ。"
+                                ""
                             ]
                         },
                         {
@@ -3743,14 +3743,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\n<宿の主人>「あの娘、ハクデティに来てからずっと泊まってくれててね。"
+                                "\\CE[79]\\n<Innkeeper>That girl, Rain, has been\nstaying at Hakudeti for a while now. She's bright\nand always chats with me. She's such a good kid!\nThat's why I'm worried..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "明るくてあたしともよくおしゃべりしてくれて、すっごくいい子なのよ！だから心配だわぁ……。"
+                                ""
                             ]
                         },
                         {
@@ -3778,7 +3778,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「彼女がどこに行ったか、心当たりはありませんか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>Do you have any idea where\nshe might have gone?"
                             ]
                         },
                         {
@@ -3806,31 +3806,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\n<宿の主人>「う～ん……、お客さんの個人情報を勝手に言うのは商売人として"
+                                "\\CE[79]\\n<Innkeeper>Hmm... as a business person, I\ndon't think it's right to disclose customers'\npersonal information without permission, but\nbecause I'm worried about Meryl-chan, I'll tell\nyou."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "よくないと思うんだけど、メイルちゃんが心配だから教えあげるわ。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 1,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "\\n<宿の主人>「あの娘ね、\\C[17]娼館\\C[0]でアルバイトをしてるらしいのよ。"
+                                ""
                             ]
                         },
                         {
@@ -3847,21 +3830,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<宿の主人>「若いのに大変ねぇって思ってたけど、あの娘、魔女だっていうじゃない。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "よくわからなかったけど、魔女にとってセックスは大事なことだからとかなんとかで、"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 1,
-                            "parameters": [
-                                "路銀も稼げて一石二鳥らしいのねぇ。"
+                                "\\n<Innkeeper>That girl, \\C[17], seems to be\nworking part-time at a brothel, you know."
                             ]
                         },
                         {
@@ -3878,14 +3847,45 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<宿の主人>「ああいうところだからトラブルには強いだろうし、もしかしたら駆け込んだ可能性は"
+                                "\\n<Innkeeper>I thought it was tough for someone so\nyoung, but that girl is said to be a witch. I\ndidn't really understand, but apparently sex is an\nimportant thing for witches or something like\nthat, and it seems she can earn money while on the\nroad. Killing two birds with one stone, I guess."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 1,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "あるわね。ある意味安全かもしれないし。"
+                                "\\n<Innkeeper>Because it's that kind of place, they\nmight be able to handle trouble well, and there's\na possibility that she ran there. In a way, it\nmight be safe."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": [
+                                ""
                             ]
                         },
                         {
@@ -3913,7 +3913,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「娼館………情報ありがとうございます。早速行ってみます。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Brothel... Thank you for the\ninformation. I'll go there right away."
                             ]
                         },
                         {
@@ -3930,7 +3930,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<宿の主人>「娼館は\\C[17]ハクデティの東部\\C[0]にあるわ。メイルちゃんを助けてあげてねぇ。"
+                                "\\n<Innkeeper>The brothel is located in the eastern\npart of Hakudeti, you know. Please go and help\nMeryl-chan."
                             ]
                         },
                         {
@@ -4025,14 +4025,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<宿の主人>「メイルちゃんね、たくさん買い物してくるのをよく見かけてたんだけど、聞いても何を"
+                                "\\n<Innkeeper>I used to see Meryl-chan shopping a\nlot, but I never knew what she was buying even\nwhen I asked."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "買ったのかぜーんぜんわからなかったわ。"
+                                ""
                             ]
                         },
                         {
@@ -4049,14 +4049,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<宿の主人>「そのよくわからない\\C[17]怪しいもので散財しちゃってる\\C[0]っていうのも"
+                                "\\n<Innkeeper>Apparently, she's working at the\nbrothel because of some mysterious and suspicious\nthing that she spends money on. So, basically,\nshe's always broke."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "娼館で働く理由みたいよ。だから基本的に金欠なんですって。"
+                                ""
                             ]
                         },
                         {
@@ -4090,7 +4090,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<宿の主人>「娼館は\\C[17]ハクデティの東部\\C[0]にあるわ。メイルちゃんを助けてあげてねぇ。"
+                                "\\n<Innkeeper>The brothel is located in the eastern\npart of Hakudeti, you know. Please go and help\nMeryl-chan."
                             ]
                         },
                         {
@@ -4185,14 +4185,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<宿の主人>「あぁ～そうなの！メイルちゃん無事だったのね！！よかったわぁ、ホントによかった！"
+                                "\\n<Innkeeper>Oh, is that so! Meryl-chan was safe!\nI'm glad, really glad! I've been worried and\nanxious this whole time, so I feel relieved!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "心配でずっともやもやしてたから、安心したわ！"
+                                ""
                             ]
                         },
                         {
@@ -4209,14 +4209,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<宿の主人>「あなたも、教えてくれてありがとねっ！お礼にうちに泊まることがあったら"
+                                "\\n<Innkeeper>Thank you for letting me know too! If\nyou ever have a chance to stay at my inn, I'll\ngive you a special service as a token of\ngratitude!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "サービスしたげるから！"
+                                ""
                             ]
                         },
                         {
@@ -4244,7 +4244,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<宿の主人>「でもエッチすぎる恰好は控えめにねっ！"
+                                "\\n<Innkeeper>But please refrain from wearing\noverly sexy outfits, okay!"
                             ]
                         },
                         {
@@ -4782,14 +4782,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「あれ！？娼館の出張サービス"
+                                "\\EMP Huh?! Did I order a brothel's outcall\nservice?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "頼んだっけ？"
+                                ""
                             ]
                         },
                         {
@@ -4816,14 +4816,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「この町に来てから、な～んか"
+                                "\\EMP Ever since I came to this town, I've been\nfeeling all hot and bothered..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "ずっとムラムラしてんだよなぁ……"
+                                ""
                             ]
                         },
                         {
@@ -5184,14 +5184,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「あっ、ど、どうも……！"
+                                "\\EMP Ah, th-thank you...! Your sexy figure is also\nbeautiful..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "セクシーな姿もお綺麗で……っ"
+                                ""
                             ]
                         },
                         {
@@ -5218,14 +5218,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「あっ、ど、どうも……！"
+                                "\\EMP Ah, th-thank you...! You're still as\nbeautiful as ever..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "相変わらずお綺麗で……っ"
+                                ""
                             ]
                         },
                         {
@@ -5574,14 +5574,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「噂通り、ここの飯まじでうめぇ…！"
+                                "\\EMP The rumors were true, the food here is\nseriously delicious...! It was worth coming all\nthe way from afar!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "わざわざ遠くから来た甲斐があったぜ！"
+                                ""
                             ]
                         },
                         {
@@ -5720,7 +5720,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<宿の客A>「────鍵？いや知らねぇな。\\.それよりこれ食うか？んまいぞ！"
+                                "\\n<Inn Guest A>───A key? Nah, I don't know about\nthat. \\. But hey, how about trying this? It's\ndelicious!"
                             ]
                         },
                         {
@@ -7253,14 +7253,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「ちょっとあなた、危ないわよぉ？"
+                                "\\EMP Hey, you! Be careful, okay? Men are basically\nhungry beasts, after all."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "男は基本的に餓えたケモノなんだからっ"
+                                ""
                             ]
                         },
                         {
@@ -7287,14 +7287,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「いらっしゃぁい♪"
+                                "\\EMP Welcome~ But I'm sorry, we're fully booked\nright now."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "でもごめんね、いま満室なのよ。"
+                                ""
                             ]
                         },
                         {

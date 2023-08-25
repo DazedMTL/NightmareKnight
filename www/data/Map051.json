@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "ハクセイの森 洞窟入口",
+    "displayName": "Hakusei Forest Cave Entrance",
     "encounterList": [],
     "encounterStep": 30,
     "height": 41,
@@ -13120,7 +13120,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(──────怪しい気配を感じる……。"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(──────I\nfeel a suspicious presence..."
                             ]
                         },
                         {
@@ -13364,7 +13364,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "<???>「おいそこの女、待ちなッ"
+                                "<???> 'Hey, you there, wait up!'"
                             ]
                         },
                         {
@@ -13851,14 +13851,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<盗賊リーダー>「ここらは俺達\\C[17]『闇梟』\\C[0]が占領してる。誰でも気安く通っていい"
+                                "\\n<Thief Leader>This place is occupied by us, the\n'Dark Owls'. It's not a place where anyone can\ncasually pass through. What business does a woman\nhave here alone?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "場所じゃあねぇ。女が一人で何の用だ？"
+                                ""
                             ]
                         },
                         {
@@ -13906,14 +13906,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「『闇梟』………、あなた達がこの辺りを縄張りにしている"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>So you guys are the\nthieves who claim this area as your territory, the\n'Dark Owls'."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "という盗賊ですか。"
+                                ""
                             ]
                         },
                         {
@@ -13952,14 +13952,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「私は王都の聖騎士として、国の仕事でこの周辺を調査しています。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>As a holy knight of\nthe royal capital, I am investigating this area\nfor official business of the kingdom. There is no\nreason for me to be driven away by thieves."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "盗賊に追い返されるいわれはありません。"
+                                ""
                             ]
                         },
                         {
@@ -13976,14 +13976,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「本当ならあなた達を捕えたいところですが、今はそんな暇はないんです。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Ideally, I would like to\ncapture all of you, but I don't have the time for\nthat right now. Let me pass through."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "通してもらいますよ。"
+                                ""
                             ]
                         },
                         {
@@ -14011,31 +14011,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\n<盗賊リーダー>「─────なるほど、状況がわかってねぇようだな。"
+                                "\\CE[79]\\n<Thief Leader>Hmm, I see. It seems you\ndon't understand the situation. Or perhaps you're\njust underestimating us. The knight seems quite\nconfident in their skills."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "いや、ただ単に舐められてんのか。騎士様は相当腕に自信があるようで。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\n<盗賊リーダー>「オーケーわかった。通してやるよ。\\.\\.ただし─────"
+                                ""
                             ]
                         },
                         {
@@ -14052,7 +14035,24 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<盗賊リーダー>「\\{素っ裸にして、慰み者としてな！"
+                                "\\n<Thief Leader>Alright, I got it. I'll let you\npass through. \\.\\. However─────"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\n<Thief Leader>Strip naked and become our\nplaything!"
                             ]
                         },
                         {
@@ -14128,7 +14128,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<盗賊リーダー>「ちぃッ！！つえぇな………！"
+                                "\\n<Thief Leader>Damn it!! You're strong...!"
                             ]
                         },
                         {
@@ -14155,7 +14155,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<盗賊リーダー>「ちッ、こんなにひん剥いてんのに、つえぇな……！"
+                                "\\n<Thief Leader>Tch, even though you're stripped\nnaked like this, you're still strong...!"
                             ]
                         },
                         {
@@ -14182,7 +14182,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<盗賊リーダー>「仕方ねぇッ、退くぞ！"
+                                "\\n<Thief Leader>Fine, I'll back off!"
                             ]
                         },
                         {
@@ -14602,7 +14602,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「─────予想通り、盗賊は問題にはならなそうかな。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>As expected, it seems\nthe thieves won't be much of a problem."
                             ]
                         },
                         {
@@ -14662,7 +14662,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[83]\\OC[31]\\N<レイン>「─────装備ばかり狙って……！強くはないけど、厄介ですね……っ。"
+                                "\\CE[79]\\CE[78]\\CE[83]\\OC[31]\\N<Rain>They're only\ntargeting our equipment...! They may not be\nstrong, but they're troublesome...!"
                             ]
                         },
                         {
@@ -14711,7 +14711,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「さて……、洞窟も近い。ここからが本番だ。気を引き締めて行こう。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Well... the cave is\nclose now. This is where it gets serious. Let's\ntighten our focus and proceed."
                             ]
                         },
                         {
@@ -15729,7 +15729,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "”この先、魔物が出るため侵入禁止！”\\.と書いてある。"
+                                "No entry beyond this point due to the presence of\nmonsters! It says \\.."
                             ]
                         },
                         {

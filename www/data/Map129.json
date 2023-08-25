@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "レストラン",
+    "displayName": "Restaurant",
     "encounterList": [],
     "encounterStep": 30,
     "height": 20,
@@ -5072,7 +5072,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「申し訳ありません、ただいま満席になっておりまして……"
+                                "\\N<Waiter>I'm sorry, but we are currently fully\nbooked..."
                             ]
                         },
                         {
@@ -5100,7 +5100,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\N<レイン>「え？席は空いているように見えますが……"
+                                "\\CE[79]\\N<Rain>Huh? It looks like there are empty\nseats though..."
                             ]
                         },
                         {
@@ -5117,14 +5117,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「そうなんですが……現在料理を提供できるのはこの人数が"
+                                "\\N<Waiter>Yes, that's correct... Currently, we\nhave reached the limit of the number of people we\ncan serve with food..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "限界でして……"
+                                ""
                             ]
                         },
                         {
@@ -5141,21 +5141,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「はぁ…シェフが新作にこだわりすぎて、厨房が回って"
+                                "\\N<Waiter>Sigh... The chef is too obsessed with\ncreating new dishes, so the kitchen isn't\nfunctioning properly. If things continue like\nthis, this restaurant will eventually go out of\nbusiness..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "いないんです。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "このままじゃ、この店はそのうち潰れてしまいます……。"
+                                ""
                             ]
                         },
                         {
@@ -5183,7 +5183,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[84]\\N<レイン>「それは問題ですね……話し合うことはできないんですか？"
+                                "\\CE[84]\\N<Rain>That's a problem... Can't we\ndiscuss it?"
                             ]
                         },
                         {
@@ -5200,38 +5200,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「もちろんこの状況を伝えて話しましたが、聞く耳持たずで……"
+                                "\\N<Waiter>Of course, I conveyed this situation and\ntried to talk about it, but he didn't listen...\nFor the restaurant, what the chef says is\nabsolute..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "レストランにとってシェフのいうことは絶対ですから……"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\N<ウェイター>「はぁ……せめて、彼の求める食材を手に入れることができれば"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "少しは話も聞いてくれるかもしれませんが……"
+                                ""
                             ]
                         },
                         {
@@ -5248,7 +5224,31 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「店を空けるわけにもいかないし、そもそもそんなお金はないので……"
+                                "\\N<Waiter>Sigh... Maybe if we could at least get\nthe ingredients he's looking for, he might be\nwilling to listen a little..."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\N<Waiter>We can't just close the restaurant, and\nbesides, we don't have that kind of money..."
                             ]
                         },
                         {
@@ -5283,14 +5283,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[84]\\N<レイン>「わかりました、私が話を聞いてみましょう。"
+                                "\\CE[84]\\N<Rain>Alright, I understand. As a knight,\nI can't just ignore someone in need. Let me try\ntalking to him."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "騎士として、困っている人を放っては置けませんから。"
+                                ""
                             ]
                         },
                         {
@@ -5346,7 +5346,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「おお、騎士の方でしたか！それは助かります！"
+                                "\\N<Waiter>Oh, you're a knight! That's a relief!"
                             ]
                         },
                         {
@@ -5363,14 +5363,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<ウェイター>「厨房は私の後ろの入り口から入れます。"
+                                "\\N<Waiter>You can enter the kitchen through the\nentrance behind me. Please take care!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "どうかよろしくお願いします！"
+                                ""
                             ]
                         },
                         {
@@ -5573,14 +5573,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「いらっしゃいませ。"
+                                "\\EMP Welcome. Please take a seat wherever you\nlike."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "お好きな席にどうぞ。"
+                                ""
                             ]
                         },
                         {
@@ -5693,14 +5693,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき男A>「ダンジョンのよ、キラキラした所で色んな素材が獲れるだろ？"
+                                "\\N<Man A who looks like an adventurer>In the\ndungeon, you can gather various materials in\nsparkling places, right? \\.\\. Oh, it seems like\nthey can be gathered again after a day, so let's\ngo tomorrow."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\.あれ、一日経てばまた獲れるらしいから明日行こうぜ。"
+                                ""
                             ]
                         },
                         {
@@ -5784,21 +5784,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき男B>「知ってるよそんなこと。"
+                                "\\N<Man who seems like an adventurer B>I know that\nkind of thing. \\. But more importantly, it seems\nlike you can find rare materials in the same\nplace. It's better not to ignore it just because\nyou can only get trash."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.それより、同じ場所でもレア素材が獲れることがあるらしいからな。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "クズしか獲れないからって無視しないほうがいいぜ。"
+                                ""
                             ]
                         },
                         {
@@ -5875,14 +5875,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき女B>「魔物に装備を壊されると厄介ね。当然\\C[17]防御性能は落ちる\\C[0]し……"
+                                "\\N<Adventurer-like Woman B>It's troublesome when\nmy equipment gets destroyed by monsters.\nNaturally, \\C[17]the defense power decreases\\C[0]\nand...\\.\\.depending on the enemy, they might do\nsome nasty things, so \\C[17]I become more\nsensitive\\C[0]..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\.敵によってはいやらしいこともしてくるから、\\C[17]感じやすくなっちゃう\\C[0]し………。"
+                                ""
                             ]
                         },
                         {
@@ -5966,14 +5966,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<メイド服のウェイトレス>「また衝動買いしちゃった……そういう\\C[17]経験を積んじゃうと、欲望が解放しちゃう\\C[0]"
+                                "\\N<Maid uniform waitress>I did it again... When I\nhave experiences like that \\C[17], my desires get\nunleashed \\C[0] or rather, I can't control them\nanymore."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "というか、抑えられなくなるのよねぇ。"
+                                ""
                             ]
                         },
                         {
@@ -6057,14 +6057,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき女C>「襲われる前に襲っちゃえばいいのよ。"
+                                "\\N<Woman who seems like an adventurer C>If you\nattack before being attacked, it's better.\n\\.\\C[17] Sneak up from behind the enemy and \\C[0]\ncatch them off guard with a surprise attack!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\C[17]敵の後ろから仕掛けて\\C[0]不意打ち決めちゃお！"
+                                ""
                             ]
                         },
                         {
@@ -6148,14 +6148,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<品の良さそうな女>「はいはい。でも夜は\\C[17]痴漢が出ることがある\\C[0]らしいし、最近治安が悪いんだから"
+                                "\\N<Classy-looking woman>Yeah, yeah. But I heard\nthat there have been incidents of groping at night\n\\C[17], and the public safety has been bad lately,\nso be careful."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "気を付けてよね。"
+                                ""
                             ]
                         },
                         {
@@ -6410,14 +6410,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<一見真面目そうな男>「なぁ、たまにはいいだろ？\\C[17]夜にしか起きないイベント\\C[0]もあるんだよ。"
+                                "\\N<A seemingly serious-looking man>Hey, isn't it\nnice sometimes? There are events that only happen\nat night, you know. So let me go out for a drink\nonce in a while."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.だからたまには飲みに行かせてくれよぉ。"
+                                ""
                             ]
                         },
                         {
@@ -6501,14 +6501,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<暇そうにしている女の子>「眠くなってきちゃった……。"
+                                "\\N<A girl who looks bored>I'm starting to get\nsleepy... \\.\\.\\C[17] They say that you might wake\nup after a night passes, so I want to go to bed\nearly today."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\.\\C[17]一晩経つと起きること\\C[0]もあるっていうし、今日は早く寝たいな。"
+                                ""
                             ]
                         },
                         {
@@ -6665,14 +6665,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「いらっしゃいませ。"
+                                "\\EMP Welcome. Please take a seat wherever you\nlike."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "お好きな席にどうぞ。"
+                                ""
                             ]
                         },
                         {
@@ -6785,14 +6785,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき女A>「そうね、意外なところでお金がかかったりするもんね。"
+                                "\\N<Woman who looks like an adventurer A>Yeah,\nunexpectedly there are expenses involved.\n\\.\\.There's quite a bit of money that drops inside\nthe dungeon, so it's good to pick it up regularly."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.\\.ダンジョン内にも結構落ちてるからこまめに拾うといいわ。"
+                                ""
                             ]
                         },
                         {
@@ -6876,14 +6876,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき男C>「拾った素材を\\C[17]錬金屋\\C[0]に持っていったら、冒険に使える"
+                                "\\N<Man C who seems to be an adventurer>When I took\nthe materials I found to the \\C[17]alchemy\nshop\\C[0], they were able to transmute them into\nitems that can be used for adventure. It's both\ncost-effective and worth collecting."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "アイテムに錬金してもらえたよ。節約にもなるし、集めておくものだな。"
+                                ""
                             ]
                         },
                         {

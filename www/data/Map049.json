@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "冒険者集会所",
+    "displayName": "Adventurer's Guild",
     "encounterList": [],
     "encounterStep": 30,
     "height": 22,
@@ -5422,14 +5422,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\C[13]\\OC[31]\\N<内なるレイン>(フィルスさんの行っていた通り、何人か魔術師っぽい人がいる……。"
+                                "\\C[13]\\OC[31]\\N<Inner Rain>(As Phils-san\nmentioned, there are several people who seem to be\nmagicians... For now, let's listen to what they\nhave to say."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "\\.とりあえず、話を聞いてみよう。"
+                                ""
                             ]
                         },
                         {
@@ -5906,7 +5906,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「あの、魔術師の方でしょうか？"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Um, are you the\nmagician?"
                             ]
                         },
                         {
@@ -5923,7 +5923,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師っぽい男>「そうだけど、何の用？"
+                                "\\n<Mage-like man>Yeah, but what do you need?"
                             ]
                         },
                         {
@@ -5959,7 +5959,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「この破片に籠められた魔力を調べてほしいんですが、できますか？"
+                                "\\OC[31]\\N<Rain>I was wondering if you could\nexamine the magical power trapped within this\nfragment. Is that possible?"
                             ]
                         },
                         {
@@ -5994,7 +5994,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\n<魔術師っぽい男>「───\\.…\\.…\\.…\\.なにコレ？魔力なんて全然感じないけど？"
+                                "\\CE[79]\\n<Mage-like man>───\\....\\....\\....\\.\nWhat's this? I don't feel any magical power at all\nthough?"
                             ]
                         },
                         {
@@ -6011,14 +6011,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\n<魔術師っぽい男>「あ、もしかして君、僕を試してる？"
+                                "\\CE[79]\\n<Mage-like man>Oh, are you testing me by\nany chance? If I answer about magical power with\nthis, you'll say that I'm a fake magician, right?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "これで魔力について答えたら、僕がエセ魔術師だっていいたんでしょ？"
+                                ""
                             ]
                         },
                         {
@@ -6057,7 +6057,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「いえ、そんなことは……─────"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>No, that's\nnot...─────"
                             ]
                         },
                         {
@@ -6085,45 +6085,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師っぽい男>「はぁ……でたでた。たまにいるんだよねそういう人。"
+                                "\\n<Mage-like man>Sigh... There it is, there it is.\nOccasionally you come across people like that.\nWell, the truth is, there are many who pretend to\nbe full-fledged magicians even though they can't\nreally do much. I can't say I don't understand the\nfeelings of someone like you."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "まぁ実際、大したこともできないのに一人前の魔術師ぶる奴が多いのは事実"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "だからな。君みたいなことをする人の気持ちもわからないでもないよ？"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\n<魔術師っぽい男>「でもさ、僕を見てそんなこともわからないわけ？"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "どうみてもプロの魔術師でしょ？その辺のテキトーな奴らと一緒にしないでよ。"
+                                ""
                             ]
                         },
                         {
@@ -6140,7 +6116,31 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師っぽい男>「こっちはプロなんだよプロ。プロに頼むならそれなりの報酬が必要なのは当然だろ？"
+                                "\\n<Mage-like man>But seriously, can't you tell\njust by looking at me? I'm clearly a professional\nmagician, right? Don't lump me together with those\nhalf-assed guys."
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": [
+                                ""
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
+                            ]
+                        },
+                        {
+                            "code": 401,
+                            "indent": 0,
+                            "parameters": [
+                                "\\n<Mage-like man>I'm a professional, you know? If\nyou're asking a professional for help, it's only\nnatural that there would be a proper compensation,\nright?"
                             ]
                         },
                         {
@@ -6179,7 +6179,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「─────それは失礼しました。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>─────I apologize for\nthat."
                             ]
                         },
                         {
@@ -6196,14 +6196,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師っぽい男>「で？その破片はただのゴミだけど、ホントの用事はなに？"
+                                "\\n<Mage-like man>So? That fragment is just trash,\nbut what's your real business? Well, since I'm a\nprofessional, I expect to be properly compensated."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "まぁこっちはプロだからもらうものはちゃんともらうからね。"
+                                ""
                             ]
                         },
                         {
@@ -6242,7 +6242,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「いえ、またの機会にさせていただきます。お手数おかけました。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>No, I will let you\nknow another time. Sorry for the trouble."
                             ]
                         },
                         {
@@ -6270,14 +6270,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\n<魔術師っぽい男>「あっそ。あ～あ、今のうちに僕とコネクションをもっておけばって"
+                                "\\CE[79]\\n<Mage-like man>Oh well. Ah~ If you\nestablish a connection with me now, you'll regret\nit in the future. Well, you don't seem to have\ngood judgment anyway, so it doesn't really matter."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "将来後悔することになるよ。まぁ君は見る目なさそうだし、どうでもいいけど。"
+                                ""
                             ]
                         },
                         {
@@ -6374,7 +6374,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(聞いていた通り、印象の良くない人が多いなぁ………。"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(As I\nheard, there are a lot of people with unfavorable\nimpressions here.........."
                             ]
                         },
                         {
@@ -6584,14 +6584,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「この町もレベル低いなぁ。"
+                                "\\EMP This town is so low-level. It's all about\nappearances and lacks substance."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "恰好ばっかりで中身がなさすぎるよ。"
+                                ""
                             ]
                         },
                         {
@@ -6618,14 +6618,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「やれやれ、みんなわかってないな。"
+                                "\\EMP Sigh, it seems like nobody here understands.\nThere doesn't seem to be anyone who can see\nthrough my true abilities."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "僕の実力を見抜ける人が全然いないみたいだ。"
+                                ""
                             ]
                         },
                         {
@@ -6799,14 +6799,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき男B>「『ぶっかけ』状態は素早さと会心率が下がる。あと性欲も上がりやすくなるな。"
+                                "\\N<Adventurer-like Man B>Being in a 'bukkake'\nstate reduces agility and critical hit rate. And\nit also increases sexual desire easily. That\nsmell, it kinda makes me horny, haha."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.あの匂い、なんかムラムラするからなぁ。ハハッ。"
+                                ""
                             ]
                         },
                         {
@@ -6941,21 +6941,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき女B>「魔物から手に入る素材やダンジョンで獲れるものは\\C[17]出店でも買える\\C[0]けど、"
+                                "\\N<Woman who seems like an adventurer B>You can\nbuy materials obtained from monsters and things\ncaught in dungeons at \\C[17] stalls, but the\nprices are clearly a rip-off. \\C[0] Well, I guess\nthere's a perspective of buying convenience with\nmoney, but even so, it's too expensive."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "明らかにぼったくり価格よねぇ。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.まぁ手間をお金で買うって考え方もあるけど、それにしても高すぎよ。"
+                                ""
                             ]
                         },
                         {
@@ -7090,14 +7090,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき男A>「う～む、『粘つき』状態で素早さが下げられたせいで不覚を取った……。"
+                                "\\N<Man A who looks like an adventurer>Hmm, I was\ncaught off guard because my agility was lowered\ndue to being in a 'sticky' state... It's\ntroublesome when my agility is low because it\nallows the enemies to take the initiative..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "素早さが低いと\\C[17]敵に先制を許す\\C[0]から厄介なんだよなぁ……。"
+                                ""
                             ]
                         },
                         {
@@ -7114,14 +7114,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき男A>「次の冒険では\\C[17]\\NI[23]\\C[0]を忘れないようにしないとな。"
+                                "\\N<Man A who looks like an adventurer>I need to\nmake sure not to forget \\C[17]\\NI[23]\\C[0] in the\nnext adventure. With that, I can cure the\n'bukkake' state and it's surprisingly useful."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "あれがあれば『ぶっかけ』状態も治せるし、意外と便利だよな。"
+                                ""
                             ]
                         },
                         {
@@ -7256,21 +7256,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<冒険者らしき女A>「え～と、『麻痺』状態は攻撃力、素早さ、回避力が下がるけど、"
+                                "\\N<Woman who looks like an adventurer A>Um, the\n'paralysis' status decreases attack power,\nagility, and evasion, but it will be lifted after\nthe battle... However, since the duration is long,\nit would be faster to recover with \\C[17]\\NI[20]\nor \\C[0]..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "戦闘が終われば解除される、と……。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "でも効果時間が長いから、\\C[17]\\NI[20]とか\\C[0]で回復したほうが早いのね……。"
+                                ""
                             ]
                         },
                         {
@@ -7471,14 +7471,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「おう？いつのまに娼館に"
+                                "\\EMP Oh? When did you end up in a brothel...?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "来ちまったのかぁ……？"
+                                ""
                             ]
                         },
                         {
@@ -7505,14 +7505,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「おうねぇちゃん……いっぱいお酌して"
+                                "\\EMP Hey there, cutie... Pour me lots of drinks~\nHiccup..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "くれよぉ～……ヒィック"
+                                ""
                             ]
                         },
                         {
@@ -7743,14 +7743,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「ほら、この依頼。海だってさ。"
+                                "\\EMP Hey, this request is about the sea. How about\nstaying overnight as well?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "ついでに泊まっていかない？"
+                                ""
                             ]
                         },
                         {
@@ -8004,7 +8004,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「すみません、魔術師の方でしょうか？"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Excuse me, are you\nthe magician?"
                             ]
                         },
                         {
@@ -8021,14 +8021,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師風の男>「ん？ああ、そうだよ。"
+                                "\\n<Male Magician>Hm? Ah, yeah. Are you a\nswordsman? Are you looking for party members, by\nany chance?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.君は剣士かな？もしかしてパーティメンバー探してる？"
+                                ""
                             ]
                         },
                         {
@@ -8045,7 +8045,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「いえ、そうではなく────────"
+                                "\\OC[31]\\N<Rain>No, not that.────────"
                             ]
                         },
                         {
@@ -8081,14 +8081,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「この破片に籠められた魔力を調査できる魔術師を探しているんですが、"
+                                "\\OC[31]\\N<Rain>I'm looking for a magician who can\ninvestigate the magical power trapped in this\nfragment. What do you think?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "どうでしょうか？"
+                                ""
                             ]
                         },
                         {
@@ -8116,14 +8116,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\n<魔術師風の男>「調査？\\.あ～そういうのは無理だね。私はぶっぱなす専門だからね。"
+                                "\\CE[79]\\n<Male Magician>Investigation? Ah~ I'm\nafraid that's not my thing. I specialize in\noffensive magic, so I don't do those kind of\nsubtle tasks."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "そういう地味なのはやってないよ。"
+                                ""
                             ]
                         },
                         {
@@ -8162,14 +8162,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[84]\\n<魔術師風の男>「それより君、私とパーティ組もうよ。"
+                                "\\CE[78]\\CE[84]\\n<Male Magician>Hey, instead of\nthat, why don't we form a party together? It would\nbe so much fun exploring any dungeon with a\nbeautiful person like you! Don't you think?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.君みたいな美人とならどんなダンジョンでもきっと楽しそうだ！ね？"
+                                ""
                             ]
                         },
                         {
@@ -8204,7 +8204,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「─────いえ、結構です。突然お邪魔しました。失礼します。"
+                                "\\CE[79]\\OC[31]\\N<Rain>─────No, it's fine. I\napologize for intruding so suddenly. Excuse me."
                             ]
                         },
                         {
@@ -8221,7 +8221,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師風の男>「え、ちょっと待ってよ！\\.絶対楽しいからさ、組もうよ～～！"
+                                "\\n<Male Magician>Wait, hold on! \\. It'll\ndefinitely be fun, so let's team up~!"
                             ]
                         },
                         {
@@ -8238,7 +8238,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「結構です。"
+                                "\\OC[31]\\N<Rain>No, it's fine."
                             ]
                         },
                         {
@@ -8441,14 +8441,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「さ～て、今日も楽して稼げる"
+                                "\\EMP Well, I wonder if there are any easy money-\nmaking requests today... Hmm..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "依頼はないかなぁ……っと。"
+                                ""
                             ]
                         },
                         {
@@ -8475,14 +8475,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「んだよぉ、パーティ組んで"
+                                "\\EMP Geez, if you're not gonna form a party with\nme, then forget it!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "くれないならもういいよ！"
+                                ""
                             ]
                         },
                         {
@@ -8733,14 +8733,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「それいいね、新しい水着"
+                                "\\EMP That sounds good, maybe I should buy a new\nswimsuit~♥"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "買っちゃおうかな～♥"
+                                ""
                             ]
                         },
                         {
@@ -9383,14 +9383,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「だからさぁ！あんなにがんばったんだから"
+                                "\\EMP That's why! I worked so hard, so I should be\ngiven a bonus, right? It's so inflexible!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "報酬は上乗せされるべきでしょ！？融通きかないなぁ！"
+                                ""
                             ]
                         },
                         {
@@ -9647,14 +9647,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「ねぇ君、何時に仕事終わるの？"
+                                "\\EMP Hey, when do you finish work? Let's go out\nfor a drink. Of course, I'll treat."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "飲みに行こうよ。もちろん奢るからさ。"
+                                ""
                             ]
                         },
                         {
@@ -9681,14 +9681,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「受付の娘、なかなか仕事終わらないなぁ。"
+                                "\\EMP The receptionist girl, she's taking quite a\nwhile to finish her work. Well, I'll wait for her\npatiently."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "まぁずっと待つけどね。"
+                                ""
                             ]
                         },
                         {
@@ -10004,7 +10004,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「すみません、伺いたいのですが──────"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Excuse me, may I\nask───"
                             ]
                         },
                         {
@@ -10032,7 +10032,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\n<魔術師のような男>「あん？……お？お？なになに？あんためっちゃかわいいじゃん！"
+                                "\\CE[79]\\n<A man like a magician>Huh?... Oh? Oh?\nWhat's this? You're so cute!"
                             ]
                         },
                         {
@@ -10049,14 +10049,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師のような男>「俺に何の用？まぁいいや、とりあえず飯でも食いながら話そうよ！"
+                                "\\n<A man like a magician>What do you need from me?\nWell, never mind. Let's just grab a bite to eat\nand talk! I know a great place!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "いいとこ知ってるからさ！"
+                                ""
                             ]
                         },
                         {
@@ -10095,7 +10095,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「えっ、いや、すみませんちょっと急いでいて──────"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Uh, well, sorry, I'm\nin a bit of a hurry───"
                             ]
                         },
                         {
@@ -10112,31 +10112,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師のような男>「いいからいいから！名前なんてーの？"
+                                "\\n<A man like a magician>Never mind that! What's\nyour name? Ah, I heard this town has high-level\npeople, and it's true! I'm glad I came here."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "いやーこの町はレベル高いって聞いてたけどホントだわ！来てよかったわー"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[84]\\OC[31]\\N<レイン>「あの、あなたは魔術師ですか？"
+                                ""
                             ]
                         },
                         {
@@ -10153,14 +10136,31 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師のような男>「いや？ってか冒険者じゃないし。"
+                                "\\CE[84]\\OC[31]\\N<Rain>Um, are you a magician?"
+                            ]
+                        },
+                        {
+                            "code": 101,
+                            "indent": 0,
+                            "parameters": [
+                                "",
+                                0,
+                                0,
+                                2
                             ]
                         },
                         {
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "冒険者の女の子と出会うためにこんなカッコしてるけど、それっぽいっしょ？"
+                                "\\n<A man like a magician>Huh? Well, I'm not an\nadventurer. I just dressed up like this to meet an\nadventurer girl, but doesn't it look the part?"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": [
+                                ""
                             ]
                         },
                         {
@@ -10199,7 +10199,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「─────私は魔術師を探しているので、これで失礼します。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>─────I'm sorry, but\nI'm looking for a magician, so I'll take my leave."
                             ]
                         },
                         {
@@ -10216,7 +10216,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<魔術師のような男>「別にいいって！とりあえず飯は行こうよ！ね！"
+                                "\\n<A man like a magician>It's fine, let's just\ngrab a bite to eat for now! Come on!"
                             ]
                         },
                         {
@@ -10244,7 +10244,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\OC[31]\\N<レイン>「結構です。"
+                                "\\CE[78]\\OC[31]\\N<Rain>No, thank you."
                             ]
                         },
                         {
@@ -10290,7 +10290,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(一般人と冒険者を間違えるなんて…………\\.私、疲れてる？"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner\nRain>(Mistaking me for a regular person and not an\nadventurer... \\. Am I tired?)"
                             ]
                         },
                         {
@@ -10500,14 +10500,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「お、この町にもいい感じの飯屋が"
+                                "\\EMP Oh, there's a nice-looking restaurant in this\ntown. Maybe I should invite some girls and check\nit out!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "あるじゃん。さっそく女の子誘ってみるか！"
+                                ""
                             ]
                         },
                         {
@@ -10534,14 +10534,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「ちぇ、飯くらいいいじゃん。"
+                                "\\EMP Ugh, it's just a meal. Stop being so stingy!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "ケチッ！"
+                                ""
                             ]
                         },
                         {
@@ -11192,14 +11192,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「───まさかその恰好で冒険にでるつもりじゃ"
+                                "\\EMP ───Surely you don't intend to go on an\nadventure dressed like that...?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "ないですよね……？"
+                                ""
                             ]
                         },
                         {
@@ -11226,14 +11226,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「はぁ、あの冒険者、ほんとにしつこっ。"
+                                "\\EMP Sigh, that adventurer is really persistent. I\nwonder if they'll really wait until I finish\nwork... Scary."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "ほんとに仕事終わるまで待ってるのかな……。こわ。"
+                                ""
                             ]
                         },
                         {
@@ -11511,21 +11511,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「───あ、あの……、冒険する"
+                                "\\EMP U-um... even though it's free to dress for\nadventure, could you please refrain from exposing\nyourself so much..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "恰好は自由とはいえ、もう少し露出を"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "控えてもらえると……。"
+                                ""
                             ]
                         },
                         {
@@ -11552,14 +11552,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「我儘な冒険者のおかげで、今日も残業……"
+                                "\\EMP Thanks to the selfish adventurer, I have to\nwork overtime again... sigh, I wonder if something\ngood will happen..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "はぁ、なんかいいことでもないかな…。"
+                                ""
                             ]
                         },
                         {

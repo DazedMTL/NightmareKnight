@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "回想部屋",
+    "displayName": "Flashback Room",
     "encounterList": [],
     "encounterStep": 31,
     "height": 60,
@@ -30878,14 +30878,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "全ての回想を解放しますか？"
+                                "Do you want to unlock all the memories?\n\\C[17]※Once unlocked, you cannot revert it back."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\C[17]※一度解放すると元に戻すことはできません。"
+                                ""
                             ]
                         },
                         {
@@ -31694,7 +31694,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "回想を解放するためのヒントを表示するようにしますか？"
+                                "Do you want to display hints to unlock the\nflashbacks?"
                             ]
                         },
                         {
@@ -31823,7 +31823,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "回想を解放するためのヒントを表示しないようにしますか？"
+                                "Do you want to disable the hints for unlocking the\nflashbacks?"
                             ]
                         },
                         {
@@ -40249,14 +40249,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<うらやま>「こんにちは、作者のうらやまです。"
+                                "\\N<Urayama>Hello, I'm the author Urayama. Thank\nyou very much for playing this game."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\!この度は本ゲームをプレイしていただき、誠にありがとうございます。"
+                                ""
                             ]
                         },
                         {
@@ -40273,14 +40273,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<うらやま>「あらゆる暇つぶしが溢れる昨今、限りある時間をこのゲームに割いてくれたことを"
+                                "\\N<Urayama>In this day and age where there are\ncountless ways to pass the time, I am truly\ndelighted that you have dedicated your precious\ntime to playing this game."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "とても嬉しく思います。"
+                                ""
                             ]
                         },
                         {
@@ -40304,14 +40304,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<うらやま>「本ゲームのメインシナリオはこれにて閉幕です。"
+                                "\\N<Urayama>The main scenario of this game comes to\na close. Thank you for your long hours of\ndedication."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "長い時間おつかれさまでした。"
+                                ""
                             ]
                         },
                         {
@@ -40328,14 +40328,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<うらやま>「この後は下にある二つのゲートによってどうするかを決められます。"
+                                "\\N<Urayama>After this, you can decide what to do\nthrough the two gates below. Please proceed in\nwhichever direction you prefer."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "お好きなほうにお進みください。"
+                                ""
                             ]
                         },
                         {
@@ -40359,14 +40359,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<うらやま>「また、本ゲームは今後イベントを追加するアップデートを"
+                                "\\N<Urayama>Furthermore, we have plans to add\nupdates with additional events to this game in the\nfuture. We would be delighted if you could look\nforward to them."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "予定しています。楽しみにお待ちいただければ幸いです。"
+                                ""
                             ]
                         },
                         {
@@ -42802,21 +42802,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[17]\"レインのステータスを引き継いでニューゲーム\"\\C[0]に進みますか？"
+                                "Do you want to proceed to the New Game \\C[0] while\ninheriting Rain's status? ※You cannot return to\nthis point. ※Some items and equipment will be\nreset."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "※この場に戻ってくることはできません。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "※一部のアイテムや装備はリセットされます。"
+                                ""
                             ]
                         },
                         {
@@ -43112,14 +43112,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[17]\"このデータのままで最終戦直前の状況\"\\C[0]に進みますか？"
+                                "Do you want to proceed with the situation right\nbefore the final battle \\C[17]in its current\nstate\\C[0]? ※You can always come back to this\nplace."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "※いつでもこの場に戻って来られます。"
+                                ""
                             ]
                         },
                         {

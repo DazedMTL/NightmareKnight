@@ -16,7 +16,7 @@
         "volume": 90
     },
     "disableDashing": false,
-    "displayName": "冒険者訓練所",
+    "displayName": "Adventurer Training Facility",
     "encounterList": [],
     "encounterStep": 30,
     "height": 30,
@@ -8342,7 +8342,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「訓練室を使うなら利用料は3000\\Gだ。\\$"
+                                "\\n<Training Room Reception>If you want to use the\ntraining room, the usage fee is 3000\\G."
                             ]
                         },
                         {
@@ -8436,7 +8436,7 @@
                             "code": 401,
                             "indent": 4,
                             "parameters": [
-                                "\\n<訓練室受付>「金が足りねぇぜ。悪ぃが稼いでからまた来な。"
+                                "\\n<Training Room Reception>You don't have enough\nmoney. Sorry, but come back after you've earned\nsome."
                             ]
                         },
                         {
@@ -8492,7 +8492,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練場受付>「そうかい。まぁいつでも来な。"
+                                "\\n<Training Ground Reception>I see. Well, feel\nfree to come anytime."
                             ]
                         },
                         {
@@ -8549,14 +8549,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練場受付>「おめぇも地下の試合にでんのか？"
+                                "\\n<Training Ground Reception>Are you participating\nin the underground matches too? Lately, I've been\nseeing quite a few skilled adventurers, so make\nsure to prepare yourself properly."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "最近は割とつえぇ冒険者も見かけるからな、しっかりと準備するんだな。"
+                                ""
                             ]
                         },
                         {
@@ -8594,14 +8594,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練場受付>「試合、負けちまったらしいな。まぁここはあくまで訓練施設なんだ。"
+                                "\\n<Training Ground Reception>Seems like you lost\nthe match, huh? Well, remember that this place is\njust a training facility. Don't get all gloomy\njust because you lost once or twice. Gahaha."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "一回や二回負けたぐれぇでうじうじすんなって。ガハハ"
+                                ""
                             ]
                         },
                         {
@@ -8774,7 +8774,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\OC[31]\\N<内なるレイン>(戦闘の訓練だから、正装に着替えてっ、と……─────)"
+                                "\\OC[31]\\N<Inner Rain>(Because it's combat\ntraining, I changed into my formal attire...─────)"
                             ]
                         },
                         {
@@ -8965,7 +8965,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「せあっ！"
+                                "\\CE[77]\\OC[31]\\N<Rain>Take this!"
                             ]
                         },
                         {
@@ -9300,7 +9300,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「はぁ、はぁ─────"
+                                "\\OC[31]\\N<Rain>Haa, haa─────"
                             ]
                         },
                         {
@@ -10647,7 +10647,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「ふぅ……─────"
+                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Phew......───\n──"
                             ]
                         },
                         {
@@ -10737,7 +10737,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<???>「あんた、いい腕してるな。"
+                                "\\n<???>You've got some skill there."
                             ]
                         },
                         {
@@ -10783,7 +10783,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「え………？"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Huh.........?"
                             ]
                         },
                         {
@@ -10951,7 +10951,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[83]\\OC[31]\\N<レイン>「え……えッ！？"
+                                "\\CE[78]\\CE[79]\\CE[83]\\OC[31]\\N<Rain>Eh...eh!?"
                             ]
                         },
                         {
@@ -11012,7 +11012,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「ジャ……ジャスっ！？"
+                                "\\OC[31]\\N<Rain>J-Jazz...!?"
                             ]
                         },
                         {
@@ -11106,7 +11106,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\n<???>「あ？ジャスって誰だ？俺はバスタってもんだけど。"
+                                "\\CE[94]\\OC[6]\\n<???>Huh? Who's Jazz? I'm just a\nbuster."
                             ]
                         },
                         {
@@ -11173,7 +11173,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「えっ、あ……、\\.す、すみません、人違いでした……！"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Eh, ah... um,\ns-sorry, it was a case of mistaken identity...!"
                             ]
                         },
                         {
@@ -11277,7 +11277,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\C[13]\\OC[31]\\N<内なるレイン>(────よく見ると結構違うけど、全体的な雰囲気は似てる……。"
+                                "\\CE[77]\\C[13]\\OC[31]\\N<Inner Rain>(────When I look\nclosely, it's quite different, but the overall\natmosphere is similar...)"
                             ]
                         },
                         {
@@ -11316,14 +11316,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(というかこんなところにいるわけないのに見間違えるなんて………。"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(Or\nrather, mistaking someone for being here when\nthere's no way they would be... \\. I must have\nbeen longing to see them so much that I started\nhaving hallucinations... How embarrassing...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.会いた過ぎて幻覚を見てしまった……、恥ずかしい……。"
+                                ""
                             ]
                         },
                         {
@@ -11413,7 +11413,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\n<バスタ>「誰と間違ったのか知らねぇが、俺はよっぽどそのジャスとやらに似てんだなぁ。ははは。"
+                                "\\CE[94]\\OC[6]\\n<Buster>I don't know who you\nmistook me for, but I must really resemble that\nJazz guy. Hahaha."
                             ]
                         },
                         {
@@ -11463,7 +11463,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[83]\\OC[31]\\N<レイン>「あの……、もしかしてご兄弟はいらっしゃいますか？"
+                                "\\CE[78]\\CE[79]\\CE[83]\\OC[31]\\N<Rain>Um... by any\nchance, do you have any siblings?"
                             ]
                         },
                         {
@@ -11491,7 +11491,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\N<バスタ>「いや、いねぇよ。上も下もな。"
+                                "\\CE[94]\\OC[6]\\N<Buster>Nah, I don't have any\nsiblings. No one above or below me."
                             ]
                         },
                         {
@@ -11508,7 +11508,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「そう、ですか……。それは失礼しました………。"
+                                "\\OC[31]\\N<Rain>Oh, I see... I apologize for\nthat..."
                             ]
                         },
                         {
@@ -11536,7 +11536,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\OC[31]\\N<レイン>「そ、それで……、何か私に用ですか？"
+                                "\\CE[78]\\OC[31]\\N<Rain>S-So... do you have\nsomething you need from me?"
                             ]
                         },
                         {
@@ -11575,7 +11575,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[6]\\N<バスタ>「ああ、少し見させてもらったんだが、あんたの剣の腕に見惚れてね。"
+                                "\\CE[79]\\CE[94]\\OC[6]\\N<Buster>Ah, I got to see it\na little, but I was captivated by your sword\nskills."
                             ]
                         },
                         {
@@ -11592,7 +11592,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[6]\\n<バスタ>「俺も冒険者でな、ここにはよく来るんだ。けどあんたほどの腕のやつはそうはいないぜ。"
+                                "\\OC[6]\\n<Buster>I'm an adventurer too, and I come\nhere often. But there aren't many people with\nskills as impressive as yours."
                             ]
                         },
                         {
@@ -11620,7 +11620,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「そ、それはどうも……。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Um, t-that's..."
                             ]
                         },
                         {
@@ -11729,7 +11729,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\C[13]\\OC[31]\\N<内なるレイン>(別人とわかってても、なんかドキドキする……。"
+                                "\\CE[77]\\C[13]\\OC[31]\\N<Inner Rain>(Even though I\nknow it's someone else, it still makes my heart\nrace...)"
                             ]
                         },
                         {
@@ -11775,14 +11775,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(─────ダメダメ、しっかりしろ内なるレイン！"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(No, no,\nget a hold of yourself, Inner Rain! This person is\nnot Jazz...! They just resemble him... a\ncompletely different person...!)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "この人はジャスじゃないんだから……！似てるだけの、完全な別人……！"
+                                ""
                             ]
                         },
                         {
@@ -11878,14 +11878,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\n<バスタ>「あんたさ、地下の模擬試合のことは知ってるか？"
+                                "\\CE[94]\\OC[6]\\n<Buster>Hey, do you know about the\nunderground mock battles? It's a real combat match\nthat doubles as combat training, organized by a\ngroup of volunteers."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.有志の連中が集まってやってる、戦闘訓練を兼ねた実戦勝負なんだけどよ。"
+                                ""
                             ]
                         },
                         {
@@ -11924,7 +11924,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「いえ、初めて聞きました……。私はまだこの町に来て日が浅いので……。"
+                                "\\CE[79]\\OC[31]\\N<Rain>No, this is the first time\nI've heard of it... I'm still new to this town,\nso..."
                             ]
                         },
                         {
@@ -11963,21 +11963,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[6]\\n<バスタ>「そうか。"
+                                "\\CE[79]\\CE[94]\\OC[6]\\n<Buster>I see. So, in that\nmatch, there was a sudden vacancy among the\nparticipants. While they were looking for a\nreplacement, you caught their eye."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.その試合で、さっき急に出場者に欠員がでちまってな。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "代わりを探してたところにあんたが目に入ったわけだ。"
+                                ""
                             ]
                         },
                         {
@@ -12005,21 +12005,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\n<バスタ>「みんな意欲的な連中だからな。腕のいいやつが参加したら盛り上がるし、"
+                                "\\CE[94]\\OC[6]\\n<Buster>Since everyone is so\nmotivated, it would be exciting if someone skilled\njoined in. If you're interested, would you like to\nparticipate as a substitute in the match? I think\nthere's more to gain from it than just cutting\ndolls."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "よかったらあんた、代役で試合に参加してくれないか？"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.人形を斬ってるよりは得るものがあると思うぜ。"
+                                ""
                             ]
                         },
                         {
@@ -12065,7 +12065,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\CE[79]\\OC[31]\\N<レイン>「実戦形式の試合、ですか……。"
+                                "\\CE[94]\\CE[79]\\OC[31]\\N<Rain>A real combat match,\nhuh..."
                             ]
                         },
                         {
@@ -12136,14 +12136,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(鍛錬できる時間も多くはないし、確かに相手がいたほうが"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(I don't\nhave much time for training, so having someone to\npractice with would definitely be meaningful...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "有意義に過ごせるな……。"
+                                ""
                             ]
                         },
                         {
@@ -12204,14 +12204,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(────べ、別に、この人がいるからとかじゃなくて……、"
+                                "\\CE[78]\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(I-It's\nnot like it's because this person is here or\nanything... It's just that they seem capable of\nproper training, so I'm accepting their\ninvitation...!)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "あくまでちゃんと鍛錬できそうだから、誘いにのるってだけだから………！"
+                                ""
                             ]
                         },
                         {
@@ -12264,14 +12264,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「────わかりました。仰る通り私にもメリットがありそうなので、"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>─Understood. As you\nsaid, it seems like there are benefits for me as\nwell, so I will participate."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "参加させていただきます。"
+                                ""
                             ]
                         },
                         {
@@ -12328,7 +12328,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\CE[79]\\OC[6]\\n<バスタ>「おお、そうか。そいつぁありがてぇ。"
+                                "\\CE[94]\\CE[79]\\OC[6]\\n<Buster>Oh, I see. Well,\nthat's much appreciated."
                             ]
                         },
                         {
@@ -12345,7 +12345,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\n<バスタ>「ところで、あんた名前はなんていうんだ？"
+                                "\\CE[94]\\OC[6]\\n<Buster>By the way, what's your\nname?"
                             ]
                         },
                         {
@@ -12417,7 +12417,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「え……、レ、レインといいます……。"
+                                "\\CE[77]\\OC[31]\\N<Rain>Uh... M-My name is Rain..."
                             ]
                         },
                         {
@@ -12445,21 +12445,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\n<バスタ>「そうか、じゃあよろしくなレイン。"
+                                "\\CE[94]\\OC[6]\\n<Buster>I see, well then, nice to\nmeet you Rain. I'm in the underground arena, so\nlet me know when you're ready. We can discuss the\ndetails there."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.俺は\\C[17]地下闘技場\\C[0]にいるからよ、準備ができたら声をかけてくれ。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "詳しい話はそこでしよう。"
+                                ""
                             ]
                         },
                         {
@@ -12561,7 +12561,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[77]\\C[13]\\OC[31]\\N<内なるレイン>(名前………、バスタって、言ってたっけ………。"
+                                "\\CE[77]\\C[13]\\OC[31]\\N<Inner Rain>(Name... Buster,\nwas it...)"
                             ]
                         },
                         {
@@ -12809,7 +12809,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\n<訓練室受付>「訓練室を使うなら利用料は3000\\Gだ。\\$"
+                                "\\n<Training Room Reception>If you want to use the\ntraining room, the usage fee is 3000\\G."
                             ]
                         },
                         {
@@ -13134,7 +13134,7 @@
                             "code": 401,
                             "indent": 4,
                             "parameters": [
-                                "\\n<訓練室受付>「金が足りねぇぜ。悪ぃが稼いでからまた来な。"
+                                "\\n<Training Room Reception>You don't have enough\nmoney. Sorry, but come back after you've earned\nsome."
                             ]
                         },
                         {
@@ -13178,7 +13178,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\C[13]\\OC[31]\\N<内なるレイン>(今日の鍛錬はもう十分かな。"
+                                "\\C[13]\\OC[31]\\N<Inner Rain>(I wonder if today's\ntraining is already enough."
                             ]
                         },
                         {
@@ -13337,7 +13337,7 @@
                             "code": 401,
                             "indent": 4,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「例の運動着が直ったらまた試用を頼むからよ、よろしく頼むぜ！"
+                                "\\CE[79]\\n<Training Room Reception>Once your\nexercise clothes are fixed, please come back and\nrequest a trial again. I'm counting on you!"
                             ]
                         },
                         {
@@ -13457,7 +13457,7 @@
                             "code": 401,
                             "indent": 4,
                             "parameters": [
-                                "\\n<訓練室受付>「まっ、戦う女は色々大変だわな！元気だせ！ガハハ"
+                                "\\n<Training Room Reception>Well, being a fighting\nwoman is tough in many ways! Cheer up! Gahaha!"
                             ]
                         },
                         {
@@ -13505,21 +13505,21 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練室受付>「よう、例の運動着の調子はどうだ？"
+                                "\\n<Training Room Reception>Hey, how's that\nexercise outfit holding up? \\. Even if it breaks,\nI can fix it right away. But that doesn't mean you\nshould just casually expose your breasts. Gahaha!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "\\.もう壊れてもすぐ治せるけどよ、だからって軽々しく乳を放り出すんじゃねぇぜ。"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "ガハハッ"
+                                ""
                             ]
                         },
                         {
@@ -13728,7 +13728,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「そうだ、ちょうどいい。おめぇに頼みたいことがあるんだ。"
+                                "\\n<Training Room Reception>Oh, I have something I\nwant to ask you."
                             ]
                         },
                         {
@@ -13765,7 +13765,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「頼み───？\\.\\.なんでしょうか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>A request...? \\.\\. What is\nit?"
                             ]
                         },
                         {
@@ -13782,14 +13782,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「知り合いに頼まれてな、女用の運動着の試用を頼みてぇんだ。"
+                                "\\n<Training Room Reception>I was asked by an\nacquaintance to try out some women's workout\nclothes. It seems that wearing this will enhance\nthe effectiveness of the exercise."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.なんでもこれを着て鍛錬することで、その運動の効果が上がるらしいぜ。"
+                                ""
                             ]
                         },
                         {
@@ -13817,7 +13817,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「へぇ、それはいいですね。どういった仕組みなんですか？"
+                                "\\CE[79]\\OC[31]\\N<Rain>Oh, that's interesting. What\nkind of mechanism does it have?"
                             ]
                         },
                         {
@@ -13845,14 +13845,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「詳しくは知らねぇけど、魔力を通すことで服が判断して適度な負荷を"
+                                "\\CE[79]\\n<Training Room Reception>I don't know the\ndetails, but apparently it's some amazing\ntechnology where the clothes determine and apply\nan appropriate load by passing through magical\npower or something like that."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "かけるとかなんとか。ともかくなんかすげぇ技術らしいぜ。"
+                                ""
                             ]
                         },
                         {
@@ -13869,14 +13869,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「それにおめぇ、この前試合で負けたんだろ？これ着て鍛えて強くなれりゃあちょうど"
+                                "\\n<Training Room Reception>And besides, you lost\nin the previous match, right? If you wear this and\ntrain, you'll become stronger. It's just perfect,\nisn't it? Lucky you! Gahaha!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "いいじゃねぇか。よかったな！ガハハハ"
+                                ""
                             ]
                         },
                         {
@@ -13926,7 +13926,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<レイン>「あ、あれは『ナイトメア──────"
+                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>Ah, that's\n'Nightmare───"
                             ]
                         },
                         {
@@ -13972,14 +13972,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「─────いや、言い訳は見苦しいですね……。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>─────No, making\nexcuses would be unsightly... It's a fact that I\nlost..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.敗北したことは事実ですから……。"
+                                ""
                             ]
                         },
                         {
@@ -14007,14 +14007,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「えれぇじゃねぇか、ちゃんと負けを認められてよ。"
+                                "\\CE[79]\\n<Training Room Reception>Well, well, look\nat you admitting your defeat. If you want to get\nstronger, you gotta try anything."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.まぁ強くなりたきゃなんでもやってみるもんだぜ。"
+                                ""
                             ]
                         },
                         {
@@ -14042,7 +14042,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[78]\\n<訓練室受付>「じゃあほら、これ持ってけ。訓練が終わったら感想を聞かせてくれよ。"
+                                "\\CE[78]\\n<Training Room Reception>Well then, here,\ntake this. Let me know your thoughts after you\nfinish training."
                             ]
                         },
                         {
@@ -14201,21 +14201,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "【イベント解放条件】※()内は現在値"
+                                "【Event Unlock Conditions】※(Current Value). Unlock\nDesire\\C[27] Exposure Lv1(\\V[367])\\C[0]. Lewdness\nLevel\\C[27] 5\\C[0] or higher\n(Current\\C[17]\\V[13]\\C[0])."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "・欲望\\C[27]『露出 Lv1(\\V[367])』\\C[0]を解放"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "・淫乱度\\C[27]5\\C[0]以上(現在\\C[17]\\V[13]\\C[0])"
+                                ""
                             ]
                         },
                         {
@@ -14368,7 +14368,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練室受付>「おう、例の運動着が直ったぜ。"
+                                "\\n<Training Room Reception>Oh, the exercise\nclothes you requested have been fixed."
                             ]
                         },
                         {
@@ -14418,7 +14418,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「あ……そ、そうなんですね。"
+                                "\\CE[78]\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Ah... I-I see."
                             ]
                         },
                         {
@@ -14435,14 +14435,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練室受付>「ああ、ちゃんと壊れねぇように改修されたってよ。"
+                                "\\n<Training Room Reception>Ah, they've been\nproperly repaired so they won't break. Since you\nwere the one who broke them, please try wearing\nthem again and give it a try."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "\\.\\.おめぇが壊したんだから、また着て試してみてくれよ。"
+                                ""
                             ]
                         },
                         {
@@ -14484,14 +14484,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\C[13]\\OC[31]\\N<内なるレイン>(うーん、ちょっと恥ずかしいけど─────確かに鍛錬の効率は良くなるし、"
+                                "\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(Hmm, it's a bit\nembarrassing but... if it really improves my\ntraining efficiency and they won't break, I guess\nit's okay to wear them...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "壊れないなら着てもいいか……────。"
+                                ""
                             ]
                         },
                         {
@@ -14544,7 +14544,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「わかりました、じゃあまた着てみますね。"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Understood, then I'll\ntry wearing them again."
                             ]
                         },
                         {
@@ -14572,7 +14572,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「おう、助かるぜ。きっちり使い倒してくれよ。"
+                                "\\CE[79]\\n<Training Room Reception>Oh, I'm glad.\nPlease make full use of them."
                             ]
                         },
                         {
@@ -14758,21 +14758,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "【イベント解放条件】※()内は現在値"
+                                "【Event Unlock Conditions】※Values in () are current\nvalues. To unlock desires \\C[27], unlock Exposure\nLv2 (\\V[367]), M Play Lv1 (\\V[372]), and \\C[0].\nLewdness level must be 15 or higher (currently\n\\C[17]\\V[13]\\C[0])."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "・欲望\\C[27]『露出 Lv2(\\V[367])』『Mプレイ Lv1(\\V[372])』\\C[0]を解放"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "・淫乱度\\C[27]15\\C[0]以上(現在\\C[17]\\V[13]\\C[0])"
+                                ""
                             ]
                         },
                         {
@@ -14925,7 +14925,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練室受付>「よぉ。あんたのおかげで例の運動着の完成が目途が立ったらしいぜ。"
+                                "\\n<Training Room Reception>Hey, thanks to you, it\nseems like we're making progress on completing\nthat special workout outfit."
                             ]
                         },
                         {
@@ -14964,7 +14964,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「そうですか。お役に立ててなによりです。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Is that so? I'm glad\nI could be of help."
                             ]
                         },
                         {
@@ -15096,14 +15096,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練室受付>「これがほぼ完成したものなんだが、なんでも霊羊布って特殊な布を使うことで"
+                                "\\n<Training Room Reception>This is almost the\ncompleted version, but it seems that we've changed\nit so that it can instantly repair damaged areas\nby using a special fabric called 'Reiyoubu'."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "破損個所を瞬時に修復できるように変えたんだとよ。"
+                                ""
                             ]
                         },
                         {
@@ -15131,7 +15131,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>「へぇ。じゃあ騎士団の装備と同じ技術を使っているんですね。"
+                                "\\CE[79]\\OC[31]\\N<Rain>Oh, so you're using the same\ntechnology as the Knight Order's equipment, huh?"
                             ]
                         },
                         {
@@ -15159,14 +15159,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「ああ、そういやそんなことも言ってたな。よく知らねぇけど、割とすごい技術なん"
+                                "\\CE[79]\\n<Training Room Reception>Oh, come to\nthink of it, they were saying something like that.\nI don't know much about it, but apparently it's\nquite an impressive technology."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "だってな。"
+                                ""
                             ]
                         },
                         {
@@ -15183,7 +15183,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\n<訓練室受付>「どうせ訓練場を使うなら着てみたらどうだ。問題がなきゃこの服はおまえにやるよ。"
+                                "\\n<Training Room Reception>If you're going to use\nthe training room anyway, why don't you try\nwearing this outfit? If there are no issues, I'll\ngive this clothing to you."
                             ]
                         },
                         {
@@ -15222,7 +15222,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\OC[31]\\N<レイン>「───そうですか……じゃあ、せっかくなので………。"
+                                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>Is that so... Well,\nsince it's a rare opportunity..."
                             ]
                         },
                         {
@@ -15286,14 +15286,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[84]\\C[13]\\OC[31]\\N<内なるレイン>(正直この服にはあまりいい思い出がないけど………まぁ、服に罪はない、か……。"
+                                "\\CE[78]\\CE[79]\\CE[84]\\C[13]\\OC[31]\\N<Inner\nRain>(Honestly, I don't have many good memories\nassociated with this outfit... Well, the clothes\nthemselves aren't at fault, right? \\.I've already\nexperienced the effects of this clothing and it\ndefinitely helps with training.)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "\\.服の効果自体は体験済だし、間違いなく鍛錬の役には立つ。"
+                                ""
                             ]
                         },
                         {
@@ -15343,14 +15343,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(前回言われた通り、ここでは女は身体目当てに近づかれるのが常……。"
+                                "\\CE[79]\\CE[84]\\CE[78]\\C[13]\\OC[31]\\N<Inner\nRain>(As mentioned before, it's common for women\nto be approached here for their bodies... If\nthat's the case, I need to train my mind not to\nwaver just because someone saw my breasts.)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "\\.なら、おっぱいを見られたぐらいじゃ揺らがない精神に鍛え上げないとね。"
+                                ""
                             ]
                         },
                         {
@@ -15550,21 +15550,21 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "【イベント解放条件】※内は現在値"
+                                "【Event Unlock Conditions】※The values inside are\ncurrent values. To unlock Desire\\C[27]\n'Exhibitionism Lv2(\\V[367])' and 'M Play\nLv2(\\V[372])', \\C[0] must be unlocked.\nLewdness\\C[27] must be 20 or higher (currently\n\\C[17]\\V[13]\\C[0])."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "・欲望\\C[27]『露出 Lv2(\\V[367])』『Mプレイ Lv2(\\V[372])』\\C[0]を解放"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "・淫乱度\\C[27]20\\C[0]以上(現在\\C[17]\\V[13]\\C[0])"
+                                ""
                             ]
                         },
                         {
@@ -15680,14 +15680,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<訓練室受付>「おいおい、ここは誰でも使えるけどよ、さすがにその恰好はねぇだろ。"
+                                "\\n<Training Room Reception>Hey hey, anyone can use\nthis place, but seriously, that outfit is not\nappropriate. At least come dressed in something\nthat covers up a bit."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "せめて隠すとこは隠した恰好で来いよ。"
+                                ""
                             ]
                         },
                         {
@@ -16540,14 +16540,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「くっそぉ今月は負け続きだッ"
+                                "\\EMP Damn it, I've been losing all month. Can you\nlend me some money?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "金貸してくれよ！"
+                                ""
                             ]
                         },
                         {
@@ -17503,14 +17503,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「はぁ～♥ここのむわっとする"
+                                "\\EMP Ahh~♥ I really love the scent of the sweaty\nair here.........♥"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "汗のにおい、ほんと好き………♥"
+                                ""
                             ]
                         },
                         {
@@ -17758,7 +17758,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「危ないわよ！どいて！"
+                                "\\EMP Watch out! Move!"
                             ]
                         },
                         {
@@ -18006,7 +18006,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「おい邪魔だ！離れろ！"
+                                "\\EMP Hey, you're in the way! Move!"
                             ]
                         },
                         {
@@ -18327,14 +18327,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「ぬおっ、勃っちまったじゃねぇか！"
+                                "\\EMP Oh, it's gotten hard! Take responsibility and\nlet me use your pussy!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "責任とってまんこ使わせろよ！"
+                                ""
                             ]
                         },
                         {
@@ -18361,14 +18361,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「次の試合はぜってぇ勝つ……！"
+                                "\\EMP I'll definitely win the next match...! I'll\nuse the prize money to visit brothels like\ncrazy...!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "賞金で娼館行きまくってやるぜ……！"
+                                ""
                             ]
                         },
                         {
@@ -18947,14 +18947,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「おお、肉付きは足りねぇがイイ体"
+                                "\\EMP Oh, you may not have much meat on your bones,\nbut you've got a nice body♪ Wanna work up a sweat\ntogether? Hehe..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "してるねぇ♪一緒に汗かかねぇか？へへっ……。"
+                                ""
                             ]
                         },
                         {
@@ -18981,14 +18981,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「汗に濡れたムチムチな女は"
+                                "\\EMP I wonder if there's a plump, sweaty woman\naround here~♪"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "いねぇかな～っと……♪"
+                                ""
                             ]
                         },
                         {
@@ -19776,14 +19776,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\N<訓練所の冒険者A>「よぉねぇちゃん。また俺らと訓練試合してくれんのか？"
+                                "\\N<Adventurer A at the training facility>Hey\nthere, girl. Are you gonna have another training\nmatch with us? Just so you know, the 'conditions'\nwill be the same as before, okay?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "言っておくけど\"条件\"はまた同じだぜ？"
+                                ""
                             ]
                         },
                         {
@@ -19891,7 +19891,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<訓練所の冒険者A>「───……まぁ一度負けた身だ。約束通り付きまとったりはしねぇよ。"
+                                "\\N<Adventurer A at the training facility>───Well,\nI'm someone who has lost once. I won't cling to\nyou as promised."
                             ]
                         },
                         {
@@ -19928,7 +19928,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\N<訓練所の冒険者A>「よぉねぇちゃん。またあの\\C[17]スケベな運動着\\C[0]着てくれよ。へへ……。"
+                                "\\N<Adventurer A at the training facility>Hey\nthere, kid. Put on that \\C[17]sexy workout\noutfit\\C[0] again, will ya? Hehe..."
                             ]
                         },
                         {
@@ -20215,14 +20215,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\EMP「ぜってぇやだね。"
+                                "\\EMP No way, I don't want to. You should\nparticipate and earn money."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "お前が出場して稼げよ。"
+                                ""
                             ]
                         },
                         {
@@ -20834,14 +20834,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「あんたもイイケツしてそうだなぁ。"
+                                "\\EMP You seem to have a nice ass too. Let me touch\nit a little♪"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "ちょっと揉ませてくれよ♪"
+                                ""
                             ]
                         },
                         {
@@ -20868,14 +20868,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「あの女の冒険者、いいケツしてんな……。"
+                                "\\EMP That female adventurer has a nice ass...\nMaybe I'll invite her later!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "あとで誘ってみるか！"
+                                ""
                             ]
                         },
                         {
@@ -21472,14 +21472,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「おお、肉付きは足りねぇがイイ体"
+                                "\\EMP Oh, you may not have much meat on your bones,\nbut you've got a nice body♪ Wanna work up a sweat\ntogether? Hehe..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "してるねぇ♪一緒に汗かかねぇか？へへっ……。"
+                                ""
                             ]
                         },
                         {
@@ -21506,14 +21506,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\EMP「お？なんだ一緒に着替えたいのか？"
+                                "\\EMP Oh? Do you want to change together? Or should\nI help you change? Hehe..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "てか俺が着替えさせてやろうか？ふへへっ"
+                                ""
                             ]
                         },
                         {
@@ -22342,21 +22342,21 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[13]\\OC[31]\\N<内なるレイン>(────確かにぎゅっと締まって、いい負荷がかかってる。"
+                                "\\C[13]\\OC[31]\\N<Inner Rain>(────It's definitely\ntight and feels like a good load.\\. Plus, it\ntightens according to the movement and strength,\nso it's not always difficult to move."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.しかも動きや力加減に合わせて締めつけるから、常に動きにくいわけじゃないのも"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "いいかも。"
+                                ""
                             ]
                         },
                         {
@@ -22395,7 +22395,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[83]\\C[13]\\OC[31]\\N<内なるレイン>(ちょっと露出が気になるけど────これならいい鍛錬ができそう！"
+                                "\\CE[79]\\CE[83]\\C[13]\\OC[31]\\N<Inner Rain>(I'm a\nlittle concerned about the exposure, but──── it\nseems like I can have a good training with this!)"
                             ]
                         },
                         {
@@ -22729,14 +22729,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\C[13]\\OC[31]\\N<内なるレイン>(────着心地は\\.…\\.…\\.ちょっと良くなってるかも………！"
+                                "\\C[13]\\OC[31]\\N<Inner Rain>(────The\n\\....\\....\\.fit feels a little better.........! I\nfeel like it's a bit easier to move than\nbefore────."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.前より少し動きやすい気がする────。"
+                                ""
                             ]
                         },
                         {
@@ -22775,7 +22775,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[83]\\C[13]\\OC[31]\\N<内なるレイン>(でもいつまた壊れるかわからないし、慎重に扱わないとね……。"
+                                "\\CE[78]\\CE[83]\\C[13]\\OC[31]\\N<Inner Rain>(But I\ndon't know when it will break again, so I have to\nhandle it carefully...)"
                             ]
                         },
                         {
@@ -23538,7 +23538,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>(ここがこの街の衛兵詰所か──"
+                                "\\OC[31]\\N<Rain>(So this is the guard station of\nthis town──"
                             ]
                         },
                         {
@@ -23698,7 +23698,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<チンピラ風の男>「おお～？見かけねぇ女だな。よそもんか？"
+                                "\\N<Thug-like man>Oh~? Haven't seen a woman like\nyou around. Are you an outsider?"
                             ]
                         },
                         {
@@ -23782,7 +23782,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<目つきの悪いの男>「なぁあんた、その身なりは冒険者じゃねぇよな？どっから来た？"
+                                "\\N<The man with a menacing look>Hey, you don't\nlook like an adventurer. Where are you from?"
                             ]
                         },
                         {
@@ -23799,7 +23799,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<チンピラ風の男>「いい乳してんな。しかも美人だなぁ。なぁ、俺らと飲みに行かねぇ？奢るぜぇ？"
+                                "\\N<Thug-like man>You've got nice tits. And you're\nbeautiful too. Hey, wanna go grab a drink with us?\nI'll treat you."
                             ]
                         },
                         {
@@ -23845,14 +23845,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「私は王都の聖騎士ですが───すいませんがよく聞こえませんでした。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>I am a holy knight\nfrom the royal capital, but... I'm sorry, but I\ndidn't hear that well. Could you please say it\nagain?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "もう一度言ってもらえますか？"
+                                ""
                             ]
                         },
                         {
@@ -23905,7 +23905,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\N<目つきの悪いの男>「聖騎士だとぉ…？ふぅん、そうかい。"
+                                "\\CE[79]\\N<The man with a menacing look>A holy\nknight, huh...? Hmm, I see."
                             ]
                         },
                         {
@@ -23922,7 +23922,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<チンピラ風の男>「騎士でもなんでも関係ねぇよ。一緒に遊ぼうぜ？"
+                                "\\N<Thug-like man>I don't care if you're a knight\nor whatever. Let's have some fun together, shall\nwe?"
                             ]
                         },
                         {
@@ -23990,7 +23990,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<目つきの悪いの男>「おい、やめとけ。もう行くぞ。"
+                                "\\N<The man with a menacing look>Hey, stop it.\nWe're leaving now."
                             ]
                         },
                         {
@@ -24007,7 +24007,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\N<チンピラ風の男>「……ちっ。わかったよ。じゃあな、巨乳の騎士様。"
+                                "\\N<Thug-like man>...Tch, I get it. Well then, see\nya later, busty knight."
                             ]
                         },
                         {
@@ -24146,7 +24146,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\OC[31]\\N<レイン>(……聞いていた通りの治安の悪さだ…"
+                                "\\CE[79]\\OC[31]\\N<Rain>(...Just as I heard, the\npublic order here is terrible..."
                             ]
                         },
                         {
@@ -24163,7 +24163,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>(──とにかく衛兵長に話を聞こう。"
+                                "\\OC[31]\\N<Rain>(Anyway, let's go talk to the\ncaptain of the guards.)"
                             ]
                         },
                         {
@@ -24602,7 +24602,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "鍛錬を始めますか？"
+                                "Do you want to start training?"
                             ]
                         },
                         {
@@ -24896,14 +24896,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「どうやらおまえさんの魔力に耐えられなかったみたいだなぁ。"
+                                "\\n<Training Room Reception>It seems like you\ncouldn't handle the power of your magic, huh?\nWell, I did say this was still a prototype, so\nthese things happen! Gahaha!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\!これまだ試作品って言ってたしな、こういうこともあらぁな！ガハハ"
+                                ""
                             ]
                         },
                         {
@@ -24985,7 +24985,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「そういうことは最初に言っておいてください！"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Please let me know\nthat kind of thing from the beginning!"
                             ]
                         },
                         {
@@ -25013,14 +25013,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「わりぃわりぃ、そんな怒んなよ。"
+                                "\\CE[79]\\n<Training Room Reception>Sorry, sorry,\ndon't get so angry. If a woman wants to be an\nadventurer, making a fuss about her breasts won't\nget us anywhere in the conversation, you know?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.女が冒険者やるなら乳のひとつやふたつで騒いでちゃ話にならねぇぜ？"
+                                ""
                             ]
                         },
                         {
@@ -25037,7 +25037,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「それよりこの服の効果はどうだったんだ？壊れたことも含めて報告するからよ。"
+                                "\\n<Training Room Reception>So, how was the effect\nof this outfit? Please report everything,\nincluding if it got damaged."
                             ]
                         },
                         {
@@ -25076,14 +25076,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「それは…\\.…\\.…言いたくないですが、良かったですよ………。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Um... I don't really\nwant to say it, but it was good... I think the\ntraining had more effect than usual..."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.鍛錬の効果はいつもよりあったと思います………。"
+                                ""
                             ]
                         },
                         {
@@ -25111,14 +25111,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「ならよかったじゃねぇか！この服の改善もできるし、結果はプラスだな！"
+                                "\\CE[79]\\n<Training Room Reception>Well, that's\ngreat then! We can improve this outfit and the\nresults are positive! Once it's fixed, I'll ask\nyou to try it again, so please look forward to it!\nGahaha!"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\!直ったらまた試用を頼むからよ、よろしく頼むぜ！ガハハハ"
+                                ""
                             ]
                         },
                         {
@@ -25246,14 +25246,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(はぁ……恥ずかしくて顔から火がでそうだった………。"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(Haa... I\nwas so embarrassed that my face felt like it was\non fire... It seems like I won't be able to make\nany good memories in this training facility...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "この訓練所にはいい思い出ができそうにないな………。"
+                                ""
                             ]
                         },
                         {
@@ -25292,14 +25292,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(でも、いい感じに鍛錬はできたからな……あの運動着がちゃんと改善される"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(But, I\nwas able to train well... Let's hope that outfit\ngets properly improved...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ことを祈ろう………。"
+                                ""
                             ]
                         },
                         {
@@ -25824,7 +25824,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "鍛錬を始めますか？"
+                                "Do you want to start training?"
                             ]
                         },
                         {
@@ -26042,14 +26042,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「そりゃおめぇ、無理矢理ひっぺがされたら破れるに決まってんだろ。"
+                                "\\n<Training Room Reception>Well, if you're\nforcibly stripped, it's obvious that you'll tear.\nIt's not armor, after all."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.鎧じゃねぇんだからよぉ。"
+                                ""
                             ]
                         },
                         {
@@ -26113,7 +26113,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「そうですよね………すみません………。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Yes, you're\nright.......... I'm sorry.........."
                             ]
                         },
                         {
@@ -26141,21 +26141,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\n<訓練室受付>「ま、前回みたくお前自身の魔力で壊れたわけじゃねぇなら、こっちは収穫があった"
+                                "\\CE[79]\\n<Training Room Reception>Well, as long as\nyou didn't break yourself with your own magic\npower like last time, we can consider it a\nfruitful experience. It's common for female\nadventurers to be approached by guys who are only\ninterested in their bodies. Be careful from now\non."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ってことでいいんだけどよ。野郎に身体目当てで近づかれんのは女冒険者の常"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "だからな。今後は気を付けるこった。"
+                                ""
                             ]
                         },
                         {
@@ -26172,7 +26172,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\n<訓練室受付>「ま、元気だしな。\\.これからも当訓練所をよろしく！ガハハハ"
+                                "\\n<Training Room Reception>Well, stay energetic.\nFrom now on, please take care of this training\nfacility! Gahahaha!"
                             ]
                         },
                         {
@@ -26211,7 +26211,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「は、はい……。"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Y-Yes..."
                             ]
                         },
                         {
@@ -26348,7 +26348,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(あ、あんな人前で脱がされるなんて………っ"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(T-To be\nstripped in front of someone like that..."
                             ]
                         },
                         {
@@ -26387,14 +26387,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(─────いや、私の油断が原因だな……。エッチなことされて心を乱した"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(No, it's\nbecause I let my guard down... It's because I was\ndisturbed by the lewd things that were done to\nme...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "からだ………。"
+                                ""
                             ]
                         },
                         {
@@ -26433,14 +26433,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(言われた通り、女の身体が狙われるのが常なら───慣れていかないと……。"
+                                "\\CE[79]\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(If it's\ntrue that female bodies are always targeted... I\nmight have to get used to it... If I don't show\noff my breasts, or even let them be seen... I\nmight not be able to handle it...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.\\.おっぱい見られるぐらい……逆に見せつけるぐらいじゃないと、やっていけないかも………。"
+                                ""
                             ]
                         },
                         {
@@ -26870,7 +26870,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "鍛錬を始めますか？"
+                                "Do you want to start training?"
                             ]
                         },
                         {
@@ -27119,7 +27119,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<男A>「なぁ見ろよ！また来てるぜあのエロ女！"
+                                "\\N<Male A>Hey, look! That erotic woman is here\nagain!"
                             ]
                         },
                         {
@@ -27136,7 +27136,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<男B>「おぉ！しかも懲りずにまたあの服じゃねぇか！これはもうわざとだよな！？"
+                                "\\N<Male B>Oh! And she's wearing that outfit again\nwithout any remorse! Is she doing it on purpose!?"
                             ]
                         },
                         {
@@ -27153,7 +27153,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<男C>「だな！\\.それならもう今日はもう遠慮いらねぇな。ふへへへ……。"
+                                "\\N<Male C>Yeah! If that's the case, then we don't\nneed to hold back today. Hehehe..."
                             ]
                         },
                         {
@@ -27223,7 +27223,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「はぁ……、はぁ………─────"
+                                "\\CE[77]\\OC[31]\\N<Rain>Haa... haa..."
                             ]
                         },
                         {
@@ -27312,7 +27312,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<訓練所の冒険者A>「よぉねぇちゃん。また会ったな！"
+                                "\\N<Adventurer A at the training facility>Hey\nthere, girl. We meet again!"
                             ]
                         },
                         {
@@ -27443,7 +27443,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\OC[31]\\N<レイン>「─────何か用ですか？"
+                                "\\OC[31]\\N<Rain>─────Do you need something?"
                             ]
                         },
                         {
@@ -27460,7 +27460,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\N<訓練所の冒険者A>「つれねぇ態度だなぁ。一緒に訓練した仲だろ？"
+                                "\\N<Adventurer A at the training facility>That's\nnot a very friendly attitude. We've trained\ntogether, haven't we?"
                             ]
                         },
                         {
@@ -27488,7 +27488,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[78]\\OC[31]\\N<レイン>「─────そうですね。確かに痴漢に襲われた時のいい訓練になりましたね。"
+                                "\\CE[78]\\OC[31]\\N<Rain>─────Yes, you're right. It\ncertainly was good training when I was attacked by\na pervert."
                             ]
                         },
                         {
@@ -27516,14 +27516,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<訓練所の冒険者A>「そうだろ？あんたみたいな美人はどこでああいう目にあってもおかしくないんだから、"
+                                "\\CE[79]\\N<Adventurer A at the training\nfacility>That's right, isn't it? Beautiful people\nlike you shouldn't be surprised no matter where\nthey encounter those kinds of situations. That\nkind of training is also an important experience,\nyou know?"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ああいう訓練も大事な経験だぜ？"
+                                ""
                             ]
                         },
                         {
@@ -27573,21 +27573,21 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<レイン>「開き直らないでくださいっ。"
+                                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>Please don't\nbe so shameless. \\. Besides, I have no intention\nof getting involved with you all anymore. So\nplease don't disturb me while I'm trying to\nconcentrate."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.それにもうあなた達と関わる気はありませんから。集中しているので邪魔しないで"
+                                ""
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "ください。"
+                                ""
                             ]
                         },
                         {
@@ -27604,14 +27604,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<訓練所の冒険者A>「そんな悲しいこと言うなよぉ。悪かったって。"
+                                "\\CE[79]\\N<Adventurer A at the training\nfacility>Don't say such sad things. I'm sorry... I\njust wanted to be friends with you."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.あんたと仲良くしたかっただけなんだよぉ。"
+                                ""
                             ]
                         },
                         {
@@ -27650,7 +27650,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「しつこいですね。痛い目を見ないとわかりませんか？"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>You're persistent,\naren't you? Don't you understand unless you\nexperience some pain?"
                             ]
                         },
                         {
@@ -27678,14 +27678,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<訓練所の冒険者A>「わかった。どうせ痛い目を見るってんなら、俺らと訓練試合してくれよ。"
+                                "\\CE[79]\\N<Adventurer A at the training\nfacility>Fine. If you're going to have a hard time\nanyway, why don't you have a training match with\nus? I promise that if you win, we won't bother you\nanymore."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "あんたが勝ったらもう関わらないって約束する。"
+                                ""
                             ]
                         },
                         {
@@ -27724,7 +27724,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「─────一応聞きますが、あなた達が勝ったらどうするつもりですか？"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>─────Just to clarify,\nwhat do you plan to do if you win?"
                             ]
                         },
                         {
@@ -27752,7 +27752,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<訓練所の冒険者A>「それぁよぉ、”好きに”させてもらうぜ。\\.それが勝者の特権だろ？"
+                                "\\CE[79]\\N<Adventurer A at the training\nfacility>Well then, let me have my way with you.\nThat's the privilege of the winner, right?"
                             ]
                         },
                         {
@@ -27803,7 +27803,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(ここで断ればどうせしつこく付きまとってくるだろうから、ここできっちり追い払っておかないと。"
+                                "\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(If I refuse\nhere, they'll probably persistently follow me, so\nI need to firmly drive them away here.)"
                             ]
                         },
                         {
@@ -27820,14 +27820,14 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[78]\\C[13]\\OC[31]\\N<内なるレイン>(前回の合同訓練の感じから見て、本気で戦えば負けることはないはず。"
+                                "\\CE[78]\\C[13]\\OC[31]\\N<Inner Rain>(Based on the\nfeeling from the previous joint training, if I\nfight seriously, there should be no way for me to\nlose. \\. Since it's 3 against 1, as long as I'm\ncareful not to get restrained...)"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 2,
                             "parameters": [
-                                "\\.３対１だから拘束されることにさえ気を付けておけば……。"
+                                ""
                             ]
                         },
                         {
@@ -27880,7 +27880,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[78]\\CE[79]\\OC[31]\\N<レイン>「いいでしょう。受けて立ちます。"
+                                "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Very well. I accept\nyour challenge."
                             ]
                         },
                         {
@@ -27908,7 +27908,7 @@
                             "code": 401,
                             "indent": 2,
                             "parameters": [
-                                "\\CE[79]\\N<訓練所の冒険者A>「よ～し。\\.じゃあ、ここはちょっと狭い。地下の闘技場に来てくれ。"
+                                "\\CE[79]\\N<Adventurer A at the training\nfacility>Alright. \\. Then, come with me to the\nunderground arena. It's a bit cramped here."
                             ]
                         },
                         {
@@ -28342,7 +28342,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<訓練室受付>「おう、どうだったその運動着は？"
+                                "\\n<Training Room Reception>Hey, how was that\nworkout outfit?"
                             ]
                         },
                         {
@@ -28388,14 +28388,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<レイン>「特にこれといった問題はありませんでした。性能も変わりなく、着心地も"
+                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>There weren't any\nparticular issues. The performance was unchanged,\nand it felt comfortable to wear."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "良かったです。"
+                                ""
                             ]
                         },
                         {
@@ -28412,14 +28412,14 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\n<訓練室受付>「そうかい。じゃあきっとこれで完成だろうな。"
+                                "\\n<Training Room Reception>I see. Well, then it\nmust be complete now. \\. As promised, I'll wear\nthat outfit. Come back for training while wearing\nit."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 0,
                             "parameters": [
-                                "\\.約束通りその服はやるよ。それ着てまた訓練しに来な。"
+                                ""
                             ]
                         },
                         {
@@ -28534,7 +28534,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[79]\\CE[84]\\C[13]\\OC[31]\\N<内なるレイン>(あの人達を追い払えたのはよかったけど、なんだかんだでいい鍛錬にはなったなぁ……。"
+                                "\\CE[79]\\CE[84]\\C[13]\\OC[31]\\N<Inner Rain>(It was\ngood that we were able to drive them away, but in\nthe end, it turned out to be a good training\nsession...)"
                             ]
                         },
                         {
@@ -28584,7 +28584,7 @@
                             "code": 401,
                             "indent": 0,
                             "parameters": [
-                                "\\CE[78]\\CE[78]\\CE[83]\\C[13]\\OC[31]\\N<内なるレイン>(──……まぁ、度を過ぎなければ、また手合わせしてあげてもいい、かも……。"
+                                "\\CE[78]\\CE[78]\\CE[83]\\C[13]\\OC[31]\\N<Inner\nRain>(──... Well, as long as it doesn't go too\nfar, I might be willing to have another match...)"
                             ]
                         },
                         {
@@ -28658,14 +28658,14 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "\\C[17]スキル『マナバースト』を習得した。"
+                                "Learned the skill Mana Burst. *During combat\nrestraint, it can be used from the Resistance\ncommand."
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 1,
                             "parameters": [
-                                "※戦闘での拘束時、『抵抗』コマンドから使用できます。"
+                                ""
                             ]
                         },
                         {
@@ -28950,7 +28950,7 @@
                             "code": 401,
                             "indent": 1,
                             "parameters": [
-                                "鍛錬を始めますか？"
+                                "Do you want to start training?"
                             ]
                         },
                         {
@@ -29132,7 +29132,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[77]\\OC[31]\\N<レイン>「─────よし、いい鍛錬ができた……！"
+                                "\\CE[77]\\OC[31]\\N<Rain>─────Alright, I had a good\ntraining session...!"
                             ]
                         },
                         {
@@ -29172,14 +29172,14 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "レインのレベルが上がった。"
+                                "Rain's level has increased. \\C[0]Lv.\\V[199]\n⇒\\C[17]Lv.\\V[147]"
                             ]
                         },
                         {
-                            "code": 401,
+                            "code": 0,
                             "indent": 3,
                             "parameters": [
-                                "\\{\\C[0]Lv.\\V[199] ⇒　\\C[17]Lv.\\V[147]"
+                                ""
                             ]
                         },
                         {
@@ -29264,7 +29264,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[77]\\C[13]\\OC[31]\\N<内なるレイン>(─────今日はあまり調子がでなかったな……。"
+                                "\\CE[77]\\C[13]\\OC[31]\\N<Inner Rain>(─────I didn't\nfeel very well today..."
                             ]
                         },
                         {
