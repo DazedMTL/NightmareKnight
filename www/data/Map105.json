@@ -13776,6 +13776,18 @@
                                             "indent": null
                                         },
                                         {
+                                            "code": 12,
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 12,
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 12,
+                                            "indent": null
+                                        },
+                                        {
                                             "code": 0
                                         }
                                     ],
@@ -13799,30 +13811,12 @@
                             ]
                         },
                         {
-                            "code": 356,
+                            "code": 505,
                             "indent": 1,
                             "parameters": [
-                                "MNKR_MoveEventPoint -1 12 26 1"
-                            ]
-                        },
-                        {
-                            "code": 205,
-                            "indent": 1,
-                            "parameters": [
-                                -1,
                                 {
-                                    "list": [
-                                        {
-                                            "code": 19,
-                                            "indent": null
-                                        },
-                                        {
-                                            "code": 0
-                                        }
-                                    ],
-                                    "repeat": false,
-                                    "skippable": false,
-                                    "wait": true
+                                    "code": 12,
+                                    "indent": null
                                 }
                             ]
                         },
@@ -13831,7 +13825,17 @@
                             "indent": 1,
                             "parameters": [
                                 {
-                                    "code": 19,
+                                    "code": 12,
+                                    "indent": null
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 1,
+                            "parameters": [
+                                {
+                                    "code": 12,
                                     "indent": null
                                 }
                             ]
@@ -14347,6 +14351,57 @@
                     "through": false,
                     "trigger": 0,
                     "walkAnime": true
+                },
+                {
+                    "conditions": {
+                        "actorId": 1,
+                        "actorValid": false,
+                        "itemId": 1,
+                        "itemValid": false,
+                        "selfSwitchCh": "A",
+                        "selfSwitchValid": false,
+                        "switch1Id": 1,
+                        "switch1Valid": false,
+                        "switch2Id": 1,
+                        "switch2Valid": false,
+                        "variableId": 54,
+                        "variableValid": true,
+                        "variableValue": 99
+                    },
+                    "directionFix": false,
+                    "image": {
+                        "characterIndex": 0,
+                        "characterName": "",
+                        "direction": 2,
+                        "pattern": 0,
+                        "tileId": 0
+                    },
+                    "list": [
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": []
+                        }
+                    ],
+                    "moveFrequency": 3,
+                    "moveRoute": {
+                        "list": [
+                            {
+                                "code": 0,
+                                "parameters": []
+                            }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": false
+                    },
+                    "moveSpeed": 3,
+                    "moveType": 0,
+                    "priorityType": 0,
+                    "stepAnime": false,
+                    "through": false,
+                    "trigger": 0,
+                    "walkAnime": true
                 }
             ],
             "x": 12,
@@ -14404,6 +14459,57 @@
                     "moveType": 0,
                     "priorityType": 1,
                     "stepAnime": true,
+                    "through": false,
+                    "trigger": 0,
+                    "walkAnime": true
+                },
+                {
+                    "conditions": {
+                        "actorId": 1,
+                        "actorValid": false,
+                        "itemId": 1,
+                        "itemValid": false,
+                        "selfSwitchCh": "A",
+                        "selfSwitchValid": false,
+                        "switch1Id": 1,
+                        "switch1Valid": false,
+                        "switch2Id": 1,
+                        "switch2Valid": false,
+                        "variableId": 54,
+                        "variableValid": true,
+                        "variableValue": 99
+                    },
+                    "directionFix": false,
+                    "image": {
+                        "characterIndex": 0,
+                        "characterName": "",
+                        "direction": 2,
+                        "pattern": 0,
+                        "tileId": 0
+                    },
+                    "list": [
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": []
+                        }
+                    ],
+                    "moveFrequency": 3,
+                    "moveRoute": {
+                        "list": [
+                            {
+                                "code": 0,
+                                "parameters": []
+                            }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": false
+                    },
+                    "moveSpeed": 3,
+                    "moveType": 0,
+                    "priorityType": 0,
+                    "stepAnime": false,
                     "through": false,
                     "trigger": 0,
                     "walkAnime": true
@@ -14997,14 +15103,6 @@
                             ]
                         },
                         {
-                            "code": 123,
-                            "indent": 0,
-                            "parameters": [
-                                "A",
-                                0
-                            ]
-                        },
-                        {
                             "code": 121,
                             "indent": 0,
                             "parameters": [
@@ -15058,13 +15156,13 @@
                         "itemId": 1,
                         "itemValid": false,
                         "selfSwitchCh": "A",
-                        "selfSwitchValid": true,
+                        "selfSwitchValid": false,
                         "switch1Id": 1,
                         "switch1Valid": false,
                         "switch2Id": 1,
                         "switch2Valid": false,
                         "variableId": 48,
-                        "variableValid": false,
+                        "variableValid": true,
                         "variableValue": 2
                     },
                     "directionFix": false,
@@ -16189,7 +16287,7 @@
                 }
             ],
             "x": 12,
-            "y": 14
+            "y": 17
         },
         null,
         null,

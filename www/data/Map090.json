@@ -12260,18 +12260,20 @@
                             ]
                         },
                         {
-                            "code": 123,
+                            "code": 121,
                             "indent": 1,
                             "parameters": [
-                                "A",
+                                250,
+                                250,
                                 0
                             ]
                         },
                         {
-                            "code": 119,
+                            "code": 123,
                             "indent": 1,
                             "parameters": [
-                                "not end"
+                                "C",
+                                0
                             ]
                         },
                         {
@@ -12316,10 +12318,10 @@
                         "actorValid": false,
                         "itemId": 1,
                         "itemValid": false,
-                        "selfSwitchCh": "A",
-                        "selfSwitchValid": true,
-                        "switch1Id": 1,
-                        "switch1Valid": false,
+                        "selfSwitchCh": "C",
+                        "selfSwitchValid": false,
+                        "switch1Id": 250,
+                        "switch1Valid": true,
                         "switch2Id": 1,
                         "switch2Valid": false,
                         "variableId": 51,
@@ -13062,10 +13064,11 @@
                             ]
                         },
                         {
-                            "code": 123,
+                            "code": 121,
                             "indent": 0,
                             "parameters": [
-                                "A",
+                                250,
+                                250,
                                 1
                             ]
                         },
@@ -17433,6 +17436,7 @@
             ],
             "x": 24,
             "y": 4
-        }
+        },
+        null
     ]
 }
