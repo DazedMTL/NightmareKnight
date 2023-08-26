@@ -6762,7 +6762,7 @@ if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.3.5") {
     if (this._windowFontSize === undefined) {
       this._windowFontSize = Math.round(eval(this.settings('Font Size')));
     }
-    return this._windowFontSize;
+    return this._windowFontSize - 6;
   };
 
   Window_QuestData.prototype.standardPadding = function () {
