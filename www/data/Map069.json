@@ -22564,22 +22564,6 @@
                             "code": 108,
                             "indent": 0,
                             "parameters": [
-                                "耐久値が減った状態で運動着に着替えると服が壊れてしまうのを防ぐスイッチ"
-                            ]
-                        },
-                        {
-                            "code": 121,
-                            "indent": 0,
-                            "parameters": [
-                                376,
-                                376,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 108,
-                            "indent": 0,
-                            "parameters": [
                                 "運動着の耐久値はMAXにするが、セイントクロスに戻したときにまた戻すため一時保存しておく"
                             ]
                         },
@@ -22876,7 +22860,7 @@
                                 289,
                                 0,
                                 9,
-                                1
+                                0
                             ]
                         },
                         {
@@ -23015,6 +22999,158 @@
                             "parameters": [
                                 73
                             ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 0,
+                            "parameters": []
+                        }
+                    ],
+                    "moveFrequency": 3,
+                    "moveRoute": {
+                        "list": [
+                            {
+                                "code": 0,
+                                "parameters": []
+                            }
+                        ],
+                        "repeat": true,
+                        "skippable": false,
+                        "wait": false
+                    },
+                    "moveSpeed": 3,
+                    "moveType": 0,
+                    "priorityType": 1,
+                    "stepAnime": true,
+                    "through": false,
+                    "trigger": 0,
+                    "walkAnime": false
+                },
+                {
+                    "conditions": {
+                        "actorId": 1,
+                        "actorValid": false,
+                        "itemId": 1,
+                        "itemValid": false,
+                        "selfSwitchCh": "A",
+                        "selfSwitchValid": false,
+                        "switch1Id": 390,
+                        "switch1Valid": true,
+                        "switch2Id": 509,
+                        "switch2Valid": true,
+                        "variableId": 289,
+                        "variableValid": false,
+                        "variableValue": 9
+                    },
+                    "directionFix": true,
+                    "image": {
+                        "tileId": 0,
+                        "characterName": "!Flame02",
+                        "direction": 4,
+                        "pattern": 1,
+                        "characterIndex": 5
+                    },
+                    "list": [
+                        {
+                            "code": 108,
+                            "indent": 0,
+                            "parameters": [
+                                "<page condition>"
+                            ]
+                        },
+                        {
+                            "code": 111,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                81,
+                                0,
+                                14,
+                                5
+                            ]
+                        },
+                        {
+                            "code": 356,
+                            "indent": 1,
+                            "parameters": [
+                                "activate_page"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 412,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 108,
+                            "indent": 0,
+                            "parameters": [
+                                "</page condition>"
+                            ]
+                        },
+                        {
+                            "code": 356,
+                            "indent": 0,
+                            "parameters": [
+                                "ChoicePos 953 475"
+                            ]
+                        },
+                        {
+                            "code": 102,
+                            "indent": 0,
+                            "parameters": [
+                                [
+                                    "着替える",
+                                    "なにもしない"
+                                ],
+                                1,
+                                0,
+                                2,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                "着替える"
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 1,
+                            "parameters": [
+                                187
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 402,
+                            "indent": 0,
+                            "parameters": [
+                                1,
+                                "なにもしない"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 404,
+                            "indent": 0,
+                            "parameters": []
                         },
                         {
                             "code": 0,
@@ -26215,15 +26351,6 @@
                             ]
                         },
                         {
-                            "code": 121,
-                            "indent": 2,
-                            "parameters": [
-                                355,
-                                355,
-                                0
-                            ]
-                        },
-                        {
                             "code": 230,
                             "indent": 2,
                             "parameters": [
@@ -26727,6 +26854,112 @@
                             "code": 411,
                             "indent": 0,
                             "parameters": []
+                        },
+                        {
+                            "code": 356,
+                            "indent": 1,
+                            "parameters": [
+                                "ShowInfo <\\N[1]>(運動着に着替えよう─────"
+                            ]
+                        },
+                        {
+                            "code": 205,
+                            "indent": 1,
+                            "parameters": [
+                                -1,
+                                {
+                                    "list": [
+                                        {
+                                            "code": 15,
+                                            "parameters": [
+                                                10
+                                            ],
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 20,
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 20,
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 12,
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 15,
+                                            "parameters": [
+                                                10
+                                            ],
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 0
+                                        }
+                                    ],
+                                    "repeat": false,
+                                    "skippable": true,
+                                    "wait": true
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 1,
+                            "parameters": [
+                                {
+                                    "code": 15,
+                                    "parameters": [
+                                        10
+                                    ],
+                                    "indent": null
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 1,
+                            "parameters": [
+                                {
+                                    "code": 20,
+                                    "indent": null
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 1,
+                            "parameters": [
+                                {
+                                    "code": 20,
+                                    "indent": null
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 1,
+                            "parameters": [
+                                {
+                                    "code": 12,
+                                    "indent": null
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 1,
+                            "parameters": [
+                                {
+                                    "code": 15,
+                                    "parameters": [
+                                        10
+                                    ],
+                                    "indent": null
+                                }
+                            ]
                         },
                         {
                             "code": 0,
