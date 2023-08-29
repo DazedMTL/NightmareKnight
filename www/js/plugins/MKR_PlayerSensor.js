@@ -1831,7 +1831,7 @@
         x2 = $gameMap.roundXWithDirection(x, d);
         y2 = $gameMap.roundYWithDirection(y, d);
         d2 = this.reverseDir(d);
-        eventDecision = CEC(DefEventDecision);
+        //eventDecision = CEC(DefEventDecision);
         regionDecisions = getRegionIds(DefRegionDecisions, this.getRegionDecision());
         passableFlag = true;
 
@@ -2487,7 +2487,7 @@
         rex = this._realX;
         rey = this._realY;
         noPass = 0;
-        terrainDecision = CEC(DefTerrainDecision);
+        //terrainDecision = CEC(DefTerrainDecision);
         realX = DefRealRangeX[0];
         realY = DefRealRangeY[0];
 
@@ -2838,8 +2838,8 @@
         sy = this.deltaYFrom($gamePlayer._realY);
         ex = this.x;
         ey = this.y;
-        bothSensor = CEC(DefBothSensor);
-        terrainDecision = CEC(DefTerrainDecision);
+        //bothSensor = CEC(DefBothSensor);
+        //terrainDecision = CEC(DefTerrainDecision);
         realX = DefRealRangeX[0];
         realY = DefRealRangeY[0];
 
@@ -2891,7 +2891,7 @@
         obstacle = -1;
         status = "Last";
         noPassDir = (signX != 0) ? ry : rx;
-        terrainDecision = CEC(DefTerrainDecision);
+        //terrainDecision = CEC(DefTerrainDecision);
 
         // 正面探索
         for (j = 0; j <= cnt; j++) {
@@ -3108,7 +3108,7 @@
         direction = this._character.direction();
         dirFixed = this._character.getDirectionFixed();
         direction = (dirFixed == -1) ? direction : dirFixed;
-        bothSensor = CEC(DefBothSensor);
+        //bothSensor = CEC(DefBothSensor);
         coordinates = this._coordinate;
         sensorType = this._character.getSensorType();
         sensorRangeC = this._character.getSensorRangeC();
@@ -3210,7 +3210,7 @@
         direction = this._character.direction();
         dirFixed = this._character.getDirectionFixed();
         direction = (dirFixed == -1) ? direction : dirFixed;
-        bothSensor = CEC(DefBothSensor);
+        //bothSensor = CEC(DefBothSensor);
         sensorType = this._character.getSensorType();
         sensorRangeC = this._character.getSensorRangeC();
         sensorRange = this._character.getSensorRange();
@@ -3764,7 +3764,7 @@
             argCount = arguments.length;
             for (i = 0; i < argCount; i++) {
                 if (Array.isArray(arguments[i]) && arguments[i].length > 0) {
-                    ArrayRegionId.push(CEC(arguments[i][0]));
+                    //ArrayRegionId.push(CEC(arguments[i][0]));
                 } else if (typeof arguments[i] == "string") {
                     ary = arguments[i].split("_").filter(function (val) {
                         return val != "" && val != "0";

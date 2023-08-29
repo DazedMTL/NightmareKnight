@@ -5863,7 +5863,7 @@
                     "moveType": 0,
                     "priorityType": 0,
                     "stepAnime": false,
-                    "through": false,
+                    "through": true,
                     "trigger": 0,
                     "walkAnime": true
                 },
@@ -5977,13 +5977,13 @@
                     "moveType": 0,
                     "priorityType": 0,
                     "stepAnime": false,
-                    "through": false,
+                    "through": true,
                     "trigger": 0,
                     "walkAnime": true
                 }
             ],
-            "x": 16,
-            "y": 23
+            "x": 15,
+            "y": 22
         },
         {
             "id": 4,
@@ -8275,7 +8275,7 @@
                             "code": 117,
                             "indent": 1,
                             "parameters": [
-                                275
+                                276
                             ]
                         },
                         {
@@ -8729,6 +8729,17 @@
                             ]
                         },
                         {
+                            "code": 122,
+                            "indent": 1,
+                            "parameters": [
+                                126,
+                                126,
+                                0,
+                                4,
+                                "this._eventId"
+                            ]
+                        },
+                        {
                             "code": 205,
                             "indent": 1,
                             "parameters": [
@@ -9127,7 +9138,7 @@
                                         }
                                     ],
                                     "repeat": false,
-                                    "skippable": false,
+                                    "skippable": true,
                                     "wait": true
                                 }
                             ]
@@ -12699,16 +12710,6 @@
                             "parameters": []
                         },
                         {
-                            "code": 411,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 0,
-                            "indent": 1,
-                            "parameters": []
-                        },
-                        {
                             "code": 412,
                             "indent": 0,
                             "parameters": []
@@ -13720,7 +13721,7 @@
                             "code": 117,
                             "indent": 1,
                             "parameters": [
-                                276
+                                275
                             ]
                         },
                         {

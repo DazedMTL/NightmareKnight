@@ -7959,11 +7959,6 @@
                             ]
                         },
                         {
-                            "code": 221,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
                             "code": 111,
                             "indent": 0,
                             "parameters": [
@@ -7973,6 +7968,11 @@
                                 2,
                                 2
                             ]
+                        },
+                        {
+                            "code": 221,
+                            "indent": 1,
+                            "parameters": []
                         },
                         {
                             "code": 121,
@@ -9386,13 +9386,6 @@
                             ]
                         },
                         {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 0,
                             "parameters": [
@@ -9622,6 +9615,37 @@
                             ]
                         },
                         {
+                            "code": 205,
+                            "indent": 0,
+                            "parameters": [
+                                0,
+                                {
+                                    "list": [
+                                        {
+                                            "code": 16,
+                                            "indent": null
+                                        },
+                                        {
+                                            "code": 0
+                                        }
+                                    ],
+                                    "repeat": false,
+                                    "skippable": false,
+                                    "wait": true
+                                }
+                            ]
+                        },
+                        {
+                            "code": 505,
+                            "indent": 0,
+                            "parameters": [
+                                {
+                                    "code": 16,
+                                    "indent": null
+                                }
+                            ]
+                        },
+                        {
                             "code": 117,
                             "indent": 0,
                             "parameters": [
@@ -9665,7 +9689,7 @@
                         "wait": false
                     },
                     "moveSpeed": 3,
-                    "moveType": 3,
+                    "moveType": 0,
                     "priorityType": 1,
                     "stepAnime": false,
                     "through": false,

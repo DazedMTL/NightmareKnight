@@ -7092,6 +7092,43 @@
                             ]
                         },
                         {
+                            "code": 108,
+                            "indent": 0,
+                            "parameters": [
+                                "ディモン戦は一度も自由行動なしで２連戦状態のため、BatteleHudが２戦目に表示されなくなるので"
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "次に再生するイベントを並列処理にする必要がある。それだとキャラが動いちゃうので、"
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "MKR_PlayerMoveForbid.jsで移動禁止にした"
+                            ]
+                        },
+                        {
+                            "code": 121,
+                            "indent": 0,
+                            "parameters": [
+                                452,
+                                452,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 135,
+                            "indent": 0,
+                            "parameters": [
+                                0
+                            ]
+                        },
+                        {
                             "code": 201,
                             "indent": 0,
                             "parameters": [
@@ -12326,13 +12363,6 @@
                             ]
                         },
                         {
-                            "code": 117,
-                            "indent": 3,
-                            "parameters": [
-                                12
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 3,
                             "parameters": [
@@ -12444,13 +12474,6 @@
                             ]
                         },
                         {
-                            "code": 117,
-                            "indent": 3,
-                            "parameters": [
-                                93
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 3,
                             "parameters": [
@@ -12459,6 +12482,13 @@
                                 0,
                                 4,
                                 "\"bus_003\""
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                93
                             ]
                         },
                         {
@@ -12533,7 +12563,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_001\""
+                                "\"bus_005\""
                             ]
                         },
                         {
@@ -12723,7 +12753,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_001\""
+                                "\"bus_005\""
                             ]
                         },
                         {
@@ -13083,13 +13113,6 @@
                             ]
                         },
                         {
-                            "code": 117,
-                            "indent": 3,
-                            "parameters": [
-                                93
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 3,
                             "parameters": [
@@ -13098,6 +13121,13 @@
                                 0,
                                 4,
                                 "\"bus_003\""
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                93
                             ]
                         },
                         {
@@ -13178,7 +13208,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_000\""
+                                "\"bus_006\""
                             ]
                         },
                         {
@@ -13319,17 +13349,6 @@
                             ]
                         },
                         {
-                            "code": 122,
-                            "indent": 3,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_002\""
-                            ]
-                        },
-                        {
                             "code": 101,
                             "indent": 3,
                             "parameters": [
@@ -13361,7 +13380,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_000\""
+                                "\"bus_006\""
                             ]
                         },
                         {
@@ -13495,7 +13514,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_000\""
+                                "\"bus_006\""
                             ]
                         },
                         {
@@ -17817,953 +17836,6 @@
                     "stepAnime": false,
                     "through": false,
                     "trigger": 0,
-                    "walkAnime": true
-                },
-                {
-                    "conditions": {
-                        "actorId": 1,
-                        "actorValid": false,
-                        "itemId": 1,
-                        "itemValid": false,
-                        "selfSwitchCh": "A",
-                        "selfSwitchValid": false,
-                        "switch1Id": 274,
-                        "switch1Valid": true,
-                        "switch2Id": 1,
-                        "switch2Valid": false,
-                        "variableId": 1,
-                        "variableValid": false,
-                        "variableValue": 0
-                    },
-                    "directionFix": false,
-                    "image": {
-                        "characterIndex": 0,
-                        "characterName": "",
-                        "direction": 2,
-                        "pattern": 0,
-                        "tileId": 0
-                    },
-                    "list": [
-                        {
-                            "code": 203,
-                            "indent": 0,
-                            "parameters": [
-                                12,
-                                0,
-                                21,
-                                18,
-                                8
-                            ]
-                        },
-                        {
-                            "code": 205,
-                            "indent": 0,
-                            "parameters": [
-                                9,
-                                {
-                                    "list": [
-                                        {
-                                            "code": 41,
-                                            "parameters": [
-                                                "Actor0_1",
-                                                0
-                                            ],
-                                            "indent": null
-                                        },
-                                        {
-                                            "code": 0
-                                        }
-                                    ],
-                                    "repeat": false,
-                                    "skippable": false,
-                                    "wait": true
-                                }
-                            ]
-                        },
-                        {
-                            "code": 505,
-                            "indent": 0,
-                            "parameters": [
-                                {
-                                    "code": 41,
-                                    "parameters": [
-                                        "Actor0_1",
-                                        0
-                                    ],
-                                    "indent": null
-                                }
-                            ]
-                        },
-                        {
-                            "code": 203,
-                            "indent": 0,
-                            "parameters": [
-                                9,
-                                0,
-                                20,
-                                11,
-                                8
-                            ]
-                        },
-                        {
-                            "code": 204,
-                            "indent": 0,
-                            "parameters": [
-                                4,
-                                2,
-                                6
-                            ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                3,
-                                "01_nk_screen_mist",
-                                0,
-                                0,
-                                0,
-                                0,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 241,
-                            "indent": 0,
-                            "parameters": [
-                                {
-                                    "name": "01_bgm_busta",
-                                    "volume": 50,
-                                    "pitch": 100,
-                                    "pan": 0
-                                }
-                            ]
-                        },
-                        {
-                            "code": 355,
-                            "indent": 0,
-                            "parameters": [
-                                "SceneManager._scene._spriteset._fadeSprite.setColor(255, 255, 255);"
-                            ]
-                        },
-                        {
-                            "code": 222,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                100
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                77,
-                                77,
-                                0,
-                                0,
-                                9
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                93
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<Buster>The weakness of 'Nightmare Heaven' is that it can\nonly amplify 'repressed' desires."
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                78,
-                                78,
-                                0,
-                                0,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"001\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                89,
-                                89,
-                                0,
-                                4,
-                                "\"sweat\""
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                77
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\OC[31]\\N<Rain>───Repressed? Does that mean wanting to do it but\nholding back?"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\OC[6]\\N<Buster>That's right. \\.\\. Unrepressed... In other words,\ndesires that are accepted by oneself and not held\nback cannot be amplified."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_002\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<Buster>In other words, it means that it doesn't work on\nthose who act freely without caring about others.\nThat's why they probably allied with thieves like\nus."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_005\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<Buster>In other words, all you have to do is liberate\nyourself. Stealing, extorting, violence, sex...\nDon't deny your own desires. That's the way to\nnullify 'Nightmare Heaven'."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"001\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"002\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>.........Normally, you can't do such things.......\nPeople have reason and live by compromising with\neach other, that's why peace is maintained......."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[94]\\OC[6]\\N<Buster>No, I'm not saying to live like an animal, giving\nin to your desires without reason."
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<Buster>What's important is whether you have good control\nover the intensity of your desires. The essence of\n'Nightmare Heaven' lies in 'taking away the\ncontrol over desires'."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<Buster>Accepting desires means being able to handle them\nwell. If you can do that, they won't be amplified\non their own, nor will they be manipulated."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"002\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"011\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>.........Finding a good way to deal with my own\ndesires.........────"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"012\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[6]\\N<Buster>Well, it might be difficult for someone as\nserious-looking as you. Maybe you should try\ngetting hypnotized or something? Haha."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"003\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"014\""
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                78
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                79
-                            ]
-                        },
-                        {
-                            "code": 213,
-                            "indent": 0,
-                            "parameters": [
-                                -1,
-                                1,
-                                true
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"010\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\CE[79]\\CE[78]\\OC[31]\\N<Rain>I see... So there's a way───! Maybe I can somehow\nmake it work...!"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 213,
-                            "indent": 0,
-                            "parameters": [
-                                12,
-                                2,
-                                true
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[94]\\OC[6]\\N<Buster>.........I don't really get it, but did you figure\nit out on your own? \\.\\. By the way, let me tell\nyou one more thing."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\OC[6]\\N<Buster>Using 'Nightmare Heaven' naturally consumes\nmagical power. Moreover, it has quite poor fuel\nefficiency."
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_001\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<Buster>So if we make Dimon consume magical power, he'll\nonly be able to use the weak 'Nightmare Heaven'.\nMaybe, if we go that far, you might have a chance\nto win..."
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": [
-                                ""
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                60
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                97
-                            ]
-                        },
-                        {
-                            "code": 355,
-                            "indent": 0,
-                            "parameters": [
-                                "SceneManager._scene._spriteset._fadeSprite.setColor(255, 255, 255);"
-                            ]
-                        },
-                        {
-                            "code": 221,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                35,
-                                35,
-                                0,
-                                1,
-                                34
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                74
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                69
-                            ]
-                        },
-                        {
-                            "code": 242,
-                            "indent": 0,
-                            "parameters": [
-                                1
-                            ]
-                        },
-                        {
-                            "code": 235,
-                            "indent": 0,
-                            "parameters": [
-                                3
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                60
-                            ]
-                        },
-                        {
-                            "code": 201,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                120,
-                                19,
-                                22,
-                                8,
-                                1
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": []
-                        }
-                    ],
-                    "moveFrequency": 3,
-                    "moveRoute": {
-                        "list": [
-                            {
-                                "code": 0,
-                                "parameters": []
-                            }
-                        ],
-                        "repeat": true,
-                        "skippable": false,
-                        "wait": false
-                    },
-                    "moveSpeed": 3,
-                    "moveType": 0,
-                    "priorityType": 0,
-                    "stepAnime": false,
-                    "through": false,
-                    "trigger": 3,
                     "walkAnime": true
                 }
             ],
