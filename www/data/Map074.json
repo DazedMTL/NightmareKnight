@@ -7092,6 +7092,43 @@
                             ]
                         },
                         {
+                            "code": 108,
+                            "indent": 0,
+                            "parameters": [
+                                "ディモン戦は一度も自由行動なしで２連戦状態のため、BatteleHudが２戦目に表示されなくなるので"
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "次に再生するイベントを並列処理にする必要がある。それだとキャラが動いちゃうので、"
+                            ]
+                        },
+                        {
+                            "code": 408,
+                            "indent": 0,
+                            "parameters": [
+                                "MKR_PlayerMoveForbid.jsで移動禁止にした"
+                            ]
+                        },
+                        {
+                            "code": 121,
+                            "indent": 0,
+                            "parameters": [
+                                452,
+                                452,
+                                0
+                            ]
+                        },
+                        {
+                            "code": 135,
+                            "indent": 0,
+                            "parameters": [
+                                0
+                            ]
+                        },
+                        {
                             "code": 201,
                             "indent": 0,
                             "parameters": [
@@ -12326,13 +12363,6 @@
                             ]
                         },
                         {
-                            "code": 117,
-                            "indent": 3,
-                            "parameters": [
-                                12
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 3,
                             "parameters": [
@@ -12444,13 +12474,6 @@
                             ]
                         },
                         {
-                            "code": 117,
-                            "indent": 3,
-                            "parameters": [
-                                93
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 3,
                             "parameters": [
@@ -12459,6 +12482,13 @@
                                 0,
                                 4,
                                 "\"bus_003\""
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                93
                             ]
                         },
                         {
@@ -12533,7 +12563,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_001\""
+                                "\"bus_005\""
                             ]
                         },
                         {
@@ -12723,7 +12753,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_001\""
+                                "\"bus_005\""
                             ]
                         },
                         {
@@ -13083,13 +13113,6 @@
                             ]
                         },
                         {
-                            "code": 117,
-                            "indent": 3,
-                            "parameters": [
-                                93
-                            ]
-                        },
-                        {
                             "code": 122,
                             "indent": 3,
                             "parameters": [
@@ -13098,6 +13121,13 @@
                                 0,
                                 4,
                                 "\"bus_003\""
+                            ]
+                        },
+                        {
+                            "code": 117,
+                            "indent": 3,
+                            "parameters": [
+                                93
                             ]
                         },
                         {
@@ -13178,7 +13208,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_000\""
+                                "\"bus_006\""
                             ]
                         },
                         {
@@ -13319,17 +13349,6 @@
                             ]
                         },
                         {
-                            "code": 122,
-                            "indent": 3,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_002\""
-                            ]
-                        },
-                        {
                             "code": 101,
                             "indent": 3,
                             "parameters": [
@@ -13343,7 +13362,7 @@
                             "code": 401,
                             "indent": 3,
                             "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「戦いにも負けて、奪うこともできないとあっちゃ……、これはもう\"敗北\"だ。"
+                                "\\OC[6]\\N<\\N[9]>「戦いにも負けて、奪うこともできないとあっちゃ……、これはもう\"敗北\"だ。"
                             ]
                         },
                         {
@@ -13361,7 +13380,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_000\""
+                                "\"bus_006\""
                             ]
                         },
                         {
@@ -13495,7 +13514,7 @@
                                 114,
                                 0,
                                 4,
-                                "\"bus_000\""
+                                "\"bus_006\""
                             ]
                         },
                         {
@@ -17817,953 +17836,6 @@
                     "stepAnime": false,
                     "through": false,
                     "trigger": 0,
-                    "walkAnime": true
-                },
-                {
-                    "conditions": {
-                        "actorId": 1,
-                        "actorValid": false,
-                        "itemId": 1,
-                        "itemValid": false,
-                        "selfSwitchCh": "A",
-                        "selfSwitchValid": false,
-                        "switch1Id": 274,
-                        "switch1Valid": true,
-                        "switch2Id": 1,
-                        "switch2Valid": false,
-                        "variableId": 1,
-                        "variableValid": false,
-                        "variableValue": 0
-                    },
-                    "directionFix": false,
-                    "image": {
-                        "characterIndex": 0,
-                        "characterName": "",
-                        "direction": 2,
-                        "pattern": 0,
-                        "tileId": 0
-                    },
-                    "list": [
-                        {
-                            "code": 203,
-                            "indent": 0,
-                            "parameters": [
-                                12,
-                                0,
-                                21,
-                                18,
-                                8
-                            ]
-                        },
-                        {
-                            "code": 205,
-                            "indent": 0,
-                            "parameters": [
-                                9,
-                                {
-                                    "list": [
-                                        {
-                                            "code": 41,
-                                            "parameters": [
-                                                "Actor0_1",
-                                                0
-                                            ],
-                                            "indent": null
-                                        },
-                                        {
-                                            "code": 0
-                                        }
-                                    ],
-                                    "repeat": false,
-                                    "skippable": false,
-                                    "wait": true
-                                }
-                            ]
-                        },
-                        {
-                            "code": 505,
-                            "indent": 0,
-                            "parameters": [
-                                {
-                                    "code": 41,
-                                    "parameters": [
-                                        "Actor0_1",
-                                        0
-                                    ],
-                                    "indent": null
-                                }
-                            ]
-                        },
-                        {
-                            "code": 203,
-                            "indent": 0,
-                            "parameters": [
-                                9,
-                                0,
-                                20,
-                                11,
-                                8
-                            ]
-                        },
-                        {
-                            "code": 204,
-                            "indent": 0,
-                            "parameters": [
-                                4,
-                                2,
-                                6
-                            ]
-                        },
-                        {
-                            "code": 231,
-                            "indent": 0,
-                            "parameters": [
-                                3,
-                                "01_nk_screen_mist",
-                                0,
-                                0,
-                                0,
-                                0,
-                                100,
-                                100,
-                                255,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 241,
-                            "indent": 0,
-                            "parameters": [
-                                {
-                                    "name": "01_bgm_busta",
-                                    "volume": 50,
-                                    "pitch": 100,
-                                    "pan": 0
-                                }
-                            ]
-                        },
-                        {
-                            "code": 355,
-                            "indent": 0,
-                            "parameters": [
-                                "SceneManager._scene._spriteset._fadeSprite.setColor(255, 255, 255);"
-                            ]
-                        },
-                        {
-                            "code": 222,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                100
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                77,
-                                77,
-                                0,
-                                0,
-                                9
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                93
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「『ナイトメアヘヴン』の弱点は、\"抑圧された\"欲望しか増幅できないことだ。"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                78,
-                                78,
-                                0,
-                                0,
-                                0
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"001\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                89,
-                                89,
-                                0,
-                                4,
-                                "\"sweat\""
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                77
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\OC[31]\\N<\\N[1]>「───抑圧？やりたいけど我慢している、ということですか？"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\OC[6]\\N<\\N[9]>「そうだ。\\.\\.抑圧されてない……つまり自身が受け入れ、我慢しないで発散している"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "欲望は増幅できない。"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_002\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「要は他人のことなんて気にせず、自由に振る舞うやつには効かねぇってことだ。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "だから奴は俺達のような盗賊を味方にしたんだろうな。"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_005\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「つまりだ、自分を解放すればいんだよ。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "盗みも強請りも、暴力もセックスも……自分の欲求を否定するな。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "それが『ナイトメアヘヴン』を無効化する方法だ。"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"001\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"002\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<\\N[1]>「………そんなこと、普通はできません……。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "人には理性があって、お互い譲歩しあって生きているから、平和が成り立つん"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "ですから……。"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[78]\\CE[94]\\OC[6]\\N<\\N[9]>「違う。理性をなくして、ケモノのように欲望のまま生きろっていってんじゃねぇ。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「重要なのは、欲望の大きさに対して、上手くコントロールが効いているかどうかだ。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "『ナイトメアヘヴン』の本質は、\"欲望のコントロール権を奪う\"ことにある。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「欲望を\"受け入れる\"ってのは、うまく付き合うってことだ。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "それができりゃ勝手に増幅されることもねぇし、操作されることもねぇ。"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"002\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"011\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[78]\\OC[31]\\N<\\N[1]>「………自分の欲望との、うまい付き合い方………────"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"012\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[79]\\CE[94]\\OC[6]\\N<\\N[9]>「ま、お前みたいないかにも真面目って感じのやつは難しいのかもな。"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "催眠にでもかけてもらえばいいんじゃねぇか？ははっ。"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"003\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"014\""
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                78
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                79
-                            ]
-                        },
-                        {
-                            "code": 213,
-                            "indent": 0,
-                            "parameters": [
-                                -1,
-                                1,
-                                true
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"010\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\CE[79]\\CE[78]\\OC[31]\\N<\\N[1]>「そうか……その手がある───！これならなんとかなるかもしれない……！"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 213,
-                            "indent": 0,
-                            "parameters": [
-                                12,
-                                2,
-                                true
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                30
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_003\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                85,
-                                85,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                87,
-                                87,
-                                0,
-                                4,
-                                "\"000\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[78]\\CE[79]\\CE[94]\\OC[6]\\N<\\N[9]>「………よくわかんねぇが、自己解決したのか？"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\.\\.ついでにもうひとつ教えてやるよ。"
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\OC[6]\\N<\\N[9]>「『ナイトメアヘヴン』を使うには当然魔力を消費する。しかも結構燃費が悪い。"
-                            ]
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                114,
-                                114,
-                                0,
-                                4,
-                                "\"bus_001\""
-                            ]
-                        },
-                        {
-                            "code": 101,
-                            "indent": 0,
-                            "parameters": [
-                                "",
-                                0,
-                                0,
-                                2
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "\\CE[94]\\OC[6]\\N<\\N[9]>「だから\\N[7]に魔力を消費させちまえば、効果の弱い『ナイトメアヘヴン』しか"
-                            ]
-                        },
-                        {
-                            "code": 401,
-                            "indent": 0,
-                            "parameters": [
-                                "撃てなくなる。もしかしたら、そこまでいけばお前にも勝機があるかもな……。"
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                60
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                97
-                            ]
-                        },
-                        {
-                            "code": 355,
-                            "indent": 0,
-                            "parameters": [
-                                "SceneManager._scene._spriteset._fadeSprite.setColor(255, 255, 255);"
-                            ]
-                        },
-                        {
-                            "code": 221,
-                            "indent": 0,
-                            "parameters": []
-                        },
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                35,
-                                35,
-                                0,
-                                1,
-                                34
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                74
-                            ]
-                        },
-                        {
-                            "code": 117,
-                            "indent": 0,
-                            "parameters": [
-                                69
-                            ]
-                        },
-                        {
-                            "code": 242,
-                            "indent": 0,
-                            "parameters": [
-                                1
-                            ]
-                        },
-                        {
-                            "code": 235,
-                            "indent": 0,
-                            "parameters": [
-                                3
-                            ]
-                        },
-                        {
-                            "code": 230,
-                            "indent": 0,
-                            "parameters": [
-                                60
-                            ]
-                        },
-                        {
-                            "code": 201,
-                            "indent": 0,
-                            "parameters": [
-                                0,
-                                120,
-                                19,
-                                22,
-                                8,
-                                1
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": []
-                        }
-                    ],
-                    "moveFrequency": 3,
-                    "moveRoute": {
-                        "list": [
-                            {
-                                "code": 0,
-                                "parameters": []
-                            }
-                        ],
-                        "repeat": true,
-                        "skippable": false,
-                        "wait": false
-                    },
-                    "moveSpeed": 3,
-                    "moveType": 0,
-                    "priorityType": 0,
-                    "stepAnime": false,
-                    "through": false,
-                    "trigger": 3,
                     "walkAnime": true
                 }
             ],

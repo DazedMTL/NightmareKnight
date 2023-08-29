@@ -1,11 +1,25 @@
 //=============================================================================
 // CustomizeConfigItem.js
 // ----------------------------------------------------------------------------
-// Copyright (c) 2015 Triacontane
+// (C) 2015 Triacontane
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 // ----------------------------------------------------------------------------
 // Version
+// 2.4.0 2023/02/16 スクリプトで現在の設定値を取得できるよう修正
+// 2.3.0 2021/12/21 項目に余白を設定できる機能を追加
+// 2.2.1 2021/08/05 セーブがある状態で隠し項目を追加した時に上手く動作しない問題を修正(by柊菜緒さま)
+// 2.2.0 2021/03/09 スクリプトが指定されているときに項目決定すると決定SEを演奏するよう修正
+// 2.1.2 2020/10/13 Mano_InputConfig.jsと併用したとき、項目を末尾以外に追加すると表示不整合が発生する競合を修正
+// 2.1.0 2017/12/15 追加項目のデフォルト項目を含めた並び順を自由に設定できる機能を追加
+//                  項目名称を日本語化
+// 2.0.1 2017/10/15 2.0.0の修正によりスイッチ項目を有効にしたときにゲーム開始するとエラーになる問題を修正
+// 2.0.0 2017/09/10 ツクールの型指定機能に対応し、各オプション項目を任意の数だけ追加できる機能を追加
+// 1.2.3 2017/06/08 1.2.2の修正により起動できなくなっていた問題を修正
+// 1.2.2 2017/05/27 競合の可能性のある記述（Objectクラスへのプロパティ追加）をリファクタリング
+// 1.2.1 2016/12/08 1.2.0の機能追加以降、デフォルト項目で決定ボタンを押すとエラーになっていた現象を修正
+// 1.2.0 2016/12/02 各項目で決定ボタンを押したときに実行されるスクリプトを設定できる機能を追加
+// 1.1.1 2016/08/14 スイッチ項目、音量項目の初期値が無効になっていた問題を修正
 // 1.1.0 2016/04/29 項目をクリックしたときに項目値が循環するよう修正
 // 1.0.0 2016/01/17 初版
 // ----------------------------------------------------------------------------
@@ -14,52 +28,29 @@
 // [GitHub] : https://github.com/triacontane/
 //=============================================================================
 
-/*:ja
+/*:
  * @plugindesc オプション任意項目作成プラグイン
  * @author トリアコンタン
  *
- * 項目を増やしたい場合は、以下をコピーしてください。
- * -------------------------------------------------------
- * @param スイッチ項目1
- * @desc 項目の情報です。以下の順で指定します。
- * 名称,初期値,スイッチ番号,隠しフラグ
- * @default スイッチ項目1:OFF:0:OFF
+ * @param 数値項目
+ * @desc 追加する数値項目のオプション項目情報です。
+ * @default
+ * @type struct<NumberData>[]
  *
- * @param 数値項目1
- * @desc 項目の情報です。以下の順で指定します。
- * 名称:初期値:変数番号:隠しフラグ:最小値:最大値:変化値
- * @default 数値項目1:0:0:OFF:0:10:1
+ * @param 文字項目
+ * @desc 追加する文字項目のオプション項目情報です。
+ * @default
+ * @type struct<StringData>[]
  *
- * @param 音量項目1
- * @desc 項目の情報です。以下の順で指定します。
- * 名称:初期値:変数番号:隠しフラグ
- * @default 音量項目1:0:0:OFF
+ * @param スイッチ項目
+ * @desc 追加するスイッチ項目のオプション項目情報です。
+ * @default
+ * @type struct<BooleanData>[]
  *
- * @param 文字項目1
- * @desc 項目の情報です。以下の順で指定します。
- * 名称:初期値:変数番号:隠しフラグ:文字の配列
- * @default 文字項目1:0:0:OFF:EASY, NORMAL, HARD, VERY HARD
- *
- * @param スイッチ項目2
- * @desc 項目の情報です。以下の順で指定します。
- * 名称,初期値,スイッチ番号,隠しフラグ
- * @default スイッチ項目2:OFF:0:OFF
- *
- * @param 数値項目2
- * @desc 項目の情報です。以下の順で指定します。
- * 名称:初期値:変数番号:隠しフラグ:最小値:最大値:変化値
- * @default 数値項目2:0:0:OFF:0:10:1
- *
- * @param 音量項目2
- * @desc 項目の情報です。以下の順で指定します。
- * 名称:初期値:変数番号:隠しフラグ
- * @default 音量項目2:0:0:OFF
- *
- * @param 文字項目2
- * @desc 項目の情報です。以下の順で指定します。
- * 名称:初期値:変数番号:隠しフラグ:文字の配列
- * @default 文字項目2:0:0:OFF:EASY, NORMAL, HARD, VERY HARD
- * --------------------------------------------------------
+ * @param 音量項目
+ * @desc 追加する音量項目のオプション項目情報です。
+ * @default
+ * @type struct<VolumeData>[]
  *
  * @help オプション画面に任意の項目を追加します。
  * 項目の種類は、以下の四種類があります。
@@ -73,33 +64,24 @@
  * 隠しフラグを設定すると、オプション画面に表示されなくなります。
  * ゲームを進めないと出現しない項目などに利用できます。
  * 隠しフラグはプラグインコマンドから解除できます。
- * それぞれの値はコロン（:）区切りで指定してください。
  *
- * 指定項目「名称:初期値:値が設定されるスイッチ:隠しフラグ」
- * 例：スイッチ項目1:OFF:1:OFF
+ * スクリプトは上級者向け項目です。対象にカーソルを合わせて決定ボタンを
+ * 押下すると指定したJavaScriptを実行できます。
+ * 主に専用の設定画面などの遷移に使用します。
  *
  * ・数値項目：
  * 数値を選択する項目です。指定した番号の変数と値が同期されます。
  * スイッチ項目で指定した内容に加えて、
  * 最小値と最大値および一回の入力で変化する値を指定します。
  *
- * 指定項目「名称:初期値:値が設定される変数:隠しフラグ:最小値:最大値:変化値」
- * 例：数値項目1:0:1:OFF:0:10:1
- *
  * ・音量項目：
  * 音量を選択する項目です。BGMボリュームなどと同じ仕様で
  * キャラクターごとのボイス音量等に使ってください。
- *
- * 指定項目「名称:初期値:値が設定される変数:隠しフラグ」
- * 例：音量項目1:0:2:OFF
  *
  * ・文字項目：
  * 文字を選択する項目です。指定した文字の配列から項目を選択します。
  * 選択した文字のインデックス(開始位置は0)が変数に設定されます。
  * 初期値に設定する値もインデックスです。
- *
- * 設定項目「名称:初期値:値が設定される変数:隠しフラグ:文字の配列」
- * 例：文字項目1:0:3:OFF:EASY, NORMAL, HARD, VERY HARD
  *
  * プラグインコマンド詳細
  *  イベントコマンド「プラグインコマンド」から実行。
@@ -108,12 +90,257 @@
  *  CC_UNLOCK or
  *  オプション任意項目の隠し解除 [項目名]
  *  　指定した項目の隠しフラグを解除します。
- *  使用例：CC_ITEM_VALID 数値項目1
+ *  使用例：CC_UNLOCK 数値項目1
  *
  * 利用規約：
  *  作者に無断で改変、再配布が可能で、利用形態（商用、18禁利用等）
  *  についても制限はありません。
  *  このプラグインはもうあなたのものです。
+ */
+
+/*~struct~NumberData:
+ * @param Name
+ * @text 項目名称
+ * @desc 項目の名称です。
+ * @default 数値項目1
+ *
+ * @param DefaultValue
+ * @text 初期値
+ * @desc 項目の初期値です。
+ * @default 0
+ * @type number
+ *
+ * @param VariableID
+ * @text 変数番号
+ * @desc 項目の設定内容が格納される変数番号です。
+ * @default 0
+ * @type variable
+ *
+ * @param HiddenFlag
+ * @text 隠しフラグ
+ * @desc 項目がデフォルトで隠されるようになります。プラグインコマンドの実行で表示されます。
+ * @default false
+ * @type boolean
+ *
+ * @param Script
+ * @text スクリプト
+ * @desc 項目を決定したときに実行されるスクリプトです。
+ * @default
+ *
+ * @param NumberMin
+ * @text 最小値
+ * @desc 項目の最小値です。
+ * @default 0
+ * @type number
+ *
+ * @param NumberMax
+ * @text 最大値
+ * @desc 項目の最大値です。
+ * @default 100
+ * @type number
+ *
+ * @param NumberStep
+ * @text 変化値
+ * @desc 項目を操作したときの数値の変化量です。
+ * @default 20
+ * @type number
+ *
+ * @param AddPosition
+ * @text 追加位置
+ * @desc 項目を追加する位置です。指定した項目の上に追加されます。
+ * @default
+ * @type select
+ * @option 末尾に追加
+ * @value
+ * @option 常時ダッシュ
+ * @value alwaysDash
+ * @option コマンド記憶
+ * @value commandRemember
+ * @option BGM 音量
+ * @value bgmVolume
+ * @option BGS 音量
+ * @value bgsVolume
+ * @option ME 音量
+ * @value meVolume
+ * @option SE 音量
+ * @value seVolume
+ *
+ * @param PaddingTop
+ * @text 余白
+ * @desc 項目の上の余白ピクセル数です。項目の間隔を開けたいときに指定します。
+ * @default 0
+ * @type number
+ */
+/*~struct~BooleanData:
+ * @param Name
+ * @text 項目名称
+ * @desc 項目の名称です。
+ * @default スイッチ項目1
+ *
+ * @param DefaultValue
+ * @text 初期値
+ * @desc 項目の初期値です。
+ * @default false
+ * @type boolean
+ *
+ * @param SwitchID
+ * @text スイッチ番号
+ * @desc 項目の設定内容が格納されるスイッチ番号です。
+ * @default 0
+ * @type switch
+ *
+ * @param HiddenFlag
+ * @text 隠しフラグ
+ * @desc 項目がデフォルトで隠されるようになります。プラグインコマンドの実行で表示されます。
+ * @default false
+ * @type boolean
+ *
+ * @param Script
+ * @text スクリプト
+ * @desc 項目を決定したときに実行されるスクリプトです。
+ * @default
+ *
+ * @param AddPosition
+ * @text 追加位置
+ * @desc 項目を追加する位置です。指定した項目の上に追加されます。
+ * @default
+ * @type select
+ * @option 末尾に追加
+ * @value
+ * @option 常時ダッシュ
+ * @value alwaysDash
+ * @option コマンド記憶
+ * @value commandRemember
+ * @option BGM 音量
+ * @value bgmVolume
+ * @option BGS 音量
+ * @value bgsVolume
+ * @option ME 音量
+ * @value meVolume
+ * @option SE 音量
+ * @value seVolume
+ *
+ * @param PaddingTop
+ * @text 余白
+ * @desc 項目の上の余白ピクセル数です。項目の間隔を開けたいときに指定します。
+ * @default 0
+ * @type number
+ */
+/*~struct~StringData:
+ * @param Name
+ * @text 項目名称
+ * @desc 項目の名称です。
+ * @default 文字列項目1
+ *
+ * @param DefaultValue
+ * @text 初期値
+ * @desc 項目の初期値です。インデックスの数値を指定します。
+ * @default 0
+ * @type number
+ *
+ * @param VariableID
+ * @text 変数番号
+ * @desc 項目の設定内容が格納される変数番号です。
+ * @default 0
+ * @type variable
+ *
+ * @param HiddenFlag
+ * @text 隠しフラグ
+ * @desc 項目がデフォルトで隠されるようになります。プラグインコマンドの実行で表示されます。
+ * @default false
+ * @type boolean
+ *
+ * @param Script
+ * @text スクリプト
+ * @desc 項目を決定したときに実行されるスクリプトです。
+ * @default
+ *
+ * @param StringItems
+ * @text 内容の配列
+ * @desc 項目の設定内容の配列です。
+ * @default
+ * @type string[]
+ *
+ * @param AddPosition
+ * @text 追加位置
+ * @desc 項目を追加する位置です。指定した項目の上に追加されます。
+ * @default
+ * @type select
+ * @option 末尾に追加
+ * @value
+ * @option 常時ダッシュ
+ * @value alwaysDash
+ * @option コマンド記憶
+ * @value commandRemember
+ * @option BGM 音量
+ * @value bgmVolume
+ * @option BGS 音量
+ * @value bgsVolume
+ * @option ME 音量
+ * @value meVolume
+ * @option SE 音量
+ * @value seVolume
+ *
+ * @param PaddingTop
+ * @text 余白
+ * @desc 項目の上の余白ピクセル数です。項目の間隔を開けたいときに指定します。
+ * @default 0
+ * @type number
+ */
+/*~struct~VolumeData:
+ * @param Name
+ * @text 項目名称
+ * @desc 項目の名称です。
+ * @default 音量項目1
+ *
+ * @param DefaultValue
+ * @text 初期値
+ * @desc 項目の初期値です。
+ * @default 0
+ * @type number
+ *
+ * @param VariableID
+ * @text 変数番号
+ * @desc 項目の設定内容が格納される変数番号です。
+ * @default 0
+ * @type variable
+ *
+ * @param HiddenFlag
+ * @text 隠しフラグ
+ * @desc 項目がデフォルトで隠されるようになります。プラグインコマンドの実行で表示されます。
+ * @default false
+ * @type boolean
+ *
+ * @param Script
+ * @text スクリプト
+ * @desc 項目を決定したときに実行されるスクリプトです。変数[value]で現在の選択値が参照できます。
+ * @default
+ *
+ * @param AddPosition
+ * @text 追加位置
+ * @desc 項目を追加する位置です。指定した項目の上に追加されます。
+ * @default
+ * @type select
+ * @option 末尾に追加
+ * @value
+ * @option 常時ダッシュ
+ * @value alwaysDash
+ * @option コマンド記憶
+ * @value commandRemember
+ * @option BGM 音量
+ * @value bgmVolume
+ * @option BGS 音量
+ * @value bgsVolume
+ * @option ME 音量
+ * @value meVolume
+ * @option SE 音量
+ * @value seVolume
+ *
+ * @param PaddingTop
+ * @text 余白
+ * @desc 項目の上の余白ピクセル数です。項目の間隔を開けたいときに指定します。
+ * @default 0
+ * @type number
  */
 
 (function () {
@@ -134,60 +361,76 @@
         return null;
     };
 
+    var getParamArrayJson = function (paramNames, defaultValue) {
+        var value = getParamString(paramNames) || null;
+        try {
+            value = JSON.parse(value);
+            if (value === null) {
+                value = defaultValue;
+            } else {
+                value = value.map(function (valueData) {
+                    return JSON.parse(valueData);
+                });
+            }
+        } catch (e) {
+            alert(`!!!Plugin param is wrong.!!!\nPlugin:${pluginName}.js\nName:[${paramNames}]\nValue:${value}`);
+            value = defaultValue;
+        }
+        return value;
+    };
+
     var getCommandName = function (command) {
         return (command || '').toUpperCase();
-    };
-
-    var getArgArrayString = function (args, upperFlg) {
-        var values = getArgString(args, upperFlg).split(',');
-        for (var i = 0; i < values.length; i++) values[i] = values[i].trim();
-        return values;
-    };
-
-    var getArgString = function (args, upperFlg) {
-        return upperFlg ? args.toUpperCase() : args;
     };
 
     var getArgNumber = function (arg, min, max) {
         if (arguments.length < 2) min = -Infinity;
         if (arguments.length < 3) max = Infinity;
-        return (parseInt(arg, 10) || 0).clamp(min, max);
+        return (parseInt(arg) || 0).clamp(min, max);
     };
 
     var getArgBoolean = function (arg) {
-        return (arg || '').toUpperCase() == 'ON';
+        return (arg || '').toUpperCase() === 'TRUE';
     };
 
-    if (!Object.prototype.hasOwnProperty('iterate')) {
-        Object.defineProperty(Object.prototype, 'iterate', {
-            value: function (handler) {
-                Object.keys(this).forEach(function (key, index) {
-                    handler.call(this, key, this[key], index);
-                }, this);
+    var getArgJson = function (arg, defaultValue) {
+        try {
+            arg = JSON.parse(arg || null);
+            if (arg === null) {
+                arg = defaultValue;
             }
-        });
-    }
+        } catch (e) {
+            alert(`!!!Plugin param is wrong.!!!\nPlugin:${pluginName}.js\nValue:${arg}`);
+            arg = defaultValue;
+        }
+        return arg;
+    };
 
+    var iterate = function (that, handler) {
+        Object.keys(that).forEach(function (key, index) {
+            handler.call(that, key, that[key], index);
+        });
+    };
+
+    //=============================================================================
+    // パラメータの取得と整形
+    //=============================================================================
+    var param = {};
+    param.numberOptions = getParamArrayJson(['NumberOptions', '数値項目'], []);
+    param.stringOptions = getParamArrayJson(['StringOptions', '文字項目'], []);
+    param.switchOptions = getParamArrayJson(['SwitchOptions', 'スイッチ項目'], []);
+    param.volumeOptions = getParamArrayJson(['VolumeOptions', '音量項目'], []);
+
+    var localOptionWindowIndex = 0;
+
+    //=============================================================================
+    // Game_Interpreter
+    //  プラグインコマンドを追加定義します。
+    //=============================================================================
     var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
     Game_Interpreter.prototype.pluginCommand = function (command, args) {
         _Game_Interpreter_pluginCommand.call(this, command, args);
-        try {
-            this.pluginCommandCustomizeConfigItem(command, args);
-        } catch (e) {
-            if ($gameTemp.isPlaytest() && Utils.isNwjs()) {
-                var window = require('nw.gui').Window.get();
-                if (!window.isDevToolsOpen()) {
-                    var devTool = window.showDevTools();
-                    devTool.moveTo(0, 0);
-                    devTool.resizeTo(Graphics.width, Graphics.height);
-                    window.focus();
-                }
-            }
-            console.log('プラグインコマンドの実行中にエラーが発生しました。');
-            console.log('- コマンド名 　: ' + command);
-            console.log('- コマンド引数 : ' + args);
-            console.log('- エラー原因   : ' + e.toString());
-        }
+        this.pluginCommandCustomizeConfigItem(command, args);
     };
 
     Game_Interpreter.prototype.pluginCommandCustomizeConfigItem = function (command, args) {
@@ -199,65 +442,87 @@
         }
     };
 
+    //=============================================================================
+    // ConfigManager
+    //  追加項目の設定値や初期値を管理します。
+    //=============================================================================
     ConfigManager.customParams = null;
     ConfigManager.hiddenInfo = {};
+    ConfigManager._symbolNumber = 'Number';
+    ConfigManager._symbolBoolean = 'Boolean';
+    ConfigManager._symbolString = 'String';
+    ConfigManager._symbolVolume = 'Volume';
 
     ConfigManager.getCustomParams = function () {
-        if (this.customParams != null) return this.customParams;
+        if (this.customParams) {
+            return this.customParams;
+        }
         this.customParams = {};
-        var i, result;
-        for (i = 1, result = true; result; i++) {
-            result = this._getCustomParamItem('スイッチ項目', 'Boolean', i);
-        }
-        for (i = 1, result = true; result; i++) {
-            result = this._getCustomParamItem('数値項目', 'Number', i);
-        }
-        for (i = 1, result = true; result; i++) {
-            result = this._getCustomParamItem('音量項目', 'Volume', i);
-        }
-        for (i = 1, result = true; result; i++) {
-            result = this._getCustomParamItem('文字項目', 'String', i);
-        }
+        param.numberOptions.forEach(function (optionItem, index) {
+            this.makeNumberOption(optionItem, index);
+        }, this);
+        param.stringOptions.forEach(function (optionItem, index) {
+            this.makeStringOption(optionItem, index);
+        }, this);
+        param.switchOptions.forEach(function (optionItem, index) {
+            this.makeSwitchOption(optionItem, index);
+        }, this);
+        param.volumeOptions.forEach(function (optionItem, index) {
+            this.makeVolumeOption(optionItem, index);
+        }, this);
         return this.customParams;
     };
 
-    ConfigManager._getCustomParamItem = function (paramBaseName, symbolType, i) {
-        var param = getParamString(paramBaseName + '%1'.format(i)).split(':');
-        if (param.length > 1) {
-            try {
-                var data = {};
-                data.symbol = symbolType + '%1'.format(i);
-                data.name = getArgString(param[0]);
-                data.initValue = symbolType === 'Boolean' ? getArgBoolean(param[1]) : getArgNumber(param[1]);
-                data.variable = getArgNumber(param[2]);
-                data.hidden = getArgBoolean(param[3]);
-                switch (symbolType) {
-                    case 'Number':
-                        data.min = getArgNumber(param[4]);
-                        data.max = getArgNumber(param[5]);
-                        data.offset = getArgNumber(param[6]);
-                        break;
-                    case 'String':
-                        data.values = getArgArrayString(param[4]);
-                        data.min = 0;
-                        data.max = data.values.length - 1;
-                        break;
-                }
-                this.customParams[data.symbol] = data;
-            } catch (e) {
-                console.log('パラメータの指定に不正があります。: ' + param + ' : ' + e.toString());
-                return false;
-            }
-            return true;
-        }
-        return false;
+    ConfigManager.makeNumberOption = function (optionItem, index) {
+        var data = this.makeCommonOption(optionItem, index, this._symbolNumber);
+        data.min = getArgNumber(optionItem.NumberMin);
+        data.max = getArgNumber(optionItem.NumberMax);
+        data.offset = getArgNumber(optionItem.NumberStep);
+        this.pushOptionData(data);
+    };
+
+    ConfigManager.makeStringOption = function (optionItem, index) {
+        var data = this.makeCommonOption(optionItem, index, this._symbolString);
+        data.values = getArgJson(optionItem.StringItems, ['no item']);
+        data.min = 0;
+        data.max = data.values.length - 1;
+        this.pushOptionData(data);
+    };
+
+    ConfigManager.makeSwitchOption = function (optionItem, index) {
+        var data = this.makeCommonOption(optionItem, index, this._symbolBoolean);
+        data.initValue = getArgBoolean(optionItem.DefaultValue);
+        data.variable = getArgNumber(optionItem.SwitchID);
+        this.pushOptionData(data);
+    };
+
+    ConfigManager.makeVolumeOption = function (optionItem, index) {
+        var data = this.makeCommonOption(optionItem, index, this._symbolVolume);
+        this.pushOptionData(data);
+    };
+
+    ConfigManager.makeCommonOption = function (optionItem, index, type) {
+        var data = {};
+        data.symbol = `${type}${index + 1}`;
+        data.name = optionItem.Name;
+        data.hidden = getArgBoolean(optionItem.HiddenFlag);
+        data.script = optionItem.Script;
+        data.initValue = getArgNumber(optionItem.DefaultValue);
+        data.variable = getArgNumber(optionItem.VariableID, 0);
+        data.addPotion = optionItem.AddPosition;
+        data.padding = getArgNumber(optionItem.PaddingTop);
+        return data;
+    };
+
+    ConfigManager.pushOptionData = function (data) {
+        this.customParams[data.symbol] = data;
     };
 
     var _ConfigManager_makeData = ConfigManager.makeData;
     ConfigManager.makeData = function () {
         var config = _ConfigManager_makeData.apply(this, arguments);
         config.hiddenInfo = {};
-        this.getCustomParams().iterate(function (symbol) {
+        iterate(this.getCustomParams(), function (symbol) {
             config[symbol] = this[symbol];
             config.hiddenInfo[symbol] = this.hiddenInfo[symbol];
         }.bind(this));
@@ -267,20 +532,24 @@
     var _ConfigManager_applyData = ConfigManager.applyData;
     ConfigManager.applyData = function (config) {
         _ConfigManager_applyData.apply(this, arguments);
-        this.getCustomParams().iterate(function (symbol, item) {
-            if (symbol.contains('Boolean')) {
-                this[symbol] = this.readFlag(config, symbol);
-            } else if (symbol.contains('Volume')) {
-                this[symbol] = this.readVolume(config, symbol);
+        iterate(this.getCustomParams(), function (symbol, item) {
+            if (symbol.contains(this._symbolBoolean)) {
+                this[symbol] = this.readFlagCustom(config, symbol, item);
+            } else if (symbol.contains(this._symbolVolume)) {
+                this[symbol] = this.readVolumeCustom(config, symbol, item);
             } else {
                 this[symbol] = this.readOther(config, symbol, item);
             }
-            this.hiddenInfo[symbol] = (config.hiddenInfo != null ? config.hiddenInfo[symbol] : item.hidden);
+            if (config.hiddenInfo) {
+                this.hiddenInfo[symbol] = (typeof config.hiddenInfo[symbol] === 'boolean' ? config.hiddenInfo[symbol] : item.hidden);
+            } else {
+                this.hiddenInfo[symbol] = item.hidden;
+            }
         }.bind(this));
     };
 
     ConfigManager.customParamUnlock = function (name) {
-        this.getCustomParams().iterate(function (symbol, item) {
+        iterate(this.getCustomParams(), function (symbol, item) {
             if (item.name === name) this.hiddenInfo[symbol] = false;
         }.bind(this));
         this.save();
@@ -295,11 +564,27 @@
         }
     };
 
+    ConfigManager.readFlagCustom = function (config, name, item) {
+        if (config[name] !== undefined) {
+            return this.readFlag(config, name);
+        } else {
+            return item.initValue;
+        }
+    };
+
+    ConfigManager.readVolumeCustom = function (config, name, item) {
+        if (config[name] !== undefined) {
+            return this.readVolume(config, name);
+        } else {
+            return item.initValue;
+        }
+    };
+
     ConfigManager.exportCustomParams = function () {
         if (!$gameVariables || !$gameSwitches) return;
-        this.getCustomParams().iterate(function (symbol, item) {
+        iterate(this.getCustomParams(), function (symbol, item) {
             if (item.variable > 0) {
-                if (symbol.contains('Boolean')) {
+                if (symbol.contains(this._symbolBoolean)) {
                     $gameSwitches.setValue(item.variable, !!this[symbol]);
                 } else {
                     $gameVariables.setValue(item.variable, this[symbol]);
@@ -310,11 +595,11 @@
 
     ConfigManager.importCustomParams = function () {
         if (!$gameVariables || !$gameSwitches) return;
-        this.getCustomParams().iterate(function (symbol, item) {
+        iterate(this.getCustomParams(), function (symbol, item) {
             if (item.variable > 0) {
-                if (symbol.contains('Boolean')) {
+                if (symbol.contains(this._symbolBoolean)) {
                     this[symbol] = $gameSwitches.value(item.variable);
-                } else if (symbol.contains('Volume')) {
+                } else if (symbol.contains(this._symbolVolume)) {
                     this[symbol] = $gameVariables.value(item.variable).clamp(0, 100);
                 } else {
                     this[symbol] = $gameVariables.value(item.variable).clamp(item.min, item.max);
@@ -323,18 +608,26 @@
         }.bind(this));
     };
 
-    var _Game_Map_refresh = Game_Map.prototype.refresh;
-    Game_Map.prototype.refresh = function () {
-        _Game_Map_refresh.apply(this, arguments);
-        ConfigManager.importCustomParams();
-    };
-
     var _ConfigManager_save = ConfigManager.save;
     ConfigManager.save = function () {
         _ConfigManager_save.apply(this, arguments);
         this.exportCustomParams();
     };
 
+    //=============================================================================
+    // Game_Map
+    //  リフレッシュ時にオプション値を同期します。
+    //=============================================================================
+    var _Game_Map_refresh = Game_Map.prototype.refresh;
+    Game_Map.prototype.refresh = function () {
+        _Game_Map_refresh.apply(this, arguments);
+        ConfigManager.importCustomParams();
+    };
+
+    //=============================================================================
+    // DataManager
+    //  セーブ時とロード時にオプション値を同期します。
+    //=============================================================================
     var _DataManager_setupNewGame = DataManager.setupNewGame;
     DataManager.setupNewGame = function () {
         _DataManager_setupNewGame.apply(this, arguments);
@@ -348,10 +641,29 @@
         return result;
     };
 
+    //=============================================================================
+    // Window_Options
+    //  追加項目を描画します。
+    //=============================================================================
     var _Window_Options_initialize = Window_Options.prototype.initialize;
     Window_Options.prototype.initialize = function () {
         this._customParams = ConfigManager.getCustomParams();
         _Window_Options_initialize.apply(this, arguments);
+        this.select(localOptionWindowIndex);
+        localOptionWindowIndex = 0;
+    };
+
+    var _Window_Options_itemRect = Window_Options.prototype.itemRect;
+    Window_Options.prototype.itemRect = function (index) {
+        var rect = _Window_Options_itemRect.apply(this, arguments);
+        rect.y += this.findAdditionalHeight(index);
+        return rect;
+    };
+
+    Window_Options.prototype.findAdditionalHeight = function (index) {
+        return this._list.reduce(function (prev, item, itemIndex) {
+            return prev + (itemIndex <= index && item.ext ? item.ext : 0);
+        }, 0);
     };
 
     var _Window_Options_makeCommandList = Window_Options.prototype.makeCommandList;
@@ -361,9 +673,36 @@
     };
 
     Window_Options.prototype.addCustomOptions = function () {
-        this._customParams.iterate(function (key, item) {
-            if (!ConfigManager.hiddenInfo[key]) this.addCommand(item.name, key);
+        iterate(this._customParams, function (key, item) {
+            if (!ConfigManager.hiddenInfo[key]) {
+                this.addCommand(item.name, key, undefined, item.padding);
+                if (item.addPotion) {
+                    this.shiftCustomOptions(item.addPotion);
+                }
+            }
         }.bind(this));
+    };
+
+    Window_Options.prototype.shiftCustomOptions = function (addPotion) {
+        var targetCommand = this._list.filter(function (command) {
+            return command.symbol === addPotion;
+        })[0];
+        if (!targetCommand) {
+            return;
+        }
+        var targetIndex = this._list.indexOf(targetCommand);
+        var newCommand = this._list.pop();
+        this.addIndexForManoInputConfig(targetIndex);
+        this._list.splice(targetIndex, 0, newCommand);
+    };
+
+    Window_Options.prototype.addIndexForManoInputConfig = function (index) {
+        if (this._gamepadOptionIndex > index) {
+            this._gamepadOptionIndex += 1;
+        }
+        if (this._keyboardConfigIndex > index) {
+            this._keyboardConfigIndex += 1;
+        }
     };
 
     var _Window_Options_statusText = Window_Options.prototype.statusText;
@@ -380,11 +719,15 @@
     };
 
     Window_Options.prototype.isNumberSymbol = function (symbol) {
-        return symbol.contains('Number');
+        return symbol.contains(ConfigManager._symbolNumber);
     };
 
     Window_Options.prototype.isStringSymbol = function (symbol) {
-        return symbol.contains('String');
+        return symbol.contains(ConfigManager._symbolString);
+    };
+
+    Window_Options.prototype.isCustomSymbol = function (symbol) {
+        return !!this._customParams[symbol];
     };
 
     Window_Options.prototype.numberStatusText = function (value) {
@@ -398,16 +741,19 @@
     var _Window_Options_processOk = Window_Options.prototype.processOk;
     Window_Options.prototype.processOk = function () {
         if (!this._shiftValue(1, true)) _Window_Options_processOk.apply(this, arguments);
+        this.execScript();
     };
 
     var _Window_Options_cursorRight = Window_Options.prototype.cursorRight;
     Window_Options.prototype.cursorRight = function (wrap) {
         if (!this._shiftValue(1, false)) _Window_Options_cursorRight.apply(this, arguments);
+        this.execScript();
     };
 
     var _Window_Options_cursorLeft = Window_Options.prototype.cursorLeft;
     Window_Options.prototype.cursorLeft = function (wrap) {
         if (!this._shiftValue(-1, false)) _Window_Options_cursorLeft.apply(this, arguments);
+        this.execScript();
     };
 
     Window_Options.prototype._shiftValue = function (sign, loopFlg) {
@@ -424,6 +770,18 @@
             return true;
         }
         return false;
+    };
+
+    Window_Options.prototype.execScript = function () {
+        var symbol = this.commandSymbol(this.index());
+        if (!this.isCustomSymbol(symbol)) return;
+        var script = this._customParams[symbol].script;
+        var value = this.getConfigValue(symbol);
+        if (script) {
+            eval(script);
+            SoundManager.playOk();
+        }
+        localOptionWindowIndex = this.index();
     };
 
     Window_Options.prototype._clampValue = function (value, symbol, loopFlg) {
@@ -443,7 +801,8 @@
     };
 
     Window_Options.prototype.windowHeight = function () {
-        return this.fittingHeight(Math.min(this.numVisibleRows(), 14));
+        var height = this.fittingHeight(Math.min(this.numVisibleRows(), 14));
+        return height + this.findAdditionalHeight(this.maxItems());
     };
 })();
 

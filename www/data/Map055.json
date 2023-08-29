@@ -30066,18 +30066,18 @@
                     },
                     "list": [
                         {
-                            "code": 356,
-                            "indent": 0,
-                            "parameters": [
-                                "PSS start"
-                            ]
-                        },
-                        {
                             "code": 283,
                             "indent": 0,
                             "parameters": [
                                 "01_nk_RockCave2",
                                 "battleFrame"
+                            ]
+                        },
+                        {
+                            "code": 356,
+                            "indent": 0,
+                            "parameters": [
+                                "PSS start"
                             ]
                         },
                         {
@@ -30124,39 +30124,89 @@
                             "parameters": []
                         },
                         {
-                            "code": 356,
+                            "code": 111,
                             "indent": 0,
+                            "parameters": [
+                                0,
+                                451,
+                                1
+                            ]
+                        },
+                        {
+                            "code": 223,
+                            "indent": 1,
+                            "parameters": [
+                                [
+                                    0,
+                                    0,
+                                    0,
+                                    0
+                                ],
+                                1,
+                                true
+                            ]
+                        },
+                        {
+                            "code": 356,
+                            "indent": 1,
                             "parameters": [
                                 "Light activate"
                             ]
                         },
                         {
                             "code": 356,
-                            "indent": 0,
+                            "indent": 1,
                             "parameters": [
                                 "Light on 1"
                             ]
                         },
                         {
                             "code": 356,
-                            "indent": 0,
+                            "indent": 1,
                             "parameters": [
                                 "Tint set #c5baaf"
                             ]
                         },
                         {
                             "code": 356,
-                            "indent": 0,
+                            "indent": 1,
                             "parameters": [
                                 "Light radius 150 #96c9e4"
                             ]
                         },
                         {
                             "code": 356,
-                            "indent": 0,
+                            "indent": 1,
                             "parameters": [
                                 "RegionFire 50 ON #ef8560 300"
                             ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 411,
+                            "indent": 0,
+                            "parameters": []
+                        },
+                        {
+                            "code": 356,
+                            "indent": 1,
+                            "parameters": [
+                                "Light deactivate"
+                            ]
+                        },
+                        {
+                            "code": 0,
+                            "indent": 1,
+                            "parameters": []
+                        },
+                        {
+                            "code": 412,
+                            "indent": 0,
+                            "parameters": []
                         },
                         {
                             "code": 214,
@@ -30701,105 +30751,7 @@
             "x": 23,
             "y": 8
         },
-        {
-            "id": 9,
-            "name": "雑魚(北西２)",
-            "note": "<TE:ゴブリン(寝)>",
-            "pages": [
-                {
-                    "conditions": {
-                        "actorId": 1,
-                        "actorValid": false,
-                        "itemId": 1,
-                        "itemValid": false,
-                        "selfSwitchCh": "D",
-                        "selfSwitchValid": false,
-                        "switch1Id": 12,
-                        "switch1Valid": false,
-                        "switch2Id": 1,
-                        "switch2Valid": false,
-                        "variableId": 1,
-                        "variableValid": false,
-                        "variableValue": 0
-                    },
-                    "directionFix": false,
-                    "image": {
-                        "tileId": 0,
-                        "characterName": "Damage3",
-                        "direction": 2,
-                        "pattern": 1,
-                        "characterIndex": 0
-                    },
-                    "list": [
-                        {
-                            "code": 122,
-                            "indent": 0,
-                            "parameters": [
-                                324,
-                                324,
-                                0,
-                                0,
-                                30
-                            ]
-                        },
-                        {
-                            "code": 0,
-                            "indent": 0,
-                            "parameters": []
-                        }
-                    ],
-                    "moveFrequency": 4,
-                    "moveRoute": {
-                        "list": [
-                            {
-                                "code": 45,
-                                "parameters": [
-                                    "this._chaseSpeed = 3.5"
-                                ],
-                                "indent": null
-                            },
-                            {
-                                "code": 45,
-                                "parameters": [
-                                    "this._chaseRange = 6"
-                                ],
-                                "indent": null
-                            },
-                            {
-                                "code": 45,
-                                "parameters": [
-                                    "this._sightLock = 180"
-                                ],
-                                "indent": null
-                            },
-                            {
-                                "code": 45,
-                                "parameters": [
-                                    "this._returnAfter = false"
-                                ],
-                                "indent": null
-                            },
-                            {
-                                "code": 0,
-                                "parameters": []
-                            }
-                        ],
-                        "repeat": true,
-                        "skippable": true,
-                        "wait": false
-                    },
-                    "moveSpeed": 3,
-                    "moveType": 0,
-                    "priorityType": 1,
-                    "stepAnime": false,
-                    "through": false,
-                    "trigger": 0,
-                    "walkAnime": false
-                }
-            ],
-            "x": 45,
-            "y": 11
-        },
+        null,
         {
             "id": 10,
             "name": "雑魚(北西２)",
@@ -32362,7 +32314,7 @@
         {
             "id": 28,
             "name": "雑魚(北西２)",
-            "note": "<TE:ゴブリン(寝)>",
+            "note": "<TE:ゴブリン>",
             "pages": [
                 {
                     "conditions": {
@@ -32383,10 +32335,10 @@
                     "directionFix": false,
                     "image": {
                         "tileId": 0,
-                        "characterName": "Damage3",
+                        "characterName": "Monster3",
                         "direction": 2,
                         "pattern": 1,
-                        "characterIndex": 0
+                        "characterIndex": 6
                     },
                     "list": [
                         {
@@ -32446,16 +32398,16 @@
                         "skippable": true,
                         "wait": false
                     },
-                    "moveSpeed": 3,
-                    "moveType": 0,
+                    "moveSpeed": 4,
+                    "moveType": 1,
                     "priorityType": 1,
                     "stepAnime": false,
                     "through": false,
-                    "trigger": 0,
+                    "trigger": 2,
                     "walkAnime": false
                 }
             ],
-            "x": 54,
+            "x": 52,
             "y": 7
         },
         {
