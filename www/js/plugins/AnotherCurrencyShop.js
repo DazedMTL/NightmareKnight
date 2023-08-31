@@ -37,8 +37,8 @@
     var parameters = PluginManager.parameters('AnotherCurrencyShop');
     var currencyName = String(parameters['Currency Name'] || 'ＰＴ');
     var variableNumber = String(parameters['Variable Number'] || '1');
-    var buyCommandName = String(parameters['Buy Command Name'] || '購入する');
-    var sellCommandName = String(parameters['Sell Command Name'] || '売却する');
+    var buyCommandName = String(parameters['Buy Command Name'] || 'Buy');
+    var sellCommandName = String(parameters['Sell Command Name'] || 'Sell');
 
     //-------------------------------------------------------------------------
     // 関数退避
