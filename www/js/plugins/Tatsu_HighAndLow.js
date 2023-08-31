@@ -1152,9 +1152,9 @@
     Window_HighAndLow_Select.prototype.initialize = function (wx, wy, ww, wh) {
         Window_Selectable.prototype.initialize.call(this, wx, wy, ww, wh);
         this._data = new Array();
-        this._data.push('大きい');
-        this._data.push('同じ');
-        this._data.push('小さい');
+        this._data.push('Large');
+        this._data.push('Same');
+        this._data.push('Small');
         this.select(0);
         this.refresh();
     };
@@ -1339,8 +1339,8 @@
         var windowHeight = 120;
         Window_Selectable.prototype.initialize.call(this, HighAndLowP.betCoinSelectPosX, HighAndLowP.betCoinSelectPosY, 150, windowHeight);
         this._data = new Array();
-        this._data.push('はい');
-        this._data.push('いいえ');
+        this._data.push('Yes');
+        this._data.push('No');
         this.select(0);
         this.refresh();
     };
@@ -1445,8 +1445,8 @@
 
     Window_BetCoin_Window.prototype.dispCoinTxt = function () {
         this.contents.fontSize = this.standardFontSize();
-        this.drawText('獲得枚数:' + this._dispCoin + '枚', 0, 10, this.width, this.height);
-        this.drawText('所持メダル:' + this._dispMyCoin + '枚', 0, 40, this.width, this.height);
+        this.drawText('Chips Won:' + this._dispCoin + ' Chips', 0, 10, this.width, this.height);
+        this.drawText('Medals:' + this._dispMyCoin + ' Chips', 0, 40, this.width, this.height);
     };
 
     Window_BetCoin_Window.prototype.standardFontSize = function () {
