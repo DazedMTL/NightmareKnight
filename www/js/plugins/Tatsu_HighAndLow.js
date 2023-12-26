@@ -509,7 +509,7 @@
         if (this._betMsgWindow == undefined) {
             this._betMsgWindow = new Window_Message();
             this.addWindow(this._betMsgWindow);
-            this._betMsgWindow.drawText("コインを何枚BETしますか？", 0, 0, Graphics.width, 300);
+            this._betMsgWindow.drawText("How many coins do you want to bet?", 0, 0, Graphics.width, 300);
         }
 
         if (this._betSelectWindow == undefined) {
@@ -547,7 +547,7 @@
             if (this._InsufficientCoinsMsgWindow == undefined) {
                 this._InsufficientCoinsMsgWindow = new Window_Message();
                 this.addWindow(this._InsufficientCoinsMsgWindow);
-                this._InsufficientCoinsMsgWindow.drawText("コインが足りません", 0, 0, Graphics.width, 300);
+                this._InsufficientCoinsMsgWindow.drawText("Not Enough Coins", 0, 0, Graphics.width, 300);
             }
 
             if (this._InsufficientCoinsMsgWindow.isClosed()) {
@@ -807,15 +807,15 @@
         if (this._confirmLoseMsgWindow == undefined) {
             this._confirmLoseMsgWindow = new Window_Message();
             this.addWindow(this._confirmLoseMsgWindow);
-            this._confirmLoseMsgWindow.drawText("初めから再挑戦しますか？", 0, 0, Graphics.width, 300);
+            this._confirmLoseMsgWindow.drawText("Do you want to try again?", 0, 0, Graphics.width, 300);
         }
 
         if (this._battleResult) {
             this._confirmWinMsgWindow.contents.clear();
             if (this._myHandWindow.getCardIndos().length > 0) {
-                this._confirmWinMsgWindow.drawText("続けて挑戦しますか？", 0, 0, Graphics.width, 300);
+                this._confirmWinMsgWindow.drawText("Do you want to continue playing?", 0, 0, Graphics.width, 300);
             } else {
-                this._confirmWinMsgWindow.drawText("もう一度プレイしますか？", 0, 0, Graphics.width, 300);
+                this._confirmWinMsgWindow.drawText("Do you want to play again?", 0, 0, Graphics.width, 300);
             }
 
             if (this._confirmWinMsgWindow.isClosed()) {
@@ -916,9 +916,9 @@
 
         if (this._WindowLastExitMsg.isClosed()) {
             this._WindowLastExitMsg.contents.clear();
-            this._WindowLastExitMsg.drawText("勝負終了です。", 0, 0, Graphics.width, 300);
+            this._WindowLastExitMsg.drawText("The match is over", 0, 0, Graphics.width, 300);
             if (HighAndLowP.coinUse) {
-                this._WindowLastExitMsg.drawText("獲得枚数は" + this._getCoin + "枚です。", 0, 40, Graphics.width, 300);
+                this._WindowLastExitMsg.drawText("You won " + this._getCoin + " coins", 0, 40, Graphics.width, 300);
             }
             this._WindowLastExitMsg.open();
         }
@@ -1445,8 +1445,8 @@
 
     Window_BetCoin_Window.prototype.dispCoinTxt = function () {
         this.contents.fontSize = this.standardFontSize();
-        this.drawText('Chips Won:' + this._dispCoin + ' Chips', 0, 10, this.width, this.height);
-        this.drawText('Medals:' + this._dispMyCoin + ' Chips', 0, 40, this.width, this.height);
+        this.drawText('Gains:' + this._dispCoin + ' Chips', 0, 10, this.width, this.height);
+        this.drawText('Total:' + this._dispMyCoin + ' Chips', 0, 40, this.width, this.height);
     };
 
     Window_BetCoin_Window.prototype.standardFontSize = function () {
