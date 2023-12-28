@@ -11,7 +11,7 @@
 //
 
 var Imported = Imported || {};
-Imported['BeforeCommon'] = 1.01;
+Imported["BeforeCommon"] = 1.01;
 
 /*:
  * @target MZ MV
@@ -37,7 +37,7 @@ Imported['BeforeCommon'] = 1.01;
  * ムノクラ追記
  * ------------------------------------------------------
  * RPGツクールMZでの動作を確認。
- * 
+ *
  * ------------------------------------------------------
  *  プラグインコマンドはありません。
  * ------------------------------------------------------
@@ -72,7 +72,7 @@ Imported['BeforeCommon'] = 1.01;
  * または、Twitterにお願いします。
  * https://twitter.com/yanatsuki_/
  * 素材利用は自己責任でお願いします。
- * 
+ *
  * ------------------------------------------------------
  * 更新履歴:
  * ver1.01:
@@ -81,73 +81,87 @@ Imported['BeforeCommon'] = 1.01;
  * 公開
  */
 
-
 (function () {
+  "use strict";
 
-    'use strict';
+  ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////////////////////////
+  var parameters = PluginManager.parameters("BeforeCommon");
+  var indexVariableId = Number(parameters["IndexVariableID"]);
+  var targetIndexVariableId = Number(parameters["TargetIndexVariableID"]) || 0;
 
-    var parameters = PluginManager.parameters('BeforeCommon');
-    var indexVariableId = Number(parameters['IndexVariableID']);
-    var targetIndexVariableId = Number(parameters['TargetIndexVariableID']) || 0;
+  ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////////////////////////
+  DataManager.isBeforeCommon = function (item) {
+    if (!item) {
+      return false;
+    }
+    if (item.meta["発動前コモン"]) {
+      return true;
+    }
+    if (item.meta["BeforeCommon"]) {
+      return true;
+    }
+    return false;
+  };
 
-    DataManager.isBeforeCommon = function (item) {
-        if (!item) { return false }
-        if (item.meta['発動前コモン']) { return true }
-        if (item.meta['BeforeCommon']) { return true }
-        return false;
-    };
+  DataManager.beforeCommonEffect = function (item) {
+    var effects = [];
+    if (item.meta["発動前コモン"]) {
+      effects = Number(item.meta["発動前コモン"]);
+    } else if (item.meta["BeforeCommon"]) {
+      effects = Number(item.meta["BeforeCommon"]);
+    }
+    return effects;
+  };
 
-    DataManager.beforeCommonEffect = function (item) {
-        var effects = [];
-        if (item.meta['発動前コモン']) {
-            effects = Number(item.meta['発動前コモン']);
-        } else if (item.meta['BeforeCommon']) {
-            effects = Number(item.meta['BeforeCommon']);
-        }
-        return effects;
-    };
+  ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////////////////////////
+  var __BManager_startAction = BattleManager.startAction;
+  BattleManager.startAction = function () {
+    var action = this._subject.currentAction();
+    if (this.checkBeforeCommon(action)) {
+      return;
+    }
+    __BManager_startAction.call(this);
+    this._execBeforeCommon = false;
+  };
 
-    var __BManager_startAction = BattleManager.startAction;
-    BattleManager.startAction = function () {
-        var action = this._subject.currentAction();
-        if (this.checkBeforeCommon(action)) { return }
-        __BManager_startAction.call(this);
-        this._execBeforeCommon = false;
-    };
+  BattleManager.checkBeforeCommon = function (action) {
+    if (
+      action &&
+      !this._execBeforeCommon &&
+      DataManager.isBeforeCommon(action.item())
+    ) {
+      this._execBeforeCommon = true;
+      var beforeCommon = DataManager.beforeCommonEffect(action.item());
+      $gameTemp.reserveCommonEvent(beforeCommon);
+      var sId = this._subject.index();
+      var tId = action._targetIndex;
+      if (this._subject.isEnemy()) sId += 1000;
+      if (this._subject.isActor() && action.isForOpponent() && tId >= 0)
+        tId += 1000;
+      if (this._subject.isEnemy() && action.isForFriend() && tId >= 0)
+        tId += 1000;
+      if (action.isForUser()) tId = sId;
+      if (indexVariableId) $gameVariables._data[indexVariableId] = sId;
+      if (targetIndexVariableId)
+        $gameVariables._data[targetIndexVariableId] = tId;
+      this._phase = "turn";
+      return true;
+    }
+    return false;
+  };
 
-    BattleManager.checkBeforeCommon = function (action) {
-        if (action && !this._execBeforeCommon && DataManager.isBeforeCommon(action.item())) {
-            this._execBeforeCommon = true;
-            var beforeCommon = DataManager.beforeCommonEffect(action.item());
-            $gameTemp.reserveCommonEvent(beforeCommon);
-            var sId = this._subject.index();
-            var tId = action._targetIndex;
-            if (this._subject.isEnemy()) sId += 1000;
-            if (this._subject.isActor() && action.isForOpponent() && tId >= 0) tId += 1000;
-            if (this._subject.isEnemy() && action.isForFriend() && tId >= 0) tId += 1000;
-            if (action.isForUser()) tId = sId;
-            if (indexVariableId) $gameVariables._data[indexVariableId] = sId;
-            if (targetIndexVariableId) $gameVariables._data[targetIndexVariableId] = tId;
-            this._phase = 'turn';
-            return true;
-        }
-        return false;
-    };
+  ////////////////////////////////////////////////////////////////////////////////////
 
-    ////////////////////////////////////////////////////////////////////////////////////
+  var __GBattler_removeCurrentAction =
+    Game_Battler.prototype.removeCurrentAction;
+  Game_Battler.prototype.removeCurrentAction = function () {
+    if (!BattleManager._execBeforeCommon) {
+      __GBattler_removeCurrentAction.call(this);
+    }
+  };
 
-    var __GBattler_removeCurrentAction = Game_Battler.prototype.removeCurrentAction;
-    Game_Battler.prototype.removeCurrentAction = function () {
-        if (!BattleManager._execBeforeCommon) {
-            __GBattler_removeCurrentAction.call(this);
-        }
-    };
-
-    ////////////////////////////////////////////////////////////////////////////////////
-}());
+  ////////////////////////////////////////////////////////////////////////////////////
+})();

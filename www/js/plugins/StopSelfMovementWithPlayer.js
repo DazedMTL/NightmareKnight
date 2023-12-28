@@ -62,8 +62,8 @@
   //
   // process parameters
   //
-  var parameters = PluginManager.parameters('StopSelfMovementWithPlayer');
-  var validateSwitchId = Number(parameters['Varidate Switch ID'] || 0);
+  var parameters = PluginManager.parameters("StopSelfMovementWithPlayer");
+  var validateSwitchId = Number(parameters["Varidate Switch ID"] || 0);
 
   //
   // stop self movement routine
@@ -100,5 +100,4 @@
       _Game_Event_updateSelfMovement.call(this);
     }
   };
-
 })();

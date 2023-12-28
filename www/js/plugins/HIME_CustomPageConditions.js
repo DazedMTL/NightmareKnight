@@ -119,7 +119,7 @@ be ON and then use that as the troop page condition.
  *
  * 元プラグイン:
  * http://himeworks.com/2015/10/custom-page-conditions-mv/
- * 
+ *
  * == 説明 ==
  *
  * イベントはページの集合体です。
@@ -149,7 +149,7 @@ be ON and then use that as the troop page condition.
  * カスタムページ条件を利用することで、
  * 生産性が向上し、プロジェクトの管理がしやすくなります。
  *
- * 
+ *
  * == 使用法 ==
  *
  * イベントでカスタムページ条件を作成するには、次の注釈を作成します。
@@ -190,7 +190,7 @@ be ON and then use that as the troop page condition.
  * 注意してください。
  * いつでも実行させたい場合は、常にONになっているスイッチを予約し、
  * それを敵グループのページ条件として使用します。
- * 
+ *
  * == 利用規約 ==
  *
  * - クレジットを表示する非営利プロジェクトでの使用は無料
@@ -315,18 +315,17 @@ var TH = TH || {};
 TH.CustomPageConditions = TH.CustomPageConditions || {};
 
 function PageManager() {
-  throw new Error('This is a static class');
-};
+  throw new Error("This is a static class");
+}
 
 function Game_PageInterpreter() {
   this.initialize.apply(this, arguments);
-};
+}
 
 (function ($) {
-
   // get the last part of script URL
   var scriptName = document.currentScript.src.split("/").pop();
-  var lastDot = scriptName.lastIndexOf(".")
+  var lastDot = scriptName.lastIndexOf(".");
 
   Game_PageInterpreter.prototype = Object.create(Game_Interpreter.prototype);
   Game_PageInterpreter.prototype.constructor = Game_PageInterpreter;
@@ -340,7 +339,7 @@ function Game_PageInterpreter() {
     while (this.isRunning()) {
       this.executeCommand();
     }
-  }
+  };
 
   Game_PageInterpreter.prototype.pluginCommand = function (command, args) {
     if (command.toLowerCase() === "activate_page") {
@@ -350,7 +349,8 @@ function Game_PageInterpreter() {
 
   /* For MZ. */
   if (Game_Interpreter.prototype.command357) {
-    var TH_GamePageInterpreter_command357 = Game_Interpreter.prototype.command357
+    var TH_GamePageInterpreter_command357 =
+      Game_Interpreter.prototype.command357;
     Game_Interpreter.prototype.command357 = function (params) {
       if (params[1].toLowerCase() === "activate_page") {
         this._conditionsMet = true;
@@ -390,14 +390,20 @@ function Game_PageInterpreter() {
     var cmd, nextCmd;
     for (var i = 0, len = page.list.length; i < len; i++) {
       cmd = page.list[i];
-      if (cmd.code === 108 && cmd.parameters[0].indexOf("<page condition>") > -1) {
+      if (
+        cmd.code === 108 &&
+        cmd.parameters[0].indexOf("<page condition>") > -1
+      ) {
         for (var j = i + 1; j < len; j++) {
           cmd = page.list[j];
-          if (cmd.code === 108 && cmd.parameters[0].indexOf("</page condition>") > -1) {
+          if (
+            cmd.code === 108 &&
+            cmd.parameters[0].indexOf("</page condition>") > -1
+          ) {
             page.list.splice(i, j - 1);
             return;
           }
-          page.customPageCondition.push(cmd)
+          page.customPageCondition.push(cmd);
         }
       }
     }
@@ -413,9 +419,13 @@ function Game_PageInterpreter() {
 
   /***************************************************************************/
 
-  var TH_CustomPageConditions_Game_Event_meetsConditions = Game_Event.prototype.meetsConditions;
+  var TH_CustomPageConditions_Game_Event_meetsConditions =
+    Game_Event.prototype.meetsConditions;
   Game_Event.prototype.meetsConditions = function (page) {
-    var res = TH_CustomPageConditions_Game_Event_meetsConditions.call(this, page);
+    var res = TH_CustomPageConditions_Game_Event_meetsConditions.call(
+      this,
+      page
+    );
     if (!res) {
       return false;
     }
@@ -430,7 +440,10 @@ function Game_PageInterpreter() {
       $.loadCustomPageCondition(page);
     }
     if (page.customPageCondition.length > 0) {
-      return $gameMap.event(this._eventId) && PageManager.conditionsMet(page.customPageCondition, this._eventId)
+      return (
+        $gameMap.event(this._eventId) &&
+        PageManager.conditionsMet(page.customPageCondition, this._eventId)
+      );
     }
     return true;
   };
@@ -442,8 +455,14 @@ function Game_PageInterpreter() {
     var res = TH_GameTroop_meetsConditions.call(this, page);
     var c = page.conditions;
     // It's false, and there were valid conditions
-    if (!res && (c.turnEnding || c.turnValid || c.enemyValid ||
-      c.actorValid || c.switchValid)) {
+    if (
+      !res &&
+      (c.turnEnding ||
+        c.turnValid ||
+        c.enemyValid ||
+        c.actorValid ||
+        c.switchValid)
+    ) {
       return false;
     }
     return res && this.customPageConditionsMet(page);
@@ -464,31 +483,35 @@ function Game_PageInterpreter() {
   /*
    * Update methods to refresh the map
    */
-  var TH_CustomPageConditions_GameParty_gainGold = Game_Party.prototype.gainGold;
+  var TH_CustomPageConditions_GameParty_gainGold =
+    Game_Party.prototype.gainGold;
   Game_Party.prototype.gainGold = function (amount) {
-    TH_CustomPageConditions_GameParty_gainGold.call(this, amount)
+    TH_CustomPageConditions_GameParty_gainGold.call(this, amount);
     $gameMap.requestRefresh();
   };
 
   var TH_CustomPageConditions_GameActor_setName = Game_Actor.prototype.setName;
   Game_Actor.prototype.setName = function (name) {
-    TH_CustomPageConditions_GameActor_setName.call(this, name)
+    TH_CustomPageConditions_GameActor_setName.call(this, name);
     $gameMap.requestRefresh();
   };
 
-  var TH_CustomPageConditions_GameActor_changeClass = Game_Actor.prototype.changeClass;
+  var TH_CustomPageConditions_GameActor_changeClass =
+    Game_Actor.prototype.changeClass;
   Game_Actor.prototype.changeClass = function (classId, keepExp) {
     TH_CustomPageConditions_GameActor_changeClass.call(this, classId, keepExp);
     $gameMap.requestRefresh();
   };
 
-  var TH_CustomPageConditions_GameActor_learnSkill = Game_Actor.prototype.learnSkill;
+  var TH_CustomPageConditions_GameActor_learnSkill =
+    Game_Actor.prototype.learnSkill;
   Game_Actor.prototype.learnSkill = function (skillId) {
     TH_CustomPageConditions_GameActor_learnSkill.call(this, skillId);
     $gameMap.requestRefresh();
   };
 
-  var TH_CustomPageConditions_GameBattler_refresh = Game_Battler.prototype.refresh;
+  var TH_CustomPageConditions_GameBattler_refresh =
+    Game_Battler.prototype.refresh;
   Game_Battler.prototype.refresh = function () {
     TH_CustomPageConditions_GameBattler_refresh.call(this);
     $gameMap.requestRefresh();
@@ -499,18 +522,17 @@ var TH = TH || {};
 TH.CustomPageConditions = TH.CustomPageConditions || {};
 
 function PageManager() {
-  throw new Error('This is a static class');
-};
+  throw new Error("This is a static class");
+}
 
 function Game_PageInterpreter() {
   this.initialize.apply(this, arguments);
-};
+}
 
 (function ($) {
-
   // get the last part of script URL
   var scriptName = document.currentScript.src.split("/").pop();
-  var lastDot = scriptName.lastIndexOf(".")
+  var lastDot = scriptName.lastIndexOf(".");
 
   Game_PageInterpreter.prototype = Object.create(Game_Interpreter.prototype);
   Game_PageInterpreter.prototype.constructor = Game_PageInterpreter;
@@ -524,7 +546,7 @@ function Game_PageInterpreter() {
     while (this.isRunning()) {
       this.executeCommand();
     }
-  }
+  };
 
   Game_PageInterpreter.prototype.pluginCommand = function (command, args) {
     if (command.toLowerCase() === "activate_page") {
@@ -534,7 +556,8 @@ function Game_PageInterpreter() {
 
   /* For MZ. */
   if (Game_Interpreter.prototype.command357) {
-    var TH_GamePageInterpreter_command357 = Game_Interpreter.prototype.command357
+    var TH_GamePageInterpreter_command357 =
+      Game_Interpreter.prototype.command357;
     Game_Interpreter.prototype.command357 = function (params) {
       if (params[1].toLowerCase() === "activate_page") {
         this._conditionsMet = true;
@@ -574,14 +597,20 @@ function Game_PageInterpreter() {
     var cmd, nextCmd;
     for (var i = 0, len = page.list.length; i < len; i++) {
       cmd = page.list[i];
-      if (cmd.code === 108 && cmd.parameters[0].indexOf("<page condition>") > -1) {
+      if (
+        cmd.code === 108 &&
+        cmd.parameters[0].indexOf("<page condition>") > -1
+      ) {
         for (var j = i + 1; j < len; j++) {
           cmd = page.list[j];
-          if (cmd.code === 108 && cmd.parameters[0].indexOf("</page condition>") > -1) {
+          if (
+            cmd.code === 108 &&
+            cmd.parameters[0].indexOf("</page condition>") > -1
+          ) {
             page.list.splice(i, j - 1);
             return;
           }
-          page.customPageCondition.push(cmd)
+          page.customPageCondition.push(cmd);
         }
       }
     }
@@ -597,9 +626,13 @@ function Game_PageInterpreter() {
 
   /***************************************************************************/
 
-  var TH_CustomPageConditions_Game_Event_meetsConditions = Game_Event.prototype.meetsConditions;
+  var TH_CustomPageConditions_Game_Event_meetsConditions =
+    Game_Event.prototype.meetsConditions;
   Game_Event.prototype.meetsConditions = function (page) {
-    var res = TH_CustomPageConditions_Game_Event_meetsConditions.call(this, page);
+    var res = TH_CustomPageConditions_Game_Event_meetsConditions.call(
+      this,
+      page
+    );
     if (!res) {
       return false;
     }
@@ -614,7 +647,10 @@ function Game_PageInterpreter() {
       $.loadCustomPageCondition(page);
     }
     if (page.customPageCondition.length > 0) {
-      return $gameMap.event(this._eventId) && PageManager.conditionsMet(page.customPageCondition, this._eventId)
+      return (
+        $gameMap.event(this._eventId) &&
+        PageManager.conditionsMet(page.customPageCondition, this._eventId)
+      );
     }
     return true;
   };
@@ -626,8 +662,14 @@ function Game_PageInterpreter() {
     var res = TH_GameTroop_meetsConditions.call(this, page);
     var c = page.conditions;
     // It's false, and there were valid conditions
-    if (!res && (c.turnEnding || c.turnValid || c.enemyValid ||
-      c.actorValid || c.switchValid)) {
+    if (
+      !res &&
+      (c.turnEnding ||
+        c.turnValid ||
+        c.enemyValid ||
+        c.actorValid ||
+        c.switchValid)
+    ) {
       return false;
     }
     return res && this.customPageConditionsMet(page);
@@ -648,31 +690,35 @@ function Game_PageInterpreter() {
   /*
    * Update methods to refresh the map
    */
-  var TH_CustomPageConditions_GameParty_gainGold = Game_Party.prototype.gainGold;
+  var TH_CustomPageConditions_GameParty_gainGold =
+    Game_Party.prototype.gainGold;
   Game_Party.prototype.gainGold = function (amount) {
-    TH_CustomPageConditions_GameParty_gainGold.call(this, amount)
+    TH_CustomPageConditions_GameParty_gainGold.call(this, amount);
     $gameMap.requestRefresh();
   };
 
   var TH_CustomPageConditions_GameActor_setName = Game_Actor.prototype.setName;
   Game_Actor.prototype.setName = function (name) {
-    TH_CustomPageConditions_GameActor_setName.call(this, name)
+    TH_CustomPageConditions_GameActor_setName.call(this, name);
     $gameMap.requestRefresh();
   };
 
-  var TH_CustomPageConditions_GameActor_changeClass = Game_Actor.prototype.changeClass;
+  var TH_CustomPageConditions_GameActor_changeClass =
+    Game_Actor.prototype.changeClass;
   Game_Actor.prototype.changeClass = function (classId, keepExp) {
     TH_CustomPageConditions_GameActor_changeClass.call(this, classId, keepExp);
     $gameMap.requestRefresh();
   };
 
-  var TH_CustomPageConditions_GameActor_learnSkill = Game_Actor.prototype.learnSkill;
+  var TH_CustomPageConditions_GameActor_learnSkill =
+    Game_Actor.prototype.learnSkill;
   Game_Actor.prototype.learnSkill = function (skillId) {
     TH_CustomPageConditions_GameActor_learnSkill.call(this, skillId);
     $gameMap.requestRefresh();
   };
 
-  var TH_CustomPageConditions_GameBattler_refresh = Game_Battler.prototype.refresh;
+  var TH_CustomPageConditions_GameBattler_refresh =
+    Game_Battler.prototype.refresh;
   Game_Battler.prototype.refresh = function () {
     TH_CustomPageConditions_GameBattler_refresh.call(this);
     $gameMap.requestRefresh();

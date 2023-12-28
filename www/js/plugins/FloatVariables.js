@@ -90,41 +90,49 @@
  */
 
 (function () {
-    'use strict';
-    var pluginName = 'FloatVariables';
+  "use strict";
+  var pluginName = "FloatVariables";
 
-    var getParamNumber = function (paramNames, min, max) {
-        var value = getParamOther(paramNames);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(value, 10) || 0).clamp(min, max);
-    };
+  var getParamNumber = function (paramNames, min, max) {
+    var value = getParamOther(paramNames);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(value, 10) || 0).clamp(min, max);
+  };
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
-    };
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
+    }
+    return null;
+  };
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var paramFloatVariableStart = getParamNumber(['FloatVariableStart', '小数変数開始位置']);
-    var paramFloatVariableEnd = getParamNumber(['FloatVariableEnd', '小数変数終了位置']);
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var paramFloatVariableStart = getParamNumber([
+    "FloatVariableStart",
+    "小数変数開始位置",
+  ]);
+  var paramFloatVariableEnd = getParamNumber([
+    "FloatVariableEnd",
+    "小数変数終了位置",
+  ]);
 
-    var _Game_Variables_setValue = Game_Variables.prototype.setValue;
-    Game_Variables.prototype.setValue = function (variableId, value) {
-        if (variableId >= paramFloatVariableStart && variableId <= paramFloatVariableEnd) {
-            if (variableId > 0 && variableId < $dataSystem.variables.length) {
-                this._data[variableId] = value;
-                this.onChange();
-            }
-        } else {
-            _Game_Variables_setValue.apply(this, arguments);
-        }
-    };
+  var _Game_Variables_setValue = Game_Variables.prototype.setValue;
+  Game_Variables.prototype.setValue = function (variableId, value) {
+    if (
+      variableId >= paramFloatVariableStart &&
+      variableId <= paramFloatVariableEnd
+    ) {
+      if (variableId > 0 && variableId < $dataSystem.variables.length) {
+        this._data[variableId] = value;
+        this.onChange();
+      }
+    } else {
+      _Game_Variables_setValue.apply(this, arguments);
+    }
+  };
 })();
-

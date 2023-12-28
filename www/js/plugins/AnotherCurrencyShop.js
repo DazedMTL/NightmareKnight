@@ -33,100 +33,96 @@
  */
 
 (function () {
+  var parameters = PluginManager.parameters("AnotherCurrencyShop");
+  var currencyName = String(parameters["Currency Name"] || "ＰＴ");
+  var variableNumber = String(parameters["Variable Number"] || "1");
+  var buyCommandName = String(parameters["Buy Command Name"] || "Buy");
+  var sellCommandName = String(parameters["Sell Command Name"] || "Sell");
 
-    var parameters = PluginManager.parameters('AnotherCurrencyShop');
-    var currencyName = String(parameters['Currency Name'] || 'ＰＴ');
-    var variableNumber = String(parameters['Variable Number'] || '1');
-    var buyCommandName = String(parameters['Buy Command Name'] || 'Buy');
-    var sellCommandName = String(parameters['Sell Command Name'] || 'Sell');
+  //-------------------------------------------------------------------------
+  // 関数退避
+  //-------------------------------------------------------------------------
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
 
-    //-------------------------------------------------------------------------
-    // 関数退避
-    //-------------------------------------------------------------------------
-    var _Game_Interpreter_pluginCommand =
-        Game_Interpreter.prototype.pluginCommand;
+  var _Scene_Shop_doBuy = Scene_Shop.prototype.doBuy;
+  var _Scene_Shop_doSell = Scene_Shop.prototype.doSell;
+  var _Window_Gold_value = Window_Gold.prototype.value;
+  var _Window_Gold_currencyUnit = Window_Gold.prototype.currencyUnit;
+  var _Window_ShopCommand_makeCommandList =
+    Window_ShopCommand.prototype.makeCommandList;
 
-    var _Scene_Shop_doBuy = Scene_Shop.prototype.doBuy;
-    var _Scene_Shop_doSell = Scene_Shop.prototype.doSell;
-    var _Window_Gold_value = Window_Gold.prototype.value;
-    var _Window_Gold_currencyUnit = Window_Gold.prototype.currencyUnit;
-    var _Window_ShopCommand_makeCommandList = Window_ShopCommand.prototype.makeCommandList;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.call(this, command, args);
+    if (command === "AnotherCurrencyShop") {
+      switch (args[0]) {
+        case "on":
+          $gameSystem.rngd_hook_on_AnotherCurrencyShop();
+          break;
+        case "off":
+          $gameSystem.rngd_hook_off_AnotherCurrecyShop();
+          break;
+      }
+    }
+  };
 
-
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.call(this, command, args);
-        if (command === 'AnotherCurrencyShop') {
-            switch (args[0]) {
-                case 'on':
-                    $gameSystem.rngd_hook_on_AnotherCurrencyShop();
-                    break;
-                case 'off':
-                    $gameSystem.rngd_hook_off_AnotherCurrecyShop();
-                    break;
-            }
-        }
+  //-------------------------------------------------------------------------
+  // ゴールド以外のショップON
+  //-------------------------------------------------------------------------
+  Game_System.prototype.rngd_hook_on_AnotherCurrencyShop = function () {
+    Scene_Shop.prototype.doBuy = function (number) {
+      var _current = $gameVariables.value(variableNumber);
+      _current -= number * this.buyingPrice();
+      $gameVariables.setValue(variableNumber, _current);
+      $gameParty.gainItem(this._item, number);
     };
 
-    //-------------------------------------------------------------------------
-    // ゴールド以外のショップON
-    //-------------------------------------------------------------------------
-    Game_System.prototype.rngd_hook_on_AnotherCurrencyShop = function () {
-        Scene_Shop.prototype.doBuy = function (number) {
-            var _current = $gameVariables.value(variableNumber);
-            _current -= number * this.buyingPrice();
-            $gameVariables.setValue(variableNumber, _current);
-            $gameParty.gainItem(this._item, number);
-        };
-
-        Scene_Shop.prototype.doSell = function (number) {
-            var _current = $gameVariables.value(variableNumber);
-            _current += number * this.sellingPrice();
-            $gameVariables.setValue(variableNumber, _current);
-            $gameParty.loseItem(this._item, number);
-        };
-
-        Window_Gold.prototype.value = function () {
-            // プラグインで指定した変数の値を金額として返す
-            return $gameVariables.value(variableNumber);
-        };
-
-        Window_Gold.prototype.currencyUnit = function () {
-            return currencyName;
-        };
-
-        Window_ShopCommand.prototype.makeCommandList = function () {
-            this.clearCommandList();
-            this.addCommand(buyCommandName, 'buy');
-            this.addCommand(sellCommandName, 'sell', !this._purchaseOnly);
-            this.addCommand(TextManager.cancel, 'cancel');
-        };
-
+    Scene_Shop.prototype.doSell = function (number) {
+      var _current = $gameVariables.value(variableNumber);
+      _current += number * this.sellingPrice();
+      $gameVariables.setValue(variableNumber, _current);
+      $gameParty.loseItem(this._item, number);
     };
 
-    //-------------------------------------------------------------------------
-    // ゴールド以外のショップOFF
-    //-------------------------------------------------------------------------
-    Game_System.prototype.rngd_hook_off_AnotherCurrecyShop = function () {
-        Scene_Shop.prototype.doBuy = function (number) {
-            _Scene_Shop_doBuy.call(this, number);
-        };
-
-        Scene_Shop.prototype.doSell = function (number) {
-            _Scene_Shop_doSell.call(this, number);
-        };
-
-        Window_Gold.prototype.value = function () {
-            return _Window_Gold_value.call(this);
-        };
-
-        Window_Gold.prototype.currencyUnit = function () {
-            return _Window_Gold_currencyUnit.call(this);
-        };
-
-        Window_ShopCommand.prototype.makeCommandList = function () {
-            _Window_ShopCommand_makeCommandList.call(this);
-        };
-
+    Window_Gold.prototype.value = function () {
+      // プラグインで指定した変数の値を金額として返す
+      return $gameVariables.value(variableNumber);
     };
 
+    Window_Gold.prototype.currencyUnit = function () {
+      return currencyName;
+    };
+
+    Window_ShopCommand.prototype.makeCommandList = function () {
+      this.clearCommandList();
+      this.addCommand(buyCommandName, "buy");
+      this.addCommand(sellCommandName, "sell", !this._purchaseOnly);
+      this.addCommand(TextManager.cancel, "cancel");
+    };
+  };
+
+  //-------------------------------------------------------------------------
+  // ゴールド以外のショップOFF
+  //-------------------------------------------------------------------------
+  Game_System.prototype.rngd_hook_off_AnotherCurrecyShop = function () {
+    Scene_Shop.prototype.doBuy = function (number) {
+      _Scene_Shop_doBuy.call(this, number);
+    };
+
+    Scene_Shop.prototype.doSell = function (number) {
+      _Scene_Shop_doSell.call(this, number);
+    };
+
+    Window_Gold.prototype.value = function () {
+      return _Window_Gold_value.call(this);
+    };
+
+    Window_Gold.prototype.currencyUnit = function () {
+      return _Window_Gold_currencyUnit.call(this);
+    };
+
+    Window_ShopCommand.prototype.makeCommandList = function () {
+      _Window_ShopCommand_makeCommandList.call(this);
+    };
+  };
 })();

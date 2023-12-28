@@ -6,7 +6,7 @@
  * @version 1.4
  * @date Dec 4, 2015
  * @filename HIME_MoreEnemyDrops.js
- * 
+ *
  * @plugindesc 敵にドロップアイテムを追加し、獲得率に式を使用できます。
  * @help
  * 翻訳:ムノクラ
@@ -306,17 +306,14 @@ Imported.MoreEnemyDrops = 1;
 TH.MoreEnemyDrops = TH.MoreEnemyDrops || {};
 
 (function ($) {
-
-  $.ExtRegex = /<enemy[-_ ]drop>([\s\S]*?)<\/enemy[-_ ]drop>/img
+  $.ExtRegex = /<enemy[-_ ]drop>([\s\S]*?)<\/enemy[-_ ]drop>/gim;
 
   $.getKind = function (letter) {
     if (letter === "i") {
       return 1;
-    }
-    else if (letter === "w") {
+    } else if (letter === "w") {
       return 2;
-    }
-    else if (letter === "a") {
+    } else if (letter === "a") {
       return 3;
     }
   };
@@ -325,11 +322,11 @@ TH.MoreEnemyDrops = TH.MoreEnemyDrops || {};
     enemy.extraDropItems = [];
     var res;
     var drop;
-    while (res = $.ExtRegex.exec(enemy.note)) {
+    while ((res = $.ExtRegex.exec(enemy.note))) {
       var data = new Function("return {" + res[1] + "}")();
       var drop = $.parseExtendedDrop(data);
       enemy.extraDropItems.push(drop);
-    };
+    }
   };
 
   $.parseExtendedDrop = function (data) {
@@ -347,12 +344,13 @@ TH.MoreEnemyDrops = TH.MoreEnemyDrops || {};
     return drop;
   };
 
-  var TH_MoreEnemyDrops_GameEnemy_makeDropItems = Game_Enemy.prototype.makeDropItems;
+  var TH_MoreEnemyDrops_GameEnemy_makeDropItems =
+    Game_Enemy.prototype.makeDropItems;
   Game_Enemy.prototype.makeDropItems = function () {
     $.parseMoreDropItems(this.enemy());
     var items = TH_MoreEnemyDrops_GameEnemy_makeDropItems.call(this);
     items = items.concat(this.makeExtraDropItems(this.enemy()));
-    return items
+    return items;
   };
 
   /* Determine whether any extra items are dropped. These items
@@ -377,7 +375,7 @@ TH.MoreEnemyDrops = TH.MoreEnemyDrops || {};
 
   /* Treat denominator as a percentage. Apply double drop as well */
   Game_Enemy.prototype.dropRate = function (dropItem) {
-    return this.evalDropChance(dropItem.chance) * this.dropItemRate()
+    return this.evalDropChance(dropItem.chance) * this.dropItemRate();
   };
 
   Game_Enemy.prototype.evalDropChance = function (formula) {

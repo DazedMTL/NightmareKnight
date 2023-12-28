@@ -344,465 +344,505 @@
  */
 
 (function () {
-    'use strict';
-    var pluginName = 'CustomizeConfigItem';
+  "use strict";
+  var pluginName = "CustomizeConfigItem";
 
-    var getParamString = function (paramNames) {
-        var value = getParamOther(paramNames);
-        return value == null ? '' : value;
-    };
+  var getParamString = function (paramNames) {
+    var value = getParamOther(paramNames);
+    return value == null ? "" : value;
+  };
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
-    };
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
+    }
+    return null;
+  };
 
-    var getParamArrayJson = function (paramNames, defaultValue) {
-        var value = getParamString(paramNames) || null;
-        try {
-            value = JSON.parse(value);
-            if (value === null) {
-                value = defaultValue;
-            } else {
-                value = value.map(function (valueData) {
-                    return JSON.parse(valueData);
-                });
-            }
-        } catch (e) {
-            alert(`!!!Plugin param is wrong.!!!\nPlugin:${pluginName}.js\nName:[${paramNames}]\nValue:${value}`);
-            value = defaultValue;
-        }
-        return value;
-    };
-
-    var getCommandName = function (command) {
-        return (command || '').toUpperCase();
-    };
-
-    var getArgNumber = function (arg, min, max) {
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(arg) || 0).clamp(min, max);
-    };
-
-    var getArgBoolean = function (arg) {
-        return (arg || '').toUpperCase() === 'TRUE';
-    };
-
-    var getArgJson = function (arg, defaultValue) {
-        try {
-            arg = JSON.parse(arg || null);
-            if (arg === null) {
-                arg = defaultValue;
-            }
-        } catch (e) {
-            alert(`!!!Plugin param is wrong.!!!\nPlugin:${pluginName}.js\nValue:${arg}`);
-            arg = defaultValue;
-        }
-        return arg;
-    };
-
-    var iterate = function (that, handler) {
-        Object.keys(that).forEach(function (key, index) {
-            handler.call(that, key, that[key], index);
+  var getParamArrayJson = function (paramNames, defaultValue) {
+    var value = getParamString(paramNames) || null;
+    try {
+      value = JSON.parse(value);
+      if (value === null) {
+        value = defaultValue;
+      } else {
+        value = value.map(function (valueData) {
+          return JSON.parse(valueData);
         });
-    };
+      }
+    } catch (e) {
+      alert(
+        `!!!Plugin param is wrong.!!!\nPlugin:${pluginName}.js\nName:[${paramNames}]\nValue:${value}`
+      );
+      value = defaultValue;
+    }
+    return value;
+  };
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var param = {};
-    param.numberOptions = getParamArrayJson(['NumberOptions', '数値項目'], []);
-    param.stringOptions = getParamArrayJson(['StringOptions', '文字項目'], []);
-    param.switchOptions = getParamArrayJson(['SwitchOptions', 'スイッチ項目'], []);
-    param.volumeOptions = getParamArrayJson(['VolumeOptions', '音量項目'], []);
+  var getCommandName = function (command) {
+    return (command || "").toUpperCase();
+  };
 
-    var localOptionWindowIndex = 0;
+  var getArgNumber = function (arg, min, max) {
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(arg) || 0).clamp(min, max);
+  };
 
-    //=============================================================================
-    // Game_Interpreter
-    //  プラグインコマンドを追加定義します。
-    //=============================================================================
-    var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.call(this, command, args);
-        this.pluginCommandCustomizeConfigItem(command, args);
-    };
+  var getArgBoolean = function (arg) {
+    return (arg || "").toUpperCase() === "TRUE";
+  };
 
-    Game_Interpreter.prototype.pluginCommandCustomizeConfigItem = function (command, args) {
-        switch (getCommandName(command)) {
-            case 'CC_UNLOCK':
-            case 'オプション任意項目の隠し解除':
-                ConfigManager.customParamUnlock(args[0]);
-                break;
-        }
-    };
+  var getArgJson = function (arg, defaultValue) {
+    try {
+      arg = JSON.parse(arg || null);
+      if (arg === null) {
+        arg = defaultValue;
+      }
+    } catch (e) {
+      alert(
+        `!!!Plugin param is wrong.!!!\nPlugin:${pluginName}.js\nValue:${arg}`
+      );
+      arg = defaultValue;
+    }
+    return arg;
+  };
 
-    //=============================================================================
-    // ConfigManager
-    //  追加項目の設定値や初期値を管理します。
-    //=============================================================================
-    ConfigManager.customParams = null;
-    ConfigManager.hiddenInfo = {};
-    ConfigManager._symbolNumber = 'Number';
-    ConfigManager._symbolBoolean = 'Boolean';
-    ConfigManager._symbolString = 'String';
-    ConfigManager._symbolVolume = 'Volume';
+  var iterate = function (that, handler) {
+    Object.keys(that).forEach(function (key, index) {
+      handler.call(that, key, that[key], index);
+    });
+  };
 
-    ConfigManager.getCustomParams = function () {
-        if (this.customParams) {
-            return this.customParams;
-        }
-        this.customParams = {};
-        param.numberOptions.forEach(function (optionItem, index) {
-            this.makeNumberOption(optionItem, index);
-        }, this);
-        param.stringOptions.forEach(function (optionItem, index) {
-            this.makeStringOption(optionItem, index);
-        }, this);
-        param.switchOptions.forEach(function (optionItem, index) {
-            this.makeSwitchOption(optionItem, index);
-        }, this);
-        param.volumeOptions.forEach(function (optionItem, index) {
-            this.makeVolumeOption(optionItem, index);
-        }, this);
-        return this.customParams;
-    };
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var param = {};
+  param.numberOptions = getParamArrayJson(["NumberOptions", "数値項目"], []);
+  param.stringOptions = getParamArrayJson(["StringOptions", "文字項目"], []);
+  param.switchOptions = getParamArrayJson(
+    ["SwitchOptions", "スイッチ項目"],
+    []
+  );
+  param.volumeOptions = getParamArrayJson(["VolumeOptions", "音量項目"], []);
 
-    ConfigManager.makeNumberOption = function (optionItem, index) {
-        var data = this.makeCommonOption(optionItem, index, this._symbolNumber);
-        data.min = getArgNumber(optionItem.NumberMin);
-        data.max = getArgNumber(optionItem.NumberMax);
-        data.offset = getArgNumber(optionItem.NumberStep);
-        this.pushOptionData(data);
-    };
+  var localOptionWindowIndex = 0;
 
-    ConfigManager.makeStringOption = function (optionItem, index) {
-        var data = this.makeCommonOption(optionItem, index, this._symbolString);
-        data.values = getArgJson(optionItem.StringItems, ['no item']);
-        data.min = 0;
-        data.max = data.values.length - 1;
-        this.pushOptionData(data);
-    };
+  //=============================================================================
+  // Game_Interpreter
+  //  プラグインコマンドを追加定義します。
+  //=============================================================================
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.call(this, command, args);
+    this.pluginCommandCustomizeConfigItem(command, args);
+  };
 
-    ConfigManager.makeSwitchOption = function (optionItem, index) {
-        var data = this.makeCommonOption(optionItem, index, this._symbolBoolean);
-        data.initValue = getArgBoolean(optionItem.DefaultValue);
-        data.variable = getArgNumber(optionItem.SwitchID);
-        this.pushOptionData(data);
-    };
+  Game_Interpreter.prototype.pluginCommandCustomizeConfigItem = function (
+    command,
+    args
+  ) {
+    switch (getCommandName(command)) {
+      case "CC_UNLOCK":
+      case "オプション任意項目の隠し解除":
+        ConfigManager.customParamUnlock(args[0]);
+        break;
+    }
+  };
 
-    ConfigManager.makeVolumeOption = function (optionItem, index) {
-        var data = this.makeCommonOption(optionItem, index, this._symbolVolume);
-        this.pushOptionData(data);
-    };
+  //=============================================================================
+  // ConfigManager
+  //  追加項目の設定値や初期値を管理します。
+  //=============================================================================
+  ConfigManager.customParams = null;
+  ConfigManager.hiddenInfo = {};
+  ConfigManager._symbolNumber = "Number";
+  ConfigManager._symbolBoolean = "Boolean";
+  ConfigManager._symbolString = "String";
+  ConfigManager._symbolVolume = "Volume";
 
-    ConfigManager.makeCommonOption = function (optionItem, index, type) {
-        var data = {};
-        data.symbol = `${type}${index + 1}`;
-        data.name = optionItem.Name;
-        data.hidden = getArgBoolean(optionItem.HiddenFlag);
-        data.script = optionItem.Script;
-        data.initValue = getArgNumber(optionItem.DefaultValue);
-        data.variable = getArgNumber(optionItem.VariableID, 0);
-        data.addPotion = optionItem.AddPosition;
-        data.padding = getArgNumber(optionItem.PaddingTop);
-        return data;
-    };
+  ConfigManager.getCustomParams = function () {
+    if (this.customParams) {
+      return this.customParams;
+    }
+    this.customParams = {};
+    param.numberOptions.forEach(function (optionItem, index) {
+      this.makeNumberOption(optionItem, index);
+    }, this);
+    param.stringOptions.forEach(function (optionItem, index) {
+      this.makeStringOption(optionItem, index);
+    }, this);
+    param.switchOptions.forEach(function (optionItem, index) {
+      this.makeSwitchOption(optionItem, index);
+    }, this);
+    param.volumeOptions.forEach(function (optionItem, index) {
+      this.makeVolumeOption(optionItem, index);
+    }, this);
+    return this.customParams;
+  };
 
-    ConfigManager.pushOptionData = function (data) {
-        this.customParams[data.symbol] = data;
-    };
+  ConfigManager.makeNumberOption = function (optionItem, index) {
+    var data = this.makeCommonOption(optionItem, index, this._symbolNumber);
+    data.min = getArgNumber(optionItem.NumberMin);
+    data.max = getArgNumber(optionItem.NumberMax);
+    data.offset = getArgNumber(optionItem.NumberStep);
+    this.pushOptionData(data);
+  };
 
-    var _ConfigManager_makeData = ConfigManager.makeData;
-    ConfigManager.makeData = function () {
-        var config = _ConfigManager_makeData.apply(this, arguments);
-        config.hiddenInfo = {};
-        iterate(this.getCustomParams(), function (symbol) {
-            config[symbol] = this[symbol];
-            config.hiddenInfo[symbol] = this.hiddenInfo[symbol];
-        }.bind(this));
-        return config;
-    };
+  ConfigManager.makeStringOption = function (optionItem, index) {
+    var data = this.makeCommonOption(optionItem, index, this._symbolString);
+    data.values = getArgJson(optionItem.StringItems, ["no item"]);
+    data.min = 0;
+    data.max = data.values.length - 1;
+    this.pushOptionData(data);
+  };
 
-    var _ConfigManager_applyData = ConfigManager.applyData;
-    ConfigManager.applyData = function (config) {
-        _ConfigManager_applyData.apply(this, arguments);
-        iterate(this.getCustomParams(), function (symbol, item) {
-            if (symbol.contains(this._symbolBoolean)) {
-                this[symbol] = this.readFlagCustom(config, symbol, item);
-            } else if (symbol.contains(this._symbolVolume)) {
-                this[symbol] = this.readVolumeCustom(config, symbol, item);
-            } else {
-                this[symbol] = this.readOther(config, symbol, item);
-            }
-            if (config.hiddenInfo) {
-                this.hiddenInfo[symbol] = (typeof config.hiddenInfo[symbol] === 'boolean' ? config.hiddenInfo[symbol] : item.hidden);
-            } else {
-                this.hiddenInfo[symbol] = item.hidden;
-            }
-        }.bind(this));
-    };
+  ConfigManager.makeSwitchOption = function (optionItem, index) {
+    var data = this.makeCommonOption(optionItem, index, this._symbolBoolean);
+    data.initValue = getArgBoolean(optionItem.DefaultValue);
+    data.variable = getArgNumber(optionItem.SwitchID);
+    this.pushOptionData(data);
+  };
 
-    ConfigManager.customParamUnlock = function (name) {
-        iterate(this.getCustomParams(), function (symbol, item) {
-            if (item.name === name) this.hiddenInfo[symbol] = false;
-        }.bind(this));
-        this.save();
-    };
+  ConfigManager.makeVolumeOption = function (optionItem, index) {
+    var data = this.makeCommonOption(optionItem, index, this._symbolVolume);
+    this.pushOptionData(data);
+  };
 
-    ConfigManager.readOther = function (config, name, item) {
-        var value = config[name];
-        if (value !== undefined) {
-            return Number(value).clamp(item.min, item.max);
+  ConfigManager.makeCommonOption = function (optionItem, index, type) {
+    var data = {};
+    data.symbol = `${type}${index + 1}`;
+    data.name = optionItem.Name;
+    data.hidden = getArgBoolean(optionItem.HiddenFlag);
+    data.script = optionItem.Script;
+    data.initValue = getArgNumber(optionItem.DefaultValue);
+    data.variable = getArgNumber(optionItem.VariableID, 0);
+    data.addPotion = optionItem.AddPosition;
+    data.padding = getArgNumber(optionItem.PaddingTop);
+    return data;
+  };
+
+  ConfigManager.pushOptionData = function (data) {
+    this.customParams[data.symbol] = data;
+  };
+
+  var _ConfigManager_makeData = ConfigManager.makeData;
+  ConfigManager.makeData = function () {
+    var config = _ConfigManager_makeData.apply(this, arguments);
+    config.hiddenInfo = {};
+    iterate(
+      this.getCustomParams(),
+      function (symbol) {
+        config[symbol] = this[symbol];
+        config.hiddenInfo[symbol] = this.hiddenInfo[symbol];
+      }.bind(this)
+    );
+    return config;
+  };
+
+  var _ConfigManager_applyData = ConfigManager.applyData;
+  ConfigManager.applyData = function (config) {
+    _ConfigManager_applyData.apply(this, arguments);
+    iterate(
+      this.getCustomParams(),
+      function (symbol, item) {
+        if (symbol.contains(this._symbolBoolean)) {
+          this[symbol] = this.readFlagCustom(config, symbol, item);
+        } else if (symbol.contains(this._symbolVolume)) {
+          this[symbol] = this.readVolumeCustom(config, symbol, item);
         } else {
-            return item.initValue;
+          this[symbol] = this.readOther(config, symbol, item);
         }
-    };
-
-    ConfigManager.readFlagCustom = function (config, name, item) {
-        if (config[name] !== undefined) {
-            return this.readFlag(config, name);
+        if (config.hiddenInfo) {
+          this.hiddenInfo[symbol] =
+            typeof config.hiddenInfo[symbol] === "boolean"
+              ? config.hiddenInfo[symbol]
+              : item.hidden;
         } else {
-            return item.initValue;
+          this.hiddenInfo[symbol] = item.hidden;
         }
-    };
+      }.bind(this)
+    );
+  };
 
-    ConfigManager.readVolumeCustom = function (config, name, item) {
-        if (config[name] !== undefined) {
-            return this.readVolume(config, name);
-        } else {
-            return item.initValue;
+  ConfigManager.customParamUnlock = function (name) {
+    iterate(
+      this.getCustomParams(),
+      function (symbol, item) {
+        if (item.name === name) this.hiddenInfo[symbol] = false;
+      }.bind(this)
+    );
+    this.save();
+  };
+
+  ConfigManager.readOther = function (config, name, item) {
+    var value = config[name];
+    if (value !== undefined) {
+      return Number(value).clamp(item.min, item.max);
+    } else {
+      return item.initValue;
+    }
+  };
+
+  ConfigManager.readFlagCustom = function (config, name, item) {
+    if (config[name] !== undefined) {
+      return this.readFlag(config, name);
+    } else {
+      return item.initValue;
+    }
+  };
+
+  ConfigManager.readVolumeCustom = function (config, name, item) {
+    if (config[name] !== undefined) {
+      return this.readVolume(config, name);
+    } else {
+      return item.initValue;
+    }
+  };
+
+  ConfigManager.exportCustomParams = function () {
+    if (!$gameVariables || !$gameSwitches) return;
+    iterate(
+      this.getCustomParams(),
+      function (symbol, item) {
+        if (item.variable > 0) {
+          if (symbol.contains(this._symbolBoolean)) {
+            $gameSwitches.setValue(item.variable, !!this[symbol]);
+          } else {
+            $gameVariables.setValue(item.variable, this[symbol]);
+          }
         }
-    };
+      }.bind(this)
+    );
+  };
 
-    ConfigManager.exportCustomParams = function () {
-        if (!$gameVariables || !$gameSwitches) return;
-        iterate(this.getCustomParams(), function (symbol, item) {
-            if (item.variable > 0) {
-                if (symbol.contains(this._symbolBoolean)) {
-                    $gameSwitches.setValue(item.variable, !!this[symbol]);
-                } else {
-                    $gameVariables.setValue(item.variable, this[symbol]);
-                }
-            }
-        }.bind(this));
-    };
-
-    ConfigManager.importCustomParams = function () {
-        if (!$gameVariables || !$gameSwitches) return;
-        iterate(this.getCustomParams(), function (symbol, item) {
-            if (item.variable > 0) {
-                if (symbol.contains(this._symbolBoolean)) {
-                    this[symbol] = $gameSwitches.value(item.variable);
-                } else if (symbol.contains(this._symbolVolume)) {
-                    this[symbol] = $gameVariables.value(item.variable).clamp(0, 100);
-                } else {
-                    this[symbol] = $gameVariables.value(item.variable).clamp(item.min, item.max);
-                }
-            }
-        }.bind(this));
-    };
-
-    var _ConfigManager_save = ConfigManager.save;
-    ConfigManager.save = function () {
-        _ConfigManager_save.apply(this, arguments);
-        this.exportCustomParams();
-    };
-
-    //=============================================================================
-    // Game_Map
-    //  リフレッシュ時にオプション値を同期します。
-    //=============================================================================
-    var _Game_Map_refresh = Game_Map.prototype.refresh;
-    Game_Map.prototype.refresh = function () {
-        _Game_Map_refresh.apply(this, arguments);
-        ConfigManager.importCustomParams();
-    };
-
-    //=============================================================================
-    // DataManager
-    //  セーブ時とロード時にオプション値を同期します。
-    //=============================================================================
-    var _DataManager_setupNewGame = DataManager.setupNewGame;
-    DataManager.setupNewGame = function () {
-        _DataManager_setupNewGame.apply(this, arguments);
-        ConfigManager.exportCustomParams();
-    };
-
-    var _DataManager_loadGameWithoutRescue = DataManager.loadGameWithoutRescue;
-    DataManager.loadGameWithoutRescue = function (savefileId) {
-        var result = _DataManager_loadGameWithoutRescue.apply(this, arguments);
-        ConfigManager.exportCustomParams();
-        return result;
-    };
-
-    //=============================================================================
-    // Window_Options
-    //  追加項目を描画します。
-    //=============================================================================
-    var _Window_Options_initialize = Window_Options.prototype.initialize;
-    Window_Options.prototype.initialize = function () {
-        this._customParams = ConfigManager.getCustomParams();
-        _Window_Options_initialize.apply(this, arguments);
-        this.select(localOptionWindowIndex);
-        localOptionWindowIndex = 0;
-    };
-
-    var _Window_Options_itemRect = Window_Options.prototype.itemRect;
-    Window_Options.prototype.itemRect = function (index) {
-        var rect = _Window_Options_itemRect.apply(this, arguments);
-        rect.y += this.findAdditionalHeight(index);
-        return rect;
-    };
-
-    Window_Options.prototype.findAdditionalHeight = function (index) {
-        return this._list.reduce(function (prev, item, itemIndex) {
-            return prev + (itemIndex <= index && item.ext ? item.ext : 0);
-        }, 0);
-    };
-
-    var _Window_Options_makeCommandList = Window_Options.prototype.makeCommandList;
-    Window_Options.prototype.makeCommandList = function () {
-        _Window_Options_makeCommandList.apply(this, arguments);
-        this.addCustomOptions();
-    };
-
-    Window_Options.prototype.addCustomOptions = function () {
-        iterate(this._customParams, function (key, item) {
-            if (!ConfigManager.hiddenInfo[key]) {
-                this.addCommand(item.name, key, undefined, item.padding);
-                if (item.addPotion) {
-                    this.shiftCustomOptions(item.addPotion);
-                }
-            }
-        }.bind(this));
-    };
-
-    Window_Options.prototype.shiftCustomOptions = function (addPotion) {
-        var targetCommand = this._list.filter(function (command) {
-            return command.symbol === addPotion;
-        })[0];
-        if (!targetCommand) {
-            return;
+  ConfigManager.importCustomParams = function () {
+    if (!$gameVariables || !$gameSwitches) return;
+    iterate(
+      this.getCustomParams(),
+      function (symbol, item) {
+        if (item.variable > 0) {
+          if (symbol.contains(this._symbolBoolean)) {
+            this[symbol] = $gameSwitches.value(item.variable);
+          } else if (symbol.contains(this._symbolVolume)) {
+            this[symbol] = $gameVariables.value(item.variable).clamp(0, 100);
+          } else {
+            this[symbol] = $gameVariables
+              .value(item.variable)
+              .clamp(item.min, item.max);
+          }
         }
-        var targetIndex = this._list.indexOf(targetCommand);
-        var newCommand = this._list.pop();
-        this.addIndexForManoInputConfig(targetIndex);
-        this._list.splice(targetIndex, 0, newCommand);
-    };
+      }.bind(this)
+    );
+  };
 
-    Window_Options.prototype.addIndexForManoInputConfig = function (index) {
-        if (this._gamepadOptionIndex > index) {
-            this._gamepadOptionIndex += 1;
+  var _ConfigManager_save = ConfigManager.save;
+  ConfigManager.save = function () {
+    _ConfigManager_save.apply(this, arguments);
+    this.exportCustomParams();
+  };
+
+  //=============================================================================
+  // Game_Map
+  //  リフレッシュ時にオプション値を同期します。
+  //=============================================================================
+  var _Game_Map_refresh = Game_Map.prototype.refresh;
+  Game_Map.prototype.refresh = function () {
+    _Game_Map_refresh.apply(this, arguments);
+    ConfigManager.importCustomParams();
+  };
+
+  //=============================================================================
+  // DataManager
+  //  セーブ時とロード時にオプション値を同期します。
+  //=============================================================================
+  var _DataManager_setupNewGame = DataManager.setupNewGame;
+  DataManager.setupNewGame = function () {
+    _DataManager_setupNewGame.apply(this, arguments);
+    ConfigManager.exportCustomParams();
+  };
+
+  var _DataManager_loadGameWithoutRescue = DataManager.loadGameWithoutRescue;
+  DataManager.loadGameWithoutRescue = function (savefileId) {
+    var result = _DataManager_loadGameWithoutRescue.apply(this, arguments);
+    ConfigManager.exportCustomParams();
+    return result;
+  };
+
+  //=============================================================================
+  // Window_Options
+  //  追加項目を描画します。
+  //=============================================================================
+  var _Window_Options_initialize = Window_Options.prototype.initialize;
+  Window_Options.prototype.initialize = function () {
+    this._customParams = ConfigManager.getCustomParams();
+    _Window_Options_initialize.apply(this, arguments);
+    this.select(localOptionWindowIndex);
+    localOptionWindowIndex = 0;
+  };
+
+  var _Window_Options_itemRect = Window_Options.prototype.itemRect;
+  Window_Options.prototype.itemRect = function (index) {
+    var rect = _Window_Options_itemRect.apply(this, arguments);
+    rect.y += this.findAdditionalHeight(index);
+    return rect;
+  };
+
+  Window_Options.prototype.findAdditionalHeight = function (index) {
+    return this._list.reduce(function (prev, item, itemIndex) {
+      return prev + (itemIndex <= index && item.ext ? item.ext : 0);
+    }, 0);
+  };
+
+  var _Window_Options_makeCommandList =
+    Window_Options.prototype.makeCommandList;
+  Window_Options.prototype.makeCommandList = function () {
+    _Window_Options_makeCommandList.apply(this, arguments);
+    this.addCustomOptions();
+  };
+
+  Window_Options.prototype.addCustomOptions = function () {
+    iterate(
+      this._customParams,
+      function (key, item) {
+        if (!ConfigManager.hiddenInfo[key]) {
+          this.addCommand(item.name, key, undefined, item.padding);
+          if (item.addPotion) {
+            this.shiftCustomOptions(item.addPotion);
+          }
         }
-        if (this._keyboardConfigIndex > index) {
-            this._keyboardConfigIndex += 1;
-        }
-    };
+      }.bind(this)
+    );
+  };
 
-    var _Window_Options_statusText = Window_Options.prototype.statusText;
-    Window_Options.prototype.statusText = function (index) {
-        var result = _Window_Options_statusText.apply(this, arguments);
-        var symbol = this.commandSymbol(index);
-        var value = this.getConfigValue(symbol);
-        if (this.isNumberSymbol(symbol)) {
-            result = this.numberStatusText(value);
-        } else if (this.isStringSymbol(symbol)) {
-            result = this.stringStatusText(value, symbol);
-        }
-        return result;
-    };
+  Window_Options.prototype.shiftCustomOptions = function (addPotion) {
+    var targetCommand = this._list.filter(function (command) {
+      return command.symbol === addPotion;
+    })[0];
+    if (!targetCommand) {
+      return;
+    }
+    var targetIndex = this._list.indexOf(targetCommand);
+    var newCommand = this._list.pop();
+    this.addIndexForManoInputConfig(targetIndex);
+    this._list.splice(targetIndex, 0, newCommand);
+  };
 
-    Window_Options.prototype.isNumberSymbol = function (symbol) {
-        return symbol.contains(ConfigManager._symbolNumber);
-    };
+  Window_Options.prototype.addIndexForManoInputConfig = function (index) {
+    if (this._gamepadOptionIndex > index) {
+      this._gamepadOptionIndex += 1;
+    }
+    if (this._keyboardConfigIndex > index) {
+      this._keyboardConfigIndex += 1;
+    }
+  };
 
-    Window_Options.prototype.isStringSymbol = function (symbol) {
-        return symbol.contains(ConfigManager._symbolString);
-    };
+  var _Window_Options_statusText = Window_Options.prototype.statusText;
+  Window_Options.prototype.statusText = function (index) {
+    var result = _Window_Options_statusText.apply(this, arguments);
+    var symbol = this.commandSymbol(index);
+    var value = this.getConfigValue(symbol);
+    if (this.isNumberSymbol(symbol)) {
+      result = this.numberStatusText(value);
+    } else if (this.isStringSymbol(symbol)) {
+      result = this.stringStatusText(value, symbol);
+    }
+    return result;
+  };
 
-    Window_Options.prototype.isCustomSymbol = function (symbol) {
-        return !!this._customParams[symbol];
-    };
+  Window_Options.prototype.isNumberSymbol = function (symbol) {
+    return symbol.contains(ConfigManager._symbolNumber);
+  };
 
-    Window_Options.prototype.numberStatusText = function (value) {
-        return value;
-    };
+  Window_Options.prototype.isStringSymbol = function (symbol) {
+    return symbol.contains(ConfigManager._symbolString);
+  };
 
-    Window_Options.prototype.stringStatusText = function (value, symbol) {
-        return this._customParams[symbol].values[value];
-    };
+  Window_Options.prototype.isCustomSymbol = function (symbol) {
+    return !!this._customParams[symbol];
+  };
 
-    var _Window_Options_processOk = Window_Options.prototype.processOk;
-    Window_Options.prototype.processOk = function () {
-        if (!this._shiftValue(1, true)) _Window_Options_processOk.apply(this, arguments);
-        this.execScript();
-    };
+  Window_Options.prototype.numberStatusText = function (value) {
+    return value;
+  };
 
-    var _Window_Options_cursorRight = Window_Options.prototype.cursorRight;
-    Window_Options.prototype.cursorRight = function (wrap) {
-        if (!this._shiftValue(1, false)) _Window_Options_cursorRight.apply(this, arguments);
-        this.execScript();
-    };
+  Window_Options.prototype.stringStatusText = function (value, symbol) {
+    return this._customParams[symbol].values[value];
+  };
 
-    var _Window_Options_cursorLeft = Window_Options.prototype.cursorLeft;
-    Window_Options.prototype.cursorLeft = function (wrap) {
-        if (!this._shiftValue(-1, false)) _Window_Options_cursorLeft.apply(this, arguments);
-        this.execScript();
-    };
+  var _Window_Options_processOk = Window_Options.prototype.processOk;
+  Window_Options.prototype.processOk = function () {
+    if (!this._shiftValue(1, true))
+      _Window_Options_processOk.apply(this, arguments);
+    this.execScript();
+  };
 
-    Window_Options.prototype._shiftValue = function (sign, loopFlg) {
-        var symbol = this.commandSymbol(this.index());
-        var value = this.getConfigValue(symbol);
-        if (this.isNumberSymbol(symbol)) {
-            value += this.numberOffset(symbol) * sign;
-            this.changeValue(symbol, this._clampValue(value, symbol, loopFlg));
-            return true;
-        }
-        if (this.isStringSymbol(symbol)) {
-            value += sign;
-            this.changeValue(symbol, this._clampValue(value, symbol, loopFlg));
-            return true;
-        }
-        return false;
-    };
+  var _Window_Options_cursorRight = Window_Options.prototype.cursorRight;
+  Window_Options.prototype.cursorRight = function (wrap) {
+    if (!this._shiftValue(1, false))
+      _Window_Options_cursorRight.apply(this, arguments);
+    this.execScript();
+  };
 
-    Window_Options.prototype.execScript = function () {
-        var symbol = this.commandSymbol(this.index());
-        if (!this.isCustomSymbol(symbol)) return;
-        var script = this._customParams[symbol].script;
-        var value = this.getConfigValue(symbol);
-        if (script) {
-            eval(script);
-            SoundManager.playOk();
-        }
-        localOptionWindowIndex = this.index();
-    };
+  var _Window_Options_cursorLeft = Window_Options.prototype.cursorLeft;
+  Window_Options.prototype.cursorLeft = function (wrap) {
+    if (!this._shiftValue(-1, false))
+      _Window_Options_cursorLeft.apply(this, arguments);
+    this.execScript();
+  };
 
-    Window_Options.prototype._clampValue = function (value, symbol, loopFlg) {
-        var maxValue = this._customParams[symbol].max;
-        var minValue = this._customParams[symbol].min;
-        if (loopFlg) {
-            if (value > maxValue) value = minValue;
-            if (value < minValue) value = maxValue;
-        }
-        return value.clamp(this._customParams[symbol].min, this._customParams[symbol].max);
-    };
+  Window_Options.prototype._shiftValue = function (sign, loopFlg) {
+    var symbol = this.commandSymbol(this.index());
+    var value = this.getConfigValue(symbol);
+    if (this.isNumberSymbol(symbol)) {
+      value += this.numberOffset(symbol) * sign;
+      this.changeValue(symbol, this._clampValue(value, symbol, loopFlg));
+      return true;
+    }
+    if (this.isStringSymbol(symbol)) {
+      value += sign;
+      this.changeValue(symbol, this._clampValue(value, symbol, loopFlg));
+      return true;
+    }
+    return false;
+  };
 
-    Window_Options.prototype.numberOffset = function (symbol) {
-        var value = this._customParams[symbol].offset;
-        if (Input.isPressed('shift')) value *= 10;
-        return value;
-    };
+  Window_Options.prototype.execScript = function () {
+    var symbol = this.commandSymbol(this.index());
+    if (!this.isCustomSymbol(symbol)) return;
+    var script = this._customParams[symbol].script;
+    var value = this.getConfigValue(symbol);
+    if (script) {
+      eval(script);
+      SoundManager.playOk();
+    }
+    localOptionWindowIndex = this.index();
+  };
 
-    Window_Options.prototype.windowHeight = function () {
-        var height = this.fittingHeight(Math.min(this.numVisibleRows(), 14));
-        return height + this.findAdditionalHeight(this.maxItems());
-    };
+  Window_Options.prototype._clampValue = function (value, symbol, loopFlg) {
+    var maxValue = this._customParams[symbol].max;
+    var minValue = this._customParams[symbol].min;
+    if (loopFlg) {
+      if (value > maxValue) value = minValue;
+      if (value < minValue) value = maxValue;
+    }
+    return value.clamp(
+      this._customParams[symbol].min,
+      this._customParams[symbol].max
+    );
+  };
+
+  Window_Options.prototype.numberOffset = function (symbol) {
+    var value = this._customParams[symbol].offset;
+    if (Input.isPressed("shift")) value *= 10;
+    return value;
+  };
+
+  Window_Options.prototype.windowHeight = function () {
+    var height = this.fittingHeight(Math.min(this.numVisibleRows(), 14));
+    return height + this.findAdditionalHeight(this.maxItems());
+  };
 })();
-

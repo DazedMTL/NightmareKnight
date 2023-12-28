@@ -32,17 +32,17 @@
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    var _Window_Base_processEscapeCharacter = Window_Base.prototype.processEscapeCharacter;
-    Window_Base.prototype.processEscapeCharacter = function (code, textState) {
-        _Window_Base_processEscapeCharacter.apply(this, arguments);
-        switch (code) {
-            case 'N':
-                this.processNewLine(textState);
-                textState.index--;
-                break;
-        }
-    };
+  var _Window_Base_processEscapeCharacter =
+    Window_Base.prototype.processEscapeCharacter;
+  Window_Base.prototype.processEscapeCharacter = function (code, textState) {
+    _Window_Base_processEscapeCharacter.apply(this, arguments);
+    switch (code) {
+      case "N":
+        this.processNewLine(textState);
+        textState.index--;
+        break;
+    }
+  };
 })();
-

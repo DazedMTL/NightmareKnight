@@ -879,1089 +879,1162 @@
  */
 
 (() => {
-    'use strict';
-    const createPluginParameter = function (pluginName) {
-        const paramReplacer = function (key, value) {
-            if (value === 'null') {
-                return value;
-            }
-            if (value[0] === '"' && value[value.length - 1] === '"') {
-                return value;
-            }
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                return value;
-            }
-        };
-        const parameter = JSON.parse(JSON.stringify(PluginManager.parameters(pluginName), paramReplacer));
-        PluginManager.setParameters(pluginName, parameter);
-        return parameter;
+  "use strict";
+  const createPluginParameter = function (pluginName) {
+    const paramReplacer = function (key, value) {
+      if (value === "null") {
+        return value;
+      }
+      if (value[0] === '"' && value[value.length - 1] === '"') {
+        return value;
+      }
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        return value;
+      }
     };
-    const param = createPluginParameter('SceneCustomMenu');
-    param.SceneList = [];
-    for (let i = 1; i < 21; i++) {
-        if (param[`Scene${i}`]) {
-            param.SceneList.push(param[`Scene${i}`]);
-        }
+    const parameter = JSON.parse(
+      JSON.stringify(PluginManager.parameters(pluginName), paramReplacer)
+    );
+    PluginManager.setParameters(pluginName, parameter);
+    return parameter;
+  };
+  const param = createPluginParameter("SceneCustomMenu");
+  param.SceneList = [];
+  for (let i = 1; i < 21; i++) {
+    if (param[`Scene${i}`]) {
+      param.SceneList.push(param[`Scene${i}`]);
+    }
+  }
+
+  const getClassName = function (object) {
+    const define = object.constructor.toString();
+    if (define.match(/^class/)) {
+      return define.replace(/class\s+(.*?)\s+[\s\S]*/m, "$1");
+    }
+    return define.replace(/function\s+(.*)\s*\([\s\S]*/m, "$1");
+  };
+
+  const outputError = function (e) {
+    SoundManager.playBuzzer();
+    console.error(e);
+    if (Utils.isNwjs()) {
+      nw.Window.get().showDevTools();
+    }
+  };
+
+  const _Scene_Battle_start = Scene_Battle.prototype.start;
+  Scene_Battle.prototype.start = function () {
+    if (SceneManager.isCalledCustomMenuFromBattle()) {
+      SceneManager.resetCalledCustomMenuFromBattle();
+      Scene_Base.prototype.start.call(this);
+    } else {
+      _Scene_Battle_start.apply(this);
+    }
+  };
+
+  const _Scene_Battle_terminate = Scene_Battle.prototype.terminate;
+  Scene_Battle.prototype.terminate = function () {
+    if (SceneManager.isCalledCustomMenuFromBattle()) {
+      Scene_Base.prototype.terminate.call(this);
+    } else {
+      _Scene_Battle_terminate.apply(this, arguments);
+    }
+  };
+
+  const _Scene_Battle_stop = Scene_Battle.prototype.stop;
+  Scene_Battle.prototype.stop = function () {
+    if (SceneManager.isCalledCustomMenuFromBattle()) {
+      Scene_Base.prototype.stop.call(this);
+    } else {
+      _Scene_Battle_stop.apply(this, arguments);
+    }
+  };
+
+  const _Sprite_Actor_startEntryMotion =
+    Sprite_Actor.prototype.startEntryMotion;
+  Sprite_Actor.prototype.startEntryMotion = function () {
+    if (SceneManager.isCalledCustomMenuFromBattle()) {
+      this.startMove(0, 0, 0);
+    } else {
+      _Sprite_Actor_startEntryMotion.apply(this, arguments);
+    }
+  };
+
+  SceneManager.callCustomMenu = function (sceneId) {
+    if (!this.findSceneData(sceneId)) {
+      throw new Error(`Scene data '${sceneId}' is not found`);
+    }
+    if (this._scene instanceof Scene_Battle) {
+      this._callCustomMenuFromBattle = true;
+    }
+    this.push(this.createCustomMenuClass(sceneId));
+  };
+
+  SceneManager.isCalledCustomMenuFromBattle = function () {
+    return this._callCustomMenuFromBattle;
+  };
+
+  SceneManager.resetCalledCustomMenuFromBattle = function () {
+    this._callCustomMenuFromBattle = false;
+  };
+
+  const _SceneManager_goto = SceneManager.goto;
+  SceneManager.goto = function (sceneClass) {
+    if (this._scene instanceof Scene_Map) {
+      this._mapGameScreen = $gameScreen;
+    }
+    _SceneManager_goto.apply(this, arguments);
+  };
+
+  SceneManager.showMapPicture = function (
+    pictureId,
+    name,
+    origin,
+    x,
+    y,
+    scaleX,
+    scaleY,
+    opacity,
+    blendMode
+  ) {
+    if (this._mapGameScreen) {
+      this._mapGameScreen.showPicture(
+        pictureId,
+        name,
+        origin,
+        x,
+        y,
+        scaleX,
+        scaleY,
+        opacity,
+        blendMode
+      );
+    }
+  };
+
+  SceneManager.createCustomMenuClass = function (sceneId) {
+    let sceneClass = {};
+    const createClassEval = `sceneClass = function ${sceneId}(){\n this.initialize.apply(this, arguments)};`;
+    eval(createClassEval);
+    sceneClass.prototype = Object.create(Scene_CustomMenu.prototype);
+    sceneClass.prototype.constructor = sceneClass;
+    return sceneClass;
+  };
+
+  SceneManager.trashScene = function () {
+    if (this._stack.length > 1) {
+      this._stack.pop();
+    }
+  };
+
+  SceneManager.findSceneData = function (sceneId) {
+    return param.SceneList.filter((data) => data.Id === sceneId)[0];
+  };
+
+  const _SceneManager_pop = SceneManager.pop;
+  SceneManager.pop = function () {
+    _SceneManager_pop.apply(this, arguments);
+    this._sceneIndex = 0;
+  };
+
+  SceneManager.changeWindowFocus = function (windowId) {
+    this._focusWindowId = windowId;
+  };
+
+  SceneManager.changeWindowIndex = function (windowId, index) {
+    const win = this.findCustomMenuWindow(windowId);
+    if (win) {
+      win.select(index);
+    }
+  };
+
+  SceneManager.findChangeWindowFocus = function () {
+    const id = this._focusWindowId;
+    if (id) {
+      this._focusWindowId = null;
+    }
+    return id;
+  };
+
+  SceneManager.findCustomMenuWindow = function (windowId) {
+    return this._scene.findWindow ? this._scene.findWindow(windowId) : null;
+  };
+
+  Game_Party.prototype.reserveMembers = function () {
+    var battleMembers = this.battleMembers();
+    return this.members().filter(function (actor) {
+      return !battleMembers.contains(actor);
+    });
+  };
+
+  class Scene_CustomMenu extends Scene_MenuBase {
+    create() {
+      super.create();
+      this.swapGameScreen();
+      this._interpreter = new Game_Interpreter();
+      this._customData = SceneManager.findSceneData(getClassName(this));
+      this.createAllObjects();
     }
 
-    const getClassName = function (object) {
-        const define = object.constructor.toString();
-        if (define.match(/^class/)) {
-            return define.replace(/class\s+(.*?)\s+[\s\S]*/m, '$1');
-        }
-        return define.replace(/function\s+(.*)\s*\([\s\S]*/m, '$1');
-    };
-
-    const outputError = function (e) {
-        SoundManager.playBuzzer();
-        console.error(e);
-        if (Utils.isNwjs()) {
-            nw.Window.get().showDevTools();
-        }
-    };
-
-    const _Scene_Battle_start = Scene_Battle.prototype.start;
-    Scene_Battle.prototype.start = function () {
-        if (SceneManager.isCalledCustomMenuFromBattle()) {
-            SceneManager.resetCalledCustomMenuFromBattle();
-            Scene_Base.prototype.start.call(this);
-        } else {
-            _Scene_Battle_start.apply(this);
-        }
-    };
-
-    const _Scene_Battle_terminate = Scene_Battle.prototype.terminate;
-    Scene_Battle.prototype.terminate = function () {
-        if (SceneManager.isCalledCustomMenuFromBattle()) {
-            Scene_Base.prototype.terminate.call(this);
-        } else {
-            _Scene_Battle_terminate.apply(this, arguments);
-        }
-    };
-
-    const _Scene_Battle_stop = Scene_Battle.prototype.stop;
-    Scene_Battle.prototype.stop = function () {
-        if (SceneManager.isCalledCustomMenuFromBattle()) {
-            Scene_Base.prototype.stop.call(this);
-        } else {
-            _Scene_Battle_stop.apply(this, arguments);
-        }
-    };
-
-    const _Sprite_Actor_startEntryMotion = Sprite_Actor.prototype.startEntryMotion;
-    Sprite_Actor.prototype.startEntryMotion = function () {
-        if (SceneManager.isCalledCustomMenuFromBattle()) {
-            this.startMove(0, 0, 0);
-        } else {
-            _Sprite_Actor_startEntryMotion.apply(this, arguments);
-        }
+    start() {
+      super.start();
+      this.refresh();
+      this.fireEvent(this._customData.InitialEvent);
     }
 
-    SceneManager.callCustomMenu = function (sceneId) {
-        if (!this.findSceneData(sceneId)) {
-            throw new Error(`Scene data '${sceneId}' is not found`);
-        }
-        if (this._scene instanceof Scene_Battle) {
-            this._callCustomMenuFromBattle = true;
-        }
-        this.push(this.createCustomMenuClass(sceneId));
-    };
+    terminate() {
+      super.terminate();
+      this.restoreGameScreen();
+    }
 
-    SceneManager.isCalledCustomMenuFromBattle = function () {
-        return this._callCustomMenuFromBattle;
-    };
+    stop() {
+      super.stop();
+      if (
+        SceneManager.isNextScene(Scene_Battle) &&
+        !SceneManager.isPreviousScene(Scene_Battle)
+      ) {
+        this.launchBattle();
+      }
+    }
 
-    SceneManager.resetCalledCustomMenuFromBattle = function () {
-        this._callCustomMenuFromBattle = false;
-    };
+    swapGameScreen() {
+      this._previousGameScreen = $gameScreen;
+      $gameScreen = new Game_Screen();
+    }
 
-    const _SceneManager_goto = SceneManager.goto;
-    SceneManager.goto = function (sceneClass) {
-        if (this._scene instanceof Scene_Map) {
-            this._mapGameScreen = $gameScreen;
-        }
-        _SceneManager_goto.apply(this, arguments);
-    };
+    restoreGameScreen() {
+      $gameScreen = this._previousGameScreen;
+    }
 
-    SceneManager.showMapPicture = function (pictureId, name, origin, x, y,
-        scaleX, scaleY, opacity, blendMode) {
-        if (this._mapGameScreen) {
-            this._mapGameScreen.showPicture(pictureId, name, origin, x, y,
-                scaleX, scaleY, opacity, blendMode);
-        }
-    };
+    createBackground() {
+      super.createBackground();
+      this._panorama = new TilingSprite();
+      this._panorama.move(0, 0, Graphics.width, Graphics.height);
+      this.addChild(this._panorama);
+    }
 
-    SceneManager.createCustomMenuClass = function (sceneId) {
-        let sceneClass = {};
-        const createClassEval = `sceneClass = function ${sceneId}(){\n this.initialize.apply(this, arguments)};`;
-        eval(createClassEval);
-        sceneClass.prototype = Object.create(Scene_CustomMenu.prototype);
-        sceneClass.prototype.constructor = sceneClass;
-        return sceneClass;
-    };
+    createAllObjects() {
+      if (this._customData.UseHelp) {
+        this.createHelpWindow();
+      }
+      this.createCustomMenuWindowList();
+      this.createMessageWindow();
+      this.createScrollTextWindow();
+      this.createSpriteset();
+      if (this._customData.Panorama) {
+        this.setPanoramaBitmap();
+      }
+    }
 
-    SceneManager.trashScene = function () {
-        if (this._stack.length > 1) {
-            this._stack.pop()
-        }
-    };
+    createHelpWindow() {
+      if (this._customData.HelpRows > 0) {
+        this._helpWindow = new Window_Help(this._customData.HelpRows);
+        this.addWindow(this._helpWindow);
+      } else {
+        super.createHelpWindow();
+      }
+    }
 
-    SceneManager.findSceneData = function (sceneId) {
-        return param.SceneList.filter(data => data.Id === sceneId)[0];
-    };
+    createCustomMenuWindowList() {
+      this._customWindowMap = new Map();
+      const list = this._customData.WindowList;
+      list.forEach((windowData) => this.createCustomMenuWindow(windowData));
+      this.refresh();
+      list.forEach((windowData) => this.setPlacement(windowData));
+      if (this._helpWindow) {
+        list.forEach((windowData) =>
+          this.adjustPlacementByHelpWindow(windowData)
+        );
+      }
+    }
 
-    const _SceneManager_pop = SceneManager.pop;
-    SceneManager.pop = function () {
-        _SceneManager_pop.apply(this, arguments);
-        this._sceneIndex = 0;
-    };
+    refresh() {
+      this._customWindowMap.forEach((win) => win.refresh());
+    }
 
-    SceneManager.changeWindowFocus = function (windowId) {
-        this._focusWindowId = windowId;
-    };
-
-    SceneManager.changeWindowIndex = function (windowId, index) {
-        const win = this.findCustomMenuWindow(windowId);
-        if (win) {
-            win.select(index);
-        }
-    };
-
-    SceneManager.findChangeWindowFocus = function () {
-        const id = this._focusWindowId;
-        if (id) {
-            this._focusWindowId = null;
-        }
-        return id;
-    };
-
-    SceneManager.findCustomMenuWindow = function (windowId) {
-        return this._scene.findWindow ? this._scene.findWindow(windowId) : null;
-    };
-
-    Game_Party.prototype.reserveMembers = function () {
-        var battleMembers = this.battleMembers();
-        return this.members().filter(function (actor) {
-            return !battleMembers.contains(actor);
+    createCustomMenuWindow(data) {
+      const win = this.createCustomWindowInstance(data);
+      win.setHandler("ok", () => this.fireEvent(win.findDecisionEvent()));
+      if (this._helpWindow) {
+        win.setHelpWindow(this._helpWindow);
+      }
+      if (data.Cancelable) {
+        win.setHandler("cancel", () => {
+          const prevActive = this._activeWindowId;
+          this.fireEvent(data.CancelEvent);
+          if (
+            data.Id === this.findFirstWindowId() &&
+            prevActive === this._activeWindowId
+          ) {
+            this.popScene();
+          }
+          win.select(-1);
         });
-    };
+      }
+      if (data.CursorEvent) {
+        win.setHandler("select", () => {
+          this.fireEvent(data.CursorEvent, false);
+        });
+      }
+      if (data.ActorChangeable) {
+        win.setHandler("pagedown", this.nextActor.bind(this));
+        win.setHandler("pageup", this.previousActor.bind(this));
+      }
+      if (data.ButtonEvent) {
+        data.ButtonEvent.forEach((buttonEvent) => {
+          win.setHandler("trigger:" + buttonEvent.Name, () => {
+            this.fireEvent(buttonEvent.Event, true);
+          });
+        });
+        win.registerButton(
+          data.ButtonEvent.map((buttonEvent) => buttonEvent.Name)
+        );
+      }
+      this.addWindow(win);
+      this._customWindowMap.set(data.Id, win);
+    }
 
-    class Scene_CustomMenu extends Scene_MenuBase {
-        create() {
-            super.create();
-            this.swapGameScreen();
-            this._interpreter = new Game_Interpreter();
-            this._customData = SceneManager.findSceneData(getClassName(this));
-            this.createAllObjects();
+    setPanoramaBitmap() {
+      const panorama = this._customData.Panorama;
+      this._panorama.bitmap = ImageManager.loadParallax(panorama.Image);
+    }
+
+    setPlacement(data) {
+      const win = this.findWindow(data.Id);
+      const parentX = this.findWindow(data.RelativeWindowIdX);
+      if (parentX) {
+        win.x += parentX.x + parentX.width;
+        if (!data.width) {
+          win.width = Graphics._boxWidth - win.x;
         }
+      }
+      const parentY = this.findWindow(data.RelativeWindowIdY);
+      if (parentY) {
+        win.y += parentY.y + parentY.height;
+      }
+    }
 
-        start() {
-            super.start();
-            this.refresh();
-            this.fireEvent(this._customData.InitialEvent);
+    adjustPlacementByHelpWindow(data) {
+      const win = this.findWindow(data.Id);
+      win.y += this._helpWindow.y + this._helpWindow.height;
+    }
+
+    createCustomWindowInstance(data) {
+      if (data.CommandList && data.CommandList.length > 0) {
+        return new Window_CustomMenuCommand(
+          data,
+          this._actor,
+          this._customWindowMap
+        );
+      } else {
+        return new Window_CustomMenuDataList(
+          data,
+          this._actor,
+          this._customWindowMap
+        );
+      }
+    }
+
+    findFirstWindowId() {
+      const event = this._customData.InitialEvent;
+      if (event && event.FocusWindowId) {
+        return event.FocusWindowId;
+      }
+      const windowList = this._customData.WindowList;
+      if (windowList && windowList.length > 0) {
+        return windowList[0].Id;
+      }
+      return null;
+    }
+
+    findWindow(id) {
+      return this._customWindowMap.get(id);
+    }
+
+    update() {
+      super.update();
+      if (this._interpreter.isRunning()) {
+        this.updateInterpreter();
+      }
+      const focusId = SceneManager.findChangeWindowFocus();
+      if (focusId) {
+        this.changeWindowFocus(focusId, -1);
+      }
+      if (this._customData.Panorama) {
+        this.updatePanorama();
+      }
+      this.refreshWindowIfNeed();
+      $gameScreen.update();
+    }
+
+    updatePanorama() {
+      const panorama = this._customData.Panorama;
+      this._panorama.origin.x += panorama.ScrollX;
+      this._panorama.origin.y += panorama.ScrollY;
+    }
+
+    refreshWindowIfNeed() {
+      this._customWindowMap.forEach((win) => {
+        win.refreshIfNeed();
+      });
+      this._customWindowMap.forEach((win) => {
+        win.resetRefreshSwitch();
+      });
+    }
+
+    fireEvent(event, moveWindowFocus = true) {
+      if (event.SwitchId) {
+        $gameSwitches.setValue(event.SwitchId, true);
+      }
+      if (event.Script) {
+        try {
+          eval(event.Script);
+        } catch (e) {
+          outputError(e);
         }
-
-        terminate() {
-            super.terminate();
-            this.restoreGameScreen();
+      }
+      if (!this._active) {
+        return;
+      }
+      if (moveWindowFocus) {
+        if (event.FocusWindowId) {
+          this.changeWindowFocus(event.FocusWindowId, event.FocusWindowIndex);
+        } else if (
+          this._previousActiveWindowId &&
+          this._activeWindowId !== this.findFirstWindowId()
+        ) {
+          this.changeWindowFocus(this._previousActiveWindowId, -1);
+        } else {
+          this.changeWindowFocus(
+            this._activeWindowId || this.findFirstWindowId(),
+            -1
+          );
         }
-
-        stop() {
-            super.stop();
-            if (SceneManager.isNextScene(Scene_Battle) &&
-                !SceneManager.isPreviousScene(Scene_Battle)) {
-                this.launchBattle();
-            }
+        if (event.Deselect) {
+          const previousWindow = this._customWindowMap.get(
+            this._previousActiveWindowId
+          );
+          previousWindow.deselect();
         }
+      }
+      if (event.CommandId) {
+        this.setupMenuCommonEvent(event.CommandId);
+      }
+    }
 
-        swapGameScreen() {
-            this._previousGameScreen = $gameScreen;
-            $gameScreen = new Game_Screen();
+    changeWindowFocus(windowId, index) {
+      if (this._activeWindowId !== windowId) {
+        this._previousActiveWindowId = this._activeWindowId;
+      }
+      this._activeWindowId = windowId;
+      this._customWindowMap.forEach((win, id) => {
+        if (id === windowId) {
+          win.activate();
+          if (index !== -1) {
+            win.select(index || 0);
+          }
+        } else {
+          win.deactivate();
         }
+      });
+    }
 
-        restoreGameScreen() {
-            $gameScreen = this._previousGameScreen;
+    setupMenuCommonEvent(commonEventId) {
+      const common = $dataCommonEvents[commonEventId];
+      if (!common) {
+        return;
+      }
+      this._interpreter.setup(common.list, 0);
+      this.blurAllWindow();
+    }
+
+    updateInterpreter() {
+      this._interpreter.update();
+      if (!this._interpreter.isRunning()) {
+        this.changeWindowFocus(this._activeWindowId, -1);
+        this._interpreter.terminate();
+      }
+    }
+
+    blurAllWindow() {
+      this._customWindowMap.forEach((win) => {
+        win.deactivate();
+      });
+    }
+
+    createMessageWindow() {
+      this._messageWindow = new Window_Message();
+      this.addChild(this._messageWindow);
+      this._messageWindow.subWindows().forEach((win) => this.addWindow(win));
+    }
+
+    createScrollTextWindow() {
+      this._scrollTextWindow = new Window_ScrollText();
+      this.addChild(this._scrollTextWindow);
+    }
+
+    createSpriteset() {
+      this._spriteset = new Spriteset_Menu();
+      const index = this.findSpritesetIndex();
+      if (index !== null) {
+        this.addChildAt(this._spriteset, index);
+      } else {
+        this.addChild(this._spriteset);
+      }
+    }
+
+    findSpritesetIndex() {
+      switch (this._customData.PicturePriority) {
+        case 2:
+          return this.getChildIndex(this._windowLayer);
+        case 1:
+          return this.getChildIndex(this._messageWindow);
+        default:
+          return null;
+      }
+    }
+
+    refreshActor() {
+      this._customWindowMap.forEach((win) => {
+        win.setActor(this._actor);
+      });
+    }
+
+    onActorChange() {
+      this.refreshActor();
+      this.changeWindowFocus(this._activeWindowId, -1);
+    }
+
+    launchBattle() {
+      BattleManager.saveBgmAndBgs();
+      this.stopAudioOnBattleStart();
+      SoundManager.playBattleStart();
+    }
+
+    stopAudioOnBattleStart() {
+      Scene_Map.prototype.stopAudioOnBattleStart.apply(this, arguments);
+    }
+  }
+
+  const _Window_Selectable_initialize = Window_Selectable.prototype.initialize;
+  Window_Selectable.prototype.initialize = function (
+    x,
+    y,
+    width,
+    height,
+    data
+  ) {
+    if (data) {
+      this._data = data;
+      this._list = [];
+    }
+    _Window_Selectable_initialize.apply(this, arguments);
+  };
+
+  class Window_CustomMenu extends Window_Selectable {
+    constructor(data, actor, windowMap) {
+      super(
+        data.x,
+        data.y,
+        data.width || Graphics._boxWidth - data.x,
+        data.height,
+        data
+      );
+      this._actor = actor;
+      this._windowMap = windowMap;
+      if (data.OverlapOther) {
+        this._isWindow = false;
+      }
+      if (this.isShowOpen() || !this.isValid()) {
+        this.openness = 0;
+      }
+      if (this.height === 0) {
+        this._dynamicHeight = true;
+      }
+    }
+
+    registerButton(buttonList) {
+      this._buttonList = buttonList;
+    }
+
+    playOkSound() {
+      if (this._data.okSound) {
+        AudioManager.playSe(this._data.okSound);
+      } else {
+        super.playOkSound();
+      }
+    }
+
+    update() {
+      this.updateOpenClose();
+      super.update();
+      this.updateIndexVariable();
+      this.updateRotation();
+      this.updateButtonInput();
+    }
+
+    updateRotation() {
+      this.rotation = ((this._data.Rotation || 0) * Math.PI) / 180;
+    }
+
+    updateButtonInput() {
+      if (!this._buttonList) {
+        return;
+      }
+      this._buttonList.forEach((buttonName) => {
+        if (Input.isTriggered(buttonName)) {
+          this.callHandler("trigger:" + buttonName);
         }
+      });
+    }
 
-        createBackground() {
-            super.createBackground();
-            this._panorama = new TilingSprite();
-            this._panorama.move(0, 0, Graphics.width, Graphics.height);
-            this.addChild(this._panorama);
+    select(index) {
+      const prevIndex = this._index;
+      super.select(index);
+      if (prevIndex >= 0 && index >= 0 && index !== prevIndex) {
+        this.callHandler("select");
+      }
+      if (this._windowMap) {
+        this.refreshDetailWindow();
+      }
+    }
+
+    refreshDetailWindow() {
+      this._windowMap.forEach((win) => {
+        if (win.isDetailWindow(this._data.Id)) {
+          win.refresh();
         }
+      });
+    }
 
-        createAllObjects() {
-            if (this._customData.UseHelp) {
-                this.createHelpWindow();
-            }
-            this.createCustomMenuWindowList();
-            this.createMessageWindow();
-            this.createScrollTextWindow();
-            this.createSpriteset();
-            if (this._customData.Panorama) {
-                this.setPanoramaBitmap();
-            }
+    updateOpenClose() {
+      if (this.isValid()) {
+        if (this.isShowOpen()) {
+          this.open();
+        } else {
+          this.openness = 255;
         }
-
-        createHelpWindow() {
-            if (this._customData.HelpRows > 0) {
-                this._helpWindow = new Window_Help(this._customData.HelpRows);
-                this.addWindow(this._helpWindow);
-            } else {
-                super.createHelpWindow();
-            }
+      } else {
+        if (this.isShowOpen()) {
+          this.close();
+        } else {
+          this.openness = 0;
         }
+      }
+    }
 
-        createCustomMenuWindowList() {
-            this._customWindowMap = new Map();
-            const list = this._customData.WindowList;
-            list.forEach(windowData => this.createCustomMenuWindow(windowData));
-            this.refresh();
-            list.forEach(windowData => this.setPlacement(windowData));
-            if (this._helpWindow) {
-                list.forEach(windowData => this.adjustPlacementByHelpWindow(windowData));
-            }
+    updateIndexVariable() {
+      if (this._data.IndexVariableId) {
+        $gameVariables.setValue(this._data.IndexVariableId, this._index);
+      }
+      if (this._data.ItemVariableId) {
+        $gameVariables.setValue(
+          this._data.ItemVariableId,
+          this.getItem(this._index)
+        );
+      }
+    }
+
+    refreshIfNeed() {
+      const switchId = this._data.RefreshSwitchId;
+      if (!switchId) {
+        return;
+      }
+      if ($gameSwitches.value(switchId)) {
+        this.refresh();
+      }
+    }
+
+    resetRefreshSwitch() {
+      const switchId = this._data.RefreshSwitchId;
+      if (switchId) {
+        $gameSwitches.setValue(switchId, false);
+      }
+    }
+
+    isShowOpen() {
+      return this._data.ShowOpenAnimation;
+    }
+
+    itemHeight() {
+      return this._data.ItemHeight || super.itemHeight();
+    }
+
+    numVisibleRows() {
+      return (
+        this._data.RowNumber || Math.ceil(this.maxItems() / this.maxCols())
+      );
+    }
+
+    resetFontSettings() {
+      super.resetFontSettings();
+      if (this._data.FontSize) {
+        this.contents.fontSize = this._data.FontSize;
+      }
+    }
+
+    isValid() {
+      if (this._data.HiddenNoFocus && !this.active) {
+        return false;
+      }
+      return (
+        !this._data.VisibleSwitchId ||
+        $gameSwitches.value(this._data.VisibleSwitchId)
+      );
+    }
+
+    isDetailWindow(listWindowId) {
+      return this._data.ListWindowId === listWindowId;
+    }
+
+    maxCols() {
+      return this._data.ColumnNumber || super.maxCols();
+    }
+
+    refresh() {
+      this._list = this.makeCommandList();
+      if (this._dynamicHeight) {
+        this.setDynamicHeight();
+      }
+      super.refresh();
+      if (this._data.WindowSkin) {
+        this.windowskin = ImageManager.loadSystem(this._data.WindowSkin);
+      }
+    }
+
+    findMetaData(index) {
+      const item = this.getItem(index);
+      if (!item) {
+        return null;
+      }
+      if (item.meta) {
+        return item.meta;
+      } else if (item.actor && item.actor().meta) {
+        return item.actor().meta;
+      }
+      return null;
+    }
+
+    drawNotePicture(metaValue, x, y, align = "left", valign = "top") {
+      const meta = this.findMetaData(this._drawingIndex);
+      if (!meta) {
+        return;
+      }
+      const fileName = meta[metaValue];
+      if (fileName) {
+        this.drawPicture(fileName, x, y, align, valign);
+      }
+    }
+
+    drawPicture(file, x, y, align = "left", valign = "top") {
+      const bitmap = ImageManager.loadPicture(file);
+      if (bitmap.isReady()) {
+        x += this.findAlignX(align, bitmap);
+        y += this.findAlignY(valign, bitmap);
+        this.contents.blt(bitmap, 0, 0, bitmap.width, bitmap.height, x, y);
+      } else {
+        this.retryDrawItem(bitmap);
+      }
+    }
+
+    drawEnemy(x, y, align = "left", valign = "top") {
+      const item = this.getItem(this._drawingIndex);
+      const bitmap = this.loadEnemyImage(item);
+      if (bitmap.isReady()) {
+        x += this.findAlignX(align, bitmap);
+        y += this.findAlignY(valign, bitmap);
+        this.contents.blt(bitmap, 0, 0, bitmap.width, bitmap.height, x, y);
+      } else {
+        this.retryDrawItem(bitmap);
+      }
+    }
+
+    findAlignX(align, bitmap) {
+      const width = this.itemRect(this._drawingIndex).width;
+      const shiftX = width - bitmap.width;
+      switch (align.toLowerCase()) {
+        case "right":
+          return shiftX;
+        case "center":
+          return shiftX / 2;
+        default:
+          return 0;
+      }
+    }
+
+    findAlignY(valign, bitmap) {
+      const height = this.itemRect(this._drawingIndex).height;
+      const shiftY = height - bitmap.height;
+      switch (valign.toLowerCase()) {
+        case "bottom":
+          return shiftY;
+        case "center":
+          return shiftY / 2;
+        default:
+          return 0;
+      }
+    }
+
+    loadEnemyImage(item) {
+      if ($gameSystem.isSideView()) {
+        return ImageManager.loadSvEnemy(item.battlerName, item.battlerHue);
+      } else {
+        return ImageManager.loadEnemy(item.battlerName, item.battlerHue);
+      }
+    }
+
+    drawNoteText(metaValue, x, y) {
+      const meta = this.findMetaData(this._drawingIndex);
+      if (meta) {
+        const text = meta[metaValue];
+        this.drawTextEx(text, x, y);
+      }
+    }
+
+    drawParam(paramIndex, x, y, align = "left") {
+      const item = this.getItem(this._drawingIndex);
+      const rect = this.itemRect(this._drawingIndex);
+      this.drawText(item.params[paramIndex], x, y, rect.width - x, align);
+    }
+
+    setDynamicHeight() {
+      this.height = this.fittingHeight(this.numVisibleRows());
+      this.createContents();
+    }
+
+    fittingHeight(numLines) {
+      return numLines * this.itemHeight() + this.standardPadding() * 2;
+    }
+
+    makeCommandList() {}
+
+    maxItems() {
+      return this._list.length;
+    }
+
+    drawItem(index) {
+      this._drawingIndex = index;
+      const item = this.getItem(index);
+      const rect = this.itemRect(index);
+      rect.x += this.textPadding();
+      rect.width -= this.textPadding() * 2;
+      this.changePaintOpacity(this.isEnabled(index));
+      if (this.isMasking(index)) {
+        this.drawMasking(rect);
+      } else {
+        this.drawItemSub(item, rect, index);
+      }
+      this.changePaintOpacity(1);
+    }
+
+    retryDrawItem(bitmap) {
+      const index = this.index();
+      bitmap.addLoadListener(() => {
+        if (index === this.index()) {
+          this.drawItem(this._drawingIndex);
         }
+      });
+    }
 
-        refresh() {
-            this._customWindowMap.forEach(win => win.refresh());
-        }
+    drawItemSub(item, rect, index) {}
 
-        createCustomMenuWindow(data) {
-            const win = this.createCustomWindowInstance(data);
-            win.setHandler('ok', () => this.fireEvent(win.findDecisionEvent()));
-            if (this._helpWindow) {
-                win.setHelpWindow(this._helpWindow);
-            }
-            if (data.Cancelable) {
-                win.setHandler('cancel', () => {
-                    const prevActive = this._activeWindowId;
-                    this.fireEvent(data.CancelEvent);
-                    if (data.Id === this.findFirstWindowId() && prevActive === this._activeWindowId) {
-                        this.popScene();
-                    }
-                    win.select(-1);
-                });
-            }
-            if (data.CursorEvent) {
-                win.setHandler('select', () => {
-                    this.fireEvent(data.CursorEvent, false);
-                });
-            }
-            if (data.ActorChangeable) {
-                win.setHandler('pagedown', this.nextActor.bind(this));
-                win.setHandler('pageup', this.previousActor.bind(this));
-            }
-            if (data.ButtonEvent) {
-                data.ButtonEvent.forEach(buttonEvent => {
-                    win.setHandler('trigger:' + buttonEvent.Name, () => {
-                        this.fireEvent(buttonEvent.Event, true);
-                    });
-                });
-                win.registerButton(data.ButtonEvent.map(buttonEvent => buttonEvent.Name));
-            }
-            this.addWindow(win);
-            this._customWindowMap.set(data.Id, win);
-        }
+    drawMasking(rect) {
+      this.drawTextEx(this._data.MaskingText, rect.x, rect.y);
+    }
 
-        setPanoramaBitmap() {
-            const panorama = this._customData.Panorama;
-            this._panorama.bitmap = ImageManager.loadParallax(panorama.Image);
-        }
+    updateHelp() {
+      const helpText = this.findHelpText();
+      const helpItem = this.findHelpItem();
+      if (this.isMasking(this.index())) {
+        this._helpWindow.setText(this._data.MaskingText);
+      } else if (helpText) {
+        this._helpWindow.setText(helpText.replace(/\\n/g, "\n"));
+      } else if (helpItem) {
+        this._helpWindow.setItem(helpItem);
+      }
+    }
 
-        setPlacement(data) {
-            const win = this.findWindow(data.Id);
-            const parentX = this.findWindow(data.RelativeWindowIdX);
-            if (parentX) {
-                win.x += parentX.x + parentX.width;
-                if (!data.width) {
-                    win.width = Graphics._boxWidth - win.x;
-                }
-            }
-            const parentY = this.findWindow(data.RelativeWindowIdY);
-            if (parentY) {
-                win.y += parentY.y + parentY.height;
-            }
-        }
+    findHelpItem() {
+      return null;
+    }
 
-        adjustPlacementByHelpWindow(data) {
-            const win = this.findWindow(data.Id);
-            win.y += this._helpWindow.y + this._helpWindow.height;
-        }
+    findHelpText() {
+      return this._data.CommonHelpText;
+    }
 
-        createCustomWindowInstance(data) {
-            if (data.CommandList && data.CommandList.length > 0) {
-                return new Window_CustomMenuCommand(data, this._actor, this._customWindowMap);
-            } else {
-                return new Window_CustomMenuDataList(data, this._actor, this._customWindowMap);
-            }
-        }
+    findDecisionEvent() {
+      return this._data.DecisionEvent;
+    }
 
-        findFirstWindowId() {
-            const event = this._customData.InitialEvent;
-            if (event && event.FocusWindowId) {
-                return event.FocusWindowId;
-            }
-            const windowList = this._customData.WindowList;
-            if (windowList && windowList.length > 0) {
-                return windowList[0].Id;
-            }
+    findCurrentItem() {
+      return this.getItem(this.index());
+    }
+
+    findWindowItem(windowId) {
+      const win = this._windowMap.get(windowId);
+      if (!win) {
+        throw new Error(`Window [${windowId}] is not found.`);
+      }
+      return win.findCurrentItem();
+    }
+
+    findListWindowItem() {
+      const listWindowId = this._data.ListWindowId;
+      return listWindowId ? this.findWindowItem(listWindowId) : null;
+    }
+
+    getItem(index) {
+      if (index === undefined) {
+        index = this.index();
+      }
+      return this._list[index];
+    }
+
+    isCurrentItemEnabled() {
+      return this.isEnabled(this.index());
+    }
+
+    isEnabled(index) {
+      const item = this.getItem(index);
+      return item ? this.isEnabledSub(item) && !this.isMasking(index) : false;
+    }
+
+    isMasking(index) {
+      const item = this.getItem(index);
+      const v = $gameVariables.value.bind($gameVariables); // used by eval
+      const s = $gameSwitches.value.bind($gameSwitches); // used by eval
+      return this.isUseMasking() && !this.isVisible(item, v, s);
+    }
+
+    isVisible(item, v, s) {
+      return true;
+    }
+
+    isEnabledSub(item) {}
+
+    activate() {
+      if (this._index < 0) {
+        this.select(0);
+      }
+      super.activate();
+    }
+
+    isUseMasking() {
+      return !!this._data.MaskingText;
+    }
+
+    setActor(actor) {}
+
+    normalColor() {
+      if (this._data.textColor > 0) {
+        return this.textColor(this._data.textColor);
+      } else {
+        return super.normalColor();
+      }
+    }
+  }
+
+  class Window_CustomMenuCommand extends Window_CustomMenu {
+    makeCommandList() {
+      const list = this._data.CommandList;
+      return this.isUseMasking()
+        ? list
+        : list.filter((data) => this.isVisible(data));
+    }
+
+    isVisible(item) {
+      return (
+        this.isScriptValid(item.VisibleScript) &&
+        this.isSwitchValid(item.VisibleSwitchId)
+      );
+    }
+
+    drawItemSub(item, rect, index) {
+      this._noDrawing = true;
+      const width = this.drawTextEx(item.Text, rect.x, rect.y);
+      this._noDrawing = false;
+      if (item.Align === 1) {
+        rect.x += (rect.width - width) / 2;
+      } else if (item.Align === 2) {
+        rect.x += rect.width - width;
+      }
+      this.drawTextEx(item.Text, rect.x, rect.y);
+    }
+
+    processNormalCharacter(textState) {
+      if (this._noDrawing) {
+        var c = textState.text[textState.index++];
+        var w = this.textWidth(c);
+        textState.x += w;
+      } else {
+        super.processNormalCharacter(textState);
+      }
+    }
+
+    findHelpText() {
+      const item = this.getItem();
+      return item && item.HelpText ? item.HelpText : super.findHelpText();
+    }
+
+    isEnabledSub(item) {
+      return (
+        this.isScriptValid(item.IsEnableScript) &&
+        this.isSwitchValid(item.EnableSwitchId)
+      );
+    }
+
+    isSwitchValid(id) {
+      return !id || $gameSwitches.value(id);
+    }
+
+    isScriptValid(script) {
+      if (script === "" || script === undefined) {
+        return true;
+      }
+      const v = $gameVariables.value.bind($gameVariables); // used by eval
+      const s = $gameSwitches.value.bind($gameSwitches); // used by eval
+      const item = this.findListWindowItem(); // used by eval
+      if (item === undefined) {
+        return false;
+      }
+      try {
+        return eval(script);
+      } catch (e) {
+        outputError(e);
+        return true;
+      }
+    }
+
+    findDecisionEvent() {
+      const item = this.getItem();
+      if (item && item.CancelChoice) {
+        return this._data.CancelEvent;
+      } else {
+        return super.findDecisionEvent();
+      }
+    }
+  }
+
+  class Window_CustomMenuDataList extends Window_CustomMenu {
+    makeCommandList() {
+      if (this._data.ListWindowId) {
+        const data = this.findListWindowItem();
+        return data ? [data] : [];
+      }
+      const v = $gameVariables.value.bind($gameVariables); // used by eval
+      const s = $gameSwitches.value.bind($gameSwitches); // used by eval
+      let list;
+      try {
+        list = eval(this._data.ListScript);
+      } catch (e) {
+        outputError(e);
+        list = [];
+      }
+      if (!Array.isArray(list)) {
+        list = list ? [list] : [" "];
+      }
+      if (this._data.FilterScript && !this.isUseMasking()) {
+        list = list.filter((item) => this.isVisible(item, v, s));
+      }
+      if (this._data.MappingScript) {
+        list = list.map((item) => {
+          try {
+            return eval(this._data.MappingScript);
+          } catch (e) {
+            outputError(e);
             return null;
-        }
-
-        findWindow(id) {
-            return this._customWindowMap.get(id);
-        }
-
-        update() {
-            super.update();
-            if (this._interpreter.isRunning()) {
-                this.updateInterpreter();
-            }
-            const focusId = SceneManager.findChangeWindowFocus();
-            if (focusId) {
-                this.changeWindowFocus(focusId, -1);
-            }
-            if (this._customData.Panorama) {
-                this.updatePanorama();
-            }
-            this.refreshWindowIfNeed();
-            $gameScreen.update();
-        }
-
-        updatePanorama() {
-            const panorama = this._customData.Panorama;
-            this._panorama.origin.x += panorama.ScrollX;
-            this._panorama.origin.y += panorama.ScrollY;
-        }
-
-        refreshWindowIfNeed() {
-            this._customWindowMap.forEach(win => {
-                win.refreshIfNeed();
-            });
-            this._customWindowMap.forEach(win => {
-                win.resetRefreshSwitch();
-            });
-        };
-
-        fireEvent(event, moveWindowFocus = true) {
-            if (event.SwitchId) {
-                $gameSwitches.setValue(event.SwitchId, true);
-            }
-            if (event.Script) {
-                try {
-                    eval(event.Script);
-                } catch (e) {
-                    outputError(e);
-                }
-            }
-            if (!this._active) {
-                return;
-            }
-            if (moveWindowFocus) {
-                if (event.FocusWindowId) {
-                    this.changeWindowFocus(event.FocusWindowId, event.FocusWindowIndex);
-                } else if (this._previousActiveWindowId && this._activeWindowId !== this.findFirstWindowId()) {
-                    this.changeWindowFocus(this._previousActiveWindowId, -1);
-                } else {
-                    this.changeWindowFocus(this._activeWindowId || this.findFirstWindowId(), -1);
-                }
-                if (event.Deselect) {
-                    const previousWindow = this._customWindowMap.get(this._previousActiveWindowId);
-                    previousWindow.deselect();
-                }
-            }
-            if (event.CommandId) {
-                this.setupMenuCommonEvent(event.CommandId);
-            }
-        }
-
-        changeWindowFocus(windowId, index) {
-            if (this._activeWindowId !== windowId) {
-                this._previousActiveWindowId = this._activeWindowId;
-            }
-            this._activeWindowId = windowId;
-            this._customWindowMap.forEach((win, id) => {
-                if (id === windowId) {
-                    win.activate();
-                    if (index !== -1) {
-                        win.select(index || 0);
-                    }
-                } else {
-                    win.deactivate();
-                }
-            });
-        }
-
-        setupMenuCommonEvent(commonEventId) {
-            const common = $dataCommonEvents[commonEventId];
-            if (!common) {
-                return;
-            }
-            this._interpreter.setup(common.list, 0);
-            this.blurAllWindow();
-        }
-
-        updateInterpreter() {
-            this._interpreter.update();
-            if (!this._interpreter.isRunning()) {
-                this.changeWindowFocus(this._activeWindowId, -1);
-                this._interpreter.terminate();
-            }
-        }
-
-        blurAllWindow() {
-            this._customWindowMap.forEach(win => {
-                win.deactivate();
-            });
-        }
-
-        createMessageWindow() {
-            this._messageWindow = new Window_Message();
-            this.addChild(this._messageWindow);
-            this._messageWindow.subWindows().forEach(win => this.addWindow(win));
-        }
-
-        createScrollTextWindow() {
-            this._scrollTextWindow = new Window_ScrollText();
-            this.addChild(this._scrollTextWindow);
-        }
-
-        createSpriteset() {
-            this._spriteset = new Spriteset_Menu();
-            const index = this.findSpritesetIndex();
-            if (index !== null) {
-                this.addChildAt(this._spriteset, index);
-            } else {
-                this.addChild(this._spriteset);
-            }
-        }
-
-        findSpritesetIndex() {
-            switch (this._customData.PicturePriority) {
-                case 2:
-                    return this.getChildIndex(this._windowLayer);
-                case 1:
-                    return this.getChildIndex(this._messageWindow);
-                default:
-                    return null;
-            }
-        }
-
-        refreshActor() {
-            this._customWindowMap.forEach(win => {
-                win.setActor(this._actor);
-            });
-        }
-
-        onActorChange() {
-            this.refreshActor();
-            this.changeWindowFocus(this._activeWindowId, -1);
-        }
-
-        launchBattle() {
-            BattleManager.saveBgmAndBgs();
-            this.stopAudioOnBattleStart();
-            SoundManager.playBattleStart();
-        }
-
-        stopAudioOnBattleStart() {
-            Scene_Map.prototype.stopAudioOnBattleStart.apply(this, arguments);
-        }
+          }
+        });
+      }
+      return list;
     }
 
-    const _Window_Selectable_initialize = Window_Selectable.prototype.initialize;
-    Window_Selectable.prototype.initialize = function (x, y, width, height, data) {
-        if (data) {
-            this._data = data;
-            this._list = [];
-        }
-        _Window_Selectable_initialize.apply(this, arguments);
-    };
-
-    class Window_CustomMenu extends Window_Selectable {
-        constructor(data, actor, windowMap) {
-            super(data.x, data.y, data.width || Graphics._boxWidth - data.x, data.height, data);
-            this._actor = actor;
-            this._windowMap = windowMap;
-            if (data.OverlapOther) {
-                this._isWindow = false;
-            }
-            if (this.isShowOpen() || !this.isValid()) {
-                this.openness = 0;
-            }
-            if (this.height === 0) {
-                this._dynamicHeight = true;
-            }
-        }
-
-        registerButton(buttonList) {
-            this._buttonList = buttonList;
-        }
-
-        playOkSound() {
-            if (this._data.okSound) {
-                AudioManager.playSe(this._data.okSound);
-            } else {
-                super.playOkSound();
-            }
-        }
-
-        update() {
-            this.updateOpenClose();
-            super.update();
-            this.updateIndexVariable();
-            this.updateRotation();
-            this.updateButtonInput();
-        }
-
-        updateRotation() {
-            this.rotation = (this._data.Rotation || 0) * Math.PI / 180;
-        }
-
-        updateButtonInput() {
-            if (!this._buttonList) {
-                return;
-            }
-            this._buttonList.forEach(buttonName => {
-                if (Input.isTriggered(buttonName)) {
-                    this.callHandler('trigger:' + buttonName);
-                }
-            });
-        }
-
-        select(index) {
-            const prevIndex = this._index;
-            super.select(index);
-            if (prevIndex >= 0 && index >= 0 && index !== prevIndex) {
-                this.callHandler('select');
-            }
-            if (this._windowMap) {
-                this.refreshDetailWindow();
-            }
-        }
-
-        refreshDetailWindow() {
-            this._windowMap.forEach(win => {
-                if (win.isDetailWindow(this._data.Id)) {
-                    win.refresh();
-                }
-            })
-        }
-
-        updateOpenClose() {
-            if (this.isValid()) {
-                if (this.isShowOpen()) {
-                    this.open();
-                } else {
-                    this.openness = 255;
-                }
-            } else {
-                if (this.isShowOpen()) {
-                    this.close();
-                } else {
-                    this.openness = 0;
-                }
-            }
-        }
-
-        updateIndexVariable() {
-            if (this._data.IndexVariableId) {
-                $gameVariables.setValue(this._data.IndexVariableId, this._index);
-            }
-            if (this._data.ItemVariableId) {
-                $gameVariables.setValue(this._data.ItemVariableId, this.getItem(this._index));
-            }
-        }
-
-        refreshIfNeed() {
-            const switchId = this._data.RefreshSwitchId;
-            if (!switchId) {
-                return;
-            }
-            if ($gameSwitches.value(switchId)) {
-                this.refresh();
-            }
-        }
-
-        resetRefreshSwitch() {
-            const switchId = this._data.RefreshSwitchId;
-            if (switchId) {
-                $gameSwitches.setValue(switchId, false);
-            }
-        }
-
-        isShowOpen() {
-            return this._data.ShowOpenAnimation;
-        }
-
-        itemHeight() {
-            return this._data.ItemHeight || super.itemHeight();
-        }
-
-        numVisibleRows() {
-            return this._data.RowNumber || Math.ceil(this.maxItems() / this.maxCols());
-        }
-
-        resetFontSettings() {
-            super.resetFontSettings();
-            if (this._data.FontSize) {
-                this.contents.fontSize = this._data.FontSize;
-            }
-        };
-
-        isValid() {
-            if (this._data.HiddenNoFocus && !this.active) {
-                return false;
-            }
-            return !this._data.VisibleSwitchId || $gameSwitches.value(this._data.VisibleSwitchId);
-        }
-
-        isDetailWindow(listWindowId) {
-            return this._data.ListWindowId === listWindowId;
-        }
-
-        maxCols() {
-            return this._data.ColumnNumber || super.maxCols();
-        }
-
-        refresh() {
-            this._list = this.makeCommandList();
-            if (this._dynamicHeight) {
-                this.setDynamicHeight();
-            }
-            super.refresh();
-            if (this._data.WindowSkin) {
-                this.windowskin = ImageManager.loadSystem(this._data.WindowSkin);
-            }
-        }
-
-        findMetaData(index) {
-            const item = this.getItem(index);
-            if (!item) {
-                return null;
-            }
-            if (item.meta) {
-                return item.meta;
-            } else if (item.actor && item.actor().meta) {
-                return item.actor().meta;
-            }
-            return null;
-        }
-
-        drawNotePicture(metaValue, x, y, align = 'left', valign = 'top') {
-            const meta = this.findMetaData(this._drawingIndex);
-            if (!meta) {
-                return;
-            }
-            const fileName = meta[metaValue];
-            if (fileName) {
-                this.drawPicture(fileName, x, y, align, valign);
-            }
-        };
-
-        drawPicture(file, x, y, align = 'left', valign = 'top') {
-            const bitmap = ImageManager.loadPicture(file);
-            if (bitmap.isReady()) {
-                x += this.findAlignX(align, bitmap);
-                y += this.findAlignY(valign, bitmap);
-                this.contents.blt(bitmap, 0, 0, bitmap.width, bitmap.height, x, y);
-            } else {
-                this.retryDrawItem(bitmap);
-            }
-        }
-
-        drawEnemy(x, y, align = 'left', valign = 'top') {
-            const item = this.getItem(this._drawingIndex);
-            const bitmap = this.loadEnemyImage(item);
-            if (bitmap.isReady()) {
-                x += this.findAlignX(align, bitmap);
-                y += this.findAlignY(valign, bitmap);
-                this.contents.blt(bitmap, 0, 0, bitmap.width, bitmap.height, x, y);
-            } else {
-                this.retryDrawItem(bitmap);
-            }
-        }
-
-        findAlignX(align, bitmap) {
-            const width = this.itemRect(this._drawingIndex).width;
-            const shiftX = width - bitmap.width;
-            switch (align.toLowerCase()) {
-                case 'right':
-                    return shiftX;
-                case 'center':
-                    return shiftX / 2;
-                default:
-                    return 0;
-            }
-        }
-
-        findAlignY(valign, bitmap) {
-            const height = this.itemRect(this._drawingIndex).height;
-            const shiftY = height - bitmap.height;
-            switch (valign.toLowerCase()) {
-                case 'bottom':
-                    return shiftY;
-                case 'center':
-                    return shiftY / 2;
-                default:
-                    return 0;
-            }
-        }
-
-        loadEnemyImage(item) {
-            if ($gameSystem.isSideView()) {
-                return ImageManager.loadSvEnemy(item.battlerName, item.battlerHue);
-            } else {
-                return ImageManager.loadEnemy(item.battlerName, item.battlerHue);
-            }
-        }
-
-        drawNoteText(metaValue, x, y) {
-            const meta = this.findMetaData(this._drawingIndex);
-            if (meta) {
-                const text = meta[metaValue];
-                this.drawTextEx(text, x, y);
-            }
-        }
-
-        drawParam(paramIndex, x, y, align = 'left') {
-            const item = this.getItem(this._drawingIndex);
-            const rect = this.itemRect(this._drawingIndex);
-            this.drawText(item.params[paramIndex], x, y, rect.width - x, align);
-        }
-
-        setDynamicHeight() {
-            this.height = this.fittingHeight(this.numVisibleRows());
-            this.createContents();
-        }
-
-        fittingHeight(numLines) {
-            return numLines * this.itemHeight() + this.standardPadding() * 2;
-        }
-
-        makeCommandList() { }
-
-        maxItems() {
-            return this._list.length;
-        }
-
-        drawItem(index) {
-            this._drawingIndex = index;
-            const item = this.getItem(index);
-            const rect = this.itemRect(index);
-            rect.x += this.textPadding();
-            rect.width -= this.textPadding() * 2;
-            this.changePaintOpacity(this.isEnabled(index));
-            if (this.isMasking(index)) {
-                this.drawMasking(rect);
-            } else {
-                this.drawItemSub(item, rect, index);
-            }
-            this.changePaintOpacity(1);
-        }
-
-        retryDrawItem(bitmap) {
-            const index = this.index();
-            bitmap.addLoadListener(() => {
-                if (index === this.index()) {
-                    this.drawItem(this._drawingIndex);
-                }
-            });
-        }
-
-        drawItemSub(item, rect, index) { };
-
-        drawMasking(rect) {
-            this.drawTextEx(this._data.MaskingText, rect.x, rect.y);
-        }
-
-        updateHelp() {
-            const helpText = this.findHelpText();
-            const helpItem = this.findHelpItem();
-            if (this.isMasking(this.index())) {
-                this._helpWindow.setText(this._data.MaskingText);
-            } else if (helpText) {
-                this._helpWindow.setText(helpText.replace(/\\n/g, '\n'));
-            } else if (helpItem) {
-                this._helpWindow.setItem(helpItem);
-            }
-        }
-
-        findHelpItem() {
-            return null;
-        }
-
-        findHelpText() {
-            return this._data.CommonHelpText;
-        }
-
-        findDecisionEvent() {
-            return this._data.DecisionEvent;
-        }
-
-        findCurrentItem() {
-            return this.getItem(this.index());
-        }
-
-        findWindowItem(windowId) {
-            const win = this._windowMap.get(windowId);
-            if (!win) {
-                throw new Error(`Window [${windowId}] is not found.`);
-            }
-            return win.findCurrentItem();
-        }
-
-        findListWindowItem() {
-            const listWindowId = this._data.ListWindowId;
-            return listWindowId ? this.findWindowItem(listWindowId) : null;
-        }
-
-        getItem(index) {
-            if (index === undefined) {
-                index = this.index();
-            }
-            return this._list[index];
-        }
-
-        isCurrentItemEnabled() {
-            return this.isEnabled(this.index());
-        }
-
-        isEnabled(index) {
-            const item = this.getItem(index);
-            return item ? this.isEnabledSub(item) && !this.isMasking(index) : false;
-        }
-
-        isMasking(index) {
-            const item = this.getItem(index);
-            const v = $gameVariables.value.bind($gameVariables); // used by eval
-            const s = $gameSwitches.value.bind($gameSwitches); // used by eval
-            return this.isUseMasking() && !this.isVisible(item, v, s);
-        }
-
-        isVisible(item, v, s) {
-            return true;
-        }
-
-        isEnabledSub(item) { };
-
-        activate() {
-            if (this._index < 0) {
-                this.select(0);
-            }
-            super.activate();
-        }
-
-        isUseMasking() {
-            return !!this._data.MaskingText;
-        }
-
-        setActor(actor) { }
-
-        normalColor() {
-            if (this._data.textColor > 0) {
-                return this.textColor(this._data.textColor)
-            } else {
-                return super.normalColor();
-            }
-        }
+    isVisible(item, v, s) {
+      try {
+        return eval(this._data.FilterScript);
+      } catch (e) {
+        outputError(e);
+        return false;
+      }
     }
 
-    class Window_CustomMenuCommand extends Window_CustomMenu {
-        makeCommandList() {
-            const list = this._data.CommandList;
-            return this.isUseMasking() ? list : list.filter(data => this.isVisible(data));
-        }
-
-        isVisible(item) {
-            return this.isScriptValid(item.VisibleScript) && this.isSwitchValid(item.VisibleSwitchId);
-        }
-
-        drawItemSub(item, rect, index) {
-            this._noDrawing = true;
-            const width = this.drawTextEx(item.Text, rect.x, rect.y);
-            this._noDrawing = false;
-            if (item.Align === 1) {
-                rect.x += (rect.width - width) / 2;
-            } else if (item.Align === 2) {
-                rect.x += rect.width - width;
-            }
-            this.drawTextEx(item.Text, rect.x, rect.y);
-        }
-
-        processNormalCharacter(textState) {
-            if (this._noDrawing) {
-                var c = textState.text[textState.index++];
-                var w = this.textWidth(c);
-                textState.x += w;
-            } else {
-                super.processNormalCharacter(textState);
-            }
-        }
-
-        findHelpText() {
-            const item = this.getItem();
-            return item && item.HelpText ? item.HelpText : super.findHelpText();
-        }
-
-        isEnabledSub(item) {
-            return this.isScriptValid(item.IsEnableScript) && this.isSwitchValid(item.EnableSwitchId);
-        }
-
-        isSwitchValid(id) {
-            return !id || $gameSwitches.value(id);
-        }
-
-        isScriptValid(script) {
-            if (script === '' || script === undefined) {
-                return true;
-            }
-            const v = $gameVariables.value.bind($gameVariables); // used by eval
-            const s = $gameSwitches.value.bind($gameSwitches); // used by eval
-            const item = this.findListWindowItem(); // used by eval
-            if (item === undefined) {
-                return false;
-            }
-            try {
-                return eval(script);
-            } catch (e) {
-                outputError(e);
-                return true;
-            }
-        }
-
-        findDecisionEvent() {
-            const item = this.getItem();
-            if (item && item.CancelChoice) {
-                return this._data.CancelEvent;
-            } else {
-                return super.findDecisionEvent();
-            }
-        }
+    drawItemSub(item, r, index) {
+      const scriptList = this._data.ItemDrawScript;
+      if (scriptList && scriptList.length > 0) {
+        scriptList.forEach((script) => {
+          try {
+            eval(script);
+          } catch (e) {
+            outputError(e);
+          }
+        });
+      } else if (item === String(item)) {
+        this.drawTextEx(item, r.x, r.y);
+      } else if (item.hasOwnProperty("iconIndex")) {
+        this.drawItemName(item, r.x, r.y, r.width);
+      } else if (item instanceof Game_Actor) {
+        this.drawActorName(item, r.x, r.y, r.width);
+      } else if (item.hasOwnProperty("name")) {
+        this.drawTextEx(item.name, r.x, r.y);
+      } else {
+        this.drawTextEx(item.toString(), r.x, r.y);
+        console.warn(item);
+      }
     }
 
-    class Window_CustomMenuDataList extends Window_CustomMenu {
-        makeCommandList() {
-            if (this._data.ListWindowId) {
-                const data = this.findListWindowItem();
-                return data ? [data] : [];
-            }
-            const v = $gameVariables.value.bind($gameVariables); // used by eval
-            const s = $gameSwitches.value.bind($gameSwitches); // used by eval
-            let list;
-            try {
-                list = eval(this._data.ListScript);
-            } catch (e) {
-                outputError(e);
-                list = [];
-            }
-            if (!Array.isArray(list)) {
-                list = list ? [list] : [' '];
-            }
-            if (this._data.FilterScript && !this.isUseMasking()) {
-                list = list.filter(item => this.isVisible(item, v, s));
-            }
-            if (this._data.MappingScript) {
-                list = list.map(item => {
-                    try {
-                        return eval(this._data.MappingScript)
-                    } catch (e) {
-                        outputError(e);
-                        return null;
-                    }
-                });
-            }
-            return list;
-        }
-
-        isVisible(item, v, s) {
-            try {
-                return eval(this._data.FilterScript)
-            } catch (e) {
-                outputError(e);
-                return false;
-            }
-        }
-
-        drawItemSub(item, r, index) {
-            const scriptList = this._data.ItemDrawScript;
-            if (scriptList && scriptList.length > 0) {
-                scriptList.forEach(script => {
-                    try {
-                        eval(script)
-                    } catch (e) {
-                        outputError(e);
-                    }
-                });
-            } else if (item === String(item)) {
-                this.drawTextEx(item, r.x, r.y);
-            } else if (item.hasOwnProperty('iconIndex')) {
-                this.drawItemName(item, r.x, r.y, r.width);
-            } else if (item instanceof Game_Actor) {
-                this.drawActorName(item, r.x, r.y, r.width);
-            } else if (item.hasOwnProperty('name')) {
-                this.drawTextEx(item.name, r.x, r.y);
-            } else {
-                this.drawTextEx(item.toString(), r.x, r.y);
-                console.warn(item);
-            }
-        }
-
-        findHelpItem() {
-            const item = this.getItem();
-            return item && item.hasOwnProperty('meta') ? item : null;
-        }
-
-        isEnabledSub(item) {
-            const v = $gameVariables.value.bind($gameVariables); // used by eval
-            const s = $gameSwitches.value.bind($gameSwitches); // used by eval
-            const script = this._data.IsEnableScript;
-            try {
-                return script ? eval(script) : true;
-            } catch (e) {
-                outputError(e);
-                return false;
-            }
-
-        }
-
-        setActor(actor) {
-            if (this._actor !== actor) {
-                this._actor = actor;
-                this.refresh();
-            }
-        }
-
-        drawFace(faceName, faceIndex, x, y, width, height) {
-            const bitmap = ImageManager.loadFace(faceName);
-            if (bitmap.isReady()) {
-                super.drawFace(faceName, faceIndex, x, y, width, height);
-            } else {
-                this.retryDrawItem(bitmap);
-            }
-        }
-
-        drawCharacter(characterName, characterIndex, x, y) {
-            const bitmap = ImageManager.loadCharacter(characterName);
-            if (bitmap.isReady()) {
-                super.drawCharacter(characterName, characterIndex, x, y);
-            } else {
-                this.retryDrawItem(bitmap);
-            }
-        }
+    findHelpItem() {
+      const item = this.getItem();
+      return item && item.hasOwnProperty("meta") ? item : null;
     }
 
-    class Spriteset_Menu extends Spriteset_Base {
-        createBaseSprite() {
-            super.createBaseSprite();
-            this._blackScreen.opacity = 0;
-        }
-
-        createToneChanger() { };
-
-        updateToneChanger() { };
+    isEnabledSub(item) {
+      const v = $gameVariables.value.bind($gameVariables); // used by eval
+      const s = $gameSwitches.value.bind($gameSwitches); // used by eval
+      const script = this._data.IsEnableScript;
+      try {
+        return script ? eval(script) : true;
+      } catch (e) {
+        outputError(e);
+        return false;
+      }
     }
+
+    setActor(actor) {
+      if (this._actor !== actor) {
+        this._actor = actor;
+        this.refresh();
+      }
+    }
+
+    drawFace(faceName, faceIndex, x, y, width, height) {
+      const bitmap = ImageManager.loadFace(faceName);
+      if (bitmap.isReady()) {
+        super.drawFace(faceName, faceIndex, x, y, width, height);
+      } else {
+        this.retryDrawItem(bitmap);
+      }
+    }
+
+    drawCharacter(characterName, characterIndex, x, y) {
+      const bitmap = ImageManager.loadCharacter(characterName);
+      if (bitmap.isReady()) {
+        super.drawCharacter(characterName, characterIndex, x, y);
+      } else {
+        this.retryDrawItem(bitmap);
+      }
+    }
+  }
+
+  class Spriteset_Menu extends Spriteset_Base {
+    createBaseSprite() {
+      super.createBaseSprite();
+      this._blackScreen.opacity = 0;
+    }
+
+    createToneChanger() {}
+
+    updateToneChanger() {}
+  }
 })();

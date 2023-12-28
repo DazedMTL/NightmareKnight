@@ -35,20 +35,18 @@
  */
 
 (function () {
+  var parameters = PluginManager.parameters("LastUsedItem");
+  var variableId1 = Number(parameters["Variable ID 1"] || 0);
+  var variableId2 = Number(parameters["Variable ID 2"] || 0);
 
-    var parameters = PluginManager.parameters('LastUsedItem');
-    var variableId1 = Number(parameters['Variable ID 1'] || 0);
-    var variableId2 = Number(parameters['Variable ID 2'] || 0);
-
-    var _Game_Battler_useItem = Game_Battler.prototype.useItem;
-    Game_Battler.prototype.useItem = function (item) {
-        _Game_Battler_useItem.call(this, item);
-        $gameVariables.setValue(variableId1, item.id);
-        if (DataManager.isSkill(item)) {
-            $gameVariables.setValue(variableId2, 1);
-        } else {
-            $gameVariables.setValue(variableId2, 0);
-        }
-    };
-
+  var _Game_Battler_useItem = Game_Battler.prototype.useItem;
+  Game_Battler.prototype.useItem = function (item) {
+    _Game_Battler_useItem.call(this, item);
+    $gameVariables.setValue(variableId1, item.id);
+    if (DataManager.isSkill(item)) {
+      $gameVariables.setValue(variableId2, 1);
+    } else {
+      $gameVariables.setValue(variableId2, 0);
+    }
+  };
 })();

@@ -4,7 +4,7 @@
 // Copyright (c) 2018 Thirop
 // Released under the MIT license
 // http://opensource.org/licenses/mit-license.php
-//============================================================================= 
+//=============================================================================
 // Version
 // 1.0.0 2018/05/17 初版
 
@@ -29,55 +29,53 @@
  * 2.エディタ上ではAbsorb.pngを使ってアニメーションを編集
  * 3.最後にアニメーション画像をAbsorb_x96.pngに変更。
  */
-//============================================================================= 
+//=============================================================================
 
 (function () {
-    var _Sprite_Animation_initMembers = Sprite_Animation.prototype.initMembers;
-    Sprite_Animation.prototype.initMembers = function () {
-        _Sprite_Animation_initMembers.call(this);
+  var _Sprite_Animation_initMembers = Sprite_Animation.prototype.initMembers;
+  Sprite_Animation.prototype.initMembers = function () {
+    _Sprite_Animation_initMembers.call(this);
 
-        this._frameSize1 = 192;
-        this._frameSize2 = 192;
-    };
+    this._frameSize1 = 192;
+    this._frameSize2 = 192;
+  };
 
+  var _Sprite_Animation_loadBitmaps = Sprite_Animation.prototype.loadBitmaps;
+  Sprite_Animation.prototype.loadBitmaps = function () {
+    _Sprite_Animation_loadBitmaps.call(this);
+    var name1 = this._animation.animation1Name;
+    var name2 = this._animation.animation2Name;
+    var frameSize = 192;
+    if (name1) {
+      var matchSize = name1.match(/_x([0-9]+)/);
+      if (matchSize) {
+        frameSize = Number(matchSize[1]);
+      }
+    }
+    this._frameSize1 = frameSize;
+    frameSize = 192;
+    if (name2) {
+      var matchSize = name2.match(/_x([0-9]+)/);
 
-    var _Sprite_Animation_loadBitmaps = Sprite_Animation.prototype.loadBitmaps;
-    Sprite_Animation.prototype.loadBitmaps = function () {
-        _Sprite_Animation_loadBitmaps.call(this);
-        var name1 = this._animation.animation1Name;
-        var name2 = this._animation.animation2Name;
-        var frameSize = 192;
-        if (name1) {
-            var matchSize = name1.match(/_x([0-9]+)/);
-            if (matchSize) {
-                frameSize = Number(matchSize[1]);
-            }
-        }
-        this._frameSize1 = frameSize;
-        frameSize = 192;
-        if (name2) {
-            var matchSize = name2.match(/_x([0-9]+)/);
+      if (matchSize) {
+        frameSize = Number(matchSize[1]);
+      }
+    }
+    this._frameSize2 = frameSize;
+  };
 
-            if (matchSize) {
-                frameSize = Number(matchSize[1]);
-            }
-        }
-        this._frameSize2 = frameSize;
-    };
-
-
-    var _Sprite_Animation_updateCellSprite = Sprite_Animation.prototype.updateCellSprite;
-    Sprite_Animation.prototype.updateCellSprite = function (sprite, cell) {
-        _Sprite_Animation_updateCellSprite.call(this, sprite, cell);
-        var pattern = cell[0];
-        if (pattern >= 0) {
-            var useBitmap1 = pattern < 100;
-            var frameSize = useBitmap1 ? this._frameSize1 : this._frameSize2;
-            var scaleAdjustRate = 192 / frameSize;
-            var sx = pattern % 5 * frameSize;
-            var sy = Math.floor(pattern % 100 / 5) * frameSize;
-            sprite.setFrame(sx, sy, frameSize, frameSize);
-        }
-    };
-
+  var _Sprite_Animation_updateCellSprite =
+    Sprite_Animation.prototype.updateCellSprite;
+  Sprite_Animation.prototype.updateCellSprite = function (sprite, cell) {
+    _Sprite_Animation_updateCellSprite.call(this, sprite, cell);
+    var pattern = cell[0];
+    if (pattern >= 0) {
+      var useBitmap1 = pattern < 100;
+      var frameSize = useBitmap1 ? this._frameSize1 : this._frameSize2;
+      var scaleAdjustRate = 192 / frameSize;
+      var sx = (pattern % 5) * frameSize;
+      var sy = Math.floor((pattern % 100) / 5) * frameSize;
+      sprite.setFrame(sx, sy, frameSize, frameSize);
+    }
+  };
 })();

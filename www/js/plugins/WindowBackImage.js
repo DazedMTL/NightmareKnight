@@ -261,182 +261,189 @@
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    var getClassName = function (object) {
-        return object.constructor.toString().replace(/function\s+(.*)\s*\([\s\S]*/m, '$1');
+  var getClassName = function (object) {
+    return object.constructor
+      .toString()
+      .replace(/function\s+(.*)\s*\([\s\S]*/m, "$1");
+  };
+
+  //=============================================================================
+  // ローカル関数
+  //  プラグインパラメータやプラグインコマンドパラメータの整形やチェックをします
+  //=============================================================================
+  /**
+   * Create plugin parameter. param[paramName] ex. param.commandPrefix
+   * @param pluginName plugin name(EncounterSwitchConditions)
+   * @returns {Object} Created parameter
+   */
+  var createPluginParameter = function (pluginName) {
+    var paramReplacer = function (key, value) {
+      if (value === "null") {
+        return value;
+      }
+      if (value[0] === '"' && value[value.length - 1] === '"') {
+        return value;
+      }
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        return value;
+      }
     };
+    var parameter = JSON.parse(
+      JSON.stringify(PluginManager.parameters(pluginName), paramReplacer)
+    );
+    PluginManager.setParameters(pluginName, parameter);
+    return parameter;
+  };
 
-    //=============================================================================
-    // ローカル関数
-    //  プラグインパラメータやプラグインコマンドパラメータの整形やチェックをします
-    //=============================================================================
-    /**
-     * Create plugin parameter. param[paramName] ex. param.commandPrefix
-     * @param pluginName plugin name(EncounterSwitchConditions)
-     * @returns {Object} Created parameter
-     */
-    var createPluginParameter = function (pluginName) {
-        var paramReplacer = function (key, value) {
-            if (value === 'null') {
-                return value;
-            }
-            if (value[0] === '"' && value[value.length - 1] === '"') {
-                return value;
-            }
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                return value;
-            }
-        };
-        var parameter = JSON.parse(JSON.stringify(PluginManager.parameters(pluginName), paramReplacer));
-        PluginManager.setParameters(pluginName, parameter);
-        return parameter;
-    };
+  var param = createPluginParameter("WindowBackImage");
+  if (!param.windowImageInfo) {
+    param.windowImageInfo = [];
+  }
 
-    var param = createPluginParameter('WindowBackImage');
-    if (!param.windowImageInfo) {
-        param.windowImageInfo = [];
+  //=============================================================================
+  // Window
+  //  専用の背景画像を設定します。
+  //=============================================================================
+  var _Window__createAllParts = Window.prototype._createAllParts;
+  Window.prototype._createAllParts = function () {
+    _Window__createAllParts.apply(this, arguments);
+    this._backImageDataList = this.initBackImageData();
+    if (this._backImageDataList.length >= 0) {
+      this._createBackImage();
     }
+  };
 
-    //=============================================================================
-    // Window
-    //  専用の背景画像を設定します。
-    //=============================================================================
-    var _Window__createAllParts = Window.prototype._createAllParts;
-    Window.prototype._createAllParts = function () {
-        _Window__createAllParts.apply(this, arguments);
-        this._backImageDataList = this.initBackImageData();
-        if (this._backImageDataList.length >= 0) {
-            this._createBackImage();
-        }
-    };
+  Window.prototype._setBackImageProperty = function (backImageData) {
+    this._backImageDx = parseInt(backImageData["OffsetX"]) || 0;
+    this._backImageDy = parseInt(backImageData["OffsetY"]) || 0;
+    this._windowBackImageSprite.scale.x =
+      (parseInt(backImageData["ScaleX"]) || 100) / 100;
+    this._windowBackImageSprite.scale.y =
+      (parseInt(backImageData["ScaleY"]) || 100) / 100;
+  };
 
-    Window.prototype._setBackImageProperty = function (backImageData) {
-        this._backImageDx = parseInt(backImageData['OffsetX']) || 0;
-        this._backImageDy = parseInt(backImageData['OffsetY']) || 0;
-        this._windowBackImageSprite.scale.x = (parseInt(backImageData['ScaleX']) || 100) / 100;
-        this._windowBackImageSprite.scale.y = (parseInt(backImageData['ScaleY']) || 100) / 100;
-    };
+  /**
+   * 背景画像を作成します。
+   * @private
+   */
+  Window.prototype._createBackImage = function () {
+    this._windowBackSprite.visible = false;
+    this._windowFrameSprite.visible = false;
+    this._windowBackImageSprites = [];
+    this._backImageDataList.forEach(function (backImageData) {
+      var bitmap = ImageManager.loadPicture(backImageData["ImageFile"]);
+      var sprite = new Sprite_WindowBackImage(bitmap);
+      sprite.scale.x = (backImageData["ScaleX"] || 100) / 100;
+      sprite.scale.y = (backImageData["ScaleY"] || 100) / 100;
+      this._windowBackImageSprites.push(sprite);
+      this._windowSpriteContainer.addChild(sprite);
+    }, this);
+  };
 
-    /**
-     * 背景画像を作成します。
-     * @private
-     */
-    Window.prototype._createBackImage = function () {
-        this._windowBackSprite.visible = false;
-        this._windowFrameSprite.visible = false;
-        this._windowBackImageSprites = [];
-        this._backImageDataList.forEach(function (backImageData) {
-            var bitmap = ImageManager.loadPicture(backImageData['ImageFile']);
-            var sprite = new Sprite_WindowBackImage(bitmap);
-            sprite.scale.x = (backImageData['ScaleX'] || 100) / 100;
-            sprite.scale.y = (backImageData['ScaleY'] || 100) / 100;
-            this._windowBackImageSprites.push(sprite);
-            this._windowSpriteContainer.addChild(sprite);
-        }, this);
-    };
-
-    Window.prototype.initBackImageData = function () {
-        var className = getClassName(this);
-        // for SceneCustomMenu.js
-        if (this._data && this._data.Id) {
-            className = this._data.Id;
-        }
-        return param.windowImageInfo.filter(function (data) {
-            return data['WindowClass'] === className;
-        }, this);
-    };
-
-    Window.prototype.getBackImageDataItem = function (index, propName) {
-        return this._backImageDataList[index][propName];
-    };
-
-    var _Window__refreshAllParts = Window.prototype._refreshAllParts;
-    Window.prototype._refreshAllParts = function () {
-        if (this._windowBackImageSprites) {
-            this._refreshBackImage();
-        }
-        _Window__refreshAllParts.apply(this, arguments);
-    };
-
-    /**
-     * 背景画像をリフレッシュします。
-     * @private
-     */
-    Window.prototype._refreshBackImage = function () {
-        this._windowBackImageSprites.forEach(function (sprite, index) {
-            sprite.x = this.width / 2 + this.getBackImageDataItem(index, 'OffsetX');
-            sprite.y = this.height / 2 + this.getBackImageDataItem(index, 'OffsetY');
-        }, this);
-    };
-
-    var _Window_update = Window.prototype.update;
-    Window.prototype.update = function () {
-        _Window_update.apply(this, arguments);
-        if (!this._windowBackImageSprites) {
-            return;
-        }
-        var defaultVisible = true;
-        this._windowBackImageSprites.forEach(function (sprite, index) {
-            var switchId = this.getBackImageDataItem(index, 'SwitchId');
-            sprite.visible = !switchId || $gameSwitches.value(switchId);
-            if (sprite.visible && !this.getBackImageDataItem(index, 'WindowShow')) {
-                defaultVisible = false;
-            }
-        }, this);
-        this._windowBackSprite.visible = defaultVisible;
-        this._windowFrameSprite.visible = defaultVisible;
-    };
-
-    var _Window_Base_loadWindowskin = Window_Base.prototype.loadWindowskin;
-    Window_Base.prototype.loadWindowskin = function () {
-        _Window_Base_loadWindowskin.apply(this, arguments);
-        var list = this._backImageDataList;
-        if (list && list.length > 0 && list[0].WindowSkin) {
-            this.windowskin = ImageManager.loadSystem(list[0].WindowSkin);
-        }
-    };
-
-    var _Scene_Boot_isReady = Scene_Boot.prototype.isReady;
-    Scene_Boot.prototype.isReady = function () {
-        var ready = _Scene_Boot_isReady.apply(this, arguments);
-        if (!ready) {
-            return false;
-        }
-        if (!this._skins) {
-            this.loadAllWindowSkin();
-        }
-        return this._skins.every(function (bitmap) {
-            return bitmap.isReady();
-        });
-    };
-
-    Scene_Boot.prototype.loadAllWindowSkin = function () {
-        this._skins = param.windowImageInfo.filter(function (win) {
-            return !!win.WindowSkin;
-        }).map(function (win) {
-            return ImageManager.loadSystem(win.WindowSkin);
-        });
-    };
-
-    //=============================================================================
-    // Sprite_WindowBackImage
-    //  ウィンドウ背景画像のスプライトです。
-    //=============================================================================
-    function Sprite_WindowBackImage() {
-        this.initialize.apply(this, arguments);
+  Window.prototype.initBackImageData = function () {
+    var className = getClassName(this);
+    // for SceneCustomMenu.js
+    if (this._data && this._data.Id) {
+      className = this._data.Id;
     }
+    return param.windowImageInfo.filter(function (data) {
+      return data["WindowClass"] === className;
+    }, this);
+  };
 
-    Sprite_WindowBackImage.prototype = Object.create(Sprite.prototype);
-    Sprite_WindowBackImage.prototype.constructor = Sprite_WindowBackImage;
+  Window.prototype.getBackImageDataItem = function (index, propName) {
+    return this._backImageDataList[index][propName];
+  };
 
-    Sprite_WindowBackImage.prototype.initialize = function (bitmap) {
-        Sprite.prototype.initialize.call(this);
-        this.bitmap = bitmap;
-        this.anchor.x = 0.5;
-        this.anchor.y = 0.5;
-    };
+  var _Window__refreshAllParts = Window.prototype._refreshAllParts;
+  Window.prototype._refreshAllParts = function () {
+    if (this._windowBackImageSprites) {
+      this._refreshBackImage();
+    }
+    _Window__refreshAllParts.apply(this, arguments);
+  };
+
+  /**
+   * 背景画像をリフレッシュします。
+   * @private
+   */
+  Window.prototype._refreshBackImage = function () {
+    this._windowBackImageSprites.forEach(function (sprite, index) {
+      sprite.x = this.width / 2 + this.getBackImageDataItem(index, "OffsetX");
+      sprite.y = this.height / 2 + this.getBackImageDataItem(index, "OffsetY");
+    }, this);
+  };
+
+  var _Window_update = Window.prototype.update;
+  Window.prototype.update = function () {
+    _Window_update.apply(this, arguments);
+    if (!this._windowBackImageSprites) {
+      return;
+    }
+    var defaultVisible = true;
+    this._windowBackImageSprites.forEach(function (sprite, index) {
+      var switchId = this.getBackImageDataItem(index, "SwitchId");
+      sprite.visible = !switchId || $gameSwitches.value(switchId);
+      if (sprite.visible && !this.getBackImageDataItem(index, "WindowShow")) {
+        defaultVisible = false;
+      }
+    }, this);
+    this._windowBackSprite.visible = defaultVisible;
+    this._windowFrameSprite.visible = defaultVisible;
+  };
+
+  var _Window_Base_loadWindowskin = Window_Base.prototype.loadWindowskin;
+  Window_Base.prototype.loadWindowskin = function () {
+    _Window_Base_loadWindowskin.apply(this, arguments);
+    var list = this._backImageDataList;
+    if (list && list.length > 0 && list[0].WindowSkin) {
+      this.windowskin = ImageManager.loadSystem(list[0].WindowSkin);
+    }
+  };
+
+  var _Scene_Boot_isReady = Scene_Boot.prototype.isReady;
+  Scene_Boot.prototype.isReady = function () {
+    var ready = _Scene_Boot_isReady.apply(this, arguments);
+    if (!ready) {
+      return false;
+    }
+    if (!this._skins) {
+      this.loadAllWindowSkin();
+    }
+    return this._skins.every(function (bitmap) {
+      return bitmap.isReady();
+    });
+  };
+
+  Scene_Boot.prototype.loadAllWindowSkin = function () {
+    this._skins = param.windowImageInfo
+      .filter(function (win) {
+        return !!win.WindowSkin;
+      })
+      .map(function (win) {
+        return ImageManager.loadSystem(win.WindowSkin);
+      });
+  };
+
+  //=============================================================================
+  // Sprite_WindowBackImage
+  //  ウィンドウ背景画像のスプライトです。
+  //=============================================================================
+  function Sprite_WindowBackImage() {
+    this.initialize.apply(this, arguments);
+  }
+
+  Sprite_WindowBackImage.prototype = Object.create(Sprite.prototype);
+  Sprite_WindowBackImage.prototype.constructor = Sprite_WindowBackImage;
+
+  Sprite_WindowBackImage.prototype.initialize = function (bitmap) {
+    Sprite.prototype.initialize.call(this);
+    this.bitmap = bitmap;
+    this.anchor.x = 0.5;
+    this.anchor.y = 0.5;
+  };
 })();
-

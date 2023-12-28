@@ -98,68 +98,88 @@
  */
 
 (function () {
-    'use strict';
-    var pluginName = 'FontLoad';
+  "use strict";
+  var pluginName = "FontLoad";
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
-    };
-
-    var getParamString = function (paramNames) {
-        var value = getParamOther(paramNames);
-        return value === null ? '' : value;
-    };
-
-    var getParamBoolean = function (paramNames) {
-        var value = (getParamOther(paramNames) || '').toUpperCase();
-        return value === 'ON' || value === 'TRUE';
-    };
-
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var paramFonts = [], idString;
-    for (var i = 1; i <= 3; i++) {
-        idString = String(i);
-        paramFonts[i] = {};
-        paramFonts[i].url = getParamString(['FontUrl' + idString, 'フォントURL' + idString]);
-        paramFonts[i].name = getParamString(['FontName' + idString, 'フォント名' + idString]);
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
     }
-    var paramWaitLoadComplete = getParamBoolean(['WaitLoadComplete', 'ロード完了まで待機']);
+    return null;
+  };
 
-    //=============================================================================
-    // Scene_Boot
-    //  必要なフォントをロードします。
-    //=============================================================================
-    var _Scene_Boot_isGameFontLoaded = Scene_Boot.prototype.isGameFontLoaded;
-    Scene_Boot.prototype.isGameFontLoaded = function () {
-        if (!_Scene_Boot_isGameFontLoaded.apply(this)) {
-            return false;
+  var getParamString = function (paramNames) {
+    var value = getParamOther(paramNames);
+    return value === null ? "" : value;
+  };
+
+  var getParamBoolean = function (paramNames) {
+    var value = (getParamOther(paramNames) || "").toUpperCase();
+    return value === "ON" || value === "TRUE";
+  };
+
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var paramFonts = [],
+    idString;
+  for (var i = 1; i <= 3; i++) {
+    idString = String(i);
+    paramFonts[i] = {};
+    paramFonts[i].url = getParamString([
+      "FontUrl" + idString,
+      "フォントURL" + idString,
+    ]);
+    paramFonts[i].name = getParamString([
+      "FontName" + idString,
+      "フォント名" + idString,
+    ]);
+  }
+  var paramWaitLoadComplete = getParamBoolean([
+    "WaitLoadComplete",
+    "ロード完了まで待機",
+  ]);
+
+  //=============================================================================
+  // Scene_Boot
+  //  必要なフォントをロードします。
+  //=============================================================================
+  var _Scene_Boot_isGameFontLoaded = Scene_Boot.prototype.isGameFontLoaded;
+  Scene_Boot.prototype.isGameFontLoaded = function () {
+    if (!_Scene_Boot_isGameFontLoaded.apply(this)) {
+      return false;
+    }
+    if (!this._customFontLoading) {
+      this.loadCustomFonts();
+    }
+    return this.isCustomFontLoaded();
+  };
+
+  Scene_Boot.prototype.loadCustomFonts = function () {
+    paramFonts.forEach(
+      function (fontInfo) {
+        if (fontInfo.name && fontInfo.url) {
+          Graphics.loadFont(fontInfo.name, fontInfo.url);
         }
-        if (!this._customFontLoading) {
-            this.loadCustomFonts();
-        }
-        return this.isCustomFontLoaded();
-    };
+      }.bind(this)
+    );
+    this._customFontLoading = true;
+  };
 
-    Scene_Boot.prototype.loadCustomFonts = function () {
-        paramFonts.forEach(function (fontInfo) {
-            if (fontInfo.name && fontInfo.url) {
-                Graphics.loadFont(fontInfo.name, fontInfo.url);
-            }
-        }.bind(this));
-        this._customFontLoading = true;
-    };
-
-    Scene_Boot.prototype.isCustomFontLoaded = function () {
-        return !paramWaitLoadComplete || paramFonts.every(function (fontInfo) {
-            return !fontInfo.name || !fontInfo.url || Graphics.isFontLoaded(fontInfo.name);
-        }.bind(this));
-    };
+  Scene_Boot.prototype.isCustomFontLoaded = function () {
+    return (
+      !paramWaitLoadComplete ||
+      paramFonts.every(
+        function (fontInfo) {
+          return (
+            !fontInfo.name ||
+            !fontInfo.url ||
+            Graphics.isFontLoaded(fontInfo.name)
+          );
+        }.bind(this)
+      )
+    );
+  };
 })();
-

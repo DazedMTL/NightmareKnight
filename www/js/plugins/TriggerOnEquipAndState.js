@@ -150,311 +150,396 @@
  */
 
 (function () {
-    'use strict';
-    var metaTagPrefix = 'TOES';
+  "use strict";
+  var metaTagPrefix = "TOES";
 
-    /**
-     * Create plugin parameter. param[paramName] ex. param.commandPrefix
-     * @param pluginName plugin name(EncounterSwitchConditions)
-     * @returns {Object} Created parameter
-     */
-    var createPluginParameter = function (pluginName) {
-        var paramReplacer = function (key, value) {
-            if (value === 'null') {
-                return value;
-            }
-            if (value[0] === '"' && value[value.length - 1] === '"') {
-                return value;
-            }
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                return value;
-            }
-        };
-        var parameter = JSON.parse(JSON.stringify(PluginManager.parameters(pluginName), paramReplacer));
-        PluginManager.setParameters(pluginName, parameter);
-        return parameter;
+  /**
+   * Create plugin parameter. param[paramName] ex. param.commandPrefix
+   * @param pluginName plugin name(EncounterSwitchConditions)
+   * @returns {Object} Created parameter
+   */
+  var createPluginParameter = function (pluginName) {
+    var paramReplacer = function (key, value) {
+      if (value === "null") {
+        return value;
+      }
+      if (value[0] === '"' && value[value.length - 1] === '"') {
+        return value;
+      }
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        return value;
+      }
     };
+    var parameter = JSON.parse(
+      JSON.stringify(PluginManager.parameters(pluginName), paramReplacer)
+    );
+    PluginManager.setParameters(pluginName, parameter);
+    return parameter;
+  };
 
-    var param = createPluginParameter('TriggerOnEquipAndState');
-    param.SlotVariables = param.SlotVariables || [];
+  var param = createPluginParameter("TriggerOnEquipAndState");
+  param.SlotVariables = param.SlotVariables || [];
 
-    var getMetaValue = function (object, name) {
-        var metaTagName = metaTagPrefix + (name ? name : '');
-        return object.meta.hasOwnProperty(metaTagName) ? object.meta[metaTagName] : undefined;
-    };
+  var getMetaValue = function (object, name) {
+    var metaTagName = metaTagPrefix + (name ? name : "");
+    return object.meta.hasOwnProperty(metaTagName)
+      ? object.meta[metaTagName]
+      : undefined;
+  };
 
-    var getMetaValues = function (object, names) {
-        if (!Array.isArray(names)) return getMetaValue(object, names);
-        for (var i = 0, n = names.length; i < n; i++) {
-            var value = getMetaValue(object, names[i]);
-            if (value !== undefined) return value;
-        }
-        return undefined;
-    };
-
-    var getArgString = function (arg, upperFlg) {
-        arg = convertEscapeCharactersAndEval(arg, false);
-        return upperFlg ? arg.toUpperCase() : arg;
-    };
-
-    var getArgNumber = function (arg, min, max) {
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(convertEscapeCharactersAndEval(arg, true), 10) || 0).clamp(min, max);
-    };
-
-    var getArgBoolean = function (arg) {
-        return (arg || '').toUpperCase() === 'ON';
-    };
-
-    var convertEscapeCharactersAndEval = function (text, evalFlg) {
-        if (text == null || text === true) text = '';
-        text = text.replace(/&gt;?/gi, '>');
-        text = text.replace(/&lt;?/gi, '<');
-        text = text.replace(/\\/g, '\x1b');
-        text = text.replace(/\x1b\x1b/g, '\\');
-        text = text.replace(/\x1bV\[(\d+)\]/gi, function () {
-            return $gameVariables.value(parseInt(arguments[1], 10));
-        }.bind(this));
-        text = text.replace(/\x1bV\[(\d+)\]/gi, function () {
-            return $gameVariables.value(parseInt(arguments[1], 10));
-        }.bind(this));
-        text = text.replace(/\x1bN\[(\d+)\]/gi, function () {
-            var actor = parseInt(arguments[1], 10) >= 1 ? $gameActors.actor(parseInt(arguments[1], 10)) : null;
-            return actor ? actor.name() : '';
-        }.bind(this));
-        text = text.replace(/\x1bP\[(\d+)\]/gi, function () {
-            var actor = parseInt(arguments[1], 10) >= 1 ? $gameParty.members()[parseInt(arguments[1], 10) - 1] : null;
-            return actor ? actor.name() : '';
-        }.bind(this));
-        text = text.replace(/\x1bG/gi, TextManager.currencyUnit);
-        return evalFlg ? eval(text) : text;
-    };
-
-    //=============================================================================
-    // Game_Party
-    //  変数設定が必要かどうかを返します。
-    //=============================================================================
-    Game_Party.prototype.isNeedControlVariable = function (actor) {
-        return !param.BattleMemberOnly || (this.battleMembers().contains(actor) || this.size() < this.maxBattleMembers());
-    };
-
-    Game_Party.prototype.getMembersNeedControl = function () {
-        return param.BattleMemberOnly ? this.battleMembers() : this.members();
-    };
-
-    Game_Party.prototype.getReserveMembers = function () {
-        var battleMembers = this.battleMembers();
-        return this.members().filter(function (actor) {
-            return !battleMembers.contains(actor);
-        });
-    };
-
-    var _Game_Party_setupStartingMembers = Game_Party.prototype.setupStartingMembers;
-    Game_Party.prototype.setupStartingMembers = function () {
-        _Game_Party_setupStartingMembers.apply(this, arguments);
-        this.getMembersNeedControl().forEach(function (actor) {
-            actor.onChangeMember(true);
-        });
-    };
-
-    var _Game_Party_addActor = Game_Party.prototype.addActor;
-    Game_Party.prototype.addActor = function (actorId) {
-        _Game_Party_addActor.apply(this, arguments);
-        var actor = $gameActors.actor(actorId);
-        if (this.getMembersNeedControl().contains(actor)) {
-            actor.onChangeMember(true);
-        }
-    };
-
-    var _Game_Party_removeActor = Game_Party.prototype.removeActor;
-    Game_Party.prototype.removeActor = function (actorId) {
-        var actor = $gameActors.actor(actorId);
-        if (this.getMembersNeedControl().contains(actor)) {
-            actor.onChangeMember(false);
-        }
-        var reserveMembers = this.getReserveMembers();
-        _Game_Party_removeActor.apply(this, arguments);
-        if (param.BattleMemberOnly) {
-            var members = this.battleMembers();
-            reserveMembers.forEach(function (actor) {
-                if (members.contains(actor)) {
-                    actor.onChangeMember(true);
-                }
-            });
-        }
-    };
-
-    var _Game_Party_swapOrder = Game_Party.prototype.swapOrder;
-    Game_Party.prototype.swapOrder = function (index1, index2) {
-        var prevMembers = this.getMembersNeedControl();
-        var actors = [$gameActors.actor(this._actors[index1]), $gameActors.actor(this._actors[index2])];
-        _Game_Party_swapOrder.apply(this, arguments);
-        var members = this.getMembersNeedControl();
-        actors.forEach(function (actor) {
-            if (prevMembers.contains(actor) && !members.contains(actor)) {
-                actor.onChangeMember(false);
-            }
-            if (members.contains(actor) && !prevMembers.contains(actor)) {
-                actor.onChangeMember(true);
-            }
-        });
-    };
-
-    //=============================================================================
-    // Game_Actor
-    //  ステートが変更された際のスイッチ、変数制御を追加定義します。
-    //=============================================================================
-    var _Game_BattlerBase_addNewState = Game_BattlerBase.prototype.addNewState;
-    Game_BattlerBase.prototype.addNewState = function (stateId) {
-        if (this instanceof Game_Actor && !this._states.contains(stateId)) {
-            this.onChangeEquipAndState($dataStates[stateId], true);
-        }
-        _Game_BattlerBase_addNewState.apply(this, arguments);
-    };
-
-    var _Game_BattlerBase_eraseState = Game_BattlerBase.prototype.eraseState;
-    Game_BattlerBase.prototype.eraseState = function (stateId) {
-        if (this instanceof Game_Actor && this._states.contains(stateId)) {
-            this.onChangeEquipAndState($dataStates[stateId], false);
-        }
-        _Game_BattlerBase_eraseState.apply(this, arguments);
-    };
-
-    var _Game_BattlerBase_clearStates = Game_BattlerBase.prototype.clearStates;
-    Game_BattlerBase.prototype.clearStates = function () {
-        if (this instanceof Game_Actor && this._states) {
-            this._states.forEach(function (stateId) {
-                this.onChangeEquipAndState($dataStates[stateId], false);
-            }.bind(this));
-        }
-        _Game_BattlerBase_clearStates.apply(this, arguments);
-    };
-
-    //=============================================================================
-    // Game_Actor
-    //  装備が変更された際のスイッチ、変数制御を追加定義します。
-    //=============================================================================
-    var _Game_Actor_changeEquip = Game_Actor.prototype.changeEquip;
-    Game_Actor.prototype.changeEquip = function (slotId, item) {
-        var prevItem = new Game_Item(this._equips[slotId].object());
-        _Game_Actor_changeEquip.apply(this, arguments);
-        var newItem = this._equips[slotId];
-        if (prevItem.itemId() !== 0 && prevItem.itemId() !== newItem.itemId()) {
-            this.onChangeEquipAndState(prevItem.object(), false, false, slotId);
-        }
-        if (newItem.itemId() !== 0 && newItem.itemId() !== prevItem.itemId()) {
-            this.onChangeEquipAndState(newItem.object(), true, false, slotId);
-        }
-    };
-
-    var _Game_Actor_discardEquip = Game_Actor.prototype.discardEquip;
-    Game_Actor.prototype.discardEquip = function (item) {
-        var slotId = this.equips().indexOf(item);
-        if (slotId >= 0) {
-            this.onChangeEquipAndState(item, false, false, slotId);
-        }
-        _Game_Actor_discardEquip.apply(this, arguments);
-    };
-
-    Game_Actor.prototype.onChangeMember = function (addedSign) {
-        this.equips().forEach(function (equip, index) {
-            if (equip && equip.id !== 0) {
-                this.onChangeEquipAndState(equip, addedSign, true, index);
-            }
-        }.bind(this));
-        this._states.forEach(function (stateId) {
-            this.onChangeEquipAndState($dataStates[stateId], addedSign, true);
-        }.bind(this));
-    };
-
-    var _Game_Actor_releaseUnequippableItems = Game_Actor.prototype.releaseUnequippableItems;
-    Game_Actor.prototype.releaseUnequippableItems = function (forcing) {
-        if (forcing) {
-            _Game_Actor_releaseUnequippableItems.apply(this, arguments);
-            return;
-        }
-        var prevEquips = this.equips();
-        _Game_Actor_releaseUnequippableItems.apply(this, arguments);
-        prevEquips.forEach(function (prevEquip, index) {
-            var equip = this._equips[index].object();
-            if (prevEquip && !equip) {
-                this.onChangeEquipAndState(prevEquip, false, false, index);
-            }
-        }, this);
-    };
-
-    Game_Actor.prototype.onChangeEquipAndState = function (item, addedSign, force, slotId) {
-        if (!$gameParty.isNeedControlVariable(this) && !force) return;
-        var index = 1;
-        while (index) {
-            if (this.controlVariable(item, addedSign, index === 1 ? '' : String(index))) {
-                index++;
-            } else {
-                index = 0;
-            }
-        }
-        if (slotId !== undefined) {
-            this.controlVariableForSlot(item, addedSign, slotId);
-        }
-    };
-
-    Game_Actor.prototype.controlVariable = function (item, addedSign, indexString) {
-        var switchTarget = getMetaValues(item, ['スイッチ対象' + indexString, 'SwitchTarget' + indexString]);
-        var result = false;
-        if (switchTarget) {
-            var switchId = this.getVariableIdForToes(switchTarget, $dataSystem.switches.length - 1);
-            var switchValue = getMetaValues(item, ['スイッチ設定値' + indexString, 'SwitchValue' + indexString]);
-            $gameSwitches.setValue(switchId, switchValue ? !(getArgBoolean(switchValue) ^ addedSign) : addedSign);
-            result = true;
-        }
-        var variableTarget = getMetaValues(item, ['変数対象' + indexString, 'VariableTarget' + indexString]);
-        if (variableTarget) {
-            var variableId = this.getVariableIdForToes(variableTarget, $dataSystem.variables.length - 1);
-            var variableValue = getMetaValues(item, ['変数設定値' + indexString, 'VariableValue' + indexString]);
-            this.changeVariable(variableId, variableValue, addedSign);
-            result = true;
-        }
-        return result;
-    };
-
-    Game_Actor.prototype.controlVariableForSlot = function (item, addedSign, slotId) {
-        var variableId = param.SlotVariables[slotId];
-        var variableValue = getMetaValues(item, ['スロット変数設定値', 'SlotVariableValue']);
-        if (variableId && variableValue) {
-            this.changeVariable(variableId, variableValue, addedSign);
-        }
-    };
-
-    Game_Actor.prototype.changeVariable = function (variableId, variableValue, addedSign) {
-        // for DynamicVariables.js
-        var originalValue = $gameVariables.getOriginalValue ? $gameVariables.getOriginalValue(variableId) : $gameVariables.value(variableId);
-        var resultValue = (variableValue ? getArgNumber(variableValue) : 1) * (addedSign ? 1 : -1);
-        $gameVariables.setValue(variableId, originalValue + resultValue);
-    };
-
-    Game_Actor.prototype.getVariableIdForToes = function (target, max) {
-        var actorId = this._actorId; // used in eval
-        var result = 0;
-        try {
-            result = eval(getArgString(target)).clamp(1, max);
-        } catch (e) {
-            console.error(e.toString());
-            console.log(e.stack);
-        }
-        return result;
-    };
-
-    //=============================================================================
-    // Game_EquipSlot
-    //  for HIME_EquipSlotsCore.js
-    //=============================================================================
-    if (typeof Game_EquipSlot !== 'undefined') {
-        Game_EquipSlot.prototype.itemId = function () {
-            return this._item.itemId();
-        };
+  var getMetaValues = function (object, names) {
+    if (!Array.isArray(names)) return getMetaValue(object, names);
+    for (var i = 0, n = names.length; i < n; i++) {
+      var value = getMetaValue(object, names[i]);
+      if (value !== undefined) return value;
     }
-})();
+    return undefined;
+  };
 
+  var getArgString = function (arg, upperFlg) {
+    arg = convertEscapeCharactersAndEval(arg, false);
+    return upperFlg ? arg.toUpperCase() : arg;
+  };
+
+  var getArgNumber = function (arg, min, max) {
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(convertEscapeCharactersAndEval(arg, true), 10) || 0).clamp(
+      min,
+      max
+    );
+  };
+
+  var getArgBoolean = function (arg) {
+    return (arg || "").toUpperCase() === "ON";
+  };
+
+  var convertEscapeCharactersAndEval = function (text, evalFlg) {
+    if (text == null || text === true) text = "";
+    text = text.replace(/&gt;?/gi, ">");
+    text = text.replace(/&lt;?/gi, "<");
+    text = text.replace(/\\/g, "\x1b");
+    text = text.replace(/\x1b\x1b/g, "\\");
+    text = text.replace(
+      /\x1bV\[(\d+)\]/gi,
+      function () {
+        return $gameVariables.value(parseInt(arguments[1], 10));
+      }.bind(this)
+    );
+    text = text.replace(
+      /\x1bV\[(\d+)\]/gi,
+      function () {
+        return $gameVariables.value(parseInt(arguments[1], 10));
+      }.bind(this)
+    );
+    text = text.replace(
+      /\x1bN\[(\d+)\]/gi,
+      function () {
+        var actor =
+          parseInt(arguments[1], 10) >= 1
+            ? $gameActors.actor(parseInt(arguments[1], 10))
+            : null;
+        return actor ? actor.name() : "";
+      }.bind(this)
+    );
+    text = text.replace(
+      /\x1bP\[(\d+)\]/gi,
+      function () {
+        var actor =
+          parseInt(arguments[1], 10) >= 1
+            ? $gameParty.members()[parseInt(arguments[1], 10) - 1]
+            : null;
+        return actor ? actor.name() : "";
+      }.bind(this)
+    );
+    text = text.replace(/\x1bG/gi, TextManager.currencyUnit);
+    return evalFlg ? eval(text) : text;
+  };
+
+  //=============================================================================
+  // Game_Party
+  //  変数設定が必要かどうかを返します。
+  //=============================================================================
+  Game_Party.prototype.isNeedControlVariable = function (actor) {
+    return (
+      !param.BattleMemberOnly ||
+      this.battleMembers().contains(actor) ||
+      this.size() < this.maxBattleMembers()
+    );
+  };
+
+  Game_Party.prototype.getMembersNeedControl = function () {
+    return param.BattleMemberOnly ? this.battleMembers() : this.members();
+  };
+
+  Game_Party.prototype.getReserveMembers = function () {
+    var battleMembers = this.battleMembers();
+    return this.members().filter(function (actor) {
+      return !battleMembers.contains(actor);
+    });
+  };
+
+  var _Game_Party_setupStartingMembers =
+    Game_Party.prototype.setupStartingMembers;
+  Game_Party.prototype.setupStartingMembers = function () {
+    _Game_Party_setupStartingMembers.apply(this, arguments);
+    this.getMembersNeedControl().forEach(function (actor) {
+      actor.onChangeMember(true);
+    });
+  };
+
+  var _Game_Party_addActor = Game_Party.prototype.addActor;
+  Game_Party.prototype.addActor = function (actorId) {
+    _Game_Party_addActor.apply(this, arguments);
+    var actor = $gameActors.actor(actorId);
+    if (this.getMembersNeedControl().contains(actor)) {
+      actor.onChangeMember(true);
+    }
+  };
+
+  var _Game_Party_removeActor = Game_Party.prototype.removeActor;
+  Game_Party.prototype.removeActor = function (actorId) {
+    var actor = $gameActors.actor(actorId);
+    if (this.getMembersNeedControl().contains(actor)) {
+      actor.onChangeMember(false);
+    }
+    var reserveMembers = this.getReserveMembers();
+    _Game_Party_removeActor.apply(this, arguments);
+    if (param.BattleMemberOnly) {
+      var members = this.battleMembers();
+      reserveMembers.forEach(function (actor) {
+        if (members.contains(actor)) {
+          actor.onChangeMember(true);
+        }
+      });
+    }
+  };
+
+  var _Game_Party_swapOrder = Game_Party.prototype.swapOrder;
+  Game_Party.prototype.swapOrder = function (index1, index2) {
+    var prevMembers = this.getMembersNeedControl();
+    var actors = [
+      $gameActors.actor(this._actors[index1]),
+      $gameActors.actor(this._actors[index2]),
+    ];
+    _Game_Party_swapOrder.apply(this, arguments);
+    var members = this.getMembersNeedControl();
+    actors.forEach(function (actor) {
+      if (prevMembers.contains(actor) && !members.contains(actor)) {
+        actor.onChangeMember(false);
+      }
+      if (members.contains(actor) && !prevMembers.contains(actor)) {
+        actor.onChangeMember(true);
+      }
+    });
+  };
+
+  //=============================================================================
+  // Game_Actor
+  //  ステートが変更された際のスイッチ、変数制御を追加定義します。
+  //=============================================================================
+  var _Game_BattlerBase_addNewState = Game_BattlerBase.prototype.addNewState;
+  Game_BattlerBase.prototype.addNewState = function (stateId) {
+    if (this instanceof Game_Actor && !this._states.contains(stateId)) {
+      this.onChangeEquipAndState($dataStates[stateId], true);
+    }
+    _Game_BattlerBase_addNewState.apply(this, arguments);
+  };
+
+  var _Game_BattlerBase_eraseState = Game_BattlerBase.prototype.eraseState;
+  Game_BattlerBase.prototype.eraseState = function (stateId) {
+    if (this instanceof Game_Actor && this._states.contains(stateId)) {
+      this.onChangeEquipAndState($dataStates[stateId], false);
+    }
+    _Game_BattlerBase_eraseState.apply(this, arguments);
+  };
+
+  var _Game_BattlerBase_clearStates = Game_BattlerBase.prototype.clearStates;
+  Game_BattlerBase.prototype.clearStates = function () {
+    if (this instanceof Game_Actor && this._states) {
+      this._states.forEach(
+        function (stateId) {
+          this.onChangeEquipAndState($dataStates[stateId], false);
+        }.bind(this)
+      );
+    }
+    _Game_BattlerBase_clearStates.apply(this, arguments);
+  };
+
+  //=============================================================================
+  // Game_Actor
+  //  装備が変更された際のスイッチ、変数制御を追加定義します。
+  //=============================================================================
+  var _Game_Actor_changeEquip = Game_Actor.prototype.changeEquip;
+  Game_Actor.prototype.changeEquip = function (slotId, item) {
+    var prevItem = new Game_Item(this._equips[slotId].object());
+    _Game_Actor_changeEquip.apply(this, arguments);
+    var newItem = this._equips[slotId];
+    if (prevItem.itemId() !== 0 && prevItem.itemId() !== newItem.itemId()) {
+      this.onChangeEquipAndState(prevItem.object(), false, false, slotId);
+    }
+    if (newItem.itemId() !== 0 && newItem.itemId() !== prevItem.itemId()) {
+      this.onChangeEquipAndState(newItem.object(), true, false, slotId);
+    }
+  };
+
+  var _Game_Actor_discardEquip = Game_Actor.prototype.discardEquip;
+  Game_Actor.prototype.discardEquip = function (item) {
+    var slotId = this.equips().indexOf(item);
+    if (slotId >= 0) {
+      this.onChangeEquipAndState(item, false, false, slotId);
+    }
+    _Game_Actor_discardEquip.apply(this, arguments);
+  };
+
+  Game_Actor.prototype.onChangeMember = function (addedSign) {
+    this.equips().forEach(
+      function (equip, index) {
+        if (equip && equip.id !== 0) {
+          this.onChangeEquipAndState(equip, addedSign, true, index);
+        }
+      }.bind(this)
+    );
+    this._states.forEach(
+      function (stateId) {
+        this.onChangeEquipAndState($dataStates[stateId], addedSign, true);
+      }.bind(this)
+    );
+  };
+
+  var _Game_Actor_releaseUnequippableItems =
+    Game_Actor.prototype.releaseUnequippableItems;
+  Game_Actor.prototype.releaseUnequippableItems = function (forcing) {
+    if (forcing) {
+      _Game_Actor_releaseUnequippableItems.apply(this, arguments);
+      return;
+    }
+    var prevEquips = this.equips();
+    _Game_Actor_releaseUnequippableItems.apply(this, arguments);
+    prevEquips.forEach(function (prevEquip, index) {
+      var equip = this._equips[index].object();
+      if (prevEquip && !equip) {
+        this.onChangeEquipAndState(prevEquip, false, false, index);
+      }
+    }, this);
+  };
+
+  Game_Actor.prototype.onChangeEquipAndState = function (
+    item,
+    addedSign,
+    force,
+    slotId
+  ) {
+    if (!$gameParty.isNeedControlVariable(this) && !force) return;
+    var index = 1;
+    while (index) {
+      if (
+        this.controlVariable(item, addedSign, index === 1 ? "" : String(index))
+      ) {
+        index++;
+      } else {
+        index = 0;
+      }
+    }
+    if (slotId !== undefined) {
+      this.controlVariableForSlot(item, addedSign, slotId);
+    }
+  };
+
+  Game_Actor.prototype.controlVariable = function (
+    item,
+    addedSign,
+    indexString
+  ) {
+    var switchTarget = getMetaValues(item, [
+      "スイッチ対象" + indexString,
+      "SwitchTarget" + indexString,
+    ]);
+    var result = false;
+    if (switchTarget) {
+      var switchId = this.getVariableIdForToes(
+        switchTarget,
+        $dataSystem.switches.length - 1
+      );
+      var switchValue = getMetaValues(item, [
+        "スイッチ設定値" + indexString,
+        "SwitchValue" + indexString,
+      ]);
+      $gameSwitches.setValue(
+        switchId,
+        switchValue ? !(getArgBoolean(switchValue) ^ addedSign) : addedSign
+      );
+      result = true;
+    }
+    var variableTarget = getMetaValues(item, [
+      "変数対象" + indexString,
+      "VariableTarget" + indexString,
+    ]);
+    if (variableTarget) {
+      var variableId = this.getVariableIdForToes(
+        variableTarget,
+        $dataSystem.variables.length - 1
+      );
+      var variableValue = getMetaValues(item, [
+        "変数設定値" + indexString,
+        "VariableValue" + indexString,
+      ]);
+      this.changeVariable(variableId, variableValue, addedSign);
+      result = true;
+    }
+    return result;
+  };
+
+  Game_Actor.prototype.controlVariableForSlot = function (
+    item,
+    addedSign,
+    slotId
+  ) {
+    var variableId = param.SlotVariables[slotId];
+    var variableValue = getMetaValues(item, [
+      "スロット変数設定値",
+      "SlotVariableValue",
+    ]);
+    if (variableId && variableValue) {
+      this.changeVariable(variableId, variableValue, addedSign);
+    }
+  };
+
+  Game_Actor.prototype.changeVariable = function (
+    variableId,
+    variableValue,
+    addedSign
+  ) {
+    // for DynamicVariables.js
+    var originalValue = $gameVariables.getOriginalValue
+      ? $gameVariables.getOriginalValue(variableId)
+      : $gameVariables.value(variableId);
+    var resultValue =
+      (variableValue ? getArgNumber(variableValue) : 1) * (addedSign ? 1 : -1);
+    $gameVariables.setValue(variableId, originalValue + resultValue);
+  };
+
+  Game_Actor.prototype.getVariableIdForToes = function (target, max) {
+    var actorId = this._actorId; // used in eval
+    var result = 0;
+    try {
+      result = eval(getArgString(target)).clamp(1, max);
+    } catch (e) {
+      console.error(e.toString());
+      console.log(e.stack);
+    }
+    return result;
+  };
+
+  //=============================================================================
+  // Game_EquipSlot
+  //  for HIME_EquipSlotsCore.js
+  //=============================================================================
+  if (typeof Game_EquipSlot !== "undefined") {
+    Game_EquipSlot.prototype.itemId = function () {
+      return this._item.itemId();
+    };
+  }
+})();

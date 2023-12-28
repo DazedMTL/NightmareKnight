@@ -115,60 +115,61 @@
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var createParameter = function (pluginName) {
-        var parameter = JSON.parse(JSON.stringify(PluginManager.parameters(pluginName), paramReplacer));
-        PluginManager._parameters[pluginName.toLowerCase()] = parameter;
-        return parameter;
-    };
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var createParameter = function (pluginName) {
+    var parameter = JSON.parse(
+      JSON.stringify(PluginManager.parameters(pluginName), paramReplacer)
+    );
+    PluginManager._parameters[pluginName.toLowerCase()] = parameter;
+    return parameter;
+  };
 
-    var paramReplacer = function (key, value) {
-        if (value === 'null') {
-            return value;
-        }
-        if (value[0] === '"' && value[value.length - 1] === '"') {
-            return value;
-        }
-        try {
-            value = JSON.parse(value);
-        } catch (e) {
-            // do nothing
-        }
-        return value;
-    };
-
-    var param = createParameter('BalloonPlaySe');
-    if (!param.SeInfo) {
-        param.SeInfo = [];
+  var paramReplacer = function (key, value) {
+    if (value === "null") {
+      return value;
     }
+    if (value[0] === '"' && value[value.length - 1] === '"') {
+      return value;
+    }
+    try {
+      value = JSON.parse(value);
+    } catch (e) {
+      // do nothing
+    }
+    return value;
+  };
 
-    //=============================================================================
-    // Sprite_Balloon
-    //  フキダシアイコン表示時にSEを演奏します。
-    //=============================================================================
-    var _Sprite_Balloon_setup = Sprite_Balloon.prototype.setup;
-    Sprite_Balloon.prototype.setup = function (balloonId) {
-        _Sprite_Balloon_setup.apply(this, arguments);
-        if (this.isNeedPlayBalloonSe()) {
-            this.playBalloonSe(balloonId);
-        }
-    };
+  var param = createParameter("BalloonPlaySe");
+  if (!param.SeInfo) {
+    param.SeInfo = [];
+  }
 
-    Sprite_Balloon.prototype.playBalloonSe = function (balloonId) {
-        var balloonSe = param.SeInfo.filter(function (info) {
-            return info.Balloon === balloonId;
-        })[0];
-        if (balloonSe) {
-            AudioManager.playSe(balloonSe);
-        }
-    };
+  //=============================================================================
+  // Sprite_Balloon
+  //  フキダシアイコン表示時にSEを演奏します。
+  //=============================================================================
+  var _Sprite_Balloon_setup = Sprite_Balloon.prototype.setup;
+  Sprite_Balloon.prototype.setup = function (balloonId) {
+    _Sprite_Balloon_setup.apply(this, arguments);
+    if (this.isNeedPlayBalloonSe()) {
+      this.playBalloonSe(balloonId);
+    }
+  };
 
-    Sprite_Balloon.prototype.isNeedPlayBalloonSe = function () {
-        return (!param.SwitchId || $gameSwitches.value(param.SwitchId));
-    };
+  Sprite_Balloon.prototype.playBalloonSe = function (balloonId) {
+    var balloonSe = param.SeInfo.filter(function (info) {
+      return info.Balloon === balloonId;
+    })[0];
+    if (balloonSe) {
+      AudioManager.playSe(balloonSe);
+    }
+  };
+
+  Sprite_Balloon.prototype.isNeedPlayBalloonSe = function () {
+    return !param.SwitchId || $gameSwitches.value(param.SwitchId);
+  };
 })();
-

@@ -162,175 +162,203 @@
  */
 
 (function () {
-    'use strict';
-    var metaTagPrefix = 'DV';
+  "use strict";
+  var metaTagPrefix = "DV";
 
-    var getMetaValue = function (object, name) {
-        var metaTagName = metaTagPrefix + (name ? name : '');
-        return object.meta.hasOwnProperty(metaTagName) ? object.meta[metaTagName] : undefined;
+  var getMetaValue = function (object, name) {
+    var metaTagName = metaTagPrefix + (name ? name : "");
+    return object.meta.hasOwnProperty(metaTagName)
+      ? object.meta[metaTagName]
+      : undefined;
+  };
+
+  var getMetaValues = function (object, names) {
+    if (!Array.isArray(names)) return getMetaValue(object, names);
+    for (var i = 0, n = names.length; i < n; i++) {
+      var value = getMetaValue(object, names[i]);
+      if (value !== undefined) return value;
+    }
+    return undefined;
+  };
+
+  var createPluginParameter = function (pluginName) {
+    var paramReplacer = function (key, value) {
+      if (value === "null") {
+        return value;
+      }
+      if (value[0] === '"' && value[value.length - 1] === '"') {
+        return value;
+      }
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        return value;
+      }
     };
+    var parameter = JSON.parse(
+      JSON.stringify(PluginManager.parameters(pluginName), paramReplacer)
+    );
+    PluginManager.setParameters(pluginName, parameter);
+    return parameter;
+  };
 
-    var getMetaValues = function (object, names) {
-        if (!Array.isArray(names)) return getMetaValue(object, names);
-        for (var i = 0, n = names.length; i < n; i++) {
-            var value = getMetaValue(object, names[i]);
-            if (value !== undefined) return value;
-        }
-        return undefined;
-    };
+  var param = createPluginParameter("DynamicVariables");
 
-    var createPluginParameter = function (pluginName) {
-        var paramReplacer = function (key, value) {
-            if (value === 'null') {
-                return value;
-            }
-            if (value[0] === '"' && value[value.length - 1] === '"') {
-                return value;
-            }
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                return value;
-            }
-        };
-        var parameter = JSON.parse(JSON.stringify(PluginManager.parameters(pluginName), paramReplacer));
-        PluginManager.setParameters(pluginName, parameter);
-        return parameter;
-    };
+  // eval参照用
+  var e = null;
+  var d = null;
+  var max = Math.max,
+    min = Math.min,
+    abs = Math.abs,
+    floor = Math.floor,
+    pow = Math.pow,
+    random = Math.random;
+  var dActors = $dataActors;
+  var dClasses = $dataClasses;
+  var dSkills = $dataSkills;
+  var dItems = $dataItems;
+  var dWeapons = $dataWeapons;
+  var dArmors = $dataArmors;
+  var dEnemies = $dataEnemies;
+  var dTroops = $dataTroops;
+  var dStates = $dataStates;
+  var dAnimations = $dataAnimations;
+  var dTilesets = $dataTilesets;
+  var dCommonEvents = $dataCommonEvents;
+  var dSystem = $dataSystem;
+  var dMapInfos = $dataMapInfos;
+  var dMap = $dataMap;
+  var gTemp = $gameTemp;
+  var gSystem = $gameSystem;
+  var gScreen = $gameScreen;
+  var gTimer = $gameTimer;
+  var gMessage = $gameMessage;
+  var gSwitches = $gameSwitches;
+  var gActors = $gameActors;
+  var gParty = $gameParty;
+  var gTroop = $gameTroop;
+  var gMap = $gameMap;
+  var gPlayer = $gamePlayer;
 
-    var param = createPluginParameter('DynamicVariables');
+  //=============================================================================
+  // Game_Variables
+  //  動的変数の取得処理を追加定義します。
+  //=============================================================================
+  var _Game_Variables_value = Game_Variables.prototype.value;
+  Game_Variables.prototype.value = function (variableId) {
+    var value = _Game_Variables_value.apply(this, arguments);
+    if (
+      variableId >= param.DynamicVariableStart &&
+      variableId <= param.DynamicVariableEnd
+    ) {
+      return this.getDynamicValue(
+        $dataSystem.variables[variableId],
+        variableId,
+        value
+      );
+    } else {
+      return value;
+    }
+  };
 
-    // eval参照用
-    var e = null;
-    var d = null;
-    var max = Math.max, min = Math.min, abs = Math.abs, floor = Math.floor, pow = Math.pow, random = Math.random;
-    var dActors = $dataActors;
-    var dClasses = $dataClasses;
-    var dSkills = $dataSkills;
-    var dItems = $dataItems;
-    var dWeapons = $dataWeapons;
-    var dArmors = $dataArmors;
-    var dEnemies = $dataEnemies;
-    var dTroops = $dataTroops;
-    var dStates = $dataStates;
-    var dAnimations = $dataAnimations;
-    var dTilesets = $dataTilesets;
-    var dCommonEvents = $dataCommonEvents;
-    var dSystem = $dataSystem;
-    var dMapInfos = $dataMapInfos;
-    var dMap = $dataMap;
-    var gTemp = $gameTemp;
-    var gSystem = $gameSystem;
-    var gScreen = $gameScreen;
-    var gTimer = $gameTimer;
-    var gMessage = $gameMessage;
-    var gSwitches = $gameSwitches;
-    var gActors = $gameActors;
-    var gParty = $gameParty;
-    var gTroop = $gameTroop;
-    var gMap = $gameMap;
-    var gPlayer = $gamePlayer;
+  Game_Variables.prototype.getOriginalValue = function (variableId) {
+    return _Game_Variables_value.apply(this, arguments);
+  };
 
-    //=============================================================================
-    // Game_Variables
-    //  動的変数の取得処理を追加定義します。
-    //=============================================================================
-    var _Game_Variables_value = Game_Variables.prototype.value;
-    Game_Variables.prototype.value = function (variableId) {
-        var value = _Game_Variables_value.apply(this, arguments);
-        if (variableId >= param.DynamicVariableStart && variableId <= param.DynamicVariableEnd) {
-            return this.getDynamicValue($dataSystem.variables[variableId], variableId, value);
-        } else {
-            return value;
-        }
-    };
+  Game_Variables.prototype.getDynamicValue = function (
+    dynamicScript,
+    id,
+    value
+  ) {
+    if (!dynamicScript) {
+      return value;
+    }
+    var v = $gameVariables.value.bind($gameVariables);
+    var s = $gameSwitches.value.bind($gameSwitches);
+    if (param.ValidException || $gameTemp.isPlaytest()) {
+      try {
+        return eval(dynamicScript);
+      } catch (e) {
+        console.error(e.message);
+        return 0;
+      }
+    } else {
+      return eval(dynamicScript);
+    }
+  };
 
-    Game_Variables.prototype.getOriginalValue = function (variableId) {
-        return _Game_Variables_value.apply(this, arguments);
-    };
+  //=============================================================================
+  // Game_Switches
+  //  動的スイッチの取得処理を追加定義します。
+  //=============================================================================
+  var _Game_Switches_value = Game_Switches.prototype.value;
+  Game_Switches.prototype.value = function (switchId) {
+    var value = _Game_Switches_value.apply(this, arguments);
+    if (
+      switchId >= param.DynamicSwitchStart &&
+      switchId <= param.DynamicSwitchEnd
+    ) {
+      return !!this.getDynamicValue(
+        $dataSystem.switches[switchId],
+        switchId,
+        value
+      );
+    } else {
+      return value;
+    }
+  };
 
-    Game_Variables.prototype.getDynamicValue = function (dynamicScript, id, value) {
-        if (!dynamicScript) {
-            return value;
-        }
-        var v = $gameVariables.value.bind($gameVariables);
-        var s = $gameSwitches.value.bind($gameSwitches);
-        if (param.ValidException || $gameTemp.isPlaytest()) {
-            try {
-                return eval(dynamicScript);
-            } catch (e) {
-                console.error(e.message);
-                return 0;
-            }
-        } else {
-            return eval(dynamicScript);
-        }
-    };
+  Game_Switches.prototype.getOriginalValue = function (switchId) {
+    return _Game_Switches_value.apply(this, arguments);
+  };
 
-    //=============================================================================
-    // Game_Switches
-    //  動的スイッチの取得処理を追加定義します。
-    //=============================================================================
-    var _Game_Switches_value = Game_Switches.prototype.value;
-    Game_Switches.prototype.value = function (switchId) {
-        var value = _Game_Switches_value.apply(this, arguments);
-        if (switchId >= param.DynamicSwitchStart && switchId <= param.DynamicSwitchEnd) {
-            return !!this.getDynamicValue($dataSystem.switches[switchId], switchId, value);
-        } else {
-            return value;
-        }
-    };
+  Game_Switches.prototype.getDynamicValue =
+    Game_Variables.prototype.getDynamicValue;
 
-    Game_Switches.prototype.getOriginalValue = function (switchId) {
-        return _Game_Switches_value.apply(this, arguments);
-    };
+  //=============================================================================
+  // Game_Event
+  //  必要な場合、イベントページを毎フレームリフレッシュします。
+  //=============================================================================
+  var _Game_Event_initialize = Game_Event.prototype.initialize;
+  Game_Event.prototype.initialize = function (mapId, eventId) {
+    _Game_Event_initialize.apply(this, arguments);
+    this._needsAlwaysRefresh = this.isNeedAlwaysRefresh();
+  };
 
-    Game_Switches.prototype.getDynamicValue = Game_Variables.prototype.getDynamicValue;
+  Game_Event.prototype.isNeedAlwaysRefresh = function () {
+    return getMetaValues(this.event(), ["AlwaysRefresh", "常時リフレッシュ"]);
+  };
 
-    //=============================================================================
-    // Game_Event
-    //  必要な場合、イベントページを毎フレームリフレッシュします。
-    //=============================================================================
-    var _Game_Event_initialize = Game_Event.prototype.initialize;
-    Game_Event.prototype.initialize = function (mapId, eventId) {
-        _Game_Event_initialize.apply(this, arguments);
-        this._needsAlwaysRefresh = this.isNeedAlwaysRefresh();
-    };
+  var _Game_Event_update = Game_Event.prototype.update;
+  Game_Event.prototype.update = function () {
+    if (this._needsAlwaysRefresh) {
+      this.refresh();
+    }
+    _Game_Event_update.apply(this, arguments);
+  };
 
-    Game_Event.prototype.isNeedAlwaysRefresh = function () {
-        return getMetaValues(this.event(), ['AlwaysRefresh', '常時リフレッシュ']);
-    };
+  var _Game_Event_meetsConditions = Game_Event.prototype.meetsConditions;
+  Game_Event.prototype.meetsConditions = function (page) {
+    e = this;
+    d = this.event();
+    var result = _Game_Event_meetsConditions.apply(this, arguments);
+    e = null;
+    d = null;
+    return result;
+  };
 
-    var _Game_Event_update = Game_Event.prototype.update;
-    Game_Event.prototype.update = function () {
-        if (this._needsAlwaysRefresh) {
-            this.refresh();
-        }
-        _Game_Event_update.apply(this, arguments);
-    };
-
-    var _Game_Event_meetsConditions = Game_Event.prototype.meetsConditions;
-    Game_Event.prototype.meetsConditions = function (page) {
-        e = this;
-        d = this.event();
-        var result = _Game_Event_meetsConditions.apply(this, arguments);
-        e = null;
-        d = null;
-        return result;
-    };
-
-    /**
-     * Game_Enemy
-     * 敵キャラ情報をスクリプト実行用に記憶します。
-     */
-    var _Game_Enemy_meetsSwitchCondition = Game_Enemy.prototype.meetsSwitchCondition;
-    Game_Enemy.prototype.meetsSwitchCondition = function (param) {
-        e = this;
-        d = this.enemy();
-        var result = _Game_Enemy_meetsSwitchCondition.apply(this, arguments);
-        e = null;
-        d = null;
-        return result;
-    };
+  /**
+   * Game_Enemy
+   * 敵キャラ情報をスクリプト実行用に記憶します。
+   */
+  var _Game_Enemy_meetsSwitchCondition =
+    Game_Enemy.prototype.meetsSwitchCondition;
+  Game_Enemy.prototype.meetsSwitchCondition = function (param) {
+    e = this;
+    d = this.enemy();
+    var result = _Game_Enemy_meetsSwitchCondition.apply(this, arguments);
+    e = null;
+    d = null;
+    return result;
+  };
 })();
-

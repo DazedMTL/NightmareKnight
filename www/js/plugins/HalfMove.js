@@ -531,1363 +531,1656 @@
  */
 
 (function () {
-    'use strict';
-    var pluginName = 'HalfMove';
-    var metaTagPrefix = 'HM';
+  "use strict";
+  var pluginName = "HalfMove";
+  var metaTagPrefix = "HM";
 
-    var getCommandName = function (command) {
-        return (command || '').toUpperCase();
+  var getCommandName = function (command) {
+    return (command || "").toUpperCase();
+  };
+
+  var getParamBoolean = function (paramNames) {
+    var value = getParamOther(paramNames);
+    return (
+      (value || "").toUpperCase() === "ON" ||
+      (value || "").toUpperCase() === "TRUE"
+    );
+  };
+
+  var getParamNumber = function (paramNames, min, max) {
+    var value = getParamOther(paramNames);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(value, 10) || 0).clamp(min, max);
+  };
+
+  var getParamArrayNumber = function (paramNames) {
+    var paramReplacer = function (key, value) {
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        return value;
+      }
     };
+    return JSON.parse(JSON.stringify(getParamOther(paramNames), paramReplacer));
+  };
 
-    var getParamBoolean = function (paramNames) {
-        var value = getParamOther(paramNames);
-        return (value || '').toUpperCase() === 'ON' || (value || '').toUpperCase() === 'TRUE';
-    };
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
+    }
+    return null;
+  };
 
-    var getParamNumber = function (paramNames, min, max) {
-        var value = getParamOther(paramNames);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(value, 10) || 0).clamp(min, max);
-    };
+  var getMetaValue = function (object, name) {
+    var metaTagName = metaTagPrefix + (name ? name : "");
+    return object.meta.hasOwnProperty(metaTagName)
+      ? object.meta[metaTagName]
+      : undefined;
+  };
 
-    var getParamArrayNumber = function (paramNames) {
-        var paramReplacer = function (key, value) {
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                return value;
-            }
-        };
-        return JSON.parse(JSON.stringify(getParamOther(paramNames), paramReplacer));
-    };
+  var getMetaValues = function (object, names) {
+    if (!Array.isArray(names)) return getMetaValue(object, names);
+    for (var i = 0, n = names.length; i < n; i++) {
+      var value = getMetaValue(object, names[i]);
+      if (value !== undefined) return value;
+    }
+    return undefined;
+  };
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
-    };
+  var getArgNumber = function (arg, min, max) {
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(arg, 10) || 0).clamp(min, max);
+  };
 
-    var getMetaValue = function (object, name) {
-        var metaTagName = metaTagPrefix + (name ? name : '');
-        return object.meta.hasOwnProperty(metaTagName) ? object.meta[metaTagName] : undefined;
-    };
+  var getArgArrayFloat = function (args, min, max) {
+    var values = getArgArrayString(args, false);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    for (var i = 0; i < values.length; i++)
+      values[i] = (parseFloat(values[i]) || 0).clamp(min, max);
+    return values;
+  };
 
-    var getMetaValues = function (object, names) {
-        if (!Array.isArray(names)) return getMetaValue(object, names);
-        for (var i = 0, n = names.length; i < n; i++) {
-            var value = getMetaValue(object, names[i]);
-            if (value !== undefined) return value;
-        }
-        return undefined;
-    };
+  var getArgArrayString = function (args, upperFlg) {
+    var values = getArgString(args, upperFlg).split(",");
+    for (var i = 0; i < values.length; i++) values[i] = values[i].trim();
+    return values;
+  };
 
-    var getArgNumber = function (arg, min, max) {
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(arg, 10) || 0).clamp(min, max);
-    };
+  var getArgString = function (arg, upperFlg) {
+    arg = convertEscapeCharacters(arg, false);
+    return upperFlg ? arg.toUpperCase() : arg;
+  };
 
-    var getArgArrayFloat = function (args, min, max) {
-        var values = getArgArrayString(args, false);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        for (var i = 0; i < values.length; i++) values[i] = (parseFloat(values[i]) || 0).clamp(min, max);
-        return values;
-    };
+  var getArgBoolean = function (arg) {
+    return (arg || "").toUpperCase() === "ON";
+  };
 
-    var getArgArrayString = function (args, upperFlg) {
-        var values = getArgString(args, upperFlg).split(',');
-        for (var i = 0; i < values.length; i++) values[i] = values[i].trim();
-        return values;
-    };
+  var convertEscapeCharacters = function (text) {
+    if (text === null || text === undefined) {
+      text = "";
+    }
+    var windowLayer = SceneManager._scene._windowLayer;
+    return windowLayer
+      ? windowLayer.children[0].convertEscapeCharacters(text)
+      : text;
+  };
 
-    var getArgString = function (arg, upperFlg) {
-        arg = convertEscapeCharacters(arg, false);
-        return upperFlg ? arg.toUpperCase() : arg;
-    };
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var paramDirection8Move = getParamBoolean(["Direction8Move", "8方向移動"]);
+  var paramEventThrough = getParamBoolean(["EventThrough", "イベントすり抜け"]);
+  var paramDisableForcing = getParamBoolean(["DisableForcing", "強制中無効"]);
+  var paramAvoidCorner = getParamBoolean(["AvoidCorner", "角回避"]);
+  var paramDiagonalSlow = getParamBoolean(["DiagonalSlow", "斜め移動中減速"]);
+  var paramTriggerExpansion = getParamBoolean([
+    "TriggerExpansion",
+    "トリガー拡大",
+  ]);
+  var paramAdjustmentRealStep = getParamBoolean([
+    "AdjustmentRealStep",
+    "実歩数調整",
+  ]);
+  var paramUpperNpTerrainTag = getParamArrayNumber([
+    "UpperNpTerrainTag",
+    "上半分移動不可地形",
+  ]);
+  var paramUpperNpRegionId = getParamArrayNumber([
+    "UpperNpRegionId",
+    "上半分移動不可Region",
+  ]);
+  var paramLowerNpTerrainTag = getParamArrayNumber([
+    "LowerNpTerrainTag",
+    "下半分移動不可地形",
+  ]);
+  var paramLowerNpRegionId = getParamArrayNumber([
+    "LowerNpRegionId",
+    "下半分移動不可Region",
+  ]);
+  var paramRightNpTerrainTag = getParamArrayNumber([
+    "RightNpTerrainTag",
+    "右半分移動不可地形",
+  ]);
+  var paramRightNpRegionId = getParamArrayNumber([
+    "RightNpRegionId",
+    "右半分移動不可Region",
+  ]);
+  var paramLeftNpTerrainTag = getParamArrayNumber([
+    "LeftNpTerrainTag",
+    "左半分移動不可地形",
+  ]);
+  var paramLeftNpRegionId = getParamArrayNumber([
+    "LeftNpRegionId",
+    "左半分移動不可Region",
+  ]);
+  var paramAllNpTerrainTag = getParamArrayNumber([
+    "AllNpTerrainTag",
+    "全方向移動不可地形",
+  ]);
+  var paramAllNpRegionId = getParamArrayNumber([
+    "AllNpRegionId",
+    "全方向移動不可Region",
+  ]);
+  var paramMultiStartDisable = getParamBoolean([
+    "MultiStartDisable",
+    "イベント複数起動防止",
+  ]);
+  var paramEventOverlap = getParamBoolean([
+    "EventOverlap",
+    "イベント位置重複OK",
+  ]);
+  var param8MoveSwitch = getParamNumber(
+    ["8MoveSwitch", "8方向移動スイッチ"],
+    0
+  );
+  var paramRightUpNpTerrainTag = getParamArrayNumber([
+    "RightUpNpTerrainTag",
+    "右上移動不可地形",
+  ]);
+  var paramRightUpNpRegionId = getParamArrayNumber([
+    "RightUpNpRegionId",
+    "右上移動不可Region",
+  ]);
+  var paramRightDownNpTerrainTag = getParamArrayNumber([
+    "RightDownNpTerrainTag",
+    "右下移動不可地形",
+  ]);
+  var paramRightDownNpRegionId = getParamArrayNumber([
+    "RightDownNpRegionId",
+    "右下移動不可Region",
+  ]);
+  var paramLeftUpNpTerrainTag = getParamArrayNumber([
+    "LeftUpNpTerrainTag",
+    "左上移動不可地形",
+  ]);
+  var paramLeftUpNpRegionId = getParamArrayNumber([
+    "LeftUpNpRegionId",
+    "左上移動不可Region",
+  ]);
+  var paramLeftDownNpTerrainTag = getParamArrayNumber([
+    "LeftDownNpTerrainTag",
+    "左下移動不可地形",
+  ]);
+  var paramLeftDownNpRegionId = getParamArrayNumber([
+    "LeftDownNpRegionId",
+    "左下移動不可Region",
+  ]);
 
-    var getArgBoolean = function (arg) {
-        return (arg || '').toUpperCase() === 'ON';
-    };
+  //=============================================================================
+  // ローカル変数
+  //=============================================================================
+  var localHalfPositionCount = 0;
 
-    var convertEscapeCharacters = function (text) {
-        if (text === null || text === undefined) {
-            text = '';
-        }
-        var windowLayer = SceneManager._scene._windowLayer;
-        return windowLayer ? windowLayer.children[0].convertEscapeCharacters(text) : text;
-    };
+  //=============================================================================
+  // Game_Interpreter
+  //  プラグインコマンドを追加定義します。
+  //=============================================================================
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    this.pluginCommandHalfMove(command, args);
+  };
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var paramDirection8Move = getParamBoolean(['Direction8Move', '8方向移動']);
-    var paramEventThrough = getParamBoolean(['EventThrough', 'イベントすり抜け']);
-    var paramDisableForcing = getParamBoolean(['DisableForcing', '強制中無効']);
-    var paramAvoidCorner = getParamBoolean(['AvoidCorner', '角回避']);
-    var paramDiagonalSlow = getParamBoolean(['DiagonalSlow', '斜め移動中減速']);
-    var paramTriggerExpansion = getParamBoolean(['TriggerExpansion', 'トリガー拡大']);
-    var paramAdjustmentRealStep = getParamBoolean(['AdjustmentRealStep', '実歩数調整']);
-    var paramUpperNpTerrainTag = getParamArrayNumber(['UpperNpTerrainTag', '上半分移動不可地形']);
-    var paramUpperNpRegionId = getParamArrayNumber(['UpperNpRegionId', '上半分移動不可Region']);
-    var paramLowerNpTerrainTag = getParamArrayNumber(['LowerNpTerrainTag', '下半分移動不可地形']);
-    var paramLowerNpRegionId = getParamArrayNumber(['LowerNpRegionId', '下半分移動不可Region']);
-    var paramRightNpTerrainTag = getParamArrayNumber(['RightNpTerrainTag', '右半分移動不可地形']);
-    var paramRightNpRegionId = getParamArrayNumber(['RightNpRegionId', '右半分移動不可Region']);
-    var paramLeftNpTerrainTag = getParamArrayNumber(['LeftNpTerrainTag', '左半分移動不可地形']);
-    var paramLeftNpRegionId = getParamArrayNumber(['LeftNpRegionId', '左半分移動不可Region']);
-    var paramAllNpTerrainTag = getParamArrayNumber(['AllNpTerrainTag', '全方向移動不可地形']);
-    var paramAllNpRegionId = getParamArrayNumber(['AllNpRegionId', '全方向移動不可Region']);
-    var paramMultiStartDisable = getParamBoolean(['MultiStartDisable', 'イベント複数起動防止']);
-    var paramEventOverlap = getParamBoolean(['EventOverlap', 'イベント位置重複OK']);
-    var param8MoveSwitch = getParamNumber(['8MoveSwitch', '8方向移動スイッチ'], 0);
-    var paramRightUpNpTerrainTag = getParamArrayNumber(['RightUpNpTerrainTag', '右上移動不可地形']);
-    var paramRightUpNpRegionId = getParamArrayNumber(['RightUpNpRegionId', '右上移動不可Region']);
-    var paramRightDownNpTerrainTag = getParamArrayNumber(['RightDownNpTerrainTag', '右下移動不可地形']);
-    var paramRightDownNpRegionId = getParamArrayNumber(['RightDownNpRegionId', '右下移動不可Region']);
-    var paramLeftUpNpTerrainTag = getParamArrayNumber(['LeftUpNpTerrainTag', '左上移動不可地形']);
-    var paramLeftUpNpRegionId = getParamArrayNumber(['LeftUpNpRegionId', '左上移動不可Region']);
-    var paramLeftDownNpTerrainTag = getParamArrayNumber(['LeftDownNpTerrainTag', '左下移動不可地形']);
-    var paramLeftDownNpRegionId = getParamArrayNumber(['LeftDownNpRegionId', '左下移動不可Region']);
-
-    //=============================================================================
-    // ローカル変数
-    //=============================================================================
-    var localHalfPositionCount = 0;
-
-    //=============================================================================
-    // Game_Interpreter
-    //  プラグインコマンドを追加定義します。
-    //=============================================================================
-    var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.apply(this, arguments);
-        this.pluginCommandHalfMove(command, args);
-    };
-
-    Game_Interpreter.prototype.pluginCommandHalfMove = function (command, args) {
-        switch (getCommandName(command)) {
-            case '半歩移動禁止':
-            case 'HALF_MOVE_DISABLE':
-                if (args.length > 0) {
-                    this.setHalfMove(args[0], false);
-                } else {
-                    $gameSystem.setEnableHalfMove(false);
-                }
-                break;
-            case '半歩移動許可':
-            case 'HALF_MOVE_ENABLE':
-                if (args.length > 0) {
-                    this.setHalfMove(args[0], true);
-                } else {
-                    $gameSystem.setEnableHalfMove(true);
-                }
-                break;
-        }
-    };
-
-    Game_Interpreter.prototype.setHalfMove = function (id, value) {
-        var character = this.character(parseInt(id));
-        if (character) {
-            character.setHalfMove(value);
-        }
-    };
-
-    //=============================================================================
-    // Game_System
-    //  半歩移動全体の禁止フラグを追加定義します。
-    //=============================================================================
-    var _Game_System_initialize = Game_System.prototype.initialize;
-    Game_System.prototype.initialize = function () {
-        _Game_System_initialize.apply(this, arguments);
-        this._disableHalfMove = false;
-    };
-
-    Game_System.prototype.canHalfMove = function () {
-        return !this._disableHalfMove;
-    };
-
-    Game_System.prototype.setEnableHalfMove = function (value) {
-        this._disableHalfMove = !value;
-        $gamePlayer.locate($gamePlayer.x, $gamePlayer.y);
-        $gameMap.events().forEach(function (event) {
-            event.locate(event.x, event.y);
-        }.bind(this));
-    };
-
-    var _Game_System_onAfterLoad = Game_System.prototype.onAfterLoad;
-    Game_System.prototype.onAfterLoad = function () {
-        _Game_System_onAfterLoad.apply(this, arguments);
-        $gamePlayer.initMembersForHalfMoveIfNeed();
-    };
-
-    //=============================================================================
-    // Game_Map
-    //  座標計算を半分にします。
-    //=============================================================================
-    Game_Map.tileUnit = 0.5;
-
-    var _Game_Map_xWithDirection = Game_Map.prototype.xWithDirection;
-    Game_Map.prototype.xWithDirection = function (x, d) {
-        var newX = _Game_Map_xWithDirection.apply(this, arguments);
-        if (localHalfPositionCount > 0) {
-            var dx = newX - x;
-            return x + (dx * Game_Map.tileUnit);
+  Game_Interpreter.prototype.pluginCommandHalfMove = function (command, args) {
+    switch (getCommandName(command)) {
+      case "半歩移動禁止":
+      case "HALF_MOVE_DISABLE":
+        if (args.length > 0) {
+          this.setHalfMove(args[0], false);
         } else {
-            return newX;
+          $gameSystem.setEnableHalfMove(false);
         }
-    };
-
-    var _Game_Map_yWithDirection = Game_Map.prototype.yWithDirection;
-    Game_Map.prototype.yWithDirection = function (y, d) {
-        var newY = _Game_Map_yWithDirection.apply(this, arguments);
-        if (localHalfPositionCount > 0) {
-            var dy = newY - y;
-            return y + (dy * Game_Map.tileUnit);
+        break;
+      case "半歩移動許可":
+      case "HALF_MOVE_ENABLE":
+        if (args.length > 0) {
+          this.setHalfMove(args[0], true);
         } else {
-            return newY;
+          $gameSystem.setEnableHalfMove(true);
         }
-    };
+        break;
+    }
+  };
 
-    var _Game_Map_roundXWithDirection = Game_Map.prototype.roundXWithDirection;
-    Game_Map.prototype.roundXWithDirection = function (x, d) {
-        if (localHalfPositionCount > 0) {
-            return this.roundHalfXWithDirection(x, d);
-        } else {
-            return _Game_Map_roundXWithDirection.apply(this, arguments);
+  Game_Interpreter.prototype.setHalfMove = function (id, value) {
+    var character = this.character(parseInt(id));
+    if (character) {
+      character.setHalfMove(value);
+    }
+  };
+
+  //=============================================================================
+  // Game_System
+  //  半歩移動全体の禁止フラグを追加定義します。
+  //=============================================================================
+  var _Game_System_initialize = Game_System.prototype.initialize;
+  Game_System.prototype.initialize = function () {
+    _Game_System_initialize.apply(this, arguments);
+    this._disableHalfMove = false;
+  };
+
+  Game_System.prototype.canHalfMove = function () {
+    return !this._disableHalfMove;
+  };
+
+  Game_System.prototype.setEnableHalfMove = function (value) {
+    this._disableHalfMove = !value;
+    $gamePlayer.locate($gamePlayer.x, $gamePlayer.y);
+    $gameMap.events().forEach(
+      function (event) {
+        event.locate(event.x, event.y);
+      }.bind(this)
+    );
+  };
+
+  var _Game_System_onAfterLoad = Game_System.prototype.onAfterLoad;
+  Game_System.prototype.onAfterLoad = function () {
+    _Game_System_onAfterLoad.apply(this, arguments);
+    $gamePlayer.initMembersForHalfMoveIfNeed();
+  };
+
+  //=============================================================================
+  // Game_Map
+  //  座標計算を半分にします。
+  //=============================================================================
+  Game_Map.tileUnit = 0.5;
+
+  var _Game_Map_xWithDirection = Game_Map.prototype.xWithDirection;
+  Game_Map.prototype.xWithDirection = function (x, d) {
+    var newX = _Game_Map_xWithDirection.apply(this, arguments);
+    if (localHalfPositionCount > 0) {
+      var dx = newX - x;
+      return x + dx * Game_Map.tileUnit;
+    } else {
+      return newX;
+    }
+  };
+
+  var _Game_Map_yWithDirection = Game_Map.prototype.yWithDirection;
+  Game_Map.prototype.yWithDirection = function (y, d) {
+    var newY = _Game_Map_yWithDirection.apply(this, arguments);
+    if (localHalfPositionCount > 0) {
+      var dy = newY - y;
+      return y + dy * Game_Map.tileUnit;
+    } else {
+      return newY;
+    }
+  };
+
+  var _Game_Map_roundXWithDirection = Game_Map.prototype.roundXWithDirection;
+  Game_Map.prototype.roundXWithDirection = function (x, d) {
+    if (localHalfPositionCount > 0) {
+      return this.roundHalfXWithDirection(x, d);
+    } else {
+      return _Game_Map_roundXWithDirection.apply(this, arguments);
+    }
+  };
+
+  var _Game_Map_roundYWithDirection = Game_Map.prototype.roundYWithDirection;
+  Game_Map.prototype.roundYWithDirection = function (y, d) {
+    if (localHalfPositionCount > 0) {
+      return this.roundHalfYWithDirection(y, d);
+    } else {
+      return _Game_Map_roundYWithDirection.apply(this, arguments);
+    }
+  };
+
+  // for PD_8DirDash.js
+  Game_Map.prototype.roundHalfXWithDirection = function (x, d) {
+    return this.roundX(
+      x +
+        (d % 3 === 0 ? Game_Map.tileUnit : d % 3 === 1 ? -Game_Map.tileUnit : 0)
+    );
+  };
+
+  Game_Map.prototype.roundHalfYWithDirection = function (y, d) {
+    return this.roundY(
+      y + (d <= 3 ? Game_Map.tileUnit : d >= 7 ? -Game_Map.tileUnit : 0)
+    );
+  };
+
+  Game_Map.prototype.roundNoHalfXWithDirection = function (x, d) {
+    return _Game_Map_roundXWithDirection.apply(this, arguments);
+  };
+
+  Game_Map.prototype.roundNoHalfYWithDirection = function (x, d) {
+    return _Game_Map_roundYWithDirection.apply(this, arguments);
+  };
+
+  Game_Map.prototype.isHalfPos = function (value) {
+    return value - Game_Map.tileUnit === Math.floor(value);
+  };
+
+  Game_Map.prototype.eventsXyUnitNt = function (x, y) {
+    return this.events().filter(function (event) {
+      return event.posExpansionNt(x, y);
+    });
+  };
+
+  Game_Map.prototype.isPassableByHalfRegionAndTag = function (floatX, floatY) {
+    var halfX = this.isHalfPos(floatX);
+    var halfY = this.isHalfPos(floatY);
+    var x = Math.floor(floatX);
+    var y = Math.ceil(floatY);
+    if (this.isAllNp(x, y)) {
+      return false;
+    }
+    if (halfX) {
+      if (this.isRightNp(x, y)) {
+        return false;
+      } else if (!halfY && this.isRightLowerNp(x, y)) {
+        return false;
+      } else if (halfY && this.isRightUpperNp(x, y)) {
+        return false;
+      }
+    } else {
+      if (this.isLeftNp(x, y)) {
+        return false;
+      } else if (!halfY && this.isLeftLowerNp(x, y)) {
+        return false;
+      } else if (halfY && this.isLeftUpperNp(x, y)) {
+        return false;
+      }
+    }
+    if (halfY) {
+      if (this.isUpperNp(x, y)) {
+        return false;
+      } else if (halfX && this.isRightUpperNp(x, y)) {
+        return false;
+      } else if (!halfX && this.isLeftUpperNp(x, y)) {
+        return false;
+      }
+    } else {
+      if (this.isLowerNp(x, y)) {
+        return false;
+      } else if (halfX && this.isRightLowerNp(x, y)) {
+        return false;
+      } else if (!halfX && this.isLeftLowerNp(x, y)) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  Game_Map.prototype.isUpperNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramUpperNpTerrainTag,
+      paramUpperNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isLowerNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramLowerNpTerrainTag,
+      paramLowerNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isRightNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramRightNpTerrainTag,
+      paramRightNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isLeftNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramLeftNpTerrainTag,
+      paramLeftNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isRightUpperNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramRightUpNpTerrainTag,
+      paramRightUpNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isLeftUpperNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramLeftUpNpTerrainTag,
+      paramLeftUpNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isRightLowerNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramRightDownNpTerrainTag,
+      paramRightDownNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isLeftLowerNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramLeftDownNpTerrainTag,
+      paramLeftDownNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isNoPathByRegionAndTag = function (
+    x,
+    y,
+    terrainParam,
+    regionParam
+  ) {
+    return (
+      this.isIncludeTerrainTag(x, y, terrainParam) ||
+      this.isIncludeRegionId(x, y, regionParam)
+    );
+  };
+
+  Game_Map.prototype.isAllNp = function (x, y) {
+    return this.isNoPathByRegionAndTag(
+      x,
+      y,
+      paramAllNpTerrainTag,
+      paramAllNpRegionId
+    );
+  };
+
+  Game_Map.prototype.isIncludeTerrainTag = function (x, y, tags) {
+    if (!Array.isArray(tags)) {
+      tags = [tags];
+    }
+    if (tags[0] <= 0) {
+      return false;
+    }
+    return tags.some(function (tag) {
+      return this.allTerrainTag(x, y).contains(tag);
+    }, this);
+  };
+
+  Game_Map.prototype.isIncludeRegionId = function (x, y, ids) {
+    if (!Array.isArray(ids)) {
+      ids = [ids];
+    }
+    if (ids[0] <= 0) {
+      return false;
+    }
+    return ids.some(function (id) {
+      return this.allRegionId(x, y).contains(id);
+    }, this);
+  };
+
+  Game_Map.prototype.allTerrainTag = function (x, y) {
+    var tu = Game_Map.tileUnit;
+    if (this.isHalfPos(x)) {
+      return [this.terrainTag(x - tu, y), this.terrainTag(x + tu, y)];
+    }
+    if (this.isHalfPos(y)) {
+      return [this.terrainTag(x, y + tu), this.terrainTag(x, y - tu)];
+    }
+    return [_Game_Map_terrainTag.apply(this, arguments)];
+  };
+
+  Game_Map.prototype.allRegionId = function (x, y) {
+    var tu = Game_Map.tileUnit;
+    if (this.isHalfPos(x)) {
+      return [this.regionId(x - tu, y), this.regionId(x + tu, y)];
+    }
+    if (this.isHalfPos(y)) {
+      return [this.regionId(x, y + tu), this.regionId(x, y - tu)];
+    }
+    return [_Game_Map_regionId.apply(this, arguments)];
+  };
+
+  var _Game_Map_checkLayeredTilesFlags =
+    Game_Map.prototype.checkLayeredTilesFlags;
+  Game_Map.prototype.checkLayeredTilesFlags = function (x, y, bit) {
+    var result = false;
+    if (this.isHalfPos(x)) {
+      result = this.checkLayeredTilesFlags(x + Game_Map.tileUnit, y, bit);
+      result =
+        result || this.checkLayeredTilesFlags(x - Game_Map.tileUnit, y, bit);
+    } else if (this.isHalfPos(y)) {
+      result = this.checkLayeredTilesFlags(x, y + Game_Map.tileUnit, bit);
+    } else {
+      result = _Game_Map_checkLayeredTilesFlags.apply(this, arguments);
+    }
+    return result;
+  };
+
+  var _Game_Map_terrainTag = Game_Map.prototype.terrainTag;
+  Game_Map.prototype.terrainTag = function (x, y) {
+    var tu = Game_Map.tileUnit;
+    if (this.isHalfPos(x)) {
+      return this.terrainTag(x - tu, y) || this.terrainTag(x + tu, y);
+    }
+    if (this.isHalfPos(y)) {
+      return this.terrainTag(x, y + tu) || this.terrainTag(x, y - tu);
+    }
+    return _Game_Map_terrainTag.apply(this, arguments);
+  };
+
+  var _Game_Map_regionId = Game_Map.prototype.regionId;
+  Game_Map.prototype.regionId = function (x, y) {
+    var tu = Game_Map.tileUnit;
+    if (this.isHalfPos(x)) {
+      return this.regionId(x - tu, y) || this.regionId(x + tu, y);
+    }
+    if (this.isHalfPos(y)) {
+      return this.regionId(x, y + tu) || this.regionId(x, y - tu);
+    }
+    return _Game_Map_regionId.apply(this, arguments);
+  };
+
+  var _Game_Map_autotileType = Game_Map.prototype.autotileType;
+  Game_Map.prototype.autotileType = function (x, y, z) {
+    var tu = Game_Map.tileUnit;
+    if (this.isHalfPos(x)) {
+      return this.autotileType(x - tu, y, z) || this.autotileType(x + tu, y, z);
+    }
+    if (this.isHalfPos(y)) {
+      return this.autotileType(x, y + tu, z) || this.autotileType(x, y - tu, z);
+    }
+    return _Game_Map_autotileType.apply(this, arguments);
+  };
+
+  //=============================================================================
+  // Game_CharacterBase
+  //  半歩移動の判定処理を追加定義します。
+  //=============================================================================
+  var _Game_CharacterBase_initMembers =
+    Game_CharacterBase.prototype.initMembers;
+  Game_CharacterBase.prototype.initMembers = function () {
+    _Game_CharacterBase_initMembers.apply(this, arguments);
+    this.initMembersForHalfMove();
+  };
+
+  Game_CharacterBase.prototype.initMembersForHalfMove = function () {
+    this._halfDisable = false;
+    this._throughDisable = false;
+    this._eventWidth = null;
+    this._eventHeight = null;
+    this._customExpansion = false;
+    this._frontDirection = 0;
+  };
+
+  Game_Player.prototype.initMembersForHalfMoveIfNeed = function () {
+    if (!this.hasOwnProperty("_halfDisable")) {
+      this.initMembersForHalfMove();
+    }
+  };
+
+  var _Game_CharacterBase_pos = Game_CharacterBase.prototype.pos;
+  Game_CharacterBase.prototype.pos = function (x, y) {
+    if (this._eventWidth || this._eventHeight) {
+      return (
+        this._x <= x &&
+        this._x + (this._eventWidth || 1) - 1 >= x &&
+        this._y <= y &&
+        this._y + (this._eventHeight || 1) - 1 >= y
+      );
+    } else {
+      return _Game_CharacterBase_pos.apply(this, arguments);
+    }
+  };
+
+  var _Game_CharacterBase_isMapPassable =
+    Game_CharacterBase.prototype.isMapPassable;
+  Game_CharacterBase.prototype.isMapPassable = function (x, y, d) {
+    var alias = _Game_CharacterBase_isMapPassable.bind(this);
+    var result = true;
+    var halfPositionCount = localHalfPositionCount;
+    localHalfPositionCount = 0;
+    if (!this.isHalfMove()) {
+      if (this.isHalfPosX()) {
+        x = $gameMap.roundHalfXWithDirection(x, d);
+      }
+      if (this.isHalfPosY()) {
+        y = $gameMap.roundHalfYWithDirection(y, d);
+      }
+      result = alias(x, y, d);
+    } else if (this.isHalfPosX(x) && this.isHalfPosY(y)) {
+      if (d === 8) {
+        var y1 = $gameMap.roundHalfYWithDirection(y, d);
+        var xLeft1 = $gameMap.roundHalfXWithDirection(x, 4);
+        var xRight1 = $gameMap.roundHalfXWithDirection(x, 6);
+        var y3 = $gameMap.roundHalfYWithDirection(y, 2);
+        if (alias(xLeft1, y1, 10 - d) && alias(xRight1, y1, 10 - d)) {
+          result = alias(xLeft1, y1, 6) || alias(xRight1, y1, 4);
         }
-    };
-
-    var _Game_Map_roundYWithDirection = Game_Map.prototype.roundYWithDirection;
-    Game_Map.prototype.roundYWithDirection = function (y, d) {
-        if (localHalfPositionCount > 0) {
-            return this.roundHalfYWithDirection(y, d);
-        } else {
-            return _Game_Map_roundYWithDirection.apply(this, arguments);
+        result = result && alias(xLeft1, y3, d) && alias(xRight1, y3, d);
+      }
+    } else if (this.isHalfPosX(x)) {
+      if (d === 2) {
+        var y2 = $gameMap.roundNoHalfYWithDirection(y, d);
+        var xLeft2 = $gameMap.roundHalfXWithDirection(x, 4);
+        var xRight2 = $gameMap.roundHalfXWithDirection(x, 6);
+        if (alias(xLeft2, y2, 10 - d) && alias(xRight2, y2, 10 - d)) {
+          result = alias(xLeft2, y2, 6) || alias(xRight2, y2, 4);
         }
-    };
+        result = result && alias(xLeft2, y, d) && alias(xRight2, y, d);
+      }
+    } else if (this.isHalfPosY(y)) {
+      if (d !== 2) {
+        var y4 = $gameMap.roundHalfYWithDirection(y, 2);
+        result = alias(x, y4, d);
+      }
+    } else {
+      if (d !== 8) {
+        result = alias(x, y, d);
+      } else {
+        result =
+          $gameMap.isPassable(x, y, 2) ||
+          $gameMap.isPassable(x, y, 4) ||
+          $gameMap.isPassable(x, y, 6) ||
+          $gameMap.isPassable(x, y, 8);
+      }
+    }
+    if (this.isHalfMove()) {
+      result = result && this.isMapPassableByHalfRegionAndTag(x, y, d);
+    }
+    localHalfPositionCount = halfPositionCount;
+    return result;
+  };
 
-    // for PD_8DirDash.js
-    Game_Map.prototype.roundHalfXWithDirection = function (x, d) {
-        return this.roundX(x + ((d % 3) === 0 ? Game_Map.tileUnit : (d % 3) === 1 ? -Game_Map.tileUnit : 0));
-    };
+  Game_CharacterBase.prototype.isMapPassableByHalfRegionAndTag = function (
+    x,
+    y,
+    d
+  ) {
+    var targetX = $gameMap.roundHalfXWithDirection(x, d);
+    var targetY = $gameMap.roundHalfYWithDirection(y, d);
+    if (!$gameMap.isPassableByHalfRegionAndTag(targetX, targetY)) {
+      return false;
+    } else if (
+      !$gameMap.isPassableByHalfRegionAndTag(
+        targetX + Game_Map.tileUnit,
+        targetY
+      )
+    ) {
+      return false;
+    }
+    return true;
+  };
 
-    Game_Map.prototype.roundHalfYWithDirection = function (y, d) {
-        return this.roundY(y + (d <= 3 ? Game_Map.tileUnit : d >= 7 ? -Game_Map.tileUnit : 0));
-    };
+  Game_CharacterBase.prototype.isHalfPosX = function (x) {
+    if (x === undefined) x = this._x;
+    return $gameMap.isHalfPos(x);
+  };
 
-    Game_Map.prototype.roundNoHalfXWithDirection = function (x, d) {
-        return _Game_Map_roundXWithDirection.apply(this, arguments);
-    };
+  Game_CharacterBase.prototype.isHalfPosY = function (y) {
+    if (y === undefined) y = this._y;
+    return $gameMap.isHalfPos(y);
+  };
 
-    Game_Map.prototype.roundNoHalfYWithDirection = function (x, d) {
-        return _Game_Map_roundYWithDirection.apply(this, arguments);
-    };
+  Game_CharacterBase.prototype.isMovingDiagonal = function () {
+    return this._realX !== this._x && this._realY !== this._y;
+  };
 
-    Game_Map.prototype.isHalfPos = function (value) {
-        return value - Game_Map.tileUnit === Math.floor(value)
-    };
+  var _Game_CharacterBase_distancePerFrame =
+    Game_CharacterBase.prototype.distancePerFrame;
+  Game_CharacterBase.prototype.distancePerFrame = function () {
+    return (
+      _Game_CharacterBase_distancePerFrame.apply(this, arguments) *
+      (paramDiagonalSlow && this.isMovingDiagonal() ? 0.8 : 1)
+    );
+  };
 
-    Game_Map.prototype.eventsXyUnitNt = function (x, y) {
-        return this.events().filter(function (event) {
-            return event.posExpansionNt(x, y);
-        });
-    };
+  var _Game_CharacterBase_moveStraight =
+    Game_CharacterBase.prototype.moveStraight;
+  Game_CharacterBase.prototype.moveStraight = function (d) {
+    if (this.isHalfMove()) {
+      var prevX = this._x;
+      var prevY = this._y;
+      localHalfPositionCount++;
+      _Game_CharacterBase_moveStraight.apply(this, arguments);
+      localHalfPositionCount--;
+      if (this.isMovementSucceeded()) {
+        this._prevX = prevX;
+        this._prevY = prevY;
+      }
+    } else {
+      _Game_CharacterBase_moveStraight.apply(this, arguments);
+    }
+  };
 
-    Game_Map.prototype.isPassableByHalfRegionAndTag = function (floatX, floatY) {
-        var halfX = this.isHalfPos(floatX);
-        var halfY = this.isHalfPos(floatY);
-        var x = Math.floor(floatX);
-        var y = Math.ceil(floatY);
-        if (this.isAllNp(x, y)) {
-            return false;
+  Game_CharacterBase.prototype.moveDiagonallyForRetry = function (
+    horizon,
+    vertical
+  ) {
+    if (this.isMovementSucceeded()) return;
+    var prevDirection = this.direction();
+    this.moveDiagonally(horizon, vertical);
+    if (!this.isMovementSucceeded()) this.setDirection(prevDirection);
+  };
+
+  var _Game_CharacterBase_moveDiagonally =
+    Game_CharacterBase.prototype.moveDiagonally;
+  Game_CharacterBase.prototype.moveDiagonally = function (horizon, vertical) {
+    if (this.isHalfMove()) {
+      var prevX = this._x;
+      var prevY = this._y;
+      localHalfPositionCount++;
+      _Game_CharacterBase_moveDiagonally.apply(this, arguments);
+      localHalfPositionCount--;
+      if (this.isMovementSucceeded()) {
+        this._prevX = prevX;
+        this._prevY = prevY;
+      }
+    } else {
+      _Game_CharacterBase_moveDiagonally.apply(this, arguments);
+    }
+  };
+
+  Game_CharacterBase.prototype.divideDirection = function (d) {
+    var horizon = d / 3 <= 1 ? d + 3 : d - 3;
+    var vertical = d % 3 === 0 ? d - 1 : d + 1;
+    return { horizon: horizon, vertical: vertical };
+  };
+
+  var _Game_CharacterBase_canPass2 = Game_CharacterBase.prototype.canPass;
+  Game_CharacterBase.prototype.canPass = function (x, y, d) {
+    if (d % 2 !== 0) {
+      var divide = this.divideDirection(d);
+      return this.canPassDiagonally(x, y, divide.horizon, divide.vertical);
+    }
+    var x2 = $gameMap.roundXWithDirection(x, d);
+    var y2 = $gameMap.roundYWithDirection(y, d);
+    this.isCollidedWithCharacters(x2, y2);
+    return _Game_CharacterBase_canPass2.call(this, x, y, d);
+  };
+
+  var _Game_CharacterBase_canPass = Game_CharacterBase.prototype.canPass;
+  Game_CharacterBase.prototype.canPass = function (x, y, d) {
+    if (this.isHalfMove()) {
+      localHalfPositionCount++;
+      var result = _Game_CharacterBase_canPass.apply(this, arguments);
+      localHalfPositionCount--;
+      return result;
+    } else {
+      return _Game_CharacterBase_canPass.apply(this, arguments);
+    }
+  };
+
+  var _Game_CharacterBase_canPassDiagonally =
+    Game_CharacterBase.prototype.canPassDiagonally;
+  Game_CharacterBase.prototype.canPassDiagonally = function (
+    x,
+    y,
+    horizon,
+    vertical
+  ) {
+    if (this.isHalfMove()) {
+      localHalfPositionCount++;
+      var result = _Game_CharacterBase_canPassDiagonally.apply(this, arguments);
+      localHalfPositionCount--;
+      return result;
+    } else {
+      return _Game_CharacterBase_canPassDiagonally.apply(this, arguments);
+    }
+  };
+
+  Game_CharacterBase.prototype.posUnit = function (x, y) {
+    var unit = Game_Map.tileUnit;
+    return (
+      this._x >= x - unit &&
+      this._x <= x + unit &&
+      this._y >= y - unit &&
+      this._y <= y + unit
+    );
+  };
+
+  Game_CharacterBase.prototype.posUnitNt = function (x, y) {
+    return this.posUnit(x, y) && !this.isThrough();
+  };
+
+  Game_CharacterBase.prototype.posUnitHt = function (x, y) {
+    return this.posUnit(x, y) && !this.isHalfThrough(y);
+  };
+
+  var _Game_CharacterBase_isCollidedWithEvents =
+    Game_CharacterBase.prototype.isCollidedWithEvents;
+  Game_CharacterBase.prototype.isCollidedWithEvents = function (x, y) {
+    return (
+      _Game_CharacterBase_isCollidedWithEvents.apply(this, arguments) ||
+      this.isCollidedWithEventsForHalfMove(x, y)
+    );
+  };
+
+  Game_CharacterBase.prototype.isCollidedWithEventsForHalfMove = function (
+    x,
+    y
+  ) {
+    var events = $gameMap.eventsXyUnitNt(x, y);
+    var result = false;
+    events.forEach(
+      function (event) {
+        if (
+          event.isNormalPriority() &&
+          !event.isHalfThrough(y) &&
+          !event.pos(this.x, this.y)
+        ) {
+          this.collidedToEvent(event);
+          result = true;
         }
-        if (halfX) {
-            if (this.isRightNp(x, y)) {
-                return false;
-            } else if (!halfY && this.isRightLowerNp(x, y)) {
-                return false;
-            } else if (halfY && this.isRightUpperNp(x, y)) {
-                return false;
-            }
-        } else {
-            if (this.isLeftNp(x, y)) {
-                return false;
-            } else if (!halfY && this.isLeftLowerNp(x, y)) {
-                return false;
-            } else if (halfY && this.isLeftUpperNp(x, y)) {
-                return false;
-            }
-        }
-        if (halfY) {
-            if (this.isUpperNp(x, y)) {
-                return false;
-            } else if (halfX && this.isRightUpperNp(x, y)) {
-                return false;
-            } else if (!halfX && this.isLeftUpperNp(x, y)) {
-                return false;
-            }
-        } else {
-            if (this.isLowerNp(x, y)) {
-                return false;
-            } else if (halfX && this.isRightLowerNp(x, y)) {
-                return false;
-            } else if (!halfX && this.isLeftLowerNp(x, y)) {
-                return false;
-            }
-        }
-        return true;
-    };
-
-    Game_Map.prototype.isUpperNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramUpperNpTerrainTag, paramUpperNpRegionId);
-    };
-
-    Game_Map.prototype.isLowerNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramLowerNpTerrainTag, paramLowerNpRegionId);
-    };
-
-    Game_Map.prototype.isRightNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramRightNpTerrainTag, paramRightNpRegionId);
-    };
-
-    Game_Map.prototype.isLeftNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramLeftNpTerrainTag, paramLeftNpRegionId);
-    };
-
-    Game_Map.prototype.isRightUpperNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramRightUpNpTerrainTag, paramRightUpNpRegionId);
-    };
-
-    Game_Map.prototype.isLeftUpperNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramLeftUpNpTerrainTag, paramLeftUpNpRegionId);
-    };
-
-    Game_Map.prototype.isRightLowerNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramRightDownNpTerrainTag, paramRightDownNpRegionId);
-    };
-
-    Game_Map.prototype.isLeftLowerNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramLeftDownNpTerrainTag, paramLeftDownNpRegionId);
-    };
-
-    Game_Map.prototype.isNoPathByRegionAndTag = function (x, y, terrainParam, regionParam) {
-        return this.isIncludeTerrainTag(x, y, terrainParam) ||
-            this.isIncludeRegionId(x, y, regionParam);
-    };
-
-    Game_Map.prototype.isAllNp = function (x, y) {
-        return this.isNoPathByRegionAndTag(x, y, paramAllNpTerrainTag, paramAllNpRegionId);
-    };
-
-    Game_Map.prototype.isIncludeTerrainTag = function (x, y, tags) {
-        if (!Array.isArray(tags)) {
-            tags = [tags];
-        }
-        if (tags[0] <= 0) {
-            return false;
-        }
-        return tags.some(function (tag) {
-            return this.allTerrainTag(x, y).contains(tag);
-        }, this);
-    };
-
-    Game_Map.prototype.isIncludeRegionId = function (x, y, ids) {
-        if (!Array.isArray(ids)) {
-            ids = [ids];
-        }
-        if (ids[0] <= 0) {
-            return false;
-        }
-        return ids.some(function (id) {
-            return this.allRegionId(x, y).contains(id);
-        }, this);
-    };
-
-    Game_Map.prototype.allTerrainTag = function (x, y) {
-        var tu = Game_Map.tileUnit;
-        if (this.isHalfPos(x)) {
-            return [this.terrainTag(x - tu, y), this.terrainTag(x + tu, y)];
-        }
-        if (this.isHalfPos(y)) {
-            return [this.terrainTag(x, y + tu), this.terrainTag(x, y - tu)];
-        }
-        return [_Game_Map_terrainTag.apply(this, arguments)];
-    };
-
-    Game_Map.prototype.allRegionId = function (x, y) {
-        var tu = Game_Map.tileUnit;
-        if (this.isHalfPos(x)) {
-            return [this.regionId(x - tu, y), this.regionId(x + tu, y)];
-        }
-        if (this.isHalfPos(y)) {
-            return [this.regionId(x, y + tu), this.regionId(x, y - tu)];
-        }
-        return [_Game_Map_regionId.apply(this, arguments)];
-    };
-
-    var _Game_Map_checkLayeredTilesFlags = Game_Map.prototype.checkLayeredTilesFlags;
-    Game_Map.prototype.checkLayeredTilesFlags = function (x, y, bit) {
-        var result = false;
-        if (this.isHalfPos(x)) {
-            result = this.checkLayeredTilesFlags(x + Game_Map.tileUnit, y, bit);
-            result = result || this.checkLayeredTilesFlags(x - Game_Map.tileUnit, y, bit);
-        } else if (this.isHalfPos(y)) {
-            result = this.checkLayeredTilesFlags(x, y + Game_Map.tileUnit, bit);
-        } else {
-            result = _Game_Map_checkLayeredTilesFlags.apply(this, arguments);
-        }
-        return result;
-    };
-
-    var _Game_Map_terrainTag = Game_Map.prototype.terrainTag;
-    Game_Map.prototype.terrainTag = function (x, y) {
-        var tu = Game_Map.tileUnit;
-        if (this.isHalfPos(x)) {
-            return this.terrainTag(x - tu, y) || this.terrainTag(x + tu, y);
-        }
-        if (this.isHalfPos(y)) {
-            return this.terrainTag(x, y + tu) || this.terrainTag(x, y - tu);
-        }
-        return _Game_Map_terrainTag.apply(this, arguments);
-    };
-
-    var _Game_Map_regionId = Game_Map.prototype.regionId;
-    Game_Map.prototype.regionId = function (x, y) {
-        var tu = Game_Map.tileUnit;
-        if (this.isHalfPos(x)) {
-            return this.regionId(x - tu, y) || this.regionId(x + tu, y);
-        }
-        if (this.isHalfPos(y)) {
-            return this.regionId(x, y + tu) || this.regionId(x, y - tu);
-        }
-        return _Game_Map_regionId.apply(this, arguments);
-    };
-
-    var _Game_Map_autotileType = Game_Map.prototype.autotileType;
-    Game_Map.prototype.autotileType = function (x, y, z) {
-        var tu = Game_Map.tileUnit;
-        if (this.isHalfPos(x)) {
-            return this.autotileType(x - tu, y, z) || this.autotileType(x + tu, y, z);
-        }
-        if (this.isHalfPos(y)) {
-            return this.autotileType(x, y + tu, z) || this.autotileType(x, y - tu, z);
-        }
-        return _Game_Map_autotileType.apply(this, arguments);
-    };
-
-    //=============================================================================
-    // Game_CharacterBase
-    //  半歩移動の判定処理を追加定義します。
-    //=============================================================================
-    var _Game_CharacterBase_initMembers = Game_CharacterBase.prototype.initMembers;
-    Game_CharacterBase.prototype.initMembers = function () {
-        _Game_CharacterBase_initMembers.apply(this, arguments);
-        this.initMembersForHalfMove();
-    };
-
-    Game_CharacterBase.prototype.initMembersForHalfMove = function () {
-        this._halfDisable = false;
-        this._throughDisable = false;
-        this._eventWidth = null;
-        this._eventHeight = null;
-        this._customExpansion = false;
-        this._frontDirection = 0;
-    };
-
-    Game_Player.prototype.initMembersForHalfMoveIfNeed = function () {
-        if (!this.hasOwnProperty('_halfDisable')) {
-            this.initMembersForHalfMove();
-        }
-    };
-
-    var _Game_CharacterBase_pos = Game_CharacterBase.prototype.pos;
-    Game_CharacterBase.prototype.pos = function (x, y) {
-        if (this._eventWidth || this._eventHeight) {
-            return this._x <= x && this._x + (this._eventWidth || 1) - 1 >= x &&
-                this._y <= y && this._y + (this._eventHeight || 1) - 1 >= y;
-        } else {
-            return _Game_CharacterBase_pos.apply(this, arguments);
-        }
-    };
-
-    var _Game_CharacterBase_isMapPassable = Game_CharacterBase.prototype.isMapPassable;
-    Game_CharacterBase.prototype.isMapPassable = function (x, y, d) {
-        var alias = _Game_CharacterBase_isMapPassable.bind(this);
-        var result = true;
-        var halfPositionCount = localHalfPositionCount;
-        localHalfPositionCount = 0;
-        if (!this.isHalfMove()) {
-            if (this.isHalfPosX()) {
-                x = $gameMap.roundHalfXWithDirection(x, d);
-            }
-            if (this.isHalfPosY()) {
-                y = $gameMap.roundHalfYWithDirection(y, d);
-            }
-            result = alias(x, y, d);
-        } else if (this.isHalfPosX(x) && this.isHalfPosY(y)) {
-            if (d === 8) {
-                var y1 = $gameMap.roundHalfYWithDirection(y, d);
-                var xLeft1 = $gameMap.roundHalfXWithDirection(x, 4);
-                var xRight1 = $gameMap.roundHalfXWithDirection(x, 6);
-                var y3 = $gameMap.roundHalfYWithDirection(y, 2);
-                if (alias(xLeft1, y1, 10 - d) && alias(xRight1, y1, 10 - d)) {
-                    result = alias(xLeft1, y1, 6) || alias(xRight1, y1, 4);
-                }
-                result = result && alias(xLeft1, y3, d) && alias(xRight1, y3, d);
-            }
-        } else if (this.isHalfPosX(x)) {
-            if (d === 2) {
-                var y2 = $gameMap.roundNoHalfYWithDirection(y, d);
-                var xLeft2 = $gameMap.roundHalfXWithDirection(x, 4);
-                var xRight2 = $gameMap.roundHalfXWithDirection(x, 6);
-                if (alias(xLeft2, y2, 10 - d) && alias(xRight2, y2, 10 - d)) {
-                    result = alias(xLeft2, y2, 6) || alias(xRight2, y2, 4);
-                }
-                result = result && alias(xLeft2, y, d) && alias(xRight2, y, d);
-            }
-        } else if (this.isHalfPosY(y)) {
-            if (d !== 2) {
-                var y4 = $gameMap.roundHalfYWithDirection(y, 2);
-                result = alias(x, y4, d);
-            }
-        } else {
-            if (d !== 8) {
-                result = alias(x, y, d);
-            } else {
-                result = $gameMap.isPassable(x, y, 2) || $gameMap.isPassable(x, y, 4) ||
-                    $gameMap.isPassable(x, y, 6) || $gameMap.isPassable(x, y, 8);
-            }
-        }
-        if (this.isHalfMove()) {
-            result = result && this.isMapPassableByHalfRegionAndTag(x, y, d);
-        }
-        localHalfPositionCount = halfPositionCount;
-        return result;
-    };
-
-    Game_CharacterBase.prototype.isMapPassableByHalfRegionAndTag = function (x, y, d) {
-        var targetX = $gameMap.roundHalfXWithDirection(x, d);
-        var targetY = $gameMap.roundHalfYWithDirection(y, d);
-        if (!$gameMap.isPassableByHalfRegionAndTag(targetX, targetY)) {
-            return false;
-        } else if (!$gameMap.isPassableByHalfRegionAndTag(targetX + Game_Map.tileUnit, targetY)) {
-            return false;
-        }
-        return true;
-    };
-
-    Game_CharacterBase.prototype.isHalfPosX = function (x) {
-        if (x === undefined) x = this._x;
-        return $gameMap.isHalfPos(x);
-    };
-
-    Game_CharacterBase.prototype.isHalfPosY = function (y) {
-        if (y === undefined) y = this._y;
-        return $gameMap.isHalfPos(y);
-    };
-
-    Game_CharacterBase.prototype.isMovingDiagonal = function () {
-        return this._realX !== this._x && this._realY !== this._y;
-    };
-
-    var _Game_CharacterBase_distancePerFrame = Game_CharacterBase.prototype.distancePerFrame;
-    Game_CharacterBase.prototype.distancePerFrame = function () {
-        return _Game_CharacterBase_distancePerFrame.apply(this, arguments) *
-            (paramDiagonalSlow && this.isMovingDiagonal() ? 0.8 : 1);
-    };
-
-    var _Game_CharacterBase_moveStraight = Game_CharacterBase.prototype.moveStraight;
-    Game_CharacterBase.prototype.moveStraight = function (d) {
-        if (this.isHalfMove()) {
-            var prevX = this._x;
-            var prevY = this._y;
-            localHalfPositionCount++;
-            _Game_CharacterBase_moveStraight.apply(this, arguments);
-            localHalfPositionCount--;
-            if (this.isMovementSucceeded()) {
-                this._prevX = prevX;
-                this._prevY = prevY;
-            }
-        } else {
-            _Game_CharacterBase_moveStraight.apply(this, arguments);
-        }
-    };
-
-    Game_CharacterBase.prototype.moveDiagonallyForRetry = function (horizon, vertical) {
-        if (this.isMovementSucceeded()) return;
-        var prevDirection = this.direction();
-        this.moveDiagonally(horizon, vertical);
-        if (!this.isMovementSucceeded()) this.setDirection(prevDirection);
-    };
-
-    var _Game_CharacterBase_moveDiagonally = Game_CharacterBase.prototype.moveDiagonally;
-    Game_CharacterBase.prototype.moveDiagonally = function (horizon, vertical) {
-        if (this.isHalfMove()) {
-            var prevX = this._x;
-            var prevY = this._y;
-            localHalfPositionCount++;
-            _Game_CharacterBase_moveDiagonally.apply(this, arguments);
-            localHalfPositionCount--;
-            if (this.isMovementSucceeded()) {
-                this._prevX = prevX;
-                this._prevY = prevY;
-            }
-        } else {
-            _Game_CharacterBase_moveDiagonally.apply(this, arguments);
-        }
-    };
-
-    Game_CharacterBase.prototype.divideDirection = function (d) {
-        var horizon = d / 3 <= 1 ? d + 3 : d - 3;
-        var vertical = d % 3 === 0 ? d - 1 : d + 1;
-        return { horizon: horizon, vertical: vertical };
-    };
-
-    var _Game_CharacterBase_canPass2 = Game_CharacterBase.prototype.canPass;
-    Game_CharacterBase.prototype.canPass = function (x, y, d) {
-        if (d % 2 !== 0) {
-            var divide = this.divideDirection(d);
-            return this.canPassDiagonally(x, y, divide.horizon, divide.vertical);
-        }
-        var x2 = $gameMap.roundXWithDirection(x, d);
-        var y2 = $gameMap.roundYWithDirection(y, d);
-        this.isCollidedWithCharacters(x2, y2);
-        return _Game_CharacterBase_canPass2.call(this, x, y, d);
-    };
-
-    var _Game_CharacterBase_canPass = Game_CharacterBase.prototype.canPass;
-    Game_CharacterBase.prototype.canPass = function (x, y, d) {
-        if (this.isHalfMove()) {
-            localHalfPositionCount++;
-            var result = _Game_CharacterBase_canPass.apply(this, arguments);
-            localHalfPositionCount--;
-            return result;
-        } else {
-            return _Game_CharacterBase_canPass.apply(this, arguments);
-        }
-    };
-
-    var _Game_CharacterBase_canPassDiagonally = Game_CharacterBase.prototype.canPassDiagonally;
-    Game_CharacterBase.prototype.canPassDiagonally = function (x, y, horizon, vertical) {
-        if (this.isHalfMove()) {
-            localHalfPositionCount++;
-            var result = _Game_CharacterBase_canPassDiagonally.apply(this, arguments);
-            localHalfPositionCount--;
-            return result;
-        } else {
-            return _Game_CharacterBase_canPassDiagonally.apply(this, arguments);
-        }
-    };
-
-    Game_CharacterBase.prototype.posUnit = function (x, y) {
-        var unit = Game_Map.tileUnit;
-        return this._x >= x - unit && this._x <= x + unit && this._y >= y - unit && this._y <= y + unit;
-    };
-
-    Game_CharacterBase.prototype.posUnitNt = function (x, y) {
-        return this.posUnit(x, y) && !this.isThrough();
-    };
-
-    Game_CharacterBase.prototype.posUnitHt = function (x, y) {
-        return this.posUnit(x, y) && !this.isHalfThrough(y);
-    };
-
-    var _Game_CharacterBase_isCollidedWithEvents = Game_CharacterBase.prototype.isCollidedWithEvents;
-    Game_CharacterBase.prototype.isCollidedWithEvents = function (x, y) {
-        return _Game_CharacterBase_isCollidedWithEvents.apply(this, arguments) ||
-            this.isCollidedWithEventsForHalfMove(x, y);
-    };
-
-    Game_CharacterBase.prototype.isCollidedWithEventsForHalfMove = function (x, y) {
-        var events = $gameMap.eventsXyUnitNt(x, y);
-        var result = false;
-        events.forEach(function (event) {
-            if (event.isNormalPriority() && !event.isHalfThrough(y) && !event.pos(this.x, this.y)) {
-                this.collidedToEvent(event);
-                result = true;
-            }
-        }.bind(this));
-        return result;
-    };
-
-    Game_CharacterBase.prototype.collidedToEvent = function (target) { };
-
-    Game_CharacterBase.prototype.getPrevX = function () {
-        return this._prevX !== undefined ? this._prevX : this._x;
-    };
-
-    Game_CharacterBase.prototype.getPrevY = function () {
-        return this._prevY !== undefined ? this._prevY : this._y;
-    };
-
-    Game_CharacterBase.prototype.resetPrevPos = function () {
-        this._prevX = undefined;
-        this._prevY = undefined;
-    };
-
-    Game_CharacterBase.prototype.isHalfThrough = function (y) {
-        return !this._customExpansion && this.isThroughEnable() && this.y !== y;
-    };
-
-    Game_CharacterBase.prototype.isThroughEnable = function () {
-        return (this._throughDisable !== undefined ? !this._throughDisable : paramEventThrough);
-    };
-
-    var _Game_CharacterBase_checkEventTriggerTouchFront = Game_CharacterBase.prototype.checkEventTriggerTouchFront;
-    Game_CharacterBase.prototype.checkEventTriggerTouchFront = function (d) {
-        var halfPositionCount = localHalfPositionCount;
-        localHalfPositionCount = 0;
-        this._frontDirection = d;
-        _Game_CharacterBase_checkEventTriggerTouchFront.apply(this, arguments);
-        localHalfPositionCount = halfPositionCount;
-        this._frontDirection = 0;
-    };
-
-    Game_CharacterBase.prototype.getDistanceForHalfMove = function (character) {
-        return $gameMap.distance(this.x, this.y, character.x, character.y);
-    };
-
-    var _Game_CharacterBase_setPosition = Game_CharacterBase.prototype.setPosition;
-    Game_CharacterBase.prototype.setPosition = function (x, y) {
-        _Game_CharacterBase_setPosition.apply(this, arguments);
-        if (this.isHalfMove()) {
-            this._x = x;
-            this._y = y;
-        }
-    };
-
-    /**
-     * for YEP_MoveRouteCore.js
-     * @param x
-     * @param y
-     * @param collision
-     */
-    Game_CharacterBase.prototype.moveToPoint = function (x, y, collision) {
-        collision = collision || false;
-        if (collision) $gameTemp._moveAllowPlayerCollision = true;
-        var direction = this.findDirectionTo(x, y);
-        if (collision) $gameTemp._moveAllowPlayerCollision = false;
-        if (direction > 0) this.moveStraight(direction);
-        if (this.x !== x || this.y !== y) this._moveRouteIndex -= 1;
-        this.setMovementSuccess(true);
-    };
-
-    //=============================================================================
-    // Game_Character
-    //  タッチ移動の動作を調整します。
-    //=============================================================================
-    var _Game_Character_findDirectionTo = Game_Character.prototype.findDirectionTo;
-    Game_Character.prototype.findDirectionTo = function (goalX, goalY) {
-        var result;
-        if (this.isHalfMove()) {
-            localHalfPositionCount++;
-            result = _Game_Character_findDirectionTo.apply(this, arguments);
-            localHalfPositionCount--;
-        } else {
-            result = _Game_Character_findDirectionTo.apply(this, arguments);
-        }
-        if (!this._searchHighPrecision && !this.canPass(this.x, this.y, result)) {
-            this._searchHighPrecision = true;
-            result = this.findDirectionTo(goalX, goalY);
-        }
-        return result;
-    };
-
-    var _Game_Character_searchLimit = Game_Character.prototype.searchLimit;
-    Game_Character.prototype.searchLimit = function () {
-        return _Game_Character_searchLimit.apply(this, arguments) * (this.isSearchHighPrecision() ? 2 : 1);
-    };
-
-    Game_Character.prototype.isSearchHighPrecision = function () {
-        return this._searchHighPrecision;
-    };
-
-    Game_Character.prototype.canDiagonalMove = function () {
-        return paramDirection8Move && (param8MoveSwitch > 0 ? $gameSwitches.value(param8MoveSwitch) : true);
-    };
-
-    Game_Character.prototype.getDiagonalRandomDirection = function () {
-        var direction;
-        do {
-            direction = 1 + Math.randomInt(9);
-        } while (!this.isDiagonalDirection(direction));
-        return direction;
-    };
-
-    Game_Character.prototype.getDiagonalTowardDirection = function (x, y) {
-        var sx = this.deltaXFrom(x);
-        var sy = this.deltaYFrom(y);
-        var direction = 5;
-        if (sx !== 0) {
-            direction += (sx < 0 ? 1 : -1);
-        }
-        if (sy !== 0) {
-            direction += (sy < 0 ? -3 : 3);
-        }
-        return direction;
-    };
-
-    Game_Character.prototype.isDiagonalDirection = function (direction) {
-        return direction !== 5 && direction % 2 === 1;
-    };
-
-    var _Game_Character_moveRandom = Game_Character.prototype.moveRandom;
-    Game_Character.prototype.moveRandom = function () {
-        if (!this.canDiagonalMove() || Math.randomInt(2) === 0) {
-            _Game_Character_moveRandom.apply(this, arguments);
-        } else {
-            this.executeDiagonalMove(this.getDiagonalRandomDirection());
-        }
-    };
-
-    var _Game_Character_moveTowardCharacter = Game_Character.prototype.moveTowardCharacter;
-    Game_Character.prototype.moveTowardCharacter = function (character) {
-        if (!this.canDiagonalMove() || Math.randomInt(4) === 0) {
-            _Game_Character_moveTowardCharacter.apply(this, arguments);
-            return;
-        }
-        var direction = this.getDiagonalTowardDirection(character.x, character.y);
-        if (this.isDiagonalDirection(direction)) {
-            this.executeDiagonalMove(direction);
-            if (!this.isMovementSucceeded()) {
-                _Game_Character_moveTowardCharacter.apply(this, arguments);
-            }
-        } else {
-            _Game_Character_moveTowardCharacter.apply(this, arguments);
-        }
-    };
-
-    var _Game_Character_moveAwayFromCharacter = Game_Character.prototype.moveAwayFromCharacter;
-    Game_Character.prototype.moveAwayFromCharacter = function (character) {
-        if (!this.canDiagonalMove() || Math.randomInt(4) === 0) {
-            _Game_Character_moveAwayFromCharacter.apply(this, arguments);
-            return;
-        }
-        var direction = 10 - this.getDiagonalTowardDirection(character.x, character.y);
-        if (this.isDiagonalDirection(direction)) {
-            this.executeDiagonalMove(direction);
-            if (!this.isMovementSucceeded()) {
-                _Game_Character_moveAwayFromCharacter.apply(this, arguments);
-            }
-        } else {
-            _Game_Character_moveAwayFromCharacter.apply(this, arguments);
-        }
-    };
-
-    Game_Character.prototype.executeDiagonalMove = function (d) {
-        var divide = this.divideDirection(d);
-        var horizon = divide.horizon;
-        var vertical = divide.vertical;
-        this.moveDiagonally(horizon, vertical);
-        if (this._firstInputDir === horizon) {
-            this.moveStraightForRetry(vertical);
-            this.moveStraightForRetry(horizon);
-        } else {
-            this.moveStraightForRetry(horizon);
-            this.moveStraightForRetry(vertical);
-        }
-    };
-
-    Game_Character.prototype.moveStraightForRetry = function (d) {
-        if (!this.isMovementSucceeded()) {
-            this.moveStraight(d);
-        }
-    };
-
-    //=============================================================================
-    // Game_Player
-    //  8方向移動に対応させます。
-    //=============================================================================
-    var _Game_Player_initMembers = Game_Player.prototype.initMembers;
-    Game_Player.prototype.initMembers = function () {
-        _Game_Player_initMembers.apply(this, arguments);
-        this._testEventStart = false;
-    };
-
-    var _Game_Player_locate = Game_Player.prototype.locate;
-    Game_Player.prototype.locate = function (x, y) {
-        _Game_Player_locate.apply(this, arguments);
-        this.resetPrevPos();
-    };
-
-    var _Game_Player_increaseSteps = Game_Player.prototype.increaseSteps;
-    Game_Player.prototype.increaseSteps = function () {
-        if (this._realStep === undefined) this._realStep = 0;
-        this._realStep += (this.isHalfMove() ? Game_Map.tileUnit : 1);
-        if (this.isHalfStep()) {
-            Game_Character.prototype.increaseSteps.call(this);
-        } else {
-            _Game_Player_increaseSteps.apply(this, arguments);
-        }
-    };
-
-    var _Game_Player_updateEncounterCount = Game_Player.prototype.updateEncounterCount;
-    Game_Player.prototype.updateEncounterCount = function () {
-        if (!this.isHalfStep()) {
-            _Game_Player_updateEncounterCount.apply(this, arguments);
-        }
-    };
-
-    Game_Player.prototype.isHalfStep = function () {
-        return paramAdjustmentRealStep && this._realStep && Math.floor(this._realStep) !== this._realStep;
-    };
-
-    var _Game_Player_isOnDamageFloor = Game_Player.prototype.isOnDamageFloor;
-    Game_Player.prototype.isOnDamageFloor = function () {
-        return !this.isHalfStep() && _Game_Player_isOnDamageFloor.apply(this, arguments);
-    };
-
-    var _Game_Player_isCollided = Game_Player.prototype.isCollided;
-    Game_Player.prototype.isCollided = function (x, y) {
-        if (_Game_Player_isCollided.apply(this, arguments)) {
-            return true;
-        }
-        if (this.isThrough()) {
-            return false;
-        }
-        return this.posUnitHt(x, y) || this._followers.isSomeoneUnitCollidedCollided(x, y);
-    };
-
-    var _Game_Player_getInputDirection = Game_Player.prototype.getInputDirection;
-    Game_Player.prototype.getInputDirection = function () {
-        var result = this.canDiagonalMove() ? Input.dir8 : _Game_Player_getInputDirection.apply(this, arguments);
-        if (result === 0) {
-            this._firstInputDir = 0;
-        } else if (result % 2 === 0 && this._firstInputDir === 0) {
-            this._firstInputDir = result;
-        }
-        return result;
-    };
-
-    var _Game_Player_executeMove = Game_Player.prototype.executeMove;
-    Game_Player.prototype.executeMove = function (d) {
-        if (d % 2 !== 0 && d !== 5) {
-            this.executeDiagonalMove(d);
-        } else {
-            _Game_Player_executeMove.apply(this, arguments);
-            if (!this.isMovementSucceeded() && this.isHalfMove() &&
-                paramAvoidCorner && !$gameTemp.isDestinationValid() && !$gameMap.isEventRunning()) {
-                this.executeMoveRetry(d);
-            }
-        }
-    };
-
-    var _Game_Player_startMapEvent = Game_Player.prototype.startMapEvent;
-    Game_Player.prototype.startMapEvent = function (x, y, triggers, normal) {
-        _Game_Player_startMapEvent.apply(this, arguments);
-        if ($gameMap.isEventRunning()) return;
-        $gameMap.events().some(function (event) {
-            if (event.isTriggerExpansion(x, y) && event.isTriggerIn(triggers) &&
-                event.isNormalPriority() === normal && (event.isCollidedFromPlayer() || !event.isNormalPriority())) {
-                event.start();
-                if (event.isStarting() && paramMultiStartDisable) return true;
-            }
-            return false;
-        });
-    };
-
-    var _Game_Player_startMapEvent2 = Game_Player.prototype.startMapEvent;
-    Game_Player.prototype.startMapEvent = function (x, y, triggers, normal) {
-        if (normal && this.isHalfMove()) {
-            var d = this._frontDirection || this.direction();
-            if (!this.canPass(this.x, this.y, d)) {
-                _Game_Player_startMapEvent2.apply(this, arguments);
-                arguments[0] = $gameMap.roundHalfXWithDirection(x, 10 - d);
-                arguments[1] = $gameMap.roundHalfYWithDirection(y, 10 - d);
-                _Game_Player_startMapEvent2.apply(this, arguments);
-            }
-        } else {
-            _Game_Player_startMapEvent2.apply(this, arguments);
-        }
-    };
-
-    var _Game_Player_triggerTouchAction = Game_Player.prototype.triggerTouchAction;
-    Game_Player.prototype.triggerTouchAction = function () {
-        var result = _Game_Player_triggerTouchAction.apply(this, arguments);
-        if (!result && $gameTemp.isDestinationValid()) {
-            var direction = this._frontDirection || this.direction();
-            var x1 = this.x;
-            var y1 = this.y;
-            var x2 = $gameMap.roundHalfXWithDirection(x1, direction);
-            var y2 = $gameMap.roundHalfYWithDirection(y1, direction);
-            var x3 = $gameMap.roundXWithDirection(x2, direction);
-            var y3 = $gameMap.roundYWithDirection(y2, direction);
-            var destinationX = $gameTemp.destinationX();
-            var destinationY = $gameTemp.destinationY();
-            var tu = Game_Map.tileUnit;
-            if (x1 === destinationX && y1 === destinationY) {
-                return false;
-            }
-            if (Math.abs(destinationX - x2) <= tu && Math.abs(destinationY - y2) <= tu) {
-                return this.triggerTouchActionD2(x2, y2);
-            } else if (Math.abs(destinationX - x3) <= tu && Math.abs(destinationY - y3) <= tu) {
-                return this.triggerTouchActionD3(x2, y2);
-            }
-        }
-        return result;
-    };
-
-    Game_Player.prototype.isStartingPreparedMapEvent = function (x, y) {
-        $gameMap.events().forEach(function (event) {
-            event.resetStartingPrepared();
-        });
-        this._testEventStart = true;
-        this.startMapEvent(x, y, [0, 1, 2], true);
-        if ($gameMap.isCounter(x, y)) {
-            var x1 = $gameMap.roundXWithDirection(x, this.direction());
-            var y1 = $gameMap.roundYWithDirection(y, this.direction());
-            this.startMapEvent(x1, y1, [0], true);
-        }
-        this._testEventStart = false;
-        return $gameMap.events().some(function (event) {
-            return event.isStartingPrepared();
-        });
-    };
-
-    Game_Player.prototype.isTestEventStart = function () {
-        return this._testEventStart;
-    };
-
-    Game_Player.prototype.executeMoveRetry = function (d) {
-        var x2 = $gameMap.roundXWithDirection(this.x, d);
-        var y2 = $gameMap.roundYWithDirection(this.y, d);
-        if (!this.isStartingPreparedMapEvent(x2, y2)) {
-            if (d === 2 || d === 8) {
-                this.moveDiagonallyForRetry(4, d);
-                this.moveDiagonallyForRetry(6, d);
-            }
-            if (d === 4 || d === 6) {
-                this.moveDiagonallyForRetry(d, 2);
-                this.moveDiagonallyForRetry(d, 8);
-            }
-        }
-    };
-
-    Game_Player.prototype.resetPrevPos = function () {
-        Game_CharacterBase.prototype.resetPrevPos.call(this);
-        this.followers().forEach(function (follower) {
-            follower.resetPrevPos();
-        }.bind(this));
-    };
-
-    Game_Player.prototype.isCollidedWithEventsForHalfMove = function (x, y) {
-        $gameMap.events().forEach(function (event) {
-            event.setCollidedFromPlayer(false);
-        });
-        return Game_CharacterBase.prototype.isCollidedWithEventsForHalfMove.call(this, x, y);
-    };
-
-    Game_Player.prototype.collidedToEvent = function (target) {
-        target.setCollidedFromPlayer(true);
-    };
-
-    var _Game_Player_getOnVehicle = Game_Player.prototype.getOnVehicle;
-    Game_Player.prototype.getOnVehicle = function () {
-        var result = _Game_Player_getOnVehicle.apply(this, arguments);
-        if (!result && this.isHalfMove()) {
-            localHalfPositionCount++;
-            result = _Game_Player_getOnVehicle.apply(this, arguments);
-            localHalfPositionCount--;
-        }
-        return result;
-    };
-
-    var _Game_Player_moveStraightForRetry = Game_Player.prototype.moveStraightForRetry;
-    Game_Player.prototype.moveStraightForRetry = function (d) {
-        if (this.canMove()) {
-            _Game_Player_moveStraightForRetry.apply(this, arguments);
-        }
-    };
-
-    var _Game_Player_updateNonmoving = Game_Player.prototype.updateNonmoving;
-    Game_Player.prototype.updateNonmoving = function (wasMoving) {
-        _Game_Player_updateNonmoving.apply(this, arguments);
-        if (!wasMoving) {
-            this._searchHighPrecision = false;
-        }
-    };
-
-    //=============================================================================
-    // Game_Event
-    //  半歩移動用の接触処理を定義します。
-    //=============================================================================
-    var _Game_Event_initialize = Game_Event.prototype.initialize;
-    Game_Event.prototype.initialize = function (mapId, eventId) {
-        _Game_Event_initialize.apply(this, arguments);
-        this._halfDisable = getMetaValues(this.event(), ['HalfDisable', '半歩禁止']);
-        this._throughDisable = getMetaValues(this.event(), ['ThroughDisable', 'すり抜け禁止']);
-        this._eventWidth = getArgNumber(getMetaValues(this.event(), ['Width', '横幅']), 0);
-        this._eventHeight = getArgNumber(getMetaValues(this.event(), ['Height', '高さ']), 0);
-        this._can8moveDisable = getMetaValues(this.event(), ['8MoveDisable', '8方向移動禁止']);
-        var metaValue = getMetaValues(this.event(), ['TriggerExpansion', 'トリガー拡大']);
-        this._triggerExpansion = metaValue ? getArgBoolean(metaValue) : paramTriggerExpansion;
-        this._expansionArea = this.getExpansionArea();
-        var halfX = getMetaValues(this.event(), ['初期半歩X', 'InitialHalfX']);
-        var halfY = getMetaValues(this.event(), ['初期半歩Y', 'InitialHalfY']);
-        if (halfX || halfY) {
-            this.initHalfPos(halfX, halfY);
-        }
-    };
-
-    Game_Event.prototype.initHalfPos = function (halfX, halfY) {
-        var newX = this.x;
-        var newY = this.y;
-        if (halfX === '-') {
-            newX -= Game_Map.tileUnit;
-        } else if (halfX) {
-            newX += Game_Map.tileUnit;
-        }
-        if (halfY === '-') {
-            newY -= Game_Map.tileUnit;
-        } else if (halfY) {
-            newY += Game_Map.tileUnit;
-        }
-        this.locate(newX, newY);
-    };
-
-    var _Game_Event_setupPage = Game_Event.prototype.setupPage;
-    Game_Event.prototype.setupPage = function () {
-        _Game_Event_setupPage.apply(this, arguments);
-        this._expansionArea = this.getExpansionArea();
-    };
-
-    Game_Event.prototype.getExpansionArea = function () {
-        // Resolve conflict for MOG_ChronoEngine.js
-        if (!this.event().meta) {
-            this.event().meta = {};
-        }
-        var metaValue = getMetaValues(this.event(), ['ExpansionArea', '拡大領域']);
-        if (metaValue) {
-            this._customExpansion = true;
-            return getArgArrayFloat(metaValue);
-        } else if (this.isNormalPriority() && this.isThroughEnable()) {
-            return [0, 0.5, 0.5, 0];
-        } else {
-            return [0.5, 0.5, 0.5, 0.5];
-        }
-    };
-
-    var _Game_Event_isCollidedWithEvents = Game_Event.prototype.isCollidedWithEvents;
-    Game_Event.prototype.isCollidedWithEvents = function (x, y) {
-        var result = _Game_Event_isCollidedWithEvents.apply(this, arguments);
-        if (result) return true;
-        var events = $gameMap.eventsXyUnitNt(x, y);
-        var collidedEvents = events.filter(function (event) {
-            return event !== this && !event.isHalfThrough(y) && (!paramEventOverlap || event.isNormalPriority());
-        }.bind(this));
-        if (collidedEvents.length === 0) return false;
-        return !paramEventOverlap || this.isNormalPriority();
-    };
-
-    var _Game_Event_isCollidedWithPlayerCharacters = Game_Event.prototype.isCollidedWithPlayerCharacters;
-    Game_Event.prototype.isCollidedWithPlayerCharacters = function (x, y) {
-        var result = _Game_Event_isCollidedWithPlayerCharacters.apply(this, arguments);
-        if (!result && !this.isHalfThrough($gamePlayer.y) && this.isNormalPriority()) {
-            var tileUnit = Game_Map.tileUnit;
-            result = $gamePlayer.isCollided(x, y - tileUnit) || $gamePlayer.isCollided(x, y + tileUnit);
-        }
-        this.setCollidedFromPlayer(result);
-        return result;
-    };
-
-    var _Game_Event_checkEventTriggerTouch = Game_Event.prototype.checkEventTriggerTouch;
-    Game_Event.prototype.checkEventTriggerTouch = function (x, y) {
-        _Game_Event_checkEventTriggerTouch.apply(this, arguments);
-        if ($gameMap.isEventRunning()) return;
-        if (this._trigger === 2 && $gamePlayer.posUnit(x, y) && this.isTriggerExpansion(x, y)) {
-            if (!this.isJumping() && this.isNormalPriority() && this.isCollidedFromPlayer()) {
-                this.start();
-            }
-        }
-    };
-
-    var _Game_Event_checkEventTriggerTouch2 = Game_Event.prototype.checkEventTriggerTouch;
-    Game_Event.prototype.checkEventTriggerTouch = function (x, y) {
-        var d = this._frontDirection || this.direction();
-        _Game_Event_checkEventTriggerTouch2.apply(this, arguments);
+      }.bind(this)
+    );
+    return result;
+  };
+
+  Game_CharacterBase.prototype.collidedToEvent = function (target) {};
+
+  Game_CharacterBase.prototype.getPrevX = function () {
+    return this._prevX !== undefined ? this._prevX : this._x;
+  };
+
+  Game_CharacterBase.prototype.getPrevY = function () {
+    return this._prevY !== undefined ? this._prevY : this._y;
+  };
+
+  Game_CharacterBase.prototype.resetPrevPos = function () {
+    this._prevX = undefined;
+    this._prevY = undefined;
+  };
+
+  Game_CharacterBase.prototype.isHalfThrough = function (y) {
+    return !this._customExpansion && this.isThroughEnable() && this.y !== y;
+  };
+
+  Game_CharacterBase.prototype.isThroughEnable = function () {
+    return this._throughDisable !== undefined
+      ? !this._throughDisable
+      : paramEventThrough;
+  };
+
+  var _Game_CharacterBase_checkEventTriggerTouchFront =
+    Game_CharacterBase.prototype.checkEventTriggerTouchFront;
+  Game_CharacterBase.prototype.checkEventTriggerTouchFront = function (d) {
+    var halfPositionCount = localHalfPositionCount;
+    localHalfPositionCount = 0;
+    this._frontDirection = d;
+    _Game_CharacterBase_checkEventTriggerTouchFront.apply(this, arguments);
+    localHalfPositionCount = halfPositionCount;
+    this._frontDirection = 0;
+  };
+
+  Game_CharacterBase.prototype.getDistanceForHalfMove = function (character) {
+    return $gameMap.distance(this.x, this.y, character.x, character.y);
+  };
+
+  var _Game_CharacterBase_setPosition =
+    Game_CharacterBase.prototype.setPosition;
+  Game_CharacterBase.prototype.setPosition = function (x, y) {
+    _Game_CharacterBase_setPosition.apply(this, arguments);
+    if (this.isHalfMove()) {
+      this._x = x;
+      this._y = y;
+    }
+  };
+
+  /**
+   * for YEP_MoveRouteCore.js
+   * @param x
+   * @param y
+   * @param collision
+   */
+  Game_CharacterBase.prototype.moveToPoint = function (x, y, collision) {
+    collision = collision || false;
+    if (collision) $gameTemp._moveAllowPlayerCollision = true;
+    var direction = this.findDirectionTo(x, y);
+    if (collision) $gameTemp._moveAllowPlayerCollision = false;
+    if (direction > 0) this.moveStraight(direction);
+    if (this.x !== x || this.y !== y) this._moveRouteIndex -= 1;
+    this.setMovementSuccess(true);
+  };
+
+  //=============================================================================
+  // Game_Character
+  //  タッチ移動の動作を調整します。
+  //=============================================================================
+  var _Game_Character_findDirectionTo =
+    Game_Character.prototype.findDirectionTo;
+  Game_Character.prototype.findDirectionTo = function (goalX, goalY) {
+    var result;
+    if (this.isHalfMove()) {
+      localHalfPositionCount++;
+      result = _Game_Character_findDirectionTo.apply(this, arguments);
+      localHalfPositionCount--;
+    } else {
+      result = _Game_Character_findDirectionTo.apply(this, arguments);
+    }
+    if (!this._searchHighPrecision && !this.canPass(this.x, this.y, result)) {
+      this._searchHighPrecision = true;
+      result = this.findDirectionTo(goalX, goalY);
+    }
+    return result;
+  };
+
+  var _Game_Character_searchLimit = Game_Character.prototype.searchLimit;
+  Game_Character.prototype.searchLimit = function () {
+    return (
+      _Game_Character_searchLimit.apply(this, arguments) *
+      (this.isSearchHighPrecision() ? 2 : 1)
+    );
+  };
+
+  Game_Character.prototype.isSearchHighPrecision = function () {
+    return this._searchHighPrecision;
+  };
+
+  Game_Character.prototype.canDiagonalMove = function () {
+    return (
+      paramDirection8Move &&
+      (param8MoveSwitch > 0 ? $gameSwitches.value(param8MoveSwitch) : true)
+    );
+  };
+
+  Game_Character.prototype.getDiagonalRandomDirection = function () {
+    var direction;
+    do {
+      direction = 1 + Math.randomInt(9);
+    } while (!this.isDiagonalDirection(direction));
+    return direction;
+  };
+
+  Game_Character.prototype.getDiagonalTowardDirection = function (x, y) {
+    var sx = this.deltaXFrom(x);
+    var sy = this.deltaYFrom(y);
+    var direction = 5;
+    if (sx !== 0) {
+      direction += sx < 0 ? 1 : -1;
+    }
+    if (sy !== 0) {
+      direction += sy < 0 ? -3 : 3;
+    }
+    return direction;
+  };
+
+  Game_Character.prototype.isDiagonalDirection = function (direction) {
+    return direction !== 5 && direction % 2 === 1;
+  };
+
+  var _Game_Character_moveRandom = Game_Character.prototype.moveRandom;
+  Game_Character.prototype.moveRandom = function () {
+    if (!this.canDiagonalMove() || Math.randomInt(2) === 0) {
+      _Game_Character_moveRandom.apply(this, arguments);
+    } else {
+      this.executeDiagonalMove(this.getDiagonalRandomDirection());
+    }
+  };
+
+  var _Game_Character_moveTowardCharacter =
+    Game_Character.prototype.moveTowardCharacter;
+  Game_Character.prototype.moveTowardCharacter = function (character) {
+    if (!this.canDiagonalMove() || Math.randomInt(4) === 0) {
+      _Game_Character_moveTowardCharacter.apply(this, arguments);
+      return;
+    }
+    var direction = this.getDiagonalTowardDirection(character.x, character.y);
+    if (this.isDiagonalDirection(direction)) {
+      this.executeDiagonalMove(direction);
+      if (!this.isMovementSucceeded()) {
+        _Game_Character_moveTowardCharacter.apply(this, arguments);
+      }
+    } else {
+      _Game_Character_moveTowardCharacter.apply(this, arguments);
+    }
+  };
+
+  var _Game_Character_moveAwayFromCharacter =
+    Game_Character.prototype.moveAwayFromCharacter;
+  Game_Character.prototype.moveAwayFromCharacter = function (character) {
+    if (!this.canDiagonalMove() || Math.randomInt(4) === 0) {
+      _Game_Character_moveAwayFromCharacter.apply(this, arguments);
+      return;
+    }
+    var direction =
+      10 - this.getDiagonalTowardDirection(character.x, character.y);
+    if (this.isDiagonalDirection(direction)) {
+      this.executeDiagonalMove(direction);
+      if (!this.isMovementSucceeded()) {
+        _Game_Character_moveAwayFromCharacter.apply(this, arguments);
+      }
+    } else {
+      _Game_Character_moveAwayFromCharacter.apply(this, arguments);
+    }
+  };
+
+  Game_Character.prototype.executeDiagonalMove = function (d) {
+    var divide = this.divideDirection(d);
+    var horizon = divide.horizon;
+    var vertical = divide.vertical;
+    this.moveDiagonally(horizon, vertical);
+    if (this._firstInputDir === horizon) {
+      this.moveStraightForRetry(vertical);
+      this.moveStraightForRetry(horizon);
+    } else {
+      this.moveStraightForRetry(horizon);
+      this.moveStraightForRetry(vertical);
+    }
+  };
+
+  Game_Character.prototype.moveStraightForRetry = function (d) {
+    if (!this.isMovementSucceeded()) {
+      this.moveStraight(d);
+    }
+  };
+
+  //=============================================================================
+  // Game_Player
+  //  8方向移動に対応させます。
+  //=============================================================================
+  var _Game_Player_initMembers = Game_Player.prototype.initMembers;
+  Game_Player.prototype.initMembers = function () {
+    _Game_Player_initMembers.apply(this, arguments);
+    this._testEventStart = false;
+  };
+
+  var _Game_Player_locate = Game_Player.prototype.locate;
+  Game_Player.prototype.locate = function (x, y) {
+    _Game_Player_locate.apply(this, arguments);
+    this.resetPrevPos();
+  };
+
+  var _Game_Player_increaseSteps = Game_Player.prototype.increaseSteps;
+  Game_Player.prototype.increaseSteps = function () {
+    if (this._realStep === undefined) this._realStep = 0;
+    this._realStep += this.isHalfMove() ? Game_Map.tileUnit : 1;
+    if (this.isHalfStep()) {
+      Game_Character.prototype.increaseSteps.call(this);
+    } else {
+      _Game_Player_increaseSteps.apply(this, arguments);
+    }
+  };
+
+  var _Game_Player_updateEncounterCount =
+    Game_Player.prototype.updateEncounterCount;
+  Game_Player.prototype.updateEncounterCount = function () {
+    if (!this.isHalfStep()) {
+      _Game_Player_updateEncounterCount.apply(this, arguments);
+    }
+  };
+
+  Game_Player.prototype.isHalfStep = function () {
+    return (
+      paramAdjustmentRealStep &&
+      this._realStep &&
+      Math.floor(this._realStep) !== this._realStep
+    );
+  };
+
+  var _Game_Player_isOnDamageFloor = Game_Player.prototype.isOnDamageFloor;
+  Game_Player.prototype.isOnDamageFloor = function () {
+    return (
+      !this.isHalfStep() && _Game_Player_isOnDamageFloor.apply(this, arguments)
+    );
+  };
+
+  var _Game_Player_isCollided = Game_Player.prototype.isCollided;
+  Game_Player.prototype.isCollided = function (x, y) {
+    if (_Game_Player_isCollided.apply(this, arguments)) {
+      return true;
+    }
+    if (this.isThrough()) {
+      return false;
+    }
+    return (
+      this.posUnitHt(x, y) ||
+      this._followers.isSomeoneUnitCollidedCollided(x, y)
+    );
+  };
+
+  var _Game_Player_getInputDirection = Game_Player.prototype.getInputDirection;
+  Game_Player.prototype.getInputDirection = function () {
+    var result = this.canDiagonalMove()
+      ? Input.dir8
+      : _Game_Player_getInputDirection.apply(this, arguments);
+    if (result === 0) {
+      this._firstInputDir = 0;
+    } else if (result % 2 === 0 && this._firstInputDir === 0) {
+      this._firstInputDir = result;
+    }
+    return result;
+  };
+
+  var _Game_Player_executeMove = Game_Player.prototype.executeMove;
+  Game_Player.prototype.executeMove = function (d) {
+    if (d % 2 !== 0 && d !== 5) {
+      this.executeDiagonalMove(d);
+    } else {
+      _Game_Player_executeMove.apply(this, arguments);
+      if (
+        !this.isMovementSucceeded() &&
+        this.isHalfMove() &&
+        paramAvoidCorner &&
+        !$gameTemp.isDestinationValid() &&
+        !$gameMap.isEventRunning()
+      ) {
+        this.executeMoveRetry(d);
+      }
+    }
+  };
+
+  var _Game_Player_startMapEvent = Game_Player.prototype.startMapEvent;
+  Game_Player.prototype.startMapEvent = function (x, y, triggers, normal) {
+    _Game_Player_startMapEvent.apply(this, arguments);
+    if ($gameMap.isEventRunning()) return;
+    $gameMap.events().some(function (event) {
+      if (
+        event.isTriggerExpansion(x, y) &&
+        event.isTriggerIn(triggers) &&
+        event.isNormalPriority() === normal &&
+        (event.isCollidedFromPlayer() || !event.isNormalPriority())
+      ) {
+        event.start();
+        if (event.isStarting() && paramMultiStartDisable) return true;
+      }
+      return false;
+    });
+  };
+
+  var _Game_Player_startMapEvent2 = Game_Player.prototype.startMapEvent;
+  Game_Player.prototype.startMapEvent = function (x, y, triggers, normal) {
+    if (normal && this.isHalfMove()) {
+      var d = this._frontDirection || this.direction();
+      if (!this.canPass(this.x, this.y, d)) {
+        _Game_Player_startMapEvent2.apply(this, arguments);
         arguments[0] = $gameMap.roundHalfXWithDirection(x, 10 - d);
         arguments[1] = $gameMap.roundHalfYWithDirection(y, 10 - d);
-        _Game_Event_checkEventTriggerTouch2.apply(this, arguments);
-    };
-
-    var _Game_Event_start = Game_Event.prototype.start;
-    Game_Event.prototype.start = function () {
-        if (!$gamePlayer.isTestEventStart()) {
-            _Game_Event_start.apply(this, arguments);
-        } else {
-            var list = this.list();
-            if (list && list.length > 1) {
-                this._startingPrepared = true;
-            }
-        }
-    };
-
-    Game_Event.prototype.isStartingPrepared = function () {
-        return this._startingPrepared;
-    };
-
-    Game_Event.prototype.resetStartingPrepared = function () {
-        this._startingPrepared = false;
-    };
-
-    Game_Event.prototype.isTriggerExpansion = function (x, y) {
-        return this._triggerExpansion && this.isInExpansionArea(x, y);
-    };
-
-    Game_Event.prototype.isInExpansionArea = function (x, y) {
-        if (this.y + this._expansionArea[0] < y) {
-            return false;
-        } else if (this.x - this._expansionArea[1] > x) {
-            return false;
-        } else if (this.x + this._expansionArea[2] < x) {
-            return false;
-        } else if (this.y - this._expansionArea[3] > y) {
-            return false;
-        }
-        return true;
-    };
-
-    Game_Event.prototype.isCollidedFromPlayer = function () {
-        return this._collidedFromPlayer;
-    };
-
-    Game_Event.prototype.setCollidedFromPlayer = function (value) {
-        this._collidedFromPlayer = value;
-    };
-
-    Game_Event.prototype.canDiagonalMove = function () {
-        return !this._can8moveDisable && Game_Character.prototype.canDiagonalMove.call(this);
-    };
-
-    Game_Event.prototype.posExpansionNt = function (x, y) {
-        if (this._triggerExpansion) {
-            return this.isTriggerExpansion(x, y) && !this.isThrough();
-        } else {
-            return this.posUnitNt(x, y);
-        }
-    };
-
-    //=============================================================================
-    // Game_Follower
-    //  追従処理を半歩移動に対応させます。
-    //=============================================================================
-    var _Game_Follower_chaseCharacter = Game_Follower.prototype.chaseCharacter;
-    Game_Follower.prototype.chaseCharacter = function (character) {
-        if ($gamePlayer.followers().areGathering() || $gamePlayer.isInVehicle()) {
-            character.resetPrevPos();
-            _Game_Follower_chaseCharacter.apply(this, arguments);
-        } else {
-            var sx = this.deltaXFrom(character.getPrevX());
-            var sy = this.deltaYFrom(character.getPrevY());
-            if (sx !== 0 && sy !== 0) {
-                this.moveDiagonally(sx > 0 ? 4 : 6, sy > 0 ? 8 : 2);
-            } else if (sx !== 0) {
-                this.moveStraight(sx > 0 ? 4 : 6);
-            } else if (sy !== 0) {
-                this.moveStraight(sy > 0 ? 8 : 2);
-            }
-            this.setMoveSpeed($gamePlayer.realMoveSpeed());
-        }
-    };
-
-    //=============================================================================
-    // Game_Followers
-    //  追従処理を半歩移動に対応させます。
-    //=============================================================================
-    Game_Followers.prototype.isSomeoneUnitCollidedCollided = function (x, y) {
-        return this.visibleFollowers().some(function (follower) {
-            return follower.posUnitHt(x, y);
-        }, this);
-    };
-
-    //=============================================================================
-    // Game_CharacterBase
-    //  禁止フラグを確認します。
-    //=============================================================================
-    Game_CharacterBase.prototype.isHalfMove = function () {
-        return !this._halfDisable && $gameSystem.canHalfMove();
-    };
-
-    Game_CharacterBase.prototype.setHalfMove = function (value) {
-        this._halfDisable = !value;
-        this.locate(this.x, this.y);
-    };
-
-    //=============================================================================
-    // Game_Character
-    //  移動ルート強制中は半歩移動を無効にします。
-    //=============================================================================
-    Game_Character.prototype.isHalfMove = function () {
-        if (this._moveRouteForcing && !this.canHalfMoveDuringRouteForce()) {
-            return false;
-        }
-        return Game_CharacterBase.prototype.isHalfMove.call(this) || this.isHalfPosX() || this.isHalfPosY();
-    };
-
-    Game_Character.prototype.canHalfMoveDuringRouteForce = function () {
-        return this._halfMoveDuringRouteForce || !paramDisableForcing;
-    };
-
-    Game_Character.prototype.setHalfMoveDuringRouteForce = function () {
-        this._halfMoveDuringRouteForce = true;
-    };
-
-    Game_Character.prototype.resetHalfMoveDuringRouteForce = function () {
-        this._halfMoveDuringRouteForce = false;
-    };
-
-    //=============================================================================
-    // Game_Player
-    //  乗り物搭乗中は半歩移動を無効にします。
-    //=============================================================================
-    Game_Player.prototype.isHalfMove = function () {
-        return Game_Character.prototype.isHalfMove.call(this) && !this.isInVehicle();
-    };
-
-    //=============================================================================
-    // Game_Vehicle
-    //  乗り物の半歩移動は無効
-    //=============================================================================
-    Game_Vehicle.prototype.isHalfMove = function () {
-        return false;
-    };
-
-    //=============================================================================
-    // Game_Follower
-    //  フォロワーの半歩移動はプレイヤーに依存します。
-    //=============================================================================
-    Game_Follower.prototype.isHalfMove = function () {
-        return $gamePlayer.isHalfMove() || this.isHalfPosX() || this.isHalfPosY();
-    };
-
-    // Resolve conflict for MPP_MiniMap_OP1.js
-    //=============================================================================
-    // Game_MiniMap
-    //  描画判定において半歩座標を考慮します。
-    //=============================================================================
-    if (typeof Game_MiniMap === 'function') {
-        var _Game_MiniMap_isFilled = Game_MiniMap.prototype.isFilled;
-        Game_MiniMap.prototype.isFilled = function (x, y) {
-            arguments[0] = Math.floor(arguments[0]);
-            arguments[1] = Math.floor(arguments[1]);
-            return _Game_MiniMap_isFilled.apply(this, arguments);
-        };
+        _Game_Player_startMapEvent2.apply(this, arguments);
+      }
+    } else {
+      _Game_Player_startMapEvent2.apply(this, arguments);
     }
+  };
 
-    // Resolve conflict for KhasAdvancedLighting
-    var _Game_Map_getHeight = Game_Map.prototype.getHeight;
-    Game_Map.prototype.getHeight = function (x, y) {
-        if (this.isHalfPos(x)) {
-            x -= Game_Map.tileUnit;
-        }
-        if (this.isHalfPos(y)) {
-            y -= Game_Map.tileUnit;
-        }
-        _Game_Map_getHeight.call(this, x, y);
+  var _Game_Player_triggerTouchAction =
+    Game_Player.prototype.triggerTouchAction;
+  Game_Player.prototype.triggerTouchAction = function () {
+    var result = _Game_Player_triggerTouchAction.apply(this, arguments);
+    if (!result && $gameTemp.isDestinationValid()) {
+      var direction = this._frontDirection || this.direction();
+      var x1 = this.x;
+      var y1 = this.y;
+      var x2 = $gameMap.roundHalfXWithDirection(x1, direction);
+      var y2 = $gameMap.roundHalfYWithDirection(y1, direction);
+      var x3 = $gameMap.roundXWithDirection(x2, direction);
+      var y3 = $gameMap.roundYWithDirection(y2, direction);
+      var destinationX = $gameTemp.destinationX();
+      var destinationY = $gameTemp.destinationY();
+      var tu = Game_Map.tileUnit;
+      if (x1 === destinationX && y1 === destinationY) {
+        return false;
+      }
+      if (
+        Math.abs(destinationX - x2) <= tu &&
+        Math.abs(destinationY - y2) <= tu
+      ) {
+        return this.triggerTouchActionD2(x2, y2);
+      } else if (
+        Math.abs(destinationX - x3) <= tu &&
+        Math.abs(destinationY - y3) <= tu
+      ) {
+        return this.triggerTouchActionD3(x2, y2);
+      }
+    }
+    return result;
+  };
+
+  Game_Player.prototype.isStartingPreparedMapEvent = function (x, y) {
+    $gameMap.events().forEach(function (event) {
+      event.resetStartingPrepared();
+    });
+    this._testEventStart = true;
+    this.startMapEvent(x, y, [0, 1, 2], true);
+    if ($gameMap.isCounter(x, y)) {
+      var x1 = $gameMap.roundXWithDirection(x, this.direction());
+      var y1 = $gameMap.roundYWithDirection(y, this.direction());
+      this.startMapEvent(x1, y1, [0], true);
+    }
+    this._testEventStart = false;
+    return $gameMap.events().some(function (event) {
+      return event.isStartingPrepared();
+    });
+  };
+
+  Game_Player.prototype.isTestEventStart = function () {
+    return this._testEventStart;
+  };
+
+  Game_Player.prototype.executeMoveRetry = function (d) {
+    var x2 = $gameMap.roundXWithDirection(this.x, d);
+    var y2 = $gameMap.roundYWithDirection(this.y, d);
+    if (!this.isStartingPreparedMapEvent(x2, y2)) {
+      if (d === 2 || d === 8) {
+        this.moveDiagonallyForRetry(4, d);
+        this.moveDiagonallyForRetry(6, d);
+      }
+      if (d === 4 || d === 6) {
+        this.moveDiagonallyForRetry(d, 2);
+        this.moveDiagonallyForRetry(d, 8);
+      }
+    }
+  };
+
+  Game_Player.prototype.resetPrevPos = function () {
+    Game_CharacterBase.prototype.resetPrevPos.call(this);
+    this.followers().forEach(
+      function (follower) {
+        follower.resetPrevPos();
+      }.bind(this)
+    );
+  };
+
+  Game_Player.prototype.isCollidedWithEventsForHalfMove = function (x, y) {
+    $gameMap.events().forEach(function (event) {
+      event.setCollidedFromPlayer(false);
+    });
+    return Game_CharacterBase.prototype.isCollidedWithEventsForHalfMove.call(
+      this,
+      x,
+      y
+    );
+  };
+
+  Game_Player.prototype.collidedToEvent = function (target) {
+    target.setCollidedFromPlayer(true);
+  };
+
+  var _Game_Player_getOnVehicle = Game_Player.prototype.getOnVehicle;
+  Game_Player.prototype.getOnVehicle = function () {
+    var result = _Game_Player_getOnVehicle.apply(this, arguments);
+    if (!result && this.isHalfMove()) {
+      localHalfPositionCount++;
+      result = _Game_Player_getOnVehicle.apply(this, arguments);
+      localHalfPositionCount--;
+    }
+    return result;
+  };
+
+  var _Game_Player_moveStraightForRetry =
+    Game_Player.prototype.moveStraightForRetry;
+  Game_Player.prototype.moveStraightForRetry = function (d) {
+    if (this.canMove()) {
+      _Game_Player_moveStraightForRetry.apply(this, arguments);
+    }
+  };
+
+  var _Game_Player_updateNonmoving = Game_Player.prototype.updateNonmoving;
+  Game_Player.prototype.updateNonmoving = function (wasMoving) {
+    _Game_Player_updateNonmoving.apply(this, arguments);
+    if (!wasMoving) {
+      this._searchHighPrecision = false;
+    }
+  };
+
+  //=============================================================================
+  // Game_Event
+  //  半歩移動用の接触処理を定義します。
+  //=============================================================================
+  var _Game_Event_initialize = Game_Event.prototype.initialize;
+  Game_Event.prototype.initialize = function (mapId, eventId) {
+    _Game_Event_initialize.apply(this, arguments);
+    this._halfDisable = getMetaValues(this.event(), [
+      "HalfDisable",
+      "半歩禁止",
+    ]);
+    this._throughDisable = getMetaValues(this.event(), [
+      "ThroughDisable",
+      "すり抜け禁止",
+    ]);
+    this._eventWidth = getArgNumber(
+      getMetaValues(this.event(), ["Width", "横幅"]),
+      0
+    );
+    this._eventHeight = getArgNumber(
+      getMetaValues(this.event(), ["Height", "高さ"]),
+      0
+    );
+    this._can8moveDisable = getMetaValues(this.event(), [
+      "8MoveDisable",
+      "8方向移動禁止",
+    ]);
+    var metaValue = getMetaValues(this.event(), [
+      "TriggerExpansion",
+      "トリガー拡大",
+    ]);
+    this._triggerExpansion = metaValue
+      ? getArgBoolean(metaValue)
+      : paramTriggerExpansion;
+    this._expansionArea = this.getExpansionArea();
+    var halfX = getMetaValues(this.event(), ["初期半歩X", "InitialHalfX"]);
+    var halfY = getMetaValues(this.event(), ["初期半歩Y", "InitialHalfY"]);
+    if (halfX || halfY) {
+      this.initHalfPos(halfX, halfY);
+    }
+  };
+
+  Game_Event.prototype.initHalfPos = function (halfX, halfY) {
+    var newX = this.x;
+    var newY = this.y;
+    if (halfX === "-") {
+      newX -= Game_Map.tileUnit;
+    } else if (halfX) {
+      newX += Game_Map.tileUnit;
+    }
+    if (halfY === "-") {
+      newY -= Game_Map.tileUnit;
+    } else if (halfY) {
+      newY += Game_Map.tileUnit;
+    }
+    this.locate(newX, newY);
+  };
+
+  var _Game_Event_setupPage = Game_Event.prototype.setupPage;
+  Game_Event.prototype.setupPage = function () {
+    _Game_Event_setupPage.apply(this, arguments);
+    this._expansionArea = this.getExpansionArea();
+  };
+
+  Game_Event.prototype.getExpansionArea = function () {
+    // Resolve conflict for MOG_ChronoEngine.js
+    if (!this.event().meta) {
+      this.event().meta = {};
+    }
+    var metaValue = getMetaValues(this.event(), ["ExpansionArea", "拡大領域"]);
+    if (metaValue) {
+      this._customExpansion = true;
+      return getArgArrayFloat(metaValue);
+    } else if (this.isNormalPriority() && this.isThroughEnable()) {
+      return [0, 0.5, 0.5, 0];
+    } else {
+      return [0.5, 0.5, 0.5, 0.5];
+    }
+  };
+
+  var _Game_Event_isCollidedWithEvents =
+    Game_Event.prototype.isCollidedWithEvents;
+  Game_Event.prototype.isCollidedWithEvents = function (x, y) {
+    var result = _Game_Event_isCollidedWithEvents.apply(this, arguments);
+    if (result) return true;
+    var events = $gameMap.eventsXyUnitNt(x, y);
+    var collidedEvents = events.filter(
+      function (event) {
+        return (
+          event !== this &&
+          !event.isHalfThrough(y) &&
+          (!paramEventOverlap || event.isNormalPriority())
+        );
+      }.bind(this)
+    );
+    if (collidedEvents.length === 0) return false;
+    return !paramEventOverlap || this.isNormalPriority();
+  };
+
+  var _Game_Event_isCollidedWithPlayerCharacters =
+    Game_Event.prototype.isCollidedWithPlayerCharacters;
+  Game_Event.prototype.isCollidedWithPlayerCharacters = function (x, y) {
+    var result = _Game_Event_isCollidedWithPlayerCharacters.apply(
+      this,
+      arguments
+    );
+    if (
+      !result &&
+      !this.isHalfThrough($gamePlayer.y) &&
+      this.isNormalPriority()
+    ) {
+      var tileUnit = Game_Map.tileUnit;
+      result =
+        $gamePlayer.isCollided(x, y - tileUnit) ||
+        $gamePlayer.isCollided(x, y + tileUnit);
+    }
+    this.setCollidedFromPlayer(result);
+    return result;
+  };
+
+  var _Game_Event_checkEventTriggerTouch =
+    Game_Event.prototype.checkEventTriggerTouch;
+  Game_Event.prototype.checkEventTriggerTouch = function (x, y) {
+    _Game_Event_checkEventTriggerTouch.apply(this, arguments);
+    if ($gameMap.isEventRunning()) return;
+    if (
+      this._trigger === 2 &&
+      $gamePlayer.posUnit(x, y) &&
+      this.isTriggerExpansion(x, y)
+    ) {
+      if (
+        !this.isJumping() &&
+        this.isNormalPriority() &&
+        this.isCollidedFromPlayer()
+      ) {
+        this.start();
+      }
+    }
+  };
+
+  var _Game_Event_checkEventTriggerTouch2 =
+    Game_Event.prototype.checkEventTriggerTouch;
+  Game_Event.prototype.checkEventTriggerTouch = function (x, y) {
+    var d = this._frontDirection || this.direction();
+    _Game_Event_checkEventTriggerTouch2.apply(this, arguments);
+    arguments[0] = $gameMap.roundHalfXWithDirection(x, 10 - d);
+    arguments[1] = $gameMap.roundHalfYWithDirection(y, 10 - d);
+    _Game_Event_checkEventTriggerTouch2.apply(this, arguments);
+  };
+
+  var _Game_Event_start = Game_Event.prototype.start;
+  Game_Event.prototype.start = function () {
+    if (!$gamePlayer.isTestEventStart()) {
+      _Game_Event_start.apply(this, arguments);
+    } else {
+      var list = this.list();
+      if (list && list.length > 1) {
+        this._startingPrepared = true;
+      }
+    }
+  };
+
+  Game_Event.prototype.isStartingPrepared = function () {
+    return this._startingPrepared;
+  };
+
+  Game_Event.prototype.resetStartingPrepared = function () {
+    this._startingPrepared = false;
+  };
+
+  Game_Event.prototype.isTriggerExpansion = function (x, y) {
+    return this._triggerExpansion && this.isInExpansionArea(x, y);
+  };
+
+  Game_Event.prototype.isInExpansionArea = function (x, y) {
+    if (this.y + this._expansionArea[0] < y) {
+      return false;
+    } else if (this.x - this._expansionArea[1] > x) {
+      return false;
+    } else if (this.x + this._expansionArea[2] < x) {
+      return false;
+    } else if (this.y - this._expansionArea[3] > y) {
+      return false;
+    }
+    return true;
+  };
+
+  Game_Event.prototype.isCollidedFromPlayer = function () {
+    return this._collidedFromPlayer;
+  };
+
+  Game_Event.prototype.setCollidedFromPlayer = function (value) {
+    this._collidedFromPlayer = value;
+  };
+
+  Game_Event.prototype.canDiagonalMove = function () {
+    return (
+      !this._can8moveDisable &&
+      Game_Character.prototype.canDiagonalMove.call(this)
+    );
+  };
+
+  Game_Event.prototype.posExpansionNt = function (x, y) {
+    if (this._triggerExpansion) {
+      return this.isTriggerExpansion(x, y) && !this.isThrough();
+    } else {
+      return this.posUnitNt(x, y);
+    }
+  };
+
+  //=============================================================================
+  // Game_Follower
+  //  追従処理を半歩移動に対応させます。
+  //=============================================================================
+  var _Game_Follower_chaseCharacter = Game_Follower.prototype.chaseCharacter;
+  Game_Follower.prototype.chaseCharacter = function (character) {
+    if ($gamePlayer.followers().areGathering() || $gamePlayer.isInVehicle()) {
+      character.resetPrevPos();
+      _Game_Follower_chaseCharacter.apply(this, arguments);
+    } else {
+      var sx = this.deltaXFrom(character.getPrevX());
+      var sy = this.deltaYFrom(character.getPrevY());
+      if (sx !== 0 && sy !== 0) {
+        this.moveDiagonally(sx > 0 ? 4 : 6, sy > 0 ? 8 : 2);
+      } else if (sx !== 0) {
+        this.moveStraight(sx > 0 ? 4 : 6);
+      } else if (sy !== 0) {
+        this.moveStraight(sy > 0 ? 8 : 2);
+      }
+      this.setMoveSpeed($gamePlayer.realMoveSpeed());
+    }
+  };
+
+  //=============================================================================
+  // Game_Followers
+  //  追従処理を半歩移動に対応させます。
+  //=============================================================================
+  Game_Followers.prototype.isSomeoneUnitCollidedCollided = function (x, y) {
+    return this.visibleFollowers().some(function (follower) {
+      return follower.posUnitHt(x, y);
+    }, this);
+  };
+
+  //=============================================================================
+  // Game_CharacterBase
+  //  禁止フラグを確認します。
+  //=============================================================================
+  Game_CharacterBase.prototype.isHalfMove = function () {
+    return !this._halfDisable && $gameSystem.canHalfMove();
+  };
+
+  Game_CharacterBase.prototype.setHalfMove = function (value) {
+    this._halfDisable = !value;
+    this.locate(this.x, this.y);
+  };
+
+  //=============================================================================
+  // Game_Character
+  //  移動ルート強制中は半歩移動を無効にします。
+  //=============================================================================
+  Game_Character.prototype.isHalfMove = function () {
+    if (this._moveRouteForcing && !this.canHalfMoveDuringRouteForce()) {
+      return false;
+    }
+    return (
+      Game_CharacterBase.prototype.isHalfMove.call(this) ||
+      this.isHalfPosX() ||
+      this.isHalfPosY()
+    );
+  };
+
+  Game_Character.prototype.canHalfMoveDuringRouteForce = function () {
+    return this._halfMoveDuringRouteForce || !paramDisableForcing;
+  };
+
+  Game_Character.prototype.setHalfMoveDuringRouteForce = function () {
+    this._halfMoveDuringRouteForce = true;
+  };
+
+  Game_Character.prototype.resetHalfMoveDuringRouteForce = function () {
+    this._halfMoveDuringRouteForce = false;
+  };
+
+  //=============================================================================
+  // Game_Player
+  //  乗り物搭乗中は半歩移動を無効にします。
+  //=============================================================================
+  Game_Player.prototype.isHalfMove = function () {
+    return (
+      Game_Character.prototype.isHalfMove.call(this) && !this.isInVehicle()
+    );
+  };
+
+  //=============================================================================
+  // Game_Vehicle
+  //  乗り物の半歩移動は無効
+  //=============================================================================
+  Game_Vehicle.prototype.isHalfMove = function () {
+    return false;
+  };
+
+  //=============================================================================
+  // Game_Follower
+  //  フォロワーの半歩移動はプレイヤーに依存します。
+  //=============================================================================
+  Game_Follower.prototype.isHalfMove = function () {
+    return $gamePlayer.isHalfMove() || this.isHalfPosX() || this.isHalfPosY();
+  };
+
+  // Resolve conflict for MPP_MiniMap_OP1.js
+  //=============================================================================
+  // Game_MiniMap
+  //  描画判定において半歩座標を考慮します。
+  //=============================================================================
+  if (typeof Game_MiniMap === "function") {
+    var _Game_MiniMap_isFilled = Game_MiniMap.prototype.isFilled;
+    Game_MiniMap.prototype.isFilled = function (x, y) {
+      arguments[0] = Math.floor(arguments[0]);
+      arguments[1] = Math.floor(arguments[1]);
+      return _Game_MiniMap_isFilled.apply(this, arguments);
     };
+  }
+
+  // Resolve conflict for KhasAdvancedLighting
+  var _Game_Map_getHeight = Game_Map.prototype.getHeight;
+  Game_Map.prototype.getHeight = function (x, y) {
+    if (this.isHalfPos(x)) {
+      x -= Game_Map.tileUnit;
+    }
+    if (this.isHalfPos(y)) {
+      y -= Game_Map.tileUnit;
+    }
+    _Game_Map_getHeight.call(this, x, y);
+  };
 })();

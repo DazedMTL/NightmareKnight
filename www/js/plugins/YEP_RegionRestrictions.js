@@ -8,125 +8,125 @@ Imported.YEP_RegionRestrictions = true;
 
 var Yanfly = Yanfly || {};
 Yanfly.RR = Yanfly.RR || {};
-Yanfly.RR.version = 1.04
+Yanfly.RR.version = 1.04;
 
 //=============================================================================
 /*:
-* @plugindesc v1.04 Use regions to block out Events and/or the player from
-* being able to venture into those spots.
-* @author Yanfly Engine Plugins
-*
-* @param Player Restrict
-* @desc This region ID will restrict the player from entering.
-* To use multiple regions, separate them by spaces.
-* @default 0
-*
-* @param Event Restrict
-* @desc This region ID will restrict all events from entering.
-* To use multiple regions, separate them by spaces.
-* @default 0
-*
-* @param All Restrict
-* @desc This region ID will restrict players and events.
-* To use multiple regions, separate them by spaces.
-* @default 0
-*
-* @param Player Allow
-* @desc This region ID will always allow player passability.
-* To use multiple regions, separate them by spaces.
-* @default 0
-*
-* @param Event Allow
-* @desc This region ID will always allow events passability.
-* To use multiple regions, separate them by spaces.
-* @default 0
-*
-* @param All Allow
-* @desc This region ID will always allow both passability.
-* To use multiple regions, separate them by spaces.
-* @default 0
-*
-* @help
-* ============================================================================
-* Introduction and Instructions
-* ============================================================================
-*
-* Not everybody wants NPC's to travel all over the place. With this plugin,
-* you can set NPC's to be unable to move pass tiles marked by a specified
-* Region ID. Simply draw out the area you want to enclose NPC's in on and
-* they'll be unable to move past it unless they have Through on. Likewise,
-* there are regions that you can prevent the player from moving onto, too!
-*
-* A new change from the RPG Maker VX Ace version is that now there exist
-* Regions that can allow players and events to always travel through.
-*
-* ============================================================================
-* Notetags
-* ============================================================================
-*
-* You can use this notetag inside of your maps.
-*
-* Map Notetags:
-*
-*   <Player Restrict Region: x>
-*   <Player Restrict Region: x, x, x>
-*   <Player Restrict Region: x to y>
-*   Restricts region x for the player on this particular map. Use multiple x
-*   to mark more regions. From x to y, you can mark a multitude of regions.
-*
-*   <Event Restrict Region: x>
-*   <Event Restrict Region: x, x, x>
-*   <Event Restrict Region: x to y>
-*   Restricts region x for all events on this particular map. Use multiple x
-*   to mark more regions. From x to y, you can mark a multitude of regions.
-*
-*   <All Restrict Region: x>
-*   <All Restrict Region: x, x, x>
-*   <All Restrict Region: x to y>
-*   Restricts region x for the player and all events on this particular map.
-*   Use multiple x to mark more regions. From x to y, you can mark a multitude
-*   of regions.
-*
-*   <Player Allow Region: x>
-*   <Player Allow Region: x, x, x>
-*   <Player Allow Region: x to y>
-*   Allows region x for the player on this particular map. Use multiple x
-*   to mark more regions. From x to y, you can mark a multitude of regions.
-*
-*   <Event Allow Region: x>
-*   <Event Allow Region: x, x, x>
-*   <Event Allow Region: x to y>
-*   Allows region x for all events on this particular map. Use multiple x
-*   to mark more regions. From x to y, you can mark a multitude of regions.
-*
-*   <All Allow Region: x>
-*   <All Allow Region: x, x, x>
-*   <All Allow Region: x to y>
-*   Allows region x for the player and all events on this particular map.
-*   Use multiple x to mark more regions. From x to y, you can mark a multitude
-*   of regions.
-*
-* ============================================================================
-* Changelog
-* ============================================================================
-*
-* Version 1.04:
-* - Updated for RPG Maker MV version 1.5.0.
-*
-* Version 1.03:
-* - Fixed an issue with vehicles being capable of landing the player in region
-* restricted zones.
-*
-* Version 1.02:
-* - Plugin parameters have been upgraded to now accept multiple region ID's.
-* Insert a space in between them to add more than one region ID.
-*
-* Version 1.01:
-* - Added new notetags to allow for more region restriction settings!
-*
-* Version 1.00:
-* - Finished plugin!
-*/
+ * @plugindesc v1.04 Use regions to block out Events and/or the player from
+ * being able to venture into those spots.
+ * @author Yanfly Engine Plugins
+ *
+ * @param Player Restrict
+ * @desc This region ID will restrict the player from entering.
+ * To use multiple regions, separate them by spaces.
+ * @default 0
+ *
+ * @param Event Restrict
+ * @desc This region ID will restrict all events from entering.
+ * To use multiple regions, separate them by spaces.
+ * @default 0
+ *
+ * @param All Restrict
+ * @desc This region ID will restrict players and events.
+ * To use multiple regions, separate them by spaces.
+ * @default 0
+ *
+ * @param Player Allow
+ * @desc This region ID will always allow player passability.
+ * To use multiple regions, separate them by spaces.
+ * @default 0
+ *
+ * @param Event Allow
+ * @desc This region ID will always allow events passability.
+ * To use multiple regions, separate them by spaces.
+ * @default 0
+ *
+ * @param All Allow
+ * @desc This region ID will always allow both passability.
+ * To use multiple regions, separate them by spaces.
+ * @default 0
+ *
+ * @help
+ * ============================================================================
+ * Introduction and Instructions
+ * ============================================================================
+ *
+ * Not everybody wants NPC's to travel all over the place. With this plugin,
+ * you can set NPC's to be unable to move pass tiles marked by a specified
+ * Region ID. Simply draw out the area you want to enclose NPC's in on and
+ * they'll be unable to move past it unless they have Through on. Likewise,
+ * there are regions that you can prevent the player from moving onto, too!
+ *
+ * A new change from the RPG Maker VX Ace version is that now there exist
+ * Regions that can allow players and events to always travel through.
+ *
+ * ============================================================================
+ * Notetags
+ * ============================================================================
+ *
+ * You can use this notetag inside of your maps.
+ *
+ * Map Notetags:
+ *
+ *   <Player Restrict Region: x>
+ *   <Player Restrict Region: x, x, x>
+ *   <Player Restrict Region: x to y>
+ *   Restricts region x for the player on this particular map. Use multiple x
+ *   to mark more regions. From x to y, you can mark a multitude of regions.
+ *
+ *   <Event Restrict Region: x>
+ *   <Event Restrict Region: x, x, x>
+ *   <Event Restrict Region: x to y>
+ *   Restricts region x for all events on this particular map. Use multiple x
+ *   to mark more regions. From x to y, you can mark a multitude of regions.
+ *
+ *   <All Restrict Region: x>
+ *   <All Restrict Region: x, x, x>
+ *   <All Restrict Region: x to y>
+ *   Restricts region x for the player and all events on this particular map.
+ *   Use multiple x to mark more regions. From x to y, you can mark a multitude
+ *   of regions.
+ *
+ *   <Player Allow Region: x>
+ *   <Player Allow Region: x, x, x>
+ *   <Player Allow Region: x to y>
+ *   Allows region x for the player on this particular map. Use multiple x
+ *   to mark more regions. From x to y, you can mark a multitude of regions.
+ *
+ *   <Event Allow Region: x>
+ *   <Event Allow Region: x, x, x>
+ *   <Event Allow Region: x to y>
+ *   Allows region x for all events on this particular map. Use multiple x
+ *   to mark more regions. From x to y, you can mark a multitude of regions.
+ *
+ *   <All Allow Region: x>
+ *   <All Allow Region: x, x, x>
+ *   <All Allow Region: x to y>
+ *   Allows region x for the player and all events on this particular map.
+ *   Use multiple x to mark more regions. From x to y, you can mark a multitude
+ *   of regions.
+ *
+ * ============================================================================
+ * Changelog
+ * ============================================================================
+ *
+ * Version 1.04:
+ * - Updated for RPG Maker MV version 1.5.0.
+ *
+ * Version 1.03:
+ * - Fixed an issue with vehicles being capable of landing the player in region
+ * restricted zones.
+ *
+ * Version 1.02:
+ * - Plugin parameters have been upgraded to now accept multiple region ID's.
+ * Insert a space in between them to add more than one region ID.
+ *
+ * Version 1.01:
+ * - Added new notetags to allow for more region restriction settings!
+ *
+ * Version 1.00:
+ * - Finished plugin!
+ */
 //=============================================================================
 
 //=============================================================================
@@ -136,34 +136,34 @@ Yanfly.RR.version = 1.04
 Yanfly.Param = Yanfly.Param || {};
 
 Yanfly.SetupParameters = function () {
-  var parameters = PluginManager.parameters('YEP_RegionRestrictions');
-  Yanfly.Param.RRAllAllow = String(parameters['All Allow']);
-  Yanfly.Param.RRAllAllow = Yanfly.Param.RRAllAllow.split(' ');
+  var parameters = PluginManager.parameters("YEP_RegionRestrictions");
+  Yanfly.Param.RRAllAllow = String(parameters["All Allow"]);
+  Yanfly.Param.RRAllAllow = Yanfly.Param.RRAllAllow.split(" ");
   for (var i = 0; i < Yanfly.Param.RRAllAllow.length; ++i) {
     Yanfly.Param.RRAllAllow[i] = Number(Yanfly.Param.RRAllAllow[i]);
   }
-  Yanfly.Param.RRAllRestrict = String(parameters['All Restrict']);
-  Yanfly.Param.RRAllRestrict = Yanfly.Param.RRAllRestrict.split(' ');
+  Yanfly.Param.RRAllRestrict = String(parameters["All Restrict"]);
+  Yanfly.Param.RRAllRestrict = Yanfly.Param.RRAllRestrict.split(" ");
   for (var i = 0; i < Yanfly.Param.RRAllRestrict.length; ++i) {
     Yanfly.Param.RRAllRestrict[i] = Number(Yanfly.Param.RRAllRestrict[i]);
   }
-  Yanfly.Param.RREventAllow = String(parameters['Event Allow']);
-  Yanfly.Param.RREventAllow = Yanfly.Param.RREventAllow.split(' ');
+  Yanfly.Param.RREventAllow = String(parameters["Event Allow"]);
+  Yanfly.Param.RREventAllow = Yanfly.Param.RREventAllow.split(" ");
   for (var i = 0; i < Yanfly.Param.RREventAllow.length; ++i) {
     Yanfly.Param.RREventAllow[i] = Number(Yanfly.Param.RREventAllow[i]);
   }
-  Yanfly.Param.RREventRestrict = String(parameters['Event Restrict']);
-  Yanfly.Param.RREventRestrict = Yanfly.Param.RREventRestrict.split(' ');
+  Yanfly.Param.RREventRestrict = String(parameters["Event Restrict"]);
+  Yanfly.Param.RREventRestrict = Yanfly.Param.RREventRestrict.split(" ");
   for (var i = 0; i < Yanfly.Param.RREventRestrict.length; ++i) {
     Yanfly.Param.RREventRestrict[i] = Number(Yanfly.Param.RREventRestrict[i]);
   }
-  Yanfly.Param.RRPlayerAllow = String(parameters['Player Allow']);
-  Yanfly.Param.RRPlayerAllow = Yanfly.Param.RRPlayerAllow.split(' ');
+  Yanfly.Param.RRPlayerAllow = String(parameters["Player Allow"]);
+  Yanfly.Param.RRPlayerAllow = Yanfly.Param.RRPlayerAllow.split(" ");
   for (var i = 0; i < Yanfly.Param.RRPlayerAllow.length; ++i) {
     Yanfly.Param.RRPlayerAllow[i] = Number(Yanfly.Param.RRPlayerAllow[i]);
   }
-  Yanfly.Param.RRPlayerRestrict = String(parameters['Player Restrict']);
-  Yanfly.Param.RRPlayerRestrict = Yanfly.Param.RRPlayerRestrict.split(' ');
+  Yanfly.Param.RRPlayerRestrict = String(parameters["Player Restrict"]);
+  Yanfly.Param.RRPlayerRestrict = Yanfly.Param.RRPlayerRestrict.split(" ");
   for (var i = 0; i < Yanfly.Param.RRPlayerRestrict.length; ++i) {
     Yanfly.Param.RRPlayerRestrict[i] = Number(Yanfly.Param.RRPlayerRestrict[i]);
   }
@@ -177,13 +177,17 @@ Yanfly.SetupParameters();
 DataManager.processRRNotetags = function () {
   if (!$dataMap) return;
   $dataMap.restrictPlayerRegions = Yanfly.Param.RRAllRestrict.concat(
-    Yanfly.Param.RRPlayerRestrict);
+    Yanfly.Param.RRPlayerRestrict
+  );
   $dataMap.restrictEventRegions = Yanfly.Param.RRAllRestrict.concat(
-    Yanfly.Param.RREventRestrict);
+    Yanfly.Param.RREventRestrict
+  );
   $dataMap.allowPlayerRegions = Yanfly.Param.RRAllAllow.concat(
-    Yanfly.Param.RRPlayerAllow);
+    Yanfly.Param.RRPlayerAllow
+  );
   $dataMap.allowEventRegions = Yanfly.Param.RRAllAllow.concat(
-    Yanfly.Param.RREventAllow);
+    Yanfly.Param.RREventAllow
+  );
   if (!$dataMap.note) return;
 
   var note1a = /<(?:PLAYER RESTRICT REGION):[ ]*(\d+(?:\s*,\s*\d+)*)>/i;
@@ -205,59 +209,52 @@ DataManager.processRRNotetags = function () {
   for (var i = 0; i < notedata.length; i++) {
     var line = notedata[i];
     if (line.match(note1a)) {
-      array = JSON.parse('[' + RegExp.$1.match(/\d+/g) + ']');
+      array = JSON.parse("[" + RegExp.$1.match(/\d+/g) + "]");
       $dataMap.restrictPlayerRegions =
         $dataMap.restrictPlayerRegions.concat(array);
     } else if (line.match(note1b)) {
       var mainArray = $dataMap.restrictPlayerRegions;
-      var range = Yanfly.Util.getRange(Number(RegExp.$1),
-        Number(RegExp.$2));
+      var range = Yanfly.Util.getRange(Number(RegExp.$1), Number(RegExp.$2));
       $dataMap.restrictPlayerRegions =
         $dataMap.restrictPlayerRegions.concat(range);
     } else if (line.match(note2a)) {
-      array = JSON.parse('[' + RegExp.$1.match(/\d+/g) + ']');
+      array = JSON.parse("[" + RegExp.$1.match(/\d+/g) + "]");
       $dataMap.restrictEventRegions =
         $dataMap.restrictEventRegions.concat(array);
     } else if (line.match(note2b)) {
-      var range = Yanfly.Util.getRange(Number(RegExp.$1),
-        Number(RegExp.$2));
+      var range = Yanfly.Util.getRange(Number(RegExp.$1), Number(RegExp.$2));
       $dataMap.restrictEventRegions =
         $dataMap.restrictEventRegions.concat(range);
     } else if (line.match(note3a)) {
-      array = JSON.parse('[' + RegExp.$1.match(/\d+/g) + ']');
+      array = JSON.parse("[" + RegExp.$1.match(/\d+/g) + "]");
       $dataMap.restrictPlayerRegions =
         $dataMap.restrictPlayerRegions.concat(array);
       $dataMap.restrictEventRegions =
         $dataMap.restrictEventRegions.concat(array);
     } else if (line.match(note3b)) {
-      var range = Yanfly.Util.getRange(Number(RegExp.$1),
-        Number(RegExp.$2));
+      var range = Yanfly.Util.getRange(Number(RegExp.$1), Number(RegExp.$2));
       $dataMap.restrictPlayerRegions =
         $dataMap.restrictPlayerRegions.concat(array);
       $dataMap.restrictEventRegions =
         $dataMap.restrictEventRegions.concat(array);
     } else if (line.match(note4a)) {
-      array = JSON.parse('[' + RegExp.$1.match(/\d+/g) + ']');
-      $dataMap.allowPlayerRegions =
-        $dataMap.allowPlayerRegions.concat(array);
+      array = JSON.parse("[" + RegExp.$1.match(/\d+/g) + "]");
+      $dataMap.allowPlayerRegions = $dataMap.allowPlayerRegions.concat(array);
     } else if (line.match(note4b)) {
-      var range = Yanfly.Util.getRange(Number(RegExp.$1),
-        Number(RegExp.$2));
+      var range = Yanfly.Util.getRange(Number(RegExp.$1), Number(RegExp.$2));
       $dataMap.allowPlayerRegions = $dataMap.allowPlayerRegions.concat(range);
     } else if (line.match(note5a)) {
-      array = JSON.parse('[' + RegExp.$1.match(/\d+/g) + ']');
+      array = JSON.parse("[" + RegExp.$1.match(/\d+/g) + "]");
       $dataMap.allowEventRegions = $dataMap.allowEventRegions.concat(array);
     } else if (line.match(note5b)) {
-      var range = Yanfly.Util.getRange(Number(RegExp.$1),
-        Number(RegExp.$2));
+      var range = Yanfly.Util.getRange(Number(RegExp.$1), Number(RegExp.$2));
       $dataMap.allowEventRegions = $dataMap.allowEventRegions.concat(range);
     } else if (line.match(note6a)) {
-      array = JSON.parse('[' + RegExp.$1.match(/\d+/g) + ']');
+      array = JSON.parse("[" + RegExp.$1.match(/\d+/g) + "]");
       $dataMap.allowPlayerRegions = $dataMap.allowPlayerRegions.concat(array);
       $dataMap.allowEventRegions = $dataMap.allowEventRegions.concat(array);
     } else if (line.match(note6b)) {
-      var range = Yanfly.Util.getRange(Number(RegExp.$1),
-        Number(RegExp.$2));
+      var range = Yanfly.Util.getRange(Number(RegExp.$1), Number(RegExp.$2));
       $dataMap.allowPlayerRegions = $dataMap.allowPlayerRegions.concat(array);
       $dataMap.allowEventRegions = $dataMap.allowEventRegions.concat(array);
     }
@@ -359,7 +356,7 @@ Game_CharacterBase.prototype.isPlayerRegionAllow = function (x, y, d) {
   var regionId = this.getRegionId(x, y, d);
   if (regionId === 0) return false;
   if ($gameMap.allowPlayerRegions().contains(regionId)) return true;
-  return false
+  return false;
 };
 
 Game_CharacterBase.prototype.getRegionId = function (x, y, d) {

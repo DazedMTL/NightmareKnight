@@ -9,19 +9,19 @@
  * @param 重なり判定-A
  * @desc 重なり判定-Aを有効にする場合は true を、無効にする場合は false を指定してください。
  * @default true
- * 
+ *
  * @param 重なり判定-B
  * @desc 重なり判定-Bを有効にする場合は true を、無効にする場合は false を指定してください。
  * @default true
- * 
+ *
  * @param 重なり判定-C
  * @desc 重なり判定-Cを有効にする場合は true を、無効にする場合は false を指定してください。
  * @default true
- * 
+ *
  * @param 判定周期
  * @desc 重なり判定を何フレーム毎に行うかを指定してください。
  * @default 4
- * 
+ *
  * @param 不透明度
  * @desc プレイヤーと重なったときの不透明度を指定してください。[0-255]
  * @default 64
@@ -66,7 +66,7 @@
  *   ○○○○○○○  ●○○○○○●  ○○○●○○○
  *   ○○○○○○○  ○○○○○○○  ○○○○○○○
  *   ●○○○○○●  ○○○●○○○  ○○○○○○○
- * 
+ *
  * [ 利用規約 ] ................................................................
  *  ・本プラグインの利用は、RPGツクールMV/RPGMakerMVの正規ユーザーに限られます。
  *  ・商用、非商用、有償、無償、一般向け、成人向けを問わず、利用可能です。
@@ -97,203 +97,265 @@ var Makonet = Makonet || {};
 Makonet.MPP = {};
 
 (function () {
-    'use strict';
+  "use strict";
 
-    var MPD = Makonet.MPP;
-    MPD.product = 'MPI_MapPicture';
-    MPD.parameters = PluginManager.parameters(MPD.product);
+  var MPD = Makonet.MPP;
+  MPD.product = "MPI_MapPicture";
+  MPD.parameters = PluginManager.parameters(MPD.product);
 
-    MPD.check1 = MPD.parameters['重なり判定-A'].trim().toLowerCase() === 'true';
-    MPD.check2 = MPD.parameters['重なり判定-B'].trim().toLowerCase() === 'true';
-    MPD.check3 = MPD.parameters['重なり判定-C'].trim().toLowerCase() === 'true';
-    MPD.cycle = +MPD.parameters['判定周期'];
-    MPD.opacity = +MPD.parameters['不透明度'];
-    MPD.step = +MPD.parameters['変化量'];
+  MPD.check1 = MPD.parameters["重なり判定-A"].trim().toLowerCase() === "true";
+  MPD.check2 = MPD.parameters["重なり判定-B"].trim().toLowerCase() === "true";
+  MPD.check3 = MPD.parameters["重なり判定-C"].trim().toLowerCase() === "true";
+  MPD.cycle = +MPD.parameters["判定周期"];
+  MPD.opacity = +MPD.parameters["不透明度"];
+  MPD.step = +MPD.parameters["変化量"];
 
-    var _ = MPD.product;
+  var _ = MPD.product;
 
-    //==============================================================================
-    // Game_System
-    //==============================================================================
+  //==============================================================================
+  // Game_System
+  //==============================================================================
 
-    Object.defineProperty(Game_System.prototype, _, {
-        get: function () { return this[`$${_}`] = this[`$${_}`] || { coordinate_type: '', modesty: false, event_id: 0 }; },
-        set: function (value) { this[`$${_}`] = value; },
-        configurable: true
-    });
+  Object.defineProperty(Game_System.prototype, _, {
+    get: function () {
+      return (this[`$${_}`] = this[`$${_}`] || {
+        coordinate_type: "",
+        modesty: false,
+        event_id: 0,
+      });
+    },
+    set: function (value) {
+      this[`$${_}`] = value;
+    },
+    configurable: true,
+  });
 
-    //==============================================================================
-    // Game_Picture
-    //==============================================================================
+  //==============================================================================
+  // Game_Picture
+  //==============================================================================
 
-    Object.defineProperty(Game_Picture.prototype, _, {
-        get: function () { return this[`$${_}`] = this[`$${_}`] || { coordinate_type: '', modesty: false, event_id: 0 }; },
-        set: function (value) { this[`$${_}`] = value; },
-        configurable: true
-    });
+  Object.defineProperty(Game_Picture.prototype, _, {
+    get: function () {
+      return (this[`$${_}`] = this[`$${_}`] || {
+        coordinate_type: "",
+        modesty: false,
+        event_id: 0,
+      });
+    },
+    set: function (value) {
+      this[`$${_}`] = value;
+    },
+    configurable: true,
+  });
 
-    //==============================================================================
-    // Game_Map
-    //==============================================================================
+  //==============================================================================
+  // Game_Map
+  //==============================================================================
 
-    (function (o, p) {
-        var f = o[p]; o[p] = function (mapId) {
-            if (mapId !== this.mapId()) {
-                $gameScreen._pictures.forEach(function (picture, index) {
-                    if (picture && picture[_].coordinate_type !== '') {
-                        $gameScreen._pictures[index] = null;
-                    }
-                });
+  (function (o, p) {
+    var f = o[p];
+    o[p] = function (mapId) {
+      if (mapId !== this.mapId()) {
+        $gameScreen._pictures.forEach(function (picture, index) {
+          if (picture && picture[_].coordinate_type !== "") {
+            $gameScreen._pictures[index] = null;
+          }
+        });
+      }
+      f.apply(this, arguments);
+    };
+  })(Game_Map.prototype, "setup");
+
+  //==============================================================================
+  // Game_Screen
+  //==============================================================================
+
+  {
+    let __showPicture = Game_Screen.prototype.showPicture;
+    Game_Screen.prototype.showPicture = function (
+      pictureId,
+      name,
+      origin,
+      x,
+      y,
+      scaleX,
+      scaleY,
+      opacity,
+      blendMode
+    ) {
+      __showPicture.apply(this, arguments);
+      var picture = this.picture(pictureId);
+      picture[_].coordinate_type = $gameSystem[_].coordinate_type;
+      picture[_].modesty = $gameSystem[_].modesty;
+      picture[_].event_id = $gameSystem[_].event_id;
+      $gameSystem[_] = { coordinate_type: "", modesty: false, event_id: 0 };
+    };
+  }
+
+  //==============================================================================
+  // Game_Interpreter
+  //==============================================================================
+
+  (function (o, p) {
+    var f = o[p];
+    o[p] = function (command, args) {
+      f.apply(this, arguments);
+      switch (command.toUpperCase()) {
+        case "MAP_PICTURE_SM":
+          $gameSystem[_].modesty = true;
+        case "MAP_PICTURE_S":
+          $gameSystem[_].coordinate_type = "standard";
+          $gameSystem[_].event_id = this._eventId;
+          break;
+        case "MAP_PICTURE_EM":
+          $gameSystem[_].modesty = true;
+        case "MAP_PICTURE_E":
+          $gameSystem[_].coordinate_type = "event";
+          $gameSystem[_].event_id = this._eventId;
+          break;
+      }
+    };
+  })(Game_Interpreter.prototype, "pluginCommand");
+
+  //==============================================================================
+  // Sprite_Picture
+  //==============================================================================
+
+  (function (o, p) {
+    var f = o[p];
+    o[p] = function () {
+      f.apply(this, arguments);
+      var picture = this.picture();
+      if (picture[_].coordinate_type) {
+        switch (picture[_].coordinate_type) {
+          case "standard":
+            this.x = Math.floor(
+              (picture.x() - $gameMap._displayX) * $gameMap.tileWidth()
+            );
+            this.y = Math.floor(
+              (picture.y() - $gameMap._displayY) * $gameMap.tileHeight()
+            );
+            break;
+          case "event":
+            var event = $gameMap.event(picture[_].event_id);
+            if (event && event.event()) {
+              this.x = Math.floor(
+                (event._realX - $gameMap._displayX) * $gameMap.tileWidth()
+              );
+              this.y = Math.floor(
+                (event._realY - $gameMap._displayY) * $gameMap.tileHeight()
+              );
+            } else {
+              picture[_] = { coordinate_type: "", modesty: false, event_id: 0 };
             }
-            f.apply(this, arguments);
-        };
-    }(Game_Map.prototype, 'setup'));
+            break;
+        }
+      }
+    };
+  })(Sprite_Picture.prototype, "updatePosition");
 
-    //==============================================================================
-    // Game_Screen
-    //==============================================================================
+  //==============================================================================
+  // Game_Player
+  //==============================================================================
 
-    {
-        let __showPicture = Game_Screen.prototype.showPicture;
-        Game_Screen.prototype.showPicture = function (pictureId, name, origin, x, y, scaleX, scaleY, opacity, blendMode) {
-            __showPicture.apply(this, arguments);
-            var picture = this.picture(pictureId);
-            picture[_].coordinate_type = $gameSystem[_].coordinate_type;
-            picture[_].modesty = $gameSystem[_].modesty;
-            picture[_].event_id = $gameSystem[_].event_id;
-            $gameSystem[_] = { coordinate_type: '', modesty: false, event_id: 0 };
-        };
-    }
+  Object.defineProperty(Game_Player.prototype, _, {
+    get: function () {
+      return (this[`$${_}`] = this[`$${_}`] || {
+        left: 0,
+        top: 0,
+        right: 0,
+        bottom: 0,
+      });
+    },
+    set: function (value) {
+      this[`$${_}`] = value;
+    },
+    configurable: true,
+  });
 
-    //==============================================================================
-    // Game_Interpreter
-    //==============================================================================
+  //==============================================================================
+  // Sprite_Character
+  //==============================================================================
 
-    (function (o, p) {
-        var f = o[p]; o[p] = function (command, args) {
-            f.apply(this, arguments);
-            switch (command.toUpperCase()) {
-                case 'MAP_PICTURE_SM':
-                    $gameSystem[_].modesty = true;
-                case 'MAP_PICTURE_S':
-                    $gameSystem[_].coordinate_type = 'standard';
-                    $gameSystem[_].event_id = this._eventId;
-                    break;
-                case 'MAP_PICTURE_EM':
-                    $gameSystem[_].modesty = true;
-                case 'MAP_PICTURE_E':
-                    $gameSystem[_].coordinate_type = 'event';
-                    $gameSystem[_].event_id = this._eventId;
-                    break;
+  (function (o, p) {
+    var f = o[p];
+    o[p] = function () {
+      f.apply(this, arguments);
+      if (this._character === $gamePlayer) {
+        var gp = $gamePlayer[_];
+        gp.left = parseInt(this.x - this.anchor.x * this.patternWidth());
+        gp.top = parseInt(this.y - this.anchor.y * this.patternHeight());
+        gp.right = gp.left + this.patternWidth();
+        gp.bottom = gp.top + this.patternHeight();
+      }
+    };
+  })(Sprite_Character.prototype, "updateCharacterFrame");
+
+  //==============================================================================
+  // Sprite_Picture
+  //==============================================================================
+
+  Object.defineProperty(Sprite_Picture.prototype, _, {
+    get: function () {
+      return (this[`$${_}`] = this[`$${_}`] || {
+        opacity: 255,
+        overlap: false,
+      });
+    },
+    set: function (value) {
+      this[`$${_}`] = value;
+    },
+    configurable: true,
+  });
+
+  (function (o, p) {
+    var f = o[p];
+    o[p] = function () {
+      f.apply(this, arguments);
+      var this_ = this[_];
+      if (this.picture()[_].modesty && !!this.bitmap) {
+        if (Graphics.frameCount % MPD.cycle === 0) {
+          var pl = parseInt(this.x - this.anchor.x * this._realFrame.width);
+          var pt = parseInt(this.y - this.anchor.y * this._realFrame.height);
+          var pr = pl + this._realFrame.width;
+          var pb = pt + this._realFrame.height;
+          var gp = $gamePlayer[_];
+          var bl = gp.left === gp.left.clamp(pl, pr);
+          var bt = gp.top === gp.top.clamp(pt, pb);
+          var br = gp.right === gp.right.clamp(pl, pr);
+          var bb = gp.bottom === gp.bottom.clamp(pt, pb);
+          this_.overlap = false;
+          if ((bl && bt) || (bl && bb) || (br && bt) || (br && bb)) {
+            var cl = gp.left - pl;
+            var ct = gp.top - pt;
+            var cr = gp.right - pl;
+            var cb = gp.bottom - pt;
+            var cx = parseInt((cl + cr) / 2);
+            var cy = parseInt((ct + cb) / 2);
+            if (
+              (MPD.check1 &&
+                (this.bitmap.getAlphaPixel(cl, ct) > 0 ||
+                  this.bitmap.getAlphaPixel(cl, cb) > 0 ||
+                  this.bitmap.getAlphaPixel(cr, ct) > 0 ||
+                  this.bitmap.getAlphaPixel(cr, cb) > 0)) ||
+              (MPD.check2 &&
+                (this.bitmap.getAlphaPixel(cx, ct) > 0 ||
+                  this.bitmap.getAlphaPixel(cx, cb) > 0 ||
+                  this.bitmap.getAlphaPixel(cl, cy) > 0 ||
+                  this.bitmap.getAlphaPixel(cr, cy) > 0)) ||
+              (MPD.check3 && this.bitmap.getAlphaPixel(cx, cy) > 0)
+            ) {
+              this_.overlap = true;
             }
-        };
-    }(Game_Interpreter.prototype, 'pluginCommand'));
-
-    //==============================================================================
-    // Sprite_Picture
-    //==============================================================================
-
-    (function (o, p) {
-        var f = o[p]; o[p] = function () {
-            f.apply(this, arguments);
-            var picture = this.picture();
-            if (picture[_].coordinate_type) {
-                switch (picture[_].coordinate_type) {
-                    case 'standard':
-                        this.x = Math.floor((picture.x() - $gameMap._displayX) * $gameMap.tileWidth());
-                        this.y = Math.floor((picture.y() - $gameMap._displayY) * $gameMap.tileHeight());
-                        break;
-                    case 'event':
-                        var event = $gameMap.event(picture[_].event_id);
-                        if (event && event.event()) {
-                            this.x = Math.floor((event._realX - $gameMap._displayX) * $gameMap.tileWidth());
-                            this.y = Math.floor((event._realY - $gameMap._displayY) * $gameMap.tileHeight());
-                        } else {
-                            picture[_] = { coordinate_type: '', modesty: false, event_id: 0 };
-                        }
-                        break;
-                }
-            }
-        };
-    }(Sprite_Picture.prototype, 'updatePosition'));
-
-    //==============================================================================
-    // Game_Player
-    //==============================================================================
-
-    Object.defineProperty(Game_Player.prototype, _, {
-        get: function () { return this[`$${_}`] = this[`$${_}`] || { left: 0, top: 0, right: 0, bottom: 0 }; },
-        set: function (value) { this[`$${_}`] = value; },
-        configurable: true
-    });
-
-    //==============================================================================
-    // Sprite_Character
-    //==============================================================================
-
-    (function (o, p) {
-        var f = o[p]; o[p] = function () {
-            f.apply(this, arguments);
-            if (this._character === $gamePlayer) {
-                var gp = $gamePlayer[_];
-                gp.left = parseInt(this.x - this.anchor.x * this.patternWidth());
-                gp.top = parseInt(this.y - this.anchor.y * this.patternHeight());
-                gp.right = gp.left + this.patternWidth();
-                gp.bottom = gp.top + this.patternHeight();
-            }
-        };
-    }(Sprite_Character.prototype, 'updateCharacterFrame'));
-
-    //==============================================================================
-    // Sprite_Picture
-    //==============================================================================
-
-    Object.defineProperty(Sprite_Picture.prototype, _, {
-        get: function () { return this[`$${_}`] = this[`$${_}`] || { opacity: 255, overlap: false }; },
-        set: function (value) { this[`$${_}`] = value; },
-        configurable: true
-    });
-
-    (function (o, p) {
-        var f = o[p]; o[p] = function () {
-            f.apply(this, arguments);
-            var this_ = this[_];
-            if (this.picture()[_].modesty && !!this.bitmap) {
-                if (Graphics.frameCount % MPD.cycle === 0) {
-                    var pl = parseInt(this.x - this.anchor.x * this._realFrame.width);
-                    var pt = parseInt(this.y - this.anchor.y * this._realFrame.height);
-                    var pr = pl + this._realFrame.width;
-                    var pb = pt + this._realFrame.height;
-                    var gp = $gamePlayer[_];
-                    var bl = (gp.left === gp.left.clamp(pl, pr));
-                    var bt = (gp.top === gp.top.clamp(pt, pb));
-                    var br = (gp.right === gp.right.clamp(pl, pr));
-                    var bb = (gp.bottom === gp.bottom.clamp(pt, pb));
-                    this_.overlap = false;
-                    if ((bl && bt) || (bl && bb) || (br && bt) || (br && bb)) {
-                        var cl = gp.left - pl;
-                        var ct = gp.top - pt;
-                        var cr = gp.right - pl;
-                        var cb = gp.bottom - pt;
-                        var cx = parseInt((cl + cr) / 2);
-                        var cy = parseInt((ct + cb) / 2);
-                        if ((MPD.check1 && ((this.bitmap.getAlphaPixel(cl, ct) > 0) ||
-                            (this.bitmap.getAlphaPixel(cl, cb) > 0) ||
-                            (this.bitmap.getAlphaPixel(cr, ct) > 0) ||
-                            (this.bitmap.getAlphaPixel(cr, cb) > 0))) ||
-                            (MPD.check2 && ((this.bitmap.getAlphaPixel(cx, ct) > 0) ||
-                                (this.bitmap.getAlphaPixel(cx, cb) > 0) ||
-                                (this.bitmap.getAlphaPixel(cl, cy) > 0) ||
-                                (this.bitmap.getAlphaPixel(cr, cy) > 0))) ||
-                            (MPD.check3 && (this.bitmap.getAlphaPixel(cx, cy) > 0))) {
-                            this_.overlap = true;
-                        }
-                    }
-                }
-                this_.opacity += (MPD.step * (this_.overlap ? -1 : 1));
-                this_.opacity = this_.opacity.clamp(MPD.opacity, this.picture().opacity());
-                this.opacity = this_.opacity;
-            }
-        };
-    }(Sprite_Picture.prototype, 'updateOther'));
-}());
+          }
+        }
+        this_.opacity += MPD.step * (this_.overlap ? -1 : 1);
+        this_.opacity = this_.opacity.clamp(
+          MPD.opacity,
+          this.picture().opacity()
+        );
+        this.opacity = this_.opacity;
+      }
+    };
+  })(Sprite_Picture.prototype, "updateOther");
+})();

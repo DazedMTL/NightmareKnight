@@ -406,7 +406,7 @@
  * @constructor
  */
 function Sprite_MessageButton() {
-    this.initialize.apply(this, arguments);
+  this.initialize.apply(this, arguments);
 }
 
 /**
@@ -414,563 +414,674 @@ function Sprite_MessageButton() {
  * @constructor
  */
 function Sprite_Frame() {
-    this.initialize.apply(this, arguments);
+  this.initialize.apply(this, arguments);
 }
 
 (function () {
-    'use strict';
-    var pluginName = 'MessageSkip';
+  "use strict";
+  var pluginName = "MessageSkip";
 
-    var getParamString = function (paramNames, upperFlg) {
-        var value = getParamOther(paramNames);
-        return value === null ? '' : upperFlg ? value.toUpperCase() : value;
-    };
+  var getParamString = function (paramNames, upperFlg) {
+    var value = getParamOther(paramNames);
+    return value === null ? "" : upperFlg ? value.toUpperCase() : value;
+  };
 
-    var getParamNumber = function (paramNames, min, max) {
-        var value = getParamOther(paramNames);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(value) || 0).clamp(min, max);
-    };
+  var getParamNumber = function (paramNames, min, max) {
+    var value = getParamOther(paramNames);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(value) || 0).clamp(min, max);
+  };
 
-    var getParamBoolean = function (paramNames) {
-        var value = getParamString(paramNames);
-        return value.toUpperCase() === 'ON' || value.toUpperCase() === 'TRUE';
-    };
+  var getParamBoolean = function (paramNames) {
+    var value = getParamString(paramNames);
+    return value.toUpperCase() === "ON" || value.toUpperCase() === "TRUE";
+  };
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
-    };
-
-    var convertEscapeCharacters = function (text) {
-        if (isNotAString(text)) text = '';
-        var windowLayer = SceneManager._scene._windowLayer;
-        return windowLayer ? windowLayer.children[0].convertEscapeCharacters(text) : text;
-    };
-
-    var isNotAString = function (args) {
-        return String(args) !== args;
-    };
-
-    Number.prototype.times = function (handler) {
-        var i = 0;
-        while (i < this) handler.call(this, i++);
-    };
-
-    Input.keyCodeReverseMapper = {
-        a: 65, b: 66, c: 67, d: 68, e: 69, f: 70, g: 71,
-        h: 72, i: 73, j: 74, k: 75, l: 76, m: 77, n: 78,
-        o: 79, p: 80, q: 81, r: 82, s: 83, t: 84, u: 85,
-        v: 86, w: 87, x: 88, y: 89, z: 90,
-        backspace: 8, tab: 9, enter: 13, shift: 16, ctrl: 17, alt: 18, pause: 19, esc: 27, space: 32,
-        page_up: 33, page_down: 34, end: 35, home: 36, left: 37, right: 39, up: 38, down: 40, insert: 45, delete: 46
-    };
-    (9).times(function (i) {
-        Input.keyCodeReverseMapper[i] = i + 48;
-    });
-    (12).times(function (i) {
-        Input.keyCodeReverseMapper['f' + (i + 1)] = i + 112;
-    });
-
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var skipKeyName = getParamString(['SkipKey', 'スキップキー']).toLowerCase();
-    var skipKeyCode = Input.keyCodeReverseMapper[skipKeyName];
-    var autoKeyName = getParamString(['AutoKey', 'オートキー']).toLowerCase();
-    var autoKeyCode = Input.keyCodeReverseMapper[autoKeyName];
-    if (skipKeyCode) {
-        if (!Input.keyMapper[skipKeyCode]) {
-            Input.keyMapper[skipKeyCode] = 'messageSkip';
-        } else {
-            skipKeyName = Input.keyMapper[skipKeyCode];
-        }
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
     }
-    if (autoKeyCode) {
-        if (!Input.keyMapper[autoKeyCode]) {
-            Input.keyMapper[autoKeyCode] = 'messageAuto';
-        } else {
-            autoKeyName = Input.keyMapper[autoKeyCode];
-        }
+    return null;
+  };
+
+  var convertEscapeCharacters = function (text) {
+    if (isNotAString(text)) text = "";
+    var windowLayer = SceneManager._scene._windowLayer;
+    return windowLayer
+      ? windowLayer.children[0].convertEscapeCharacters(text)
+      : text;
+  };
+
+  var isNotAString = function (args) {
+    return String(args) !== args;
+  };
+
+  Number.prototype.times = function (handler) {
+    var i = 0;
+    while (i < this) handler.call(this, i++);
+  };
+
+  Input.keyCodeReverseMapper = {
+    a: 65,
+    b: 66,
+    c: 67,
+    d: 68,
+    e: 69,
+    f: 70,
+    g: 71,
+    h: 72,
+    i: 73,
+    j: 74,
+    k: 75,
+    l: 76,
+    m: 77,
+    n: 78,
+    o: 79,
+    p: 80,
+    q: 81,
+    r: 82,
+    s: 83,
+    t: 84,
+    u: 85,
+    v: 86,
+    w: 87,
+    x: 88,
+    y: 89,
+    z: 90,
+    backspace: 8,
+    tab: 9,
+    enter: 13,
+    shift: 16,
+    ctrl: 17,
+    alt: 18,
+    pause: 19,
+    esc: 27,
+    space: 32,
+    page_up: 33,
+    page_down: 34,
+    end: 35,
+    home: 36,
+    left: 37,
+    right: 39,
+    up: 38,
+    down: 40,
+    insert: 45,
+    delete: 46,
+  };
+  (9).times(function (i) {
+    Input.keyCodeReverseMapper[i] = i + 48;
+  });
+  (12).times(function (i) {
+    Input.keyCodeReverseMapper["f" + (i + 1)] = i + 112;
+  });
+
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var skipKeyName = getParamString(["SkipKey", "スキップキー"]).toLowerCase();
+  var skipKeyCode = Input.keyCodeReverseMapper[skipKeyName];
+  var autoKeyName = getParamString(["AutoKey", "オートキー"]).toLowerCase();
+  var autoKeyCode = Input.keyCodeReverseMapper[autoKeyName];
+  if (skipKeyCode) {
+    if (!Input.keyMapper[skipKeyCode]) {
+      Input.keyMapper[skipKeyCode] = "messageSkip";
+    } else {
+      skipKeyName = Input.keyMapper[skipKeyCode];
     }
-    var paramSkipPicture = getParamString(['SkipPicture', 'スキップピクチャ']);
-    var paramSkipPictureX = getParamNumber(['SkipPictureX', 'スキップピクチャX']);
-    var paramSkipPictureY = getParamNumber(['SkipPictureY', 'スキップピクチャY']);
-    var paramAutoPicture = getParamString(['AutoPicture', 'オートピクチャ']);
-    var paramAutoPictureX = getParamNumber(['AutoPictureX', 'オートピクチャX']);
-    var paramAutoPictureY = getParamNumber(['AutoPictureY', 'オートピクチャY']);
-    var paramSwitchPicture = getParamString(['SwitchPicture', 'スイッチピクチャ']);
-    var paramSwitchPictureX = getParamNumber(['SwitchPictureX', 'スイッチピクチャX']);
-    var paramSwitchPictureY = getParamNumber(['SwitchPictureY', 'スイッチピクチャY']);
-    var paramSwitchPictureTrigger = getParamNumber(['SwitchPictureTrigger', 'スイッチピクチャトリガー'], 0);
-    var paramPictureAnchor = getParamNumber(['PictureAnchor', 'ボタン原点']);
-    var paramPictureSwitchId = getParamNumber(['PictureSwitchId', 'ボタン表示スイッチID'], 0);
-    var paramPressingSkip = getParamBoolean(['PressingSkip', '押し続けスキップ']);
-    var paramSkipSwitchId = getParamNumber(['SkipSwitchId', 'スキップスイッチ'], 0);
-    var paramAutoSwitchIId = getParamNumber(['AutoSwitchIId', 'オートスイッチ'], 0);
-    var paramInvalidSwitchId = getParamNumber(['InvalidSwitchId', '無効化スイッチ'], 0);
-    var paramIconX = getParamNumber(['IconX', 'アイコンX'], 0);
-    var paramIconY = getParamNumber(['IconY', 'アイコンY'], 0);
-    var paramPicturePosType = getParamString(['PicturePosType', 'ピクチャ座標タイプ']);
+  }
+  if (autoKeyCode) {
+    if (!Input.keyMapper[autoKeyCode]) {
+      Input.keyMapper[autoKeyCode] = "messageAuto";
+    } else {
+      autoKeyName = Input.keyMapper[autoKeyCode];
+    }
+  }
+  var paramSkipPicture = getParamString(["SkipPicture", "スキップピクチャ"]);
+  var paramSkipPictureX = getParamNumber(["SkipPictureX", "スキップピクチャX"]);
+  var paramSkipPictureY = getParamNumber(["SkipPictureY", "スキップピクチャY"]);
+  var paramAutoPicture = getParamString(["AutoPicture", "オートピクチャ"]);
+  var paramAutoPictureX = getParamNumber(["AutoPictureX", "オートピクチャX"]);
+  var paramAutoPictureY = getParamNumber(["AutoPictureY", "オートピクチャY"]);
+  var paramSwitchPicture = getParamString([
+    "SwitchPicture",
+    "スイッチピクチャ",
+  ]);
+  var paramSwitchPictureX = getParamNumber([
+    "SwitchPictureX",
+    "スイッチピクチャX",
+  ]);
+  var paramSwitchPictureY = getParamNumber([
+    "SwitchPictureY",
+    "スイッチピクチャY",
+  ]);
+  var paramSwitchPictureTrigger = getParamNumber(
+    ["SwitchPictureTrigger", "スイッチピクチャトリガー"],
+    0
+  );
+  var paramPictureAnchor = getParamNumber(["PictureAnchor", "ボタン原点"]);
+  var paramPictureSwitchId = getParamNumber(
+    ["PictureSwitchId", "ボタン表示スイッチID"],
+    0
+  );
+  var paramPressingSkip = getParamBoolean(["PressingSkip", "押し続けスキップ"]);
+  var paramSkipSwitchId = getParamNumber(
+    ["SkipSwitchId", "スキップスイッチ"],
+    0
+  );
+  var paramAutoSwitchIId = getParamNumber(
+    ["AutoSwitchIId", "オートスイッチ"],
+    0
+  );
+  var paramInvalidSwitchId = getParamNumber(
+    ["InvalidSwitchId", "無効化スイッチ"],
+    0
+  );
+  var paramIconX = getParamNumber(["IconX", "アイコンX"], 0);
+  var paramIconY = getParamNumber(["IconY", "アイコンY"], 0);
+  var paramPicturePosType = getParamString([
+    "PicturePosType",
+    "ピクチャ座標タイプ",
+  ]);
 
-    //=============================================================================
-    // Game_Message
-    //  メッセージスキップ情報を保持します。
-    //=============================================================================
-    var _Game_Message_initialize = Game_Message.prototype.initialize;
-    Game_Message.prototype.initialize = function () {
-        _Game_Message_initialize.apply(this, arguments);
-        this.clearSkipInfo();
-        this._autoClearSkipSwitch = getParamNumber(['ResetOnEndSwitch', '終了解除スイッチID']);
-    };
+  //=============================================================================
+  // Game_Message
+  //  メッセージスキップ情報を保持します。
+  //=============================================================================
+  var _Game_Message_initialize = Game_Message.prototype.initialize;
+  Game_Message.prototype.initialize = function () {
+    _Game_Message_initialize.apply(this, arguments);
+    this.clearSkipInfo();
+    this._autoClearSkipSwitch = getParamNumber([
+      "ResetOnEndSwitch",
+      "終了解除スイッチID",
+    ]);
+  };
 
-    Game_Message.prototype.toggleSkip = function () {
-        this.setSkipFlg(!this._skipFlg);
-    };
+  Game_Message.prototype.toggleSkip = function () {
+    this.setSkipFlg(!this._skipFlg);
+  };
 
-    Game_Message.prototype.toggleAuto = function () {
-        this.setAutoFlg(!this._autoFlg);
-    };
+  Game_Message.prototype.toggleAuto = function () {
+    this.setAutoFlg(!this._autoFlg);
+  };
 
-    Game_Message.prototype.skipFlg = function () {
-        return this._skipFlg;
-    };
+  Game_Message.prototype.skipFlg = function () {
+    return this._skipFlg;
+  };
 
-    Game_Message.prototype.autoFlg = function () {
-        return this._autoFlg;
-    };
+  Game_Message.prototype.autoFlg = function () {
+    return this._autoFlg;
+  };
 
-    Game_Message.prototype.setSkipFlg = function (value) {
-        this._skipFlg = value;
-        if (this._skipFlg) this._autoFlg = false;
-    };
+  Game_Message.prototype.setSkipFlg = function (value) {
+    this._skipFlg = value;
+    if (this._skipFlg) this._autoFlg = false;
+  };
 
-    Game_Message.prototype.setAutoFlg = function (value) {
-        if (!this._skipFlg) {
-            this._autoFlg = value;
-        }
-    };
+  Game_Message.prototype.setAutoFlg = function (value) {
+    if (!this._skipFlg) {
+      this._autoFlg = value;
+    }
+  };
 
-    Game_Message.prototype.clearSkipInfo = function () {
-        this._skipFlg = false;
-        this._autoFlg = false;
-    };
+  Game_Message.prototype.clearSkipInfo = function () {
+    this._skipFlg = false;
+    this._autoFlg = false;
+  };
 
-    Game_Message.prototype.terminateEvent = function () {
-        if (!this._autoClearSkipSwitch || $gameSwitches.value(this._autoClearSkipSwitch)) {
-            this.clearSkipInfo();
-        }
-    };
+  Game_Message.prototype.terminateEvent = function () {
+    if (
+      !this._autoClearSkipSwitch ||
+      $gameSwitches.value(this._autoClearSkipSwitch)
+    ) {
+      this.clearSkipInfo();
+    }
+  };
 
-    //=============================================================================
-    // Game_Interpreter
-    //  マップイベント終了時にメッセージスキップフラグを初期化します。
-    //=============================================================================
-    var _Game_Interpreter_terminate = Game_Interpreter.prototype.terminate;
-    Game_Interpreter.prototype.terminate = function () {
-        _Game_Interpreter_terminate.apply(this, arguments);
-        if (this.isNeedClearSkip()) {
-            $gameMessage.terminateEvent();
-        }
-    };
+  //=============================================================================
+  // Game_Interpreter
+  //  マップイベント終了時にメッセージスキップフラグを初期化します。
+  //=============================================================================
+  var _Game_Interpreter_terminate = Game_Interpreter.prototype.terminate;
+  Game_Interpreter.prototype.terminate = function () {
+    _Game_Interpreter_terminate.apply(this, arguments);
+    if (this.isNeedClearSkip()) {
+      $gameMessage.terminateEvent();
+    }
+  };
 
-    Game_Interpreter.prototype.isNeedClearSkip = function () {
-        return ($gameMap.isMapInterpreterOf(this) || !$gameMap.isEventRunning()) && this._depth === 0;
-    };
+  Game_Interpreter.prototype.isNeedClearSkip = function () {
+    return (
+      ($gameMap.isMapInterpreterOf(this) || !$gameMap.isEventRunning()) &&
+      this._depth === 0
+    );
+  };
 
-    //=============================================================================
-    // Game_Map
-    //  指定されたインタプリタがマップイベントかどうかを返します。
-    //=============================================================================
-    Game_Map.prototype.isMapInterpreterOf = function (interpreter) {
-        return this._interpreter === interpreter;
-    };
+  //=============================================================================
+  // Game_Map
+  //  指定されたインタプリタがマップイベントかどうかを返します。
+  //=============================================================================
+  Game_Map.prototype.isMapInterpreterOf = function (interpreter) {
+    return this._interpreter === interpreter;
+  };
 
-    //=============================================================================
-    // Window_Message
-    //  メッセージスキップ状態を描画します。
-    //=============================================================================
-    var _Window_Message_initialize = Window_Message.prototype.initialize;
-    Window_Message.prototype.initialize = function () {
-        _Window_Message_initialize.apply(this, arguments);
-        this.createSpriteFrame();
-        this.createSpriteSkipButton();
-        this.createSpriteAutoButton();
-        this.createSpriteSwitchButton();
-    };
+  //=============================================================================
+  // Window_Message
+  //  メッセージスキップ状態を描画します。
+  //=============================================================================
+  var _Window_Message_initialize = Window_Message.prototype.initialize;
+  Window_Message.prototype.initialize = function () {
+    _Window_Message_initialize.apply(this, arguments);
+    this.createSpriteFrame();
+    this.createSpriteSkipButton();
+    this.createSpriteAutoButton();
+    this.createSpriteSwitchButton();
+  };
 
-    Window_Message.prototype.createSpriteFrame = function () {
-        this._icon = new Sprite_Frame(ImageManager.loadSystem('IconSet'), -1);
-        this.addChild(this._icon);
-        this.updatePlacementIcon();
-    };
+  Window_Message.prototype.createSpriteFrame = function () {
+    this._icon = new Sprite_Frame(ImageManager.loadSystem("IconSet"), -1);
+    this.addChild(this._icon);
+    this.updatePlacementIcon();
+  };
 
-    Window_Message.prototype.updatePlacementIcon = function () {
-        this._icon.x = (paramIconX ? paramIconX - this.x : this.width - this._icon.width);
-        this._icon.y = (paramIconY ? paramIconY - this.y : this.height - this._icon.height);
-    };
+  Window_Message.prototype.updatePlacementIcon = function () {
+    this._icon.x = paramIconX
+      ? paramIconX - this.x
+      : this.width - this._icon.width;
+    this._icon.y = paramIconY
+      ? paramIconY - this.y
+      : this.height - this._icon.height;
+  };
 
-    Window_Message.prototype.createSpriteSkipButton = function () {
-        if (!paramSkipPicture) return;
-        this._skipButton = new Sprite_MessageButton(paramSkipPicture);
-        this.addChild(this._skipButton);
-    };
+  Window_Message.prototype.createSpriteSkipButton = function () {
+    if (!paramSkipPicture) return;
+    this._skipButton = new Sprite_MessageButton(paramSkipPicture);
+    this.addChild(this._skipButton);
+  };
 
-    var _Window_Message_areSettingsChanged = Window_Message.prototype.areSettingsChanged;
-    Window_Message.prototype.areSettingsChanged = function () {
-        var result = _Window_Message_areSettingsChanged.apply(this, arguments);
-        if ($gameMessage.skipFlg()) {
-            return this._positionType !== $gameMessage.positionType();
-        } else {
-            return result;
-        }
-    };
+  var _Window_Message_areSettingsChanged =
+    Window_Message.prototype.areSettingsChanged;
+  Window_Message.prototype.areSettingsChanged = function () {
+    var result = _Window_Message_areSettingsChanged.apply(this, arguments);
+    if ($gameMessage.skipFlg()) {
+      return this._positionType !== $gameMessage.positionType();
+    } else {
+      return result;
+    }
+  };
 
-    Window_Message.prototype.createSpriteAutoButton = function () {
-        if (!paramAutoPicture) return;
-        this._autoButton = new Sprite_MessageButton(paramAutoPicture);
-        this.addChild(this._autoButton);
-    };
+  Window_Message.prototype.createSpriteAutoButton = function () {
+    if (!paramAutoPicture) return;
+    this._autoButton = new Sprite_MessageButton(paramAutoPicture);
+    this.addChild(this._autoButton);
+  };
 
-    Window_Message.prototype.createSpriteSwitchButton = function () {
-        if (!paramSwitchPicture) return;
-        this._switchButton = new Sprite_MessageButton(paramSwitchPicture);
-        this.addChild(this._switchButton);
-    };
+  Window_Message.prototype.createSpriteSwitchButton = function () {
+    if (!paramSwitchPicture) return;
+    this._switchButton = new Sprite_MessageButton(paramSwitchPicture);
+    this.addChild(this._switchButton);
+  };
 
-    Window_Message.prototype.getRelativeButtonX = function (originalX) {
-        if (paramPictureAnchor === 1 || paramPictureAnchor === 3) {
-            originalX += this.width;
-        }
-        if (paramPicturePosType === 'absolute') {
-            originalX -= this.x;
-        }
-        return originalX;
-    };
+  Window_Message.prototype.getRelativeButtonX = function (originalX) {
+    if (paramPictureAnchor === 1 || paramPictureAnchor === 3) {
+      originalX += this.width;
+    }
+    if (paramPicturePosType === "absolute") {
+      originalX -= this.x;
+    }
+    return originalX;
+  };
 
-    Window_Message.prototype.getRelativeButtonY = function (originalY) {
-        if (paramPictureAnchor === 2 || paramPictureAnchor === 3) {
-            originalY += this.height;
-        }
-        if (paramPicturePosType === 'absolute') {
-            originalY -= this.y;
-        }
-        return originalY;
-    };
+  Window_Message.prototype.getRelativeButtonY = function (originalY) {
+    if (paramPictureAnchor === 2 || paramPictureAnchor === 3) {
+      originalY += this.height;
+    }
+    if (paramPicturePosType === "absolute") {
+      originalY -= this.y;
+    }
+    return originalY;
+  };
 
-    var _Window_Message_startMessage = Window_Message.prototype.startMessage;
-    Window_Message.prototype.startMessage = function () {
-        _Window_Message_startMessage.apply(this, arguments);
+  var _Window_Message_startMessage = Window_Message.prototype.startMessage;
+  Window_Message.prototype.startMessage = function () {
+    _Window_Message_startMessage.apply(this, arguments);
+    this.initializeMessageAutoCount();
+  };
+
+  Window_Message.prototype.initializeMessageAutoCount = function () {
+    var textSize = 0;
+    if (this._textState) {
+      var index = this._textState.index;
+      var text = this._textState.text;
+      while (
+        text[index] &&
+        !(text[index] === "\x1b" && text[index + 1] === "!")
+      ) {
+        index++;
+      }
+      // use in eval
+      textSize = index - this._textState.index;
+    }
+    var paramValue =
+      convertEscapeCharacters(
+        getParamString(["AutoWaitFrame", "オート待機フレーム"])
+      ) || 1;
+    this._messageAutoCount = eval(paramValue);
+  };
+
+  var _Window_Message_update = Window_Message.prototype.update;
+  Window_Message.prototype.update = function () {
+    this.updateAutoIcon();
+    return _Window_Message_update.apply(this, arguments);
+  };
+
+  var _Window_Message_updatePlacement =
+    Window_Message.prototype.updatePlacement;
+  Window_Message.prototype.updatePlacement = function () {
+    _Window_Message_updatePlacement.apply(this, arguments);
+    if (this._skipButton) {
+      this.updateSkipButtonPlacement();
+    }
+    if (this._autoButton) {
+      this.updateAutoButtonPlacement();
+    }
+    if (this._switchButton) {
+      this.updateSwitchButtonPlacement();
+    }
+  };
+
+  Window_Message.prototype.updateSkipButtonPlacement = function () {
+    var x = this.getRelativeButtonX(paramSkipPictureX);
+    var y = this.getRelativeButtonY(paramSkipPictureY);
+    this._skipButton.move(x, y);
+  };
+
+  Window_Message.prototype.updateAutoButtonPlacement = function () {
+    var x = this.getRelativeButtonX(paramAutoPictureX);
+    var y = this.getRelativeButtonY(paramAutoPictureY);
+    this._autoButton.move(x, y);
+  };
+
+  Window_Message.prototype.updateSwitchButtonPlacement = function () {
+    var x = this.getRelativeButtonX(paramSwitchPictureX);
+    var y = this.getRelativeButtonY(paramSwitchPictureY);
+    this._switchButton.move(x, y);
+  };
+
+  Window_Message.prototype.updateAutoIcon = function () {
+    if (this.messageSkip() && this.openness === 255) {
+      this._icon.refresh(getParamNumber(["SkipIcon", "スキップアイコン"]));
+      this._icon.flashSpeed = 16;
+      this._icon.flash = true;
+      this.updatePlacementIcon();
+    } else if (this.messageAuto() && this.openness === 255) {
+      this._icon.refresh(getParamNumber(["AutoIcon", "オートアイコン"]));
+      this._icon.flashSpeed = 2;
+      this._icon.flash = true;
+      this.updatePlacementIcon();
+    } else {
+      this._icon.refresh(0);
+      this._icon.flash = false;
+    }
+  };
+
+  var _Window_Message_updateWait = Window_Message.prototype.updateWait;
+  Window_Message.prototype.updateWait = function () {
+    this.updateSkipAuto();
+    this.updateSwitchPicture();
+    if (this.messageSkip()) {
+      this._waitCount = 0;
+    }
+    return _Window_Message_updateWait.apply(this, arguments);
+  };
+
+  Window_Message.prototype.updateSkipAuto = function () {
+    if (this.isClosed()) return;
+    if (this.isAnySubWindowActive()) {
+      $gameMessage.clearSkipInfo();
+    } else {
+      this.setSkipAutoFlagByTrigger();
+      this.setSkipAutoFlagBySwitch();
+    }
+    this.updateSkipForSkipAlreadyReadMessage();
+  };
+
+  Window_Message.prototype.updateSwitchPicture = function () {
+    if (this.isTriggeredMessageSwitchButton()) {
+      $gameSwitches.setValue(paramSwitchPictureTrigger, true);
+    }
+  };
+
+  Window_Message.prototype.setSkipAutoFlagByTrigger = function () {
+    if (this.isTriggeredMessageSkip()) {
+      if (!paramPressingSkip) {
+        $gameMessage.toggleSkip();
+      }
+      this._pressSkipStop = false;
+    } else if (this.isTriggeredMessageSkipButton()) {
+      $gameMessage.toggleSkip();
+      this._pressSkipStop = true;
+    } else if (this.isTriggeredMessageAuto()) {
+      $gameMessage.toggleAuto();
+    } else if (paramPressingSkip && !this._pressSkipStop) {
+      $gameMessage.setSkipFlg(this.isPressedMessageSkip());
+    }
+  };
+
+  Window_Message.prototype.setSkipAutoFlagBySwitch = function () {
+    if (paramInvalidSwitchId > 0 && $gameSwitches.value(paramInvalidSwitchId)) {
+      $gameMessage.setSkipFlg(false);
+      $gameMessage.setAutoFlg(false);
+      return;
+    }
+    if (paramSkipSwitchId > 0) {
+      $gameMessage.setSkipFlg($gameSwitches.value(paramSkipSwitchId));
+    }
+    if (paramAutoSwitchIId > 0) {
+      $gameMessage.setAutoFlg($gameSwitches.value(paramAutoSwitchIId));
+    }
+  };
+
+  // for SkipAlreadyReadMessage.js
+  Window_Message.prototype.updateSkipForSkipAlreadyReadMessage = function () {
+    var pluginName = "SkipAlreadyReadMessage";
+    if ($gameMessage[pluginName] && !$gameMessage[pluginName].already_read) {
+      $gameMessage.setSkipFlg(false);
+    }
+  };
+
+  Window_Message.prototype.messageAuto = function () {
+    return $gameMessage.autoFlg();
+  };
+
+  Window_Message.prototype.messageSkip = function () {
+    return $gameMessage.skipFlg();
+  };
+
+  var _Window_Message_updateInput = Window_Message.prototype.updateInput;
+  Window_Message.prototype.updateInput = function () {
+    if (this.messageAuto() && this._messageAutoCount > 0 && this.visible)
+      this._messageAutoCount--;
+    return _Window_Message_updateInput.apply(this, arguments);
+  };
+
+  Window_Message.prototype.isTriggeredMessageSkip = function () {
+    return Input.isTriggered("messageSkip") || Input.isTriggered(skipKeyName);
+  };
+
+  Window_Message.prototype.isPressedMessageSkip = function () {
+    return Input.isPressed("messageSkip") || Input.isPressed(skipKeyName);
+  };
+
+  Window_Message.prototype.isTriggeredMessageSkipButton = function (pressed) {
+    return this.isTriggeredButton(this._skipButton, pressed);
+  };
+
+  Window_Message.prototype.isTriggeredMessageAuto = function () {
+    return (
+      Input.isTriggered("messageAuto") ||
+      Input.isTriggered(autoKeyName) ||
+      this.isTriggeredMessageAutoButton()
+    );
+  };
+
+  Window_Message.prototype.isTriggeredMessageAutoButton = function () {
+    return this.isTriggeredButton(this._autoButton, false);
+  };
+
+  Window_Message.prototype.isTriggeredMessageSwitchButton = function () {
+    return this.isTriggeredButton(this._switchButton, false);
+  };
+
+  Window_Message.prototype.isTriggeredButton = function (button, pressed) {
+    if (!button) {
+      return false;
+    }
+    var x = this.canvasToLocalX(TouchInput.x);
+    var y = this.canvasToLocalY(TouchInput.y);
+    return button.isTriggered(x, y, pressed);
+  };
+
+  var _Window_Message_isTriggered = Window_Message.prototype.isTriggered;
+  Window_Message.prototype.isTriggered = function () {
+    if (this.isTriggeredAnyButton()) {
+      return false;
+    }
+    if (this.messageAuto() && this._messageAutoCount <= 0) {
+      if (!AudioManager.isExistVoice()) {
         this.initializeMessageAutoCount();
-    };
-
-    Window_Message.prototype.initializeMessageAutoCount = function () {
-        var textSize = 0;
-        if (this._textState) {
-            var index = this._textState.index;
-            var text = this._textState.text;
-            while (text[index] && !(text[index] === '\x1b' && text[index + 1] === '!')) {
-                index++;
-            }
-            // use in eval
-            textSize = index - this._textState.index;
-        }
-        var paramValue = convertEscapeCharacters(getParamString(['AutoWaitFrame', 'オート待機フレーム'])) || 1;
-        this._messageAutoCount = eval(paramValue);
-    };
-
-    var _Window_Message_update = Window_Message.prototype.update;
-    Window_Message.prototype.update = function () {
-        this.updateAutoIcon();
-        return _Window_Message_update.apply(this, arguments);
-    };
-
-    var _Window_Message_updatePlacement = Window_Message.prototype.updatePlacement;
-    Window_Message.prototype.updatePlacement = function () {
-        _Window_Message_updatePlacement.apply(this, arguments);
-        if (this._skipButton) {
-            this.updateSkipButtonPlacement();
-        }
-        if (this._autoButton) {
-            this.updateAutoButtonPlacement();
-        }
-        if (this._switchButton) {
-            this.updateSwitchButtonPlacement();
-        }
-    };
-
-    Window_Message.prototype.updateSkipButtonPlacement = function () {
-        var x = this.getRelativeButtonX(paramSkipPictureX);
-        var y = this.getRelativeButtonY(paramSkipPictureY);
-        this._skipButton.move(x, y);
-    };
-
-    Window_Message.prototype.updateAutoButtonPlacement = function () {
-        var x = this.getRelativeButtonX(paramAutoPictureX);
-        var y = this.getRelativeButtonY(paramAutoPictureY);
-        this._autoButton.move(x, y);
-    };
-
-    Window_Message.prototype.updateSwitchButtonPlacement = function () {
-        var x = this.getRelativeButtonX(paramSwitchPictureX);
-        var y = this.getRelativeButtonY(paramSwitchPictureY);
-        this._switchButton.move(x, y);
-    };
-
-    Window_Message.prototype.updateAutoIcon = function () {
-        if (this.messageSkip() && this.openness === 255) {
-            this._icon.refresh(getParamNumber(['SkipIcon', 'スキップアイコン']));
-            this._icon.flashSpeed = 16;
-            this._icon.flash = true;
-            this.updatePlacementIcon();
-        } else if (this.messageAuto() && this.openness === 255) {
-            this._icon.refresh(getParamNumber(['AutoIcon', 'オートアイコン']));
-            this._icon.flashSpeed = 2;
-            this._icon.flash = true;
-            this.updatePlacementIcon();
-        } else {
-            this._icon.refresh(0);
-            this._icon.flash = false;
-        }
-    };
-
-    var _Window_Message_updateWait = Window_Message.prototype.updateWait;
-    Window_Message.prototype.updateWait = function () {
-        this.updateSkipAuto();
-        this.updateSwitchPicture();
-        if (this.messageSkip()) {
-            this._waitCount = 0;
-        }
-        return _Window_Message_updateWait.apply(this, arguments);
-    };
-
-    Window_Message.prototype.updateSkipAuto = function () {
-        if (this.isClosed()) return;
-        if (this.isAnySubWindowActive()) {
-            $gameMessage.clearSkipInfo();
-        } else {
-            this.setSkipAutoFlagByTrigger();
-            this.setSkipAutoFlagBySwitch();
-        }
-        this.updateSkipForSkipAlreadyReadMessage();
-    };
-
-    Window_Message.prototype.updateSwitchPicture = function () {
-        if (this.isTriggeredMessageSwitchButton()) {
-            $gameSwitches.setValue(paramSwitchPictureTrigger, true);
-        }
-    };
-
-    Window_Message.prototype.setSkipAutoFlagByTrigger = function () {
-        if (this.isTriggeredMessageSkip()) {
-            if (!paramPressingSkip) {
-                $gameMessage.toggleSkip();
-            }
-            this._pressSkipStop = false;
-        } else if (this.isTriggeredMessageSkipButton()) {
-            $gameMessage.toggleSkip();
-            this._pressSkipStop = true;
-        } else if (this.isTriggeredMessageAuto()) {
-            $gameMessage.toggleAuto();
-        } else if (paramPressingSkip && !this._pressSkipStop) {
-            $gameMessage.setSkipFlg(this.isPressedMessageSkip());
-        }
-    };
-
-    Window_Message.prototype.setSkipAutoFlagBySwitch = function () {
-        if (paramInvalidSwitchId > 0 && $gameSwitches.value(paramInvalidSwitchId)) {
-            $gameMessage.setSkipFlg(false);
-            $gameMessage.setAutoFlg(false);
-            return;
-        }
-        if (paramSkipSwitchId > 0) {
-            $gameMessage.setSkipFlg($gameSwitches.value(paramSkipSwitchId));
-        }
-        if (paramAutoSwitchIId > 0) {
-            $gameMessage.setAutoFlg($gameSwitches.value(paramAutoSwitchIId));
-        }
-    };
-
-    // for SkipAlreadyReadMessage.js
-    Window_Message.prototype.updateSkipForSkipAlreadyReadMessage = function () {
-        var pluginName = 'SkipAlreadyReadMessage';
-        if ($gameMessage[pluginName] && !$gameMessage[pluginName].already_read) {
-            $gameMessage.setSkipFlg(false);
-        }
-    };
-
-    Window_Message.prototype.messageAuto = function () {
-        return $gameMessage.autoFlg();
-    };
-
-    Window_Message.prototype.messageSkip = function () {
-        return $gameMessage.skipFlg();
-    };
-
-    var _Window_Message_updateInput = Window_Message.prototype.updateInput;
-    Window_Message.prototype.updateInput = function () {
-        if (this.messageAuto() && this._messageAutoCount > 0 && this.visible) this._messageAutoCount--;
-        return _Window_Message_updateInput.apply(this, arguments);
-    };
-
-    Window_Message.prototype.isTriggeredMessageSkip = function () {
-        return Input.isTriggered('messageSkip') ||
-            Input.isTriggered(skipKeyName);
-    };
-
-    Window_Message.prototype.isPressedMessageSkip = function () {
-        return Input.isPressed('messageSkip') ||
-            Input.isPressed(skipKeyName);
-    };
-
-    Window_Message.prototype.isTriggeredMessageSkipButton = function (pressed) {
-        return this.isTriggeredButton(this._skipButton, pressed);
-    };
-
-    Window_Message.prototype.isTriggeredMessageAuto = function () {
-        return Input.isTriggered('messageAuto') ||
-            Input.isTriggered(autoKeyName) ||
-            this.isTriggeredMessageAutoButton();
-    };
-
-    Window_Message.prototype.isTriggeredMessageAutoButton = function () {
-        return this.isTriggeredButton(this._autoButton, false);
-    };
-
-    Window_Message.prototype.isTriggeredMessageSwitchButton = function () {
-        return this.isTriggeredButton(this._switchButton, false);
-    };
-
-    Window_Message.prototype.isTriggeredButton = function (button, pressed) {
-        if (!button) {
-            return false;
-        }
-        var x = this.canvasToLocalX(TouchInput.x);
-        var y = this.canvasToLocalY(TouchInput.y);
-        return button.isTriggered(x, y, pressed);
-    };
-
-    var _Window_Message_isTriggered = Window_Message.prototype.isTriggered;
-    Window_Message.prototype.isTriggered = function () {
-        if (this.isTriggeredAnyButton()) {
-            return false;
-        }
-        if (this.messageAuto() && this._messageAutoCount <= 0) {
-            if (!AudioManager.isExistVoice()) {
-                this.initializeMessageAutoCount();
-                return true;
-            }
-        }
-        return _Window_Message_isTriggered.apply(this, arguments) || this.messageSkip();
-    };
-
-    Window_Message.prototype.isTriggeredAnyButton = function () {
-        return this.isTriggeredMessageSkipButton() ||
-            this.isTriggeredMessageAutoButton() ||
-            this.isTriggeredMessageSwitchButton();
-    };
-
-    var _Window_Message_startPause = Window_Message.prototype.startPause;
-    Window_Message.prototype.startPause = function () {
-        _Window_Message_startPause.apply(this, arguments);
-        if (this.messageSkip()) this.startWait(2);
-    };
-
-    AudioManager.isExistVoice = function () {
-        if (!AudioManager._voiceBuffers) {
-            return false;
-        }
-        this.filterPlayingVoice();
-        return this._voiceBuffers.some(function (buffer) {
-            return !buffer._sourceNode.loop;
-        });
+        return true;
+      }
     }
+    return (
+      _Window_Message_isTriggered.apply(this, arguments) || this.messageSkip()
+    );
+  };
 
-    //=============================================================================
-    // Sprite_MessageButton
-    //  メッセージボタン描画用スプライトです。
-    //=============================================================================
-    Sprite_MessageButton.prototype = Object.create(Sprite.prototype);
-    Sprite_MessageButton.prototype.constructor = Sprite_MessageButton;
+  Window_Message.prototype.isTriggeredAnyButton = function () {
+    return (
+      this.isTriggeredMessageSkipButton() ||
+      this.isTriggeredMessageAutoButton() ||
+      this.isTriggeredMessageSwitchButton()
+    );
+  };
 
-    Sprite_MessageButton.prototype.initialize = function (fileName) {
-        Sprite.prototype.initialize.call(this);
-        this.bitmap = ImageManager.loadPicture(fileName);
-        this.anchor.x = 0.5;
-        this.anchor.y = 0.5;
-        this.visible = false;
-    };
+  var _Window_Message_startPause = Window_Message.prototype.startPause;
+  Window_Message.prototype.startPause = function () {
+    _Window_Message_startPause.apply(this, arguments);
+    if (this.messageSkip()) this.startWait(2);
+  };
 
-    Sprite_MessageButton.prototype.update = function () {
-        Sprite.prototype.update.call(this);
-        this.updateOpacity();
-        this.updateVisibility();
-    };
+  AudioManager.isExistVoice = function () {
+    if (!AudioManager._voiceBuffers) {
+      return false;
+    }
+    this.filterPlayingVoice();
+    return this._voiceBuffers.some(function (buffer) {
+      return !buffer._sourceNode.loop;
+    });
+  };
 
-    Sprite_MessageButton.prototype.updateOpacity = function () {
-        this.opacity = this.parent.openness;
-    };
+  //=============================================================================
+  // Sprite_MessageButton
+  //  メッセージボタン描画用スプライトです。
+  //=============================================================================
+  Sprite_MessageButton.prototype = Object.create(Sprite.prototype);
+  Sprite_MessageButton.prototype.constructor = Sprite_MessageButton;
 
-    Sprite_MessageButton.prototype.updateVisibility = function () {
-        if (paramInvalidSwitchId > 0 && $gameSwitches.value(paramInvalidSwitchId)) {
-            this.visible = false;
-            return;
-        }
-        this.visible = (!paramPictureSwitchId || $gameSwitches.value(paramPictureSwitchId));
-    };
+  Sprite_MessageButton.prototype.initialize = function (fileName) {
+    Sprite.prototype.initialize.call(this);
+    this.bitmap = ImageManager.loadPicture(fileName);
+    this.anchor.x = 0.5;
+    this.anchor.y = 0.5;
+    this.visible = false;
+  };
 
-    Sprite_MessageButton.prototype.isTriggered = function (targetX, targetY, pressed) {
-        var realX = targetX + this._frame.width * this.anchor.x;
-        var realY = targetY + this._frame.height * this.anchor.y;
-        var triggeredOk = (pressed ? TouchInput.isPressed() : TouchInput.isTriggered());
-        return triggeredOk && this.isInSprite(realX, realY);
-    };
+  Sprite_MessageButton.prototype.update = function () {
+    Sprite.prototype.update.call(this);
+    this.updateOpacity();
+    this.updateVisibility();
+  };
 
-    Sprite_MessageButton.prototype.isInSprite = function (targetX, targetY) {
-        return this.x <= targetX && this.x + this._frame.width >= targetX &&
-            this.y <= targetY && this.y + this._frame.height >= targetY;
-    };
+  Sprite_MessageButton.prototype.updateOpacity = function () {
+    this.opacity = this.parent.openness;
+  };
 
-    //=============================================================================
-    // Sprite_Frame
-    //  アイコン描画用スプライトです。
-    //=============================================================================
-    Sprite_Frame.prototype = Object.create(Sprite.prototype);
-    Sprite_Frame.prototype.constructor = Sprite_Frame;
+  Sprite_MessageButton.prototype.updateVisibility = function () {
+    if (paramInvalidSwitchId > 0 && $gameSwitches.value(paramInvalidSwitchId)) {
+      this.visible = false;
+      return;
+    }
+    this.visible =
+      !paramPictureSwitchId || $gameSwitches.value(paramPictureSwitchId);
+  };
 
-    Sprite_Frame.prototype.initialize = function (bitmap, index) {
-        Sprite.prototype.initialize.call(this);
-        bitmap.addLoadListener(function () {
-            this._column = Math.floor(bitmap.width / Window_Base._iconWidth);
-            this._row = Math.floor(bitmap.height / Window_Base._iconHeight);
-        }.bind(this));
-        this.bitmap = bitmap;
-        this.anchor.x = 0.5;
-        this.anchor.y = 0.5;
-        this.flash = false;
-        this.flashSpeed = 2;
-        this._flashAlpha = 0;
-        this.refresh(index ? index : 0);
-    };
+  Sprite_MessageButton.prototype.isTriggered = function (
+    targetX,
+    targetY,
+    pressed
+  ) {
+    var realX = targetX + this._frame.width * this.anchor.x;
+    var realY = targetY + this._frame.height * this.anchor.y;
+    var triggeredOk = pressed
+      ? TouchInput.isPressed()
+      : TouchInput.isTriggered();
+    return triggeredOk && this.isInSprite(realX, realY);
+  };
 
-    Sprite_Frame.prototype.refresh = function (index) {
-        if (!this.bitmap.isReady()) return;
-        var w = Window_Base._iconWidth;
-        var h = Window_Base._iconHeight;
-        this.setFrame((index % this._column) * w, Math.floor(index / this._column) * h, w, h);
-    };
+  Sprite_MessageButton.prototype.isInSprite = function (targetX, targetY) {
+    return (
+      this.x <= targetX &&
+      this.x + this._frame.width >= targetX &&
+      this.y <= targetY &&
+      this.y + this._frame.height >= targetY
+    );
+  };
 
-    Sprite_Frame.prototype.update = function () {
-        if (this.flash) {
-            if (this._flashAlpha <= -64) this._flashAlpha = 192;
-            this.setBlendColor([255, 255, 255, this._flashAlpha]);
-            this._flashAlpha -= this.flashSpeed;
-        }
-    };
+  //=============================================================================
+  // Sprite_Frame
+  //  アイコン描画用スプライトです。
+  //=============================================================================
+  Sprite_Frame.prototype = Object.create(Sprite.prototype);
+  Sprite_Frame.prototype.constructor = Sprite_Frame;
+
+  Sprite_Frame.prototype.initialize = function (bitmap, index) {
+    Sprite.prototype.initialize.call(this);
+    bitmap.addLoadListener(
+      function () {
+        this._column = Math.floor(bitmap.width / Window_Base._iconWidth);
+        this._row = Math.floor(bitmap.height / Window_Base._iconHeight);
+      }.bind(this)
+    );
+    this.bitmap = bitmap;
+    this.anchor.x = 0.5;
+    this.anchor.y = 0.5;
+    this.flash = false;
+    this.flashSpeed = 2;
+    this._flashAlpha = 0;
+    this.refresh(index ? index : 0);
+  };
+
+  Sprite_Frame.prototype.refresh = function (index) {
+    if (!this.bitmap.isReady()) return;
+    var w = Window_Base._iconWidth;
+    var h = Window_Base._iconHeight;
+    this.setFrame(
+      (index % this._column) * w,
+      Math.floor(index / this._column) * h,
+      w,
+      h
+    );
+  };
+
+  Sprite_Frame.prototype.update = function () {
+    if (this.flash) {
+      if (this._flashAlpha <= -64) this._flashAlpha = 192;
+      this.setBlendColor([255, 255, 255, this._flashAlpha]);
+      this._flashAlpha -= this.flashSpeed;
+    }
+  };
 })();
-

@@ -98,18 +98,30 @@ Imported.TMBattleMist = true;
 
 var TMPlugin = TMPlugin || {};
 TMPlugin.BattleMist = {};
-TMPlugin.BattleMist.Parameters = PluginManager.parameters('TMBattleMist');
-TMPlugin.BattleMist.MistImage = TMPlugin.BattleMist.Parameters['mistImage'] || 'mist';
-TMPlugin.BattleMist.MaxMists = +(TMPlugin.BattleMist.Parameters['mistNumber'] || 32);
-TMPlugin.BattleMist.TopSide = +(TMPlugin.BattleMist.Parameters['mistTopSide'] || 200);
-TMPlugin.BattleMist.RangeSide = +(TMPlugin.BattleMist.Parameters['mistRangeSide'] || 300);
-TMPlugin.BattleMist.TopFront = +(TMPlugin.BattleMist.Parameters['mistTopFront'] || 240);
-TMPlugin.BattleMist.RangeFront = +(TMPlugin.BattleMist.Parameters['mistRangeFront'] || 340);
-TMPlugin.BattleMist.Scale = +(TMPlugin.BattleMist.Parameters['mistScale'] || 1);
-TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMax'] || 224);
+TMPlugin.BattleMist.Parameters = PluginManager.parameters("TMBattleMist");
+TMPlugin.BattleMist.MistImage =
+  TMPlugin.BattleMist.Parameters["mistImage"] || "mist";
+TMPlugin.BattleMist.MaxMists = +(
+  TMPlugin.BattleMist.Parameters["mistNumber"] || 32
+);
+TMPlugin.BattleMist.TopSide = +(
+  TMPlugin.BattleMist.Parameters["mistTopSide"] || 200
+);
+TMPlugin.BattleMist.RangeSide = +(
+  TMPlugin.BattleMist.Parameters["mistRangeSide"] || 300
+);
+TMPlugin.BattleMist.TopFront = +(
+  TMPlugin.BattleMist.Parameters["mistTopFront"] || 240
+);
+TMPlugin.BattleMist.RangeFront = +(
+  TMPlugin.BattleMist.Parameters["mistRangeFront"] || 340
+);
+TMPlugin.BattleMist.Scale = +(TMPlugin.BattleMist.Parameters["mistScale"] || 1);
+TMPlugin.BattleMist.OpacityMax = +(
+  TMPlugin.BattleMist.Parameters["mistOpacityMax"] || 224
+);
 
 (function () {
-
   //-----------------------------------------------------------------------------
   // Game_System
   //
@@ -139,16 +151,17 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
   // Game_Interpreter
   //
 
-  var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
   Game_Interpreter.prototype.pluginCommand = function (command, args) {
     _Game_Interpreter_pluginCommand.call(this, command, args);
-    if (command === 'startMist') {
+    if (command === "startMist") {
       $gameSystem.enableMist();
-    } else if (command === 'stopMist') {
+    } else if (command === "stopMist") {
       $gameSystem.disableMist();
-    } else if (command === 'onMistMirror') {
+    } else if (command === "onMistMirror") {
       $gameSystem.setMistMirror(true);
-    } else if (command === 'offMistMirror') {
+    } else if (command === "offMistMirror") {
       $gameSystem.setMistMirror(false);
     }
   };
@@ -184,7 +197,9 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
       this.x = Math.random() * (Graphics.width + w) - w / 2 - this.parent.x;
     } else {
       this.resetFrontView();
-      this.y = Math.random() * TMPlugin.BattleMist.RangeFront + TMPlugin.BattleMist.TopFront;
+      this.y =
+        Math.random() * TMPlugin.BattleMist.RangeFront +
+        TMPlugin.BattleMist.TopFront;
     }
     this.update();
   };
@@ -197,10 +212,10 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
     this.scale.set(r, r);
     this._vx = this.scale.x * 2 - 0.5;
     if ($gameSystem.mistMirror()) {
-      this.x = Graphics.width + this.width / 2 * this.scale.x;
+      this.x = Graphics.width + (this.width / 2) * this.scale.x;
       this._vx = 0 - this._vx;
     } else {
-      this.x = -this.width / 2 * this.scale.x;
+      this.x = (-this.width / 2) * this.scale.x;
     }
     this.x -= this.parent.x;
   };
@@ -226,13 +241,19 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
     this.x += this._vx;
     this._count++;
     if (this._count >= 180) this._count = 0;
-    this.opacity = TMPlugin.BattleMist.OpacityMax - 16 + Math.sin(this._count * Math.PI / 90) * 16;
+    this.opacity =
+      TMPlugin.BattleMist.OpacityMax -
+      16 +
+      Math.sin((this._count * Math.PI) / 90) * 16;
     if ($gameSystem.mistMirror()) {
-      if (this.x + this.width / 2 * this.scale.x < 0 - this.parent.x) {
+      if (this.x + (this.width / 2) * this.scale.x < 0 - this.parent.x) {
         this.resetSideView();
       }
     } else {
-      if (this.x - this.width / 2 * this.scale.x > Graphics.width - this.parent.x) {
+      if (
+        this.x - (this.width / 2) * this.scale.x >
+        Graphics.width - this.parent.x
+      ) {
         this.resetSideView();
       }
     }
@@ -242,8 +263,11 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
     this.x += this._vx;
     this.y += TMPlugin.BattleMist.Scale;
     var w = this.width / 2;
-    if (this.y > TMPlugin.BattleMist.RangeFront + TMPlugin.BattleMist.TopFront ||
-      this.x < 0 - w - this.parent.x || this.x > Graphics.width + w - this.parent.x) {
+    if (
+      this.y > TMPlugin.BattleMist.RangeFront + TMPlugin.BattleMist.TopFront ||
+      this.x < 0 - w - this.parent.x ||
+      this.x > Graphics.width + w - this.parent.x
+    ) {
       this.resetFrontView();
     }
     this.updateScaleFront();
@@ -251,19 +275,27 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
   };
 
   Sprite_BattleMist.prototype.updateScaleFront = function () {
-    var r = (0.5 + (this.y - TMPlugin.BattleMist.TopFront) / TMPlugin.BattleMist.RangeFront) *
+    var r =
+      (0.5 +
+        (this.y - TMPlugin.BattleMist.TopFront) /
+          TMPlugin.BattleMist.RangeFront) *
       TMPlugin.BattleMist.Scale;
     this.scale.set(r, r);
   };
 
   Sprite_BattleMist.prototype.updateOpacityFront = function () {
-    var borderY = TMPlugin.BattleMist.TopFront + TMPlugin.BattleMist.RangeFront * 0.8;
+    var borderY =
+      TMPlugin.BattleMist.TopFront + TMPlugin.BattleMist.RangeFront * 0.8;
     if (this.y > borderY) {
-      this.opacity = (1 - (this.y - borderY) / (TMPlugin.BattleMist.RangeFront * 0.2)) *
+      this.opacity =
+        (1 - (this.y - borderY) / (TMPlugin.BattleMist.RangeFront * 0.2)) *
         TMPlugin.BattleMist.OpacityMax;
     } else {
-      this.opacity = Math.min((this.y - TMPlugin.BattleMist.TopFront) / TMPlugin.BattleMist.Scale * 8,
-        TMPlugin.BattleMist.OpacityMax);
+      this.opacity = Math.min(
+        ((this.y - TMPlugin.BattleMist.TopFront) / TMPlugin.BattleMist.Scale) *
+          8,
+        TMPlugin.BattleMist.OpacityMax
+      );
     }
   };
 
@@ -271,7 +303,8 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
   // Spriteset_Battle
   //
 
-  var _Spriteset_Battle_createLowerLayer = Spriteset_Battle.prototype.createLowerLayer;
+  var _Spriteset_Battle_createLowerLayer =
+    Spriteset_Battle.prototype.createLowerLayer;
   Spriteset_Battle.prototype.createLowerLayer = function () {
     _Spriteset_Battle_createLowerLayer.call(this);
     this.createMists();
@@ -316,5 +349,4 @@ TMPlugin.BattleMist.OpacityMax = +(TMPlugin.BattleMist.Parameters['mistOpacityMa
       }
     });
   };
-
 })();

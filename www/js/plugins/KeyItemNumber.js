@@ -5,21 +5,21 @@
 /*:
  * @plugindesc display on/off the number of key items.
  * @author Sasuke KANNAZUKI
- * 
+ *
  * @param KeyItem
  * @desc whether display the number at menu window.
  * 0:not display, 1:always display, 2:display only plural items
  * @default 0
- * 
+ *
  * @param MessageWindow
  * @desc whether display the number at message window.
  * 0:not display, 1:always display, 2:display only plural items
  * @default 0
- * 
- * @help 
+ *
+ * @help
  * Plugin Command:
  * KeyItemNumber arg0 arg1
- * arg0 must be a number 1, 2, 3, or 4 
+ * arg0 must be a number 1, 2, 3, or 4
  *   1:normal item, 2:important item, 3:hidden item A, 4:hidden item B.
  * arg1 must be a number 0, 1, or 2
  *   0:not display, 1:always display, 2:display only plural items
@@ -33,18 +33,18 @@
 /*:ja
  * @plugindesc 「大事なもの」の個数表示の設定
  * @author 神無月サスケ
- * 
+ *
  * @param KeyItem
  * @desc メニューの「大事なもの」で個数を表示するか。
  * 0:表示しない, 1:表示する, 2:複数アイテムのみ表示
  * @default 0
- * 
+ *
  * @param MessageWindow
  * @desc イベントコマンド「アイテム選択の処理」で個数を表示するか。
  * 0:表示しない, 1:表示する, 2:複数アイテムのみ表示
  * @default 0
- * 
- * @help 
+ *
+ * @help
  * プラグインコマンド:
  * 「アイテム選択の処理」で種類ごとに分けたい場合に呼び出して下さい。
  * KeyItemNumber arg0 arg1
@@ -59,20 +59,18 @@
  * KeyItemNumber 1 1  # 通常アイテムでは 個数を表示する
  */
 
-
 (function () {
-
-  var parameters = PluginManager.parameters('KeyItemNumber');
-  var atKeyItem = Number(parameters['KeyItem'] || 0);       // at Item scene
-  var atMsgWnd = Number(parameters['MessageWindow'] || 0);  // at Event Command
+  var parameters = PluginManager.parameters("KeyItemNumber");
+  var atKeyItem = Number(parameters["KeyItem"] || 0); // at Item scene
+  var atMsgWnd = Number(parameters["MessageWindow"] || 0); // at Event Command
 
   var _Game_Interpreter_pluginCommand =
     Game_Interpreter.prototype.pluginCommand;
   Game_Interpreter.prototype.pluginCommand = function (command, args) {
     _Game_Interpreter_pluginCommand.call(this, command, args);
-    if (command === 'KeyItemNumber') {
+    if (command === "KeyItemNumber") {
       var itypeId = args[0];
-      var status = args[1];  // rule of itemNumberDisplay
+      var status = args[1]; // rule of itemNumberDisplay
       $gameSystem.keyItemNumber()[itypeId] = status;
     }
   };
@@ -80,8 +78,7 @@
   //
   // an array definition at $gameSystem
   //
-  var _Game_System_initialize =
-    Game_System.prototype.initialize;
+  var _Game_System_initialize = Game_System.prototype.initialize;
   Game_System.prototype.initialize = function () {
     _Game_System_initialize.call(this);
     this.initKeyNumber();
@@ -94,18 +91,17 @@
   Game_System.prototype.keyItemNumber = function () {
     if (!this._keyItemNumber) {
       this.initKeyNumber();
-    };
+    }
     return this._keyItemNumber;
   };
 
   //
   // at item scene, whether display item number or not
   //
-  var _Window_ItemList_needsNumber =
-    Window_ItemList.prototype.needsNumber;
+  var _Window_ItemList_needsNumber = Window_ItemList.prototype.needsNumber;
   Window_ItemList.prototype.needsNumber = function () {
     var original = _Window_ItemList_needsNumber.call(this);
-    if (this._category !== 'keyItem') {
+    if (this._category !== "keyItem") {
       return original;
     }
     return atKeyItem != 0;
@@ -132,13 +128,15 @@
   var _Window_ItemList_drawItemNumber =
     Window_ItemList.prototype.drawItemNumber;
   Window_ItemList.prototype.drawItemNumber = function (item, x, y, width) {
-    var isEvent = (this instanceof Window_EventItem);
+    var isEvent = this instanceof Window_EventItem;
     var status = isEvent ? this.currentDispMode() : atKeyItem;
-    if ((this._category == 'keyItem' || isEvent) &&
-      status == 2 && $gameParty.numItems(item) <= 1) {
-      return;  // return without drawing number
+    if (
+      (this._category == "keyItem" || isEvent) &&
+      status == 2 &&
+      $gameParty.numItems(item) <= 1
+    ) {
+      return; // return without drawing number
     }
     _Window_ItemList_drawItemNumber.call(this, item, x, y, width);
   };
-
 })();

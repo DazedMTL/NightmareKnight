@@ -175,137 +175,196 @@
  *  このプラグインはもうあなたのものです。
  */
 (function () {
-    'use strict';
-    const pluginName = 'RegionTerrain';
+  "use strict";
+  const pluginName = "RegionTerrain";
 
-    const getParamString = function (paramNames) {
-        const value = getParamOther(paramNames);
-        return value === null ? '' : value;
-    };
+  const getParamString = function (paramNames) {
+    const value = getParamOther(paramNames);
+    return value === null ? "" : value;
+  };
 
-    const getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (let i = 0; i < paramNames.length; i++) {
-            const name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
-    };
+  const getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (let i = 0; i < paramNames.length; i++) {
+      const name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
+    }
+    return null;
+  };
 
-    const getParamArrayString = function (paramNames) {
-        const values = getParamString(paramNames).split(',');
-        for (let i = 0; i < values.length; i++) values[i] = values[i].trim();
-        return values;
-    };
+  const getParamArrayString = function (paramNames) {
+    const values = getParamString(paramNames).split(",");
+    for (let i = 0; i < values.length; i++) values[i] = values[i].trim();
+    return values;
+  };
 
-    const getParamArrayNumber = function (paramNames, min, max) {
-        const values = getParamArrayString(paramNames);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        for (let i = 0; i < values.length; i++) {
-            if (!isNaN(parseInt(values[i], 10))) {
-                values[i] = (parseInt(values[i], 10) || 0).clamp(min, max);
-            } else {
-                values.splice(i--, 1);
-            }
-        }
-        return values;
-    };
+  const getParamArrayNumber = function (paramNames, min, max) {
+    const values = getParamArrayString(paramNames);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    for (let i = 0; i < values.length; i++) {
+      if (!isNaN(parseInt(values[i], 10))) {
+        values[i] = (parseInt(values[i], 10) || 0).clamp(min, max);
+      } else {
+        values.splice(i--, 1);
+      }
+    }
+    return values;
+  };
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    const paramLadderRegionId = getParamArrayNumber(['梯子ID', 'LadderRegionId']);
-    const paramBushRegionId = getParamArrayNumber(['茂みID', 'BushRegionId']);
-    const paramCounterRegionId = getParamArrayNumber(['カウンターID', 'CounterRegionId']);
-    const paramDamageFloorRegionId = getParamArrayNumber(['ダメージ床ID', 'DamageFloorRegionId']);
-    const paramLadderTerrain = getParamArrayNumber(['梯子地形', 'LadderTerrain']);
-    const paramBushTerrain = getParamArrayNumber(['茂み地形', 'BushTerrain']);
-    const paramCounterTerrain = getParamArrayNumber(['カウンター地形', 'CounterTerrain']);
-    const paramDamageFloorTerrain = getParamArrayNumber(['ダメージ床地形', 'DamageFloorTerrain']);
-    const paramLadderDisRegionId = getParamArrayNumber(['梯子無効ID', 'LadderDisRegionId']);
-    const paramBushDisRegionId = getParamArrayNumber(['茂み無効ID', 'BushDisRegionId']);
-    const paramCounterDisRegionId = getParamArrayNumber(['カウンター無効ID', 'CounterDisRegionId']);
-    const paramDamageFloorDisRegionId = getParamArrayNumber(['ダメージ床無効ID', 'DamageFloorDisRegionId']);
-    const paramLadderDisTerrain = getParamArrayNumber(['梯子無効地形', 'LadderDisTerrain']);
-    const paramBushDisTerrain = getParamArrayNumber(['茂み無効地形', 'BushDisTerrain']);
-    const paramCounterDisTerrain = getParamArrayNumber(['カウンター無効地形', 'CounterDisTerrain']);
-    const paramDamageFloorDisTerrain = getParamArrayNumber(['ダメージ床無効地形', 'DamageFloorDisTerrain']);
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  const paramLadderRegionId = getParamArrayNumber(["梯子ID", "LadderRegionId"]);
+  const paramBushRegionId = getParamArrayNumber(["茂みID", "BushRegionId"]);
+  const paramCounterRegionId = getParamArrayNumber([
+    "カウンターID",
+    "CounterRegionId",
+  ]);
+  const paramDamageFloorRegionId = getParamArrayNumber([
+    "ダメージ床ID",
+    "DamageFloorRegionId",
+  ]);
+  const paramLadderTerrain = getParamArrayNumber(["梯子地形", "LadderTerrain"]);
+  const paramBushTerrain = getParamArrayNumber(["茂み地形", "BushTerrain"]);
+  const paramCounterTerrain = getParamArrayNumber([
+    "カウンター地形",
+    "CounterTerrain",
+  ]);
+  const paramDamageFloorTerrain = getParamArrayNumber([
+    "ダメージ床地形",
+    "DamageFloorTerrain",
+  ]);
+  const paramLadderDisRegionId = getParamArrayNumber([
+    "梯子無効ID",
+    "LadderDisRegionId",
+  ]);
+  const paramBushDisRegionId = getParamArrayNumber([
+    "茂み無効ID",
+    "BushDisRegionId",
+  ]);
+  const paramCounterDisRegionId = getParamArrayNumber([
+    "カウンター無効ID",
+    "CounterDisRegionId",
+  ]);
+  const paramDamageFloorDisRegionId = getParamArrayNumber([
+    "ダメージ床無効ID",
+    "DamageFloorDisRegionId",
+  ]);
+  const paramLadderDisTerrain = getParamArrayNumber([
+    "梯子無効地形",
+    "LadderDisTerrain",
+  ]);
+  const paramBushDisTerrain = getParamArrayNumber([
+    "茂み無効地形",
+    "BushDisTerrain",
+  ]);
+  const paramCounterDisTerrain = getParamArrayNumber([
+    "カウンター無効地形",
+    "CounterDisTerrain",
+  ]);
+  const paramDamageFloorDisTerrain = getParamArrayNumber([
+    "ダメージ床無効地形",
+    "DamageFloorDisTerrain",
+  ]);
 
-    const _Game_Map_isLadder = Game_Map.prototype.isLadder;
-    Game_Map.prototype.isLadder = function (x, y) {
-        if (this.isDisLadderOfRegion(x, y)) return false;
-        if (this.isLadderOfRegion(x, y)) return true;
-        return _Game_Map_isLadder.apply(this, arguments);
-    };
+  const _Game_Map_isLadder = Game_Map.prototype.isLadder;
+  Game_Map.prototype.isLadder = function (x, y) {
+    if (this.isDisLadderOfRegion(x, y)) return false;
+    if (this.isLadderOfRegion(x, y)) return true;
+    return _Game_Map_isLadder.apply(this, arguments);
+  };
 
-    Game_Map.prototype.isLadderOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramLadderRegionId.contains(regionId) || paramLadderTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isLadderOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramLadderRegionId.contains(regionId) ||
+      paramLadderTerrain.contains(terrainTag)
+    );
+  };
 
-    Game_Map.prototype.isDisLadderOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramLadderDisRegionId.contains(regionId) || paramLadderDisTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isDisLadderOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramLadderDisRegionId.contains(regionId) ||
+      paramLadderDisTerrain.contains(terrainTag)
+    );
+  };
 
-    const _Game_Map_isBush = Game_Map.prototype.isBush;
-    Game_Map.prototype.isBush = function (x, y) {
-        if (this.isDisBushOfRegion(x, y)) return false;
-        if (this.isBushOfRegion(x, y)) return true;
-        return _Game_Map_isBush.apply(this, arguments);
-    };
+  const _Game_Map_isBush = Game_Map.prototype.isBush;
+  Game_Map.prototype.isBush = function (x, y) {
+    if (this.isDisBushOfRegion(x, y)) return false;
+    if (this.isBushOfRegion(x, y)) return true;
+    return _Game_Map_isBush.apply(this, arguments);
+  };
 
-    Game_Map.prototype.isBushOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramBushRegionId.contains(regionId) || paramBushTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isBushOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramBushRegionId.contains(regionId) ||
+      paramBushTerrain.contains(terrainTag)
+    );
+  };
 
-    Game_Map.prototype.isDisBushOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramBushDisRegionId.contains(regionId) || paramBushDisTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isDisBushOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramBushDisRegionId.contains(regionId) ||
+      paramBushDisTerrain.contains(terrainTag)
+    );
+  };
 
-    const _Game_Map_isCounter = Game_Map.prototype.isCounter;
-    Game_Map.prototype.isCounter = function (x, y) {
-        if (this.isDisCounterOfRegion(x, y)) return false;
-        if (this.isCounterOfRegion(x, y)) return true;
-        return _Game_Map_isCounter.apply(this, arguments);
-    };
+  const _Game_Map_isCounter = Game_Map.prototype.isCounter;
+  Game_Map.prototype.isCounter = function (x, y) {
+    if (this.isDisCounterOfRegion(x, y)) return false;
+    if (this.isCounterOfRegion(x, y)) return true;
+    return _Game_Map_isCounter.apply(this, arguments);
+  };
 
-    Game_Map.prototype.isCounterOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramCounterRegionId.contains(regionId) || paramCounterTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isCounterOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramCounterRegionId.contains(regionId) ||
+      paramCounterTerrain.contains(terrainTag)
+    );
+  };
 
-    Game_Map.prototype.isDisCounterOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramCounterDisRegionId.contains(regionId) || paramCounterDisTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isDisCounterOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramCounterDisRegionId.contains(regionId) ||
+      paramCounterDisTerrain.contains(terrainTag)
+    );
+  };
 
-    const _Game_Map_isDamageFloor = Game_Map.prototype.isDamageFloor;
-    Game_Map.prototype.isDamageFloor = function (x, y) {
-        if (this.isDisDamageFloorOfRegion(x, y)) return false;
-        if (this.isDamageFloorOfRegion(x, y)) return true;
-        return _Game_Map_isDamageFloor.apply(this, arguments);
-    };
+  const _Game_Map_isDamageFloor = Game_Map.prototype.isDamageFloor;
+  Game_Map.prototype.isDamageFloor = function (x, y) {
+    if (this.isDisDamageFloorOfRegion(x, y)) return false;
+    if (this.isDamageFloorOfRegion(x, y)) return true;
+    return _Game_Map_isDamageFloor.apply(this, arguments);
+  };
 
-    Game_Map.prototype.isDamageFloorOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramDamageFloorRegionId.contains(regionId) || paramDamageFloorTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isDamageFloorOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramDamageFloorRegionId.contains(regionId) ||
+      paramDamageFloorTerrain.contains(terrainTag)
+    );
+  };
 
-    Game_Map.prototype.isDisDamageFloorOfRegion = function (x, y) {
-        const regionId = this.regionId(x, y);
-        const terrainTag = this.terrainTag(x, y);
-        return paramDamageFloorDisRegionId.contains(regionId) || paramDamageFloorDisTerrain.contains(terrainTag);
-    };
+  Game_Map.prototype.isDisDamageFloorOfRegion = function (x, y) {
+    const regionId = this.regionId(x, y);
+    const terrainTag = this.terrainTag(x, y);
+    return (
+      paramDamageFloorDisRegionId.contains(regionId) ||
+      paramDamageFloorDisTerrain.contains(terrainTag)
+    );
+  };
 })();
-
