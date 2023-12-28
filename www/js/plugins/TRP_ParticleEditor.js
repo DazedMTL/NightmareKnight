@@ -844,7 +844,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* key
-	===================================*/
+===================================*/
   ParticleEditor.prototype.registerKeyListeners = function () {
     var listener = this._onKeyDown.bind(this);
     this._keydownListener = listener;
@@ -934,7 +934,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* word inputting
-	===================================*/
+===================================*/
   ParticleEditor.prototype.resetInputingWords = function () {
     if (this._inputtingWords === "") return;
 
@@ -1010,7 +1010,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* update
-	===================================*/
+===================================*/
   ParticleEditor.prototype.update = function () {
     if (this._terminated) return;
 
@@ -1036,7 +1036,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
     }
 
     /* input & return
-		===================================*/
+	===================================*/
     if (TouchInput.isTriggered() || TouchInput.isPressed()) {
       this.processTouch();
     } else if (Input._latestButton || this._keyCode) {
@@ -1291,7 +1291,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* selector
-	===================================*/
+===================================*/
   ParticleEditor.prototype.createSelectorSprite = function () {
     var size = ParticleParam.LINE_HEIGHT;
     var bitmap = new Bitmap(size, size);
@@ -1326,7 +1326,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* parts
-	===================================*/
+===================================*/
   ParticleEditor.prototype.createParts = function (data, config) {
     var title, configNames, headers;
     var y = 5;
@@ -1533,7 +1533,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* picker
-	===================================*/
+===================================*/
   ParticleEditor.prototype.createColorPicker = function () {
     var size = 144;
     var picker = new ColorPicker(size);
@@ -1906,7 +1906,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* applyData
-	===================================*/
+===================================*/
   ParticleEditor.prototype.applyData = function (applyData, originalName) {
     Game_Particle.migrateConfig(applyData);
 
@@ -1961,7 +1961,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* numInfo
-	===================================*/
+===================================*/
   ParticleEditor.PARTICLE_NUM_HEADER_WIDTH = 128;
   ParticleEditor.PARTICLE_NUM_HEIGHT = 20;
   ParticleEditor.prototype.createNumInfo = function () {
@@ -2024,7 +2024,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* guideSprite
-	===================================*/
+===================================*/
   ParticleEditor.GUIDE_TEXT_MARGIN = 5;
   ParticleEditor.GUIDE_TEXT_FONT_SIZE = 14;
   ParticleEditor.GUIDE_TEXT_LINE_HEIGHT = 18;
@@ -2097,7 +2097,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* save
-	===================================*/
+===================================*/
   ParticleEditor.prototype.executeSave = function () {
     var data = this.editingDataObject();
     if (saveAsArray) {
@@ -2200,7 +2200,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* save help plugin
-	===================================*/
+===================================*/
   Game_Particle.isIdHidden = function (id) {
     return /\/(?:h|H)(?:$|\/)/.test(id);
   };
@@ -2447,7 +2447,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* copy & paste
-	===================================*/
+===================================*/
   ParticleEditor.prototype.processCopy = function (e) {
     var data = this.editingDataObject();
     delete data.comment;
@@ -2496,7 +2496,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* helper
-	===================================*/
+===================================*/
   ParticleEditor.prototype.hideMenu = function () {
     var menuSprites = this._menuSprites;
     var length = menuSprites.length;
@@ -2790,7 +2790,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* edit
-	===================================*/
+===================================*/
   ParticleParam.prototype.processTouch = function (x, y, margin) {
     if (y < this.y) return false;
     if (y > this.y + this._height) return false;
@@ -3273,7 +3273,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* input
-	===================================*/
+===================================*/
   NodeParam.prototype.processInput = function (keyCode, key) {
     if (keyCode === KEY_CODE.delete) {
       if (
@@ -3501,7 +3501,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* input
-	===================================*/
+===================================*/
   ColorNodeParam.prototype.processInput = function (keyCode, key) {
     if (keyCode === KEY_CODE.delete) {
       if (
@@ -4060,7 +4060,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   PickerBase.prototype.refreshItems = function () {};
 
   /* needs overwrite
-	===================================*/
+===================================*/
   PickerBase.prototype.maxColumns = function () {
     return 4;
   };
@@ -4102,7 +4102,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   PickerBase.prototype.applyData = function () {};
 
   /* select
-	===================================*/
+===================================*/
   PickerBase.prototype.deselectIndex = function (index) {
     if (index < 0) return;
     var arrayIdx = this._selectingIndexes.indexOf(index);
@@ -4126,7 +4126,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* update
-	===================================*/
+===================================*/
   PickerBase.prototype.update = function () {
     if (this._headerSprite.visible) {
       this.updateHeaderSprite();
@@ -4267,7 +4267,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* headerSprite
-	===================================*/
+===================================*/
   PickerBase.prototype.createHeaderSprite = function () {
     var bitmap = new Bitmap(256, 24);
     var sprite = new Sprite(bitmap);
@@ -4309,7 +4309,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* backSprite
-	===================================*/
+===================================*/
   PickerBase.prototype.createBackSprite = function () {
     var sprite, bitmap;
     bitmap = new Bitmap(16, 16);
@@ -4327,7 +4327,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* highlight sprites
-	===================================*/
+===================================*/
   PickerBase.prototype.createHighlightBitmap = function () {
     var bitmap = new Bitmap(16, 16);
     bitmap.fillAll("white");
@@ -4346,7 +4346,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* guide sprite
-	===================================*/
+===================================*/
   PickerBase.prototype.createGuideSprite = function () {
     var texts = this.guideTexts();
     if (!texts) return;
@@ -4376,7 +4376,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* scroll
-	===================================*/
+===================================*/
   PickerBase.prototype.setTopIndex = function (i) {
     var row = Math.floor(i / this.maxColumns());
     var newRow = row.clamp(0, this._maxTopRow);
@@ -4468,7 +4468,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* several mode
-	===================================*/
+===================================*/
   PickerBase.prototype.switchSelectingMode = function () {
     this.setSeveralMode(!this._severalMode);
   };
@@ -4480,7 +4480,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* wheel
-	===================================*/
+===================================*/
   PickerBase.prototype.registerWheelListener = function () {
     var listener = this._onWheel.bind(this);
     this._wheelListener = listener;
@@ -4551,7 +4551,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* overwrite setting
-	===================================*/
+===================================*/
   ImagePicker.prototype.maxItems = function () {
     return this._imageNames.length;
   };
@@ -4593,13 +4593,13 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* originalSetting
-	===================================*/
+===================================*/
   ImagePicker.prototype.imageSize = function () {
     return ImagePicker.IMAGE_SIZE;
   };
 
   /* refresh
-	===================================*/
+===================================*/
   ImagePicker.prototype.refreshItems = function () {
     var nameHeight = ImagePicker.NAME_HEIGHT;
     var mx = this.itemMarginX();
@@ -4672,7 +4672,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* start picking
-	===================================*/
+===================================*/
   ImagePicker.prototype.startPicking = function (owner, image) {
     ImagePickerBase.prototype.startPicking.call(this, owner);
 
@@ -4699,7 +4699,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* search
-	===================================*/
+===================================*/
   ImagePicker.prototype.search = function (chara) {
     var names = this._imageNames;
     var length = names.length;
@@ -4754,7 +4754,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   //PRAGMA_END: tilesetBitmaps
 
   /* overwrite setting
-	===================================*/
+===================================*/
   TilePicker.prototype.maxItems = function () {
     return this._maxItems;
   };
@@ -4848,7 +4848,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* originalSetting
-	===================================*/
+===================================*/
   TilePicker.prototype.tileSize = function () {
     return 48;
   };
@@ -4857,7 +4857,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* refresh
-	===================================*/
+===================================*/
   TilePicker.prototype.setListType = function (type) {
     ImagePickerBase.prototype.setListType.call(this, type);
     var tileSize = this.tileSize();
@@ -4910,7 +4910,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* start picking
-	===================================*/
+===================================*/
   TilePicker.prototype.startPicking = function (owner, imagestr) {
     var tileIndexes = [];
     if (imagestr) {
@@ -5002,7 +5002,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* overwrite setting
-	===================================*/
+===================================*/
   AnimationPicker.prototype.maxItems = function () {
     return this._maxItems;
   };
@@ -5074,7 +5074,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* originalSetting
-	===================================*/
+===================================*/
   AnimationPicker.prototype.imageSize = function () {
     return 192;
   };
@@ -5083,7 +5083,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* refresh
-	===================================*/
+===================================*/
   AnimationPicker.prototype.setListType = function (type) {
     ImagePickerBase.prototype.setListType.call(this, type);
 
@@ -5138,7 +5138,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* start picking
-	===================================*/
+===================================*/
   AnimationPicker.prototype.startPicking = function (owner, imagestr) {
     var frames = [];
     if (imagestr) {
@@ -5188,7 +5188,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* search
-	===================================*/
+===================================*/
   AnimationPicker.prototype.search = function (chara) {
     var imageNames = this._imageNames;
     var length = imageNames.length;
@@ -5210,7 +5210,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* MonoTone
-	===================================*/
+===================================*/
   AnimationPicker.prototype.update = function () {
     PickerBase.prototype.update.call(this);
     if (Input.isTriggered("shift")) {
@@ -5232,7 +5232,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* write image
-	===================================*/
+===================================*/
   AnimationPicker.prototype.end = function () {
     var indexes = this._selectingIndexes;
     var imageName = this.imageName();
@@ -5464,7 +5464,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* overwrite setting
-	===================================*/
+===================================*/
   PresetPicker.prototype.maxItems = function () {
     return this._list.length;
   };
@@ -5521,7 +5521,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* refresh
-	===================================*/
+===================================*/
   PresetPicker.prototype.setListType = function (type) {
     PickerBase.prototype.setListType.call(this, type);
 
@@ -5588,7 +5588,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* start picking
-	===================================*/
+===================================*/
   PresetPicker.prototype.startPicking = function (
     owner,
     targetType,
@@ -5615,7 +5615,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* search
-	===================================*/
+===================================*/
   PresetPicker.prototype.search = function (chara) {
     var names = this._names;
     var length = names.length;
@@ -5629,7 +5629,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* filter
-	===================================*/
+===================================*/
   PresetPicker.prototype.onKeyDown = function (keyCode, event) {
     if (keyCode === KEY_CODE.f && (event.ctrlKey || event.metaKey)) {
       this.changeFilterMode();
@@ -5658,7 +5658,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* input
-	===================================*/
+===================================*/
   PresetPicker.prototype.processInput = function () {
     if (Input.isRepeated("cancel")) {
       this._owner.applyData(this._currentData);
@@ -5770,7 +5770,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* overwrite setting
-	===================================*/
+===================================*/
   LoadPicker.prototype.guideTexts = function () {
     return [
       "保存データ設定をコピーします。",
@@ -5787,7 +5787,7 @@ if (Utils.isNwjs() && Utils.isOptionValid("test")) {
   };
 
   /* delete
-	===================================*/
+===================================*/
   LoadPicker.prototype.onKeyDown = function (keyCode, event) {
     PresetPicker.prototype.onKeyDown.call(this, keyCode, event);
     if (keyCode === KEY_CODE.delete) {

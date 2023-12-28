@@ -628,20 +628,20 @@
     var lineHeight = this.lineHeight();
     var y2 = bottom - lineHeight;
     /*
-            this.contents.paintOpacity = 64;
-        //タイトルバック■
-            this.contents.fillRect(rect.x + rect.width - 278, y2 + 30 - 28, BBSWTF1, 28, this.textColor(BBSWOutFC));
-            this.contents.fillRect(rect.x + rect.width - 278, y2 - 2 - 28, BBSWTF2, 28, this.textColor(BBSWOutFC));
-            this.contents.fillRect(rect.x + rect.width - 558, y2 + 30 - 28, BBSWTF3, 28, this.textColor(BBSWOutFC));
-            this.contents.fillRect(rect.x + rect.width - 558, y2 - 2 - 28, BBSWTF4, 28, this.textColor(BBSWOutFC));
-        //アンダーバー
-            this.contents.fillRect(rect.x + rect.width - 278, y2 + 30, 276, 2, this.textColor(BBSWOutFC));
-            this.contents.fillRect(rect.x + rect.width - 278, y2 - 2, 276, 2, this.textColor(BBSWOutFC));
-            this.contents.fillRect(rect.x + rect.width - 558, y2 + 30, 276, 2, this.textColor(BBSWOutFC));
-            this.contents.fillRect(rect.x + rect.width - 558, y2 - 2, 276, 2, this.textColor(BBSWOutFC));
-        
-            this.contents.paintOpacity = 255;
-        */
+    this.contents.paintOpacity = 64;
+//タイトルバック■
+    this.contents.fillRect(rect.x + rect.width - 278, y2 + 30 - 28, BBSWTF1, 28, this.textColor(BBSWOutFC));
+    this.contents.fillRect(rect.x + rect.width - 278, y2 - 2 - 28, BBSWTF2, 28, this.textColor(BBSWOutFC));
+    this.contents.fillRect(rect.x + rect.width - 558, y2 + 30 - 28, BBSWTF3, 28, this.textColor(BBSWOutFC));
+    this.contents.fillRect(rect.x + rect.width - 558, y2 - 2 - 28, BBSWTF4, 28, this.textColor(BBSWOutFC));
+//アンダーバー
+    this.contents.fillRect(rect.x + rect.width - 278, y2 + 30, 276, 2, this.textColor(BBSWOutFC));
+    this.contents.fillRect(rect.x + rect.width - 278, y2 - 2, 276, 2, this.textColor(BBSWOutFC));
+    this.contents.fillRect(rect.x + rect.width - 558, y2 + 30, 276, 2, this.textColor(BBSWOutFC));
+    this.contents.fillRect(rect.x + rect.width - 558, y2 - 2, 276, 2, this.textColor(BBSWOutFC));
+
+    this.contents.paintOpacity = 255;
+*/
     if (y2 >= lineHeight) {
       //項目1 右下-------------------------------------------------------------------
       this.drawText(

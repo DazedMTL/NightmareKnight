@@ -2,14 +2,7 @@
   null,
   {
     "id": 1,
-    "members": [
-      {
-        "enemyId": 5,
-        "x": 408,
-        "y": 436,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 5, "x": 408, "y": 436, "hidden": false }],
     "name": "共通",
     "pages": [
       {
@@ -28,131 +21,55 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [66, 66, 0]
-          },
-          {
-            "code": 111,
-            "indent": 0,
-            "parameters": [0, 17, 0]
-          },
+          { "code": 121, "indent": 0, "parameters": [66, 66, 0] },
+          { "code": 111, "indent": 0, "parameters": [4, 1, 5, 33] },
+          { "code": 313, "indent": 1, "parameters": [0, 0, 0, 63] },
+          { "code": 0, "indent": 1, "parameters": [] },
+          { "code": 412, "indent": 0, "parameters": [] },
+          { "code": 111, "indent": 0, "parameters": [0, 17, 0] },
           {
             "code": 355,
             "indent": 1,
             "parameters": ["BattleManager._preemptive = true"]
           },
-          {
-            "code": 101,
-            "indent": 1,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 1,
             "parameters": ["先手を取った！TP獲得！"]
           },
-          {
-            "code": 356,
-            "indent": 1,
-            "parameters": ["ポップアップ無効化"]
-          },
-          {
-            "code": 326,
-            "indent": 1,
-            "parameters": [0, 0, 0, 0, 12]
-          },
-          {
-            "code": 356,
-            "indent": 1,
-            "parameters": ["ポップアップ有効化"]
-          },
+          { "code": 356, "indent": 1, "parameters": ["ポップアップ無効化"] },
+          { "code": 326, "indent": 1, "parameters": [0, 0, 0, 0, 12] },
+          { "code": 356, "indent": 1, "parameters": ["ポップアップ有効化"] },
           {
             "code": 108,
             "indent": 1,
             "parameters": ["87:エンカウント時共通処理で先制攻撃スイッチオン"]
           },
-          {
-            "code": 121,
-            "indent": 1,
-            "parameters": [17, 17, 1]
-          },
-          {
-            "code": 0,
-            "indent": 1,
-            "parameters": []
-          },
-          {
-            "code": 412,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 111,
-            "indent": 0,
-            "parameters": [0, 275, 0]
-          },
-          {
-            "code": 313,
-            "indent": 1,
-            "parameters": [0, 0, 0, 38]
-          },
+          { "code": 121, "indent": 1, "parameters": [17, 17, 1] },
+          { "code": 0, "indent": 1, "parameters": [] },
+          { "code": 412, "indent": 0, "parameters": [] },
+          { "code": 111, "indent": 0, "parameters": [0, 275, 0] },
+          { "code": 313, "indent": 1, "parameters": [0, 0, 0, 38] },
           {
             "code": 355,
             "indent": 1,
             "parameters": ["BattleManager._surprise = true"]
           },
-          {
-            "code": 101,
-            "indent": 1,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 1,
             "parameters": ["不意を突かれた！TP減少！"]
           },
-          {
-            "code": 356,
-            "indent": 1,
-            "parameters": ["ポップアップ無効化"]
-          },
-          {
-            "code": 326,
-            "indent": 1,
-            "parameters": [0, 0, 1, 0, 12]
-          },
-          {
-            "code": 356,
-            "indent": 1,
-            "parameters": ["ポップアップ有効化"]
-          },
-          {
-            "code": 339,
-            "indent": 1,
-            "parameters": [0, 0, 141, -2]
-          },
-          {
-            "code": 121,
-            "indent": 1,
-            "parameters": [275, 275, 1]
-          },
-          {
-            "code": 0,
-            "indent": 1,
-            "parameters": []
-          },
-          {
-            "code": 412,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 356, "indent": 1, "parameters": ["ポップアップ無効化"] },
+          { "code": 326, "indent": 1, "parameters": [0, 0, 1, 0, 12] },
+          { "code": 356, "indent": 1, "parameters": ["ポップアップ有効化"] },
+          { "code": 339, "indent": 1, "parameters": [0, 0, 141, -2] },
+          { "code": 121, "indent": 1, "parameters": [275, 275, 1] },
+          { "code": 0, "indent": 1, "parameters": [] },
+          { "code": 412, "indent": 0, "parameters": [] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -172,16 +89,8 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [78, 78, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 121, "indent": 0, "parameters": [78, 78, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 2
       },
@@ -201,16 +110,8 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [17]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 117, "indent": 0, "parameters": [17] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 1
       }
@@ -218,14 +119,7 @@
   },
   {
     "id": 2,
-    "members": [
-      {
-        "enemyId": 7,
-        "x": 348,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 7, "x": 348, "y": 444, "hidden": false }],
     "name": "北東ダンジョンボス",
     "pages": [
       {
@@ -244,36 +138,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -298,16 +171,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss1_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -315,11 +180,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -344,21 +205,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'shadows'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 30]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 30] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -366,14 +215,7 @@
   },
   {
     "id": 3,
-    "members": [
-      {
-        "enemyId": 29,
-        "x": 333,
-        "y": 424,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 29, "x": 333, "y": 424, "hidden": false }],
     "name": "北西ダンジョンボス",
     "pages": [
       {
@@ -392,36 +234,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -441,16 +262,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss2_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -458,11 +271,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -487,21 +296,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'goblins'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 30]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 30] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -509,14 +306,7 @@
   },
   {
     "id": 4,
-    "members": [
-      {
-        "enemyId": 31,
-        "x": 354,
-        "y": 367,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 31, "x": 354, "y": 367, "hidden": false }],
     "name": "訓練所対戦相手1",
     "pages": [
       {
@@ -535,16 +325,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -552,14 +334,7 @@
   },
   {
     "id": 5,
-    "members": [
-      {
-        "enemyId": 32,
-        "x": 327,
-        "y": 397,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 32, "x": 327, "y": 397, "hidden": false }],
     "name": "訓練所対戦相手2",
     "pages": [
       {
@@ -578,16 +353,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -595,14 +362,7 @@
   },
   {
     "id": 6,
-    "members": [
-      {
-        "enemyId": 33,
-        "x": 339,
-        "y": 408,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 33, "x": 339, "y": 408, "hidden": false }],
     "name": "訓練所対戦相手3",
     "pages": [
       {
@@ -621,16 +381,8 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [30] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -638,21 +390,13 @@
               "\\OC[6]\\N<\\N[9]>「オラオラどしたぁ！そんなもんかぁ\\N[1]！？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「くっ……、つ、強い……！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -660,46 +404,14 @@
               "\\OC[6]\\N<\\N[9]>「さぁ、これで終わりだ！くらいなッ！"
             ]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [15]
-          },
-          {
-            "code": 339,
-            "indent": 0,
-            "parameters": [0, 0, 140, -2]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [15]
-          },
-          {
-            "code": 111,
-            "indent": 0,
-            "parameters": [4, 1, 6, 1]
-          },
-          {
-            "code": 313,
-            "indent": 1,
-            "parameters": [0, 0, 1, 1]
-          },
-          {
-            "code": 0,
-            "indent": 1,
-            "parameters": []
-          },
-          {
-            "code": 412,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [15] },
+          { "code": 339, "indent": 0, "parameters": [0, 0, 140, -2] },
+          { "code": 230, "indent": 0, "parameters": [15] },
+          { "code": 111, "indent": 0, "parameters": [4, 1, 6, 1] },
+          { "code": 313, "indent": 1, "parameters": [0, 0, 1, 1] },
+          { "code": 0, "indent": 1, "parameters": [] },
+          { "code": 412, "indent": 0, "parameters": [] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -709,12 +421,7 @@
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "01_dokun",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "01_dokun", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -722,31 +429,11 @@
             "indent": 0,
             "parameters": ["dizzy_effect : 2 : 30 : 0 : 200 : false"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [120]
-          },
-          {
-            "code": 221,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [60]
-          },
-          {
-            "code": 340,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 230, "indent": 0, "parameters": [120] },
+          { "code": 221, "indent": 0, "parameters": [] },
+          { "code": 230, "indent": 0, "parameters": [60] },
+          { "code": 340, "indent": 0, "parameters": [] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -766,36 +453,12 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 111,
-            "indent": 0,
-            "parameters": [5, 0, 1, 1]
-          },
-          {
-            "code": 333,
-            "indent": 1,
-            "parameters": [-1, 1, 1]
-          },
-          {
-            "code": 0,
-            "indent": 1,
-            "parameters": []
-          },
-          {
-            "code": 412,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 111, "indent": 0, "parameters": [5, 0, 1, 1] },
+          { "code": 333, "indent": 1, "parameters": [-1, 1, 1] },
+          { "code": 0, "indent": 1, "parameters": [] },
+          { "code": 412, "indent": 0, "parameters": [] },
+          { "code": 230, "indent": 0, "parameters": [30] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -806,26 +469,10 @@
             "indent": 0,
             "parameters": ["\\.でもこれをくらっても立ってられるか！？"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [15]
-          },
-          {
-            "code": 339,
-            "indent": 0,
-            "parameters": [0, 0, 140, -2]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [15]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [15] },
+          { "code": 339, "indent": 0, "parameters": [0, 0, 140, -2] },
+          { "code": 230, "indent": 0, "parameters": [15] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -835,12 +482,7 @@
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "01_dokun",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "01_dokun", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -848,31 +490,11 @@
             "indent": 0,
             "parameters": ["dizzy_effect : 2 : 30 : 0 : 200 : false"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [120]
-          },
-          {
-            "code": 221,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [60]
-          },
-          {
-            "code": 340,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 230, "indent": 0, "parameters": [120] },
+          { "code": 221, "indent": 0, "parameters": [] },
+          { "code": 230, "indent": 0, "parameters": [60] },
+          { "code": 340, "indent": 0, "parameters": [] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -892,16 +514,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -909,14 +523,7 @@
   },
   {
     "id": 7,
-    "members": [
-      {
-        "enemyId": 41,
-        "x": 333,
-        "y": 433,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 41, "x": 333, "y": 433, "hidden": false }],
     "name": "南東ダンジョンボス",
     "pages": [
       {
@@ -935,36 +542,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -989,16 +575,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss3_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -1006,11 +584,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -1035,21 +609,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'slimefish'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 30]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 30] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1058,30 +620,10 @@
   {
     "id": 8,
     "members": [
-      {
-        "enemyId": 18,
-        "x": 136,
-        "y": 400,
-        "hidden": false
-      },
-      {
-        "enemyId": 18,
-        "x": 390,
-        "y": 436,
-        "hidden": false
-      },
-      {
-        "enemyId": 18,
-        "x": 509,
-        "y": 355,
-        "hidden": false
-      },
-      {
-        "enemyId": 20,
-        "x": 261,
-        "y": 301,
-        "hidden": false
-      }
+      { "enemyId": 18, "x": 136, "y": 400, "hidden": false },
+      { "enemyId": 18, "x": 390, "y": 436, "hidden": false },
+      { "enemyId": 18, "x": 509, "y": 355, "hidden": false },
+      { "enemyId": 20, "x": 261, "y": 301, "hidden": false }
     ],
     "name": "盗賊*4",
     "pages": [
@@ -1101,16 +643,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 4]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 4] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1118,14 +652,7 @@
   },
   {
     "id": 9,
-    "members": [
-      {
-        "enemyId": 55,
-        "x": 333,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 55, "x": 333, "y": 444, "hidden": false }],
     "name": "地下ダンジョンボス",
     "pages": [
       {
@@ -1144,36 +671,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -1198,16 +704,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss4_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -1215,11 +713,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -1244,21 +738,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'chain'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 30]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 30] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1266,14 +748,7 @@
   },
   {
     "id": 10,
-    "members": [
-      {
-        "enemyId": 9,
-        "x": 411,
-        "y": 355,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 9, "x": 411, "y": 355, "hidden": false }],
     "name": "情報屋",
     "pages": [
       {
@@ -1291,27 +766,14 @@
           "turnEnding": false,
           "turnValid": false
         },
-        "list": [
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
-        ],
+        "list": [{ "code": 0, "indent": 0, "parameters": [] }],
         "span": 0
       }
     ]
   },
   {
     "id": 11,
-    "members": [
-      {
-        "enemyId": 34,
-        "x": 324,
-        "y": 388,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 34, "x": 324, "y": 388, "hidden": false }],
     "name": "地下試合審判",
     "pages": [
       {
@@ -1330,16 +792,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 10]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 10] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1348,24 +802,9 @@
   {
     "id": 12,
     "members": [
-      {
-        "enemyId": 11,
-        "x": 435,
-        "y": 361,
-        "hidden": false
-      },
-      {
-        "enemyId": 2,
-        "x": 582,
-        "y": 424,
-        "hidden": false
-      },
-      {
-        "enemyId": 2,
-        "x": 240,
-        "y": 409,
-        "hidden": false
-      }
+      { "enemyId": 11, "x": 435, "y": 361, "hidden": false },
+      { "enemyId": 2, "x": 582, "y": 424, "hidden": false },
+      { "enemyId": 2, "x": 240, "y": 409, "hidden": false }
     ],
     "name": "盗賊幹部",
     "pages": [
@@ -1384,27 +823,14 @@
           "turnEnding": false,
           "turnValid": false
         },
-        "list": [
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
-        ],
+        "list": [{ "code": 0, "indent": 0, "parameters": [] }],
         "span": 0
       }
     ]
   },
   {
     "id": 13,
-    "members": [
-      {
-        "enemyId": 5,
-        "x": 378,
-        "y": 417,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 5, "x": 378, "y": 417, "hidden": false }],
     "name": "シャドウ・E",
     "pages": [
       {
@@ -1428,21 +854,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'shadows'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1450,14 +864,7 @@
   },
   {
     "id": 14,
-    "members": [
-      {
-        "enemyId": 25,
-        "x": 351,
-        "y": 412,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 25, "x": 351, "y": 412, "hidden": false }],
     "name": "ゴブリン",
     "pages": [
       {
@@ -1481,21 +888,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'goblins'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1503,14 +898,7 @@
   },
   {
     "id": 15,
-    "members": [
-      {
-        "enemyId": 1,
-        "x": 276,
-        "y": 367,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 1, "x": 276, "y": 367, "hidden": false }],
     "name": "エビルバット",
     "pages": [
       {
@@ -1529,16 +917,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1546,14 +926,7 @@
   },
   {
     "id": 16,
-    "members": [
-      {
-        "enemyId": 3,
-        "x": 322,
-        "y": 352,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 3, "x": 322, "y": 352, "hidden": false }],
     "name": "デモンラット",
     "pages": [
       {
@@ -1572,16 +945,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1590,18 +955,8 @@
   {
     "id": 17,
     "members": [
-      {
-        "enemyId": 1,
-        "x": 195,
-        "y": 343,
-        "hidden": false
-      },
-      {
-        "enemyId": 3,
-        "x": 369,
-        "y": 400,
-        "hidden": false
-      }
+      { "enemyId": 1, "x": 195, "y": 343, "hidden": false },
+      { "enemyId": 3, "x": 369, "y": 400, "hidden": false }
     ],
     "name": "エビルバット＋デモンラット",
     "pages": [
@@ -1621,16 +976,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1639,18 +986,8 @@
   {
     "id": 18,
     "members": [
-      {
-        "enemyId": 1,
-        "x": 153,
-        "y": 289,
-        "hidden": false
-      },
-      {
-        "enemyId": 5,
-        "x": 408,
-        "y": 444,
-        "hidden": false
-      }
+      { "enemyId": 1, "x": 153, "y": 289, "hidden": false },
+      { "enemyId": 5, "x": 408, "y": 444, "hidden": false }
     ],
     "name": "シャドウ・E＋エビルバット",
     "pages": [
@@ -1675,16 +1012,8 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'shadows'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1692,14 +1021,7 @@
   },
   {
     "id": 19,
-    "members": [
-      {
-        "enemyId": 10,
-        "x": 309,
-        "y": 373,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 10, "x": 309, "y": 373, "hidden": false }],
     "name": "バーサクウルフ",
     "pages": [
       {
@@ -1718,16 +1040,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1736,24 +1050,9 @@
   {
     "id": 20,
     "members": [
-      {
-        "enemyId": 11,
-        "x": 157,
-        "y": 382,
-        "hidden": false
-      },
-      {
-        "enemyId": 11,
-        "x": 228,
-        "y": 223,
-        "hidden": false
-      },
-      {
-        "enemyId": 11,
-        "x": 411,
-        "y": 274,
-        "hidden": false
-      }
+      { "enemyId": 11, "x": 157, "y": 382, "hidden": false },
+      { "enemyId": 11, "x": 228, "y": 223, "hidden": false },
+      { "enemyId": 11, "x": 411, "y": 274, "hidden": false }
     ],
     "name": "E・ホーネット*3",
     "pages": [
@@ -1773,16 +1072,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1790,14 +1081,7 @@
   },
   {
     "id": 21,
-    "members": [
-      {
-        "enemyId": 11,
-        "x": 268,
-        "y": 319,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 11, "x": 268, "y": 319, "hidden": false }],
     "name": "E・ホーネット",
     "pages": [
       {
@@ -1816,16 +1100,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1834,24 +1110,9 @@
   {
     "id": 22,
     "members": [
-      {
-        "enemyId": 17,
-        "x": 312,
-        "y": 346,
-        "hidden": false
-      },
-      {
-        "enemyId": 10,
-        "x": 183,
-        "y": 432,
-        "hidden": false
-      },
-      {
-        "enemyId": 10,
-        "x": 483,
-        "y": 403,
-        "hidden": false
-      }
+      { "enemyId": 17, "x": 312, "y": 346, "hidden": false },
+      { "enemyId": 10, "x": 183, "y": 432, "hidden": false },
+      { "enemyId": 10, "x": 483, "y": 403, "hidden": false }
     ],
     "name": "デモンワーウルフ(ボス)",
     "pages": [
@@ -1871,16 +1132,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1888,14 +1141,7 @@
   },
   {
     "id": 23,
-    "members": [
-      {
-        "enemyId": 12,
-        "x": 300,
-        "y": 400,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 12, "x": 300, "y": 400, "hidden": false }],
     "name": "ゲルゲイザー",
     "pages": [
       {
@@ -1914,16 +1160,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1931,14 +1169,7 @@
   },
   {
     "id": 24,
-    "members": [
-      {
-        "enemyId": 13,
-        "x": 309,
-        "y": 355,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 13, "x": 309, "y": 355, "hidden": false }],
     "name": "エビルウィード",
     "pages": [
       {
@@ -1957,16 +1188,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -1975,18 +1198,8 @@
   {
     "id": 25,
     "members": [
-      {
-        "enemyId": 13,
-        "x": 192,
-        "y": 376,
-        "hidden": false
-      },
-      {
-        "enemyId": 13,
-        "x": 384,
-        "y": 331,
-        "hidden": false
-      }
+      { "enemyId": 13, "x": 192, "y": 376, "hidden": false },
+      { "enemyId": 13, "x": 384, "y": 331, "hidden": false }
     ],
     "name": "エビルウィード*2",
     "pages": [
@@ -2006,16 +1219,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2023,14 +1228,7 @@
   },
   {
     "id": 26,
-    "members": [
-      {
-        "enemyId": 15,
-        "x": 300,
-        "y": 385,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 15, "x": 300, "y": 385, "hidden": false }],
     "name": "シャドウ",
     "pages": [
       {
@@ -2049,16 +1247,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2067,18 +1257,8 @@
   {
     "id": 27,
     "members": [
-      {
-        "enemyId": 16,
-        "x": 432,
-        "y": 352,
-        "hidden": false
-      },
-      {
-        "enemyId": 13,
-        "x": 186,
-        "y": 379,
-        "hidden": false
-      }
+      { "enemyId": 16, "x": 432, "y": 352, "hidden": false },
+      { "enemyId": 13, "x": 186, "y": 379, "hidden": false }
     ],
     "name": "エナジックモンキー*エビルウィード",
     "pages": [
@@ -2098,16 +1278,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2116,18 +1288,8 @@
   {
     "id": 28,
     "members": [
-      {
-        "enemyId": 16,
-        "x": 240,
-        "y": 391,
-        "hidden": false
-      },
-      {
-        "enemyId": 15,
-        "x": 471,
-        "y": 310,
-        "hidden": false
-      }
+      { "enemyId": 16, "x": 240, "y": 391, "hidden": false },
+      { "enemyId": 15, "x": 471, "y": 310, "hidden": false }
     ],
     "name": "エナジックモンキー*シャドウ",
     "pages": [
@@ -2147,16 +1309,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2164,14 +1318,7 @@
   },
   {
     "id": 29,
-    "members": [
-      {
-        "enemyId": 16,
-        "x": 333,
-        "y": 391,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 16, "x": 333, "y": 391, "hidden": false }],
     "name": "エナジックモンキー",
     "pages": [
       {
@@ -2190,16 +1337,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2208,18 +1347,8 @@
   {
     "id": 30,
     "members": [
-      {
-        "enemyId": 25,
-        "x": 378,
-        "y": 430,
-        "hidden": false
-      },
-      {
-        "enemyId": 21,
-        "x": 144,
-        "y": 346,
-        "hidden": false
-      }
+      { "enemyId": 25, "x": 378, "y": 430, "hidden": false },
+      { "enemyId": 21, "x": 144, "y": 346, "hidden": false }
     ],
     "name": "ゴブリン＋シャドウスパイダー",
     "pages": [
@@ -2244,21 +1373,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'goblins'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2266,14 +1383,7 @@
   },
   {
     "id": 31,
-    "members": [
-      {
-        "enemyId": 21,
-        "x": 292,
-        "y": 373,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 21, "x": 292, "y": 373, "hidden": false }],
     "name": "シャドウスパイダー",
     "pages": [
       {
@@ -2292,16 +1402,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2309,14 +1411,7 @@
   },
   {
     "id": 32,
-    "members": [
-      {
-        "enemyId": 19,
-        "x": 303,
-        "y": 382,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 19, "x": 303, "y": 382, "hidden": false }],
     "name": "エビルバット(北西の洞窟)",
     "pages": [
       {
@@ -2335,16 +1430,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2353,18 +1440,8 @@
   {
     "id": 33,
     "members": [
-      {
-        "enemyId": 1,
-        "x": 210,
-        "y": 424,
-        "hidden": false
-      },
-      {
-        "enemyId": 1,
-        "x": 390,
-        "y": 301,
-        "hidden": false
-      }
+      { "enemyId": 1, "x": 210, "y": 424, "hidden": false },
+      { "enemyId": 1, "x": 390, "y": 301, "hidden": false }
     ],
     "name": "エビルバット*2(北東)",
     "pages": [
@@ -2384,16 +1461,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2402,18 +1471,8 @@
   {
     "id": 34,
     "members": [
-      {
-        "enemyId": 43,
-        "x": 209,
-        "y": 373,
-        "hidden": false
-      },
-      {
-        "enemyId": 43,
-        "x": 431,
-        "y": 421,
-        "hidden": false
-      }
+      { "enemyId": 43, "x": 209, "y": 373, "hidden": false },
+      { "enemyId": 43, "x": 431, "y": 421, "hidden": false }
     ],
     "name": "盗賊(宿)",
     "pages": [
@@ -2433,16 +1492,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2451,18 +1502,8 @@
   {
     "id": 35,
     "members": [
-      {
-        "enemyId": 52,
-        "x": 206,
-        "y": 436,
-        "hidden": false
-      },
-      {
-        "enemyId": 51,
-        "x": 375,
-        "y": 328,
-        "hidden": false
-      }
+      { "enemyId": 52, "x": 206, "y": 436, "hidden": false },
+      { "enemyId": 51, "x": 375, "y": 328, "hidden": false }
     ],
     "name": "\\N[10]と仲間たち",
     "pages": [
@@ -2482,16 +1523,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 11]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 11] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
           {
             "code": 401,
             "indent": 0,
@@ -2502,16 +1535,8 @@
             "indent": 0,
             "parameters": ["※この戦闘での敗北はゲームオーバーとなります※"]
           },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["※敗北後リトライ可能※"]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 401, "indent": 0, "parameters": ["※敗北後リトライ可能※"] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2520,18 +1545,8 @@
   {
     "id": 36,
     "members": [
-      {
-        "enemyId": 56,
-        "x": 388,
-        "y": 441,
-        "hidden": false
-      },
-      {
-        "enemyId": 52,
-        "x": 174,
-        "y": 400,
-        "hidden": false
-      }
+      { "enemyId": 56, "x": 388, "y": 441, "hidden": false },
+      { "enemyId": 52, "x": 174, "y": 400, "hidden": false }
     ],
     "name": "地下ダンジョンボス\\N[9]",
     "pages": [
@@ -2551,16 +1566,8 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2568,21 +1575,12 @@
               "\\OC[6]\\N<\\N[9]>「やっぱつえぇな\\N[1]……！\\.だがまだだ！こっからが全開だぞオラァッ！！"
             ]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -2607,16 +1605,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 enemy_buster_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2624,16 +1614,8 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -2653,16 +1635,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 40]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 40] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
           {
             "code": 401,
             "indent": 0,
@@ -2673,16 +1647,8 @@
             "indent": 0,
             "parameters": ["※この戦闘での敗北はゲームオーバーとなります※"]
           },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["※敗北後リトライ可能※"]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 401, "indent": 0, "parameters": ["※敗北後リトライ可能※"] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2690,14 +1656,7 @@
   },
   {
     "id": 37,
-    "members": [
-      {
-        "enemyId": 51,
-        "x": 285,
-        "y": 376,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 51, "x": 285, "y": 376, "hidden": false }],
     "name": "盗賊エリート",
     "pages": [
       {
@@ -2716,16 +1675,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2734,18 +1685,8 @@
   {
     "id": 38,
     "members": [
-      {
-        "enemyId": 35,
-        "x": 189,
-        "y": 262,
-        "hidden": false
-      },
-      {
-        "enemyId": 35,
-        "x": 333,
-        "y": 331,
-        "hidden": false
-      }
+      { "enemyId": 35, "x": 189, "y": 262, "hidden": false },
+      { "enemyId": 35, "x": 333, "y": 331, "hidden": false }
     ],
     "name": "シャドウスピリット",
     "pages": [
@@ -2765,16 +1706,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2782,14 +1715,7 @@
   },
   {
     "id": 39,
-    "members": [
-      {
-        "enemyId": 37,
-        "x": 309,
-        "y": 409,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 37, "x": 309, "y": 409, "hidden": false }],
     "name": "ベノガマ",
     "pages": [
       {
@@ -2808,16 +1734,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2826,18 +1744,8 @@
   {
     "id": 40,
     "members": [
-      {
-        "enemyId": 37,
-        "x": 243,
-        "y": 406,
-        "hidden": false
-      },
-      {
-        "enemyId": 35,
-        "x": 387,
-        "y": 241,
-        "hidden": false
-      }
+      { "enemyId": 37, "x": 243, "y": 406, "hidden": false },
+      { "enemyId": 35, "x": 387, "y": 241, "hidden": false }
     ],
     "name": "ベノガマ+シャドウスピリット",
     "pages": [
@@ -2857,16 +1765,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2874,14 +1774,7 @@
   },
   {
     "id": 41,
-    "members": [
-      {
-        "enemyId": 39,
-        "x": 324,
-        "y": 400,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 39, "x": 324, "y": 400, "hidden": false }],
     "name": "クラゲスライム",
     "pages": [
       {
@@ -2905,21 +1798,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'slimefish'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2928,18 +1809,8 @@
   {
     "id": 42,
     "members": [
-      {
-        "enemyId": 39,
-        "x": 396,
-        "y": 394,
-        "hidden": false
-      },
-      {
-        "enemyId": 37,
-        "x": 141,
-        "y": 376,
-        "hidden": false
-      }
+      { "enemyId": 39, "x": 396, "y": 394, "hidden": false },
+      { "enemyId": 37, "x": 141, "y": 376, "hidden": false }
     ],
     "name": "クラゲスライム+ベノガマ",
     "pages": [
@@ -2964,21 +1835,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'slimefish'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -2986,14 +1845,7 @@
   },
   {
     "id": 43,
-    "members": [
-      {
-        "enemyId": 40,
-        "x": 327,
-        "y": 421,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 40, "x": 327, "y": 421, "hidden": false }],
     "name": "シャドウ・E(南東)",
     "pages": [
       {
@@ -3017,21 +1869,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'shadows'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3039,14 +1879,7 @@
   },
   {
     "id": 44,
-    "members": [
-      {
-        "enemyId": 53,
-        "x": 366,
-        "y": 412,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 53, "x": 366, "y": 412, "hidden": false }],
     "name": "盗賊グループ(地下ダンジョン)",
     "pages": [
       {
@@ -3070,21 +1903,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'chain'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3092,14 +1913,7 @@
   },
   {
     "id": 45,
-    "members": [
-      {
-        "enemyId": 54,
-        "x": 336,
-        "y": 367,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 54, "x": 336, "y": 367, "hidden": false }],
     "name": "デモンウルフ",
     "pages": [
       {
@@ -3118,16 +1932,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3136,18 +1942,8 @@
   {
     "id": 46,
     "members": [
-      {
-        "enemyId": 53,
-        "x": 393,
-        "y": 409,
-        "hidden": false
-      },
-      {
-        "enemyId": 54,
-        "x": 147,
-        "y": 355,
-        "hidden": false
-      }
+      { "enemyId": 53, "x": 393, "y": 409, "hidden": false },
+      { "enemyId": 54, "x": 147, "y": 355, "hidden": false }
     ],
     "name": "盗賊グループ+デモンウルフ",
     "pages": [
@@ -3172,21 +1968,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'chain'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3194,14 +1978,7 @@
   },
   {
     "id": 47,
-    "members": [
-      {
-        "enemyId": 63,
-        "x": 321,
-        "y": 442,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 63, "x": 321, "y": 442, "hidden": false }],
     "name": "テンタクルス・E",
     "pages": [
       {
@@ -3225,21 +2002,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'tentacles'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3247,14 +2012,7 @@
   },
   {
     "id": 48,
-    "members": [
-      {
-        "enemyId": 65,
-        "x": 387,
-        "y": 438,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 65, "x": 387, "y": 438, "hidden": false }],
     "name": "テンタクルス・ゴア",
     "pages": [
       {
@@ -3273,36 +2031,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -3327,16 +2064,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss5_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3344,11 +2073,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -3373,21 +2098,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'tentacles'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 15]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 15] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3395,14 +2108,7 @@
   },
   {
     "id": 49,
-    "members": [
-      {
-        "enemyId": 67,
-        "x": 360,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 67, "x": 360, "y": 444, "hidden": false }],
     "name": "ディモン１",
     "pages": [
       {
@@ -3426,16 +2132,8 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'tentacles2'"]
           },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3443,14 +2141,7 @@
   },
   {
     "id": 50,
-    "members": [
-      {
-        "enemyId": 68,
-        "x": 339,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 68, "x": 339, "y": 444, "hidden": false }],
     "name": "ディモン２",
     "pages": [
       {
@@ -3469,16 +2160,8 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3493,26 +2176,13 @@
               "\\.しかしそろそろ面倒になってきましたからね……、本気で叩き潰しますよぉ！！"
             ]
           },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire9",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire9", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -3537,16 +2207,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 enemy_dymon2_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3554,11 +2216,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -3583,21 +2241,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'tentacles2'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 50]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 50] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3605,14 +2251,7 @@
   },
   {
     "id": 51,
-    "members": [
-      {
-        "enemyId": 75,
-        "x": 345,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 75, "x": 345, "y": 444, "hidden": false }],
     "name": "魔物の像",
     "pages": [
       {
@@ -3631,16 +2270,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
           {
             "code": 401,
             "indent": 0,
@@ -3648,16 +2279,8 @@
               "※この戦闘は敗北はありません。敵を倒すことでのみ終了します※"
             ]
           },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["※アイテム使用不可※"]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 401, "indent": 0, "parameters": ["※アイテム使用不可※"] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -3665,14 +2288,7 @@
   },
   {
     "id": 52,
-    "members": [
-      {
-        "enemyId": 74,
-        "x": 342,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 74, "x": 342, "y": 444, "hidden": false }],
     "name": "訓練所の冒険者達",
     "pages": [
       {
@@ -3691,21 +2307,13 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B>「うっほお！！丸見えだあっ！！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3716,21 +2324,13 @@
             "indent": 0,
             "parameters": ["乳首からまんこまでぜ～んぶ見えちゃってるよぉ！？"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「うぅ─────ッ"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3738,31 +2338,19 @@
               "\\N<訓練所の冒険者A>「顔が真っ赤だが───やっぱりもう止めとくかぁ？ん～？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「やめ……─────\\.ません！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B>「ひゃっほう！！"]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -3782,26 +2370,14 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [60]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [60] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者C>「\\{ふぃゃっほう！！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3809,21 +2385,13 @@
               "\\N<訓練所の冒険者B>「見えた！見えたぞ！！エロいひと乳首！"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「な、なにするんですか─────！！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3836,11 +2404,7 @@
             "indent": 0,
             "parameters": ["強敵相手への常套手段だからなぁ！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3855,11 +2419,7 @@
               "しねぇけど……\\.\\.ま、あんたは女だ。恥ずかしかったら止めてもいいぜ？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3872,36 +2432,16 @@
             "indent": 0,
             "parameters": ["\\.\\.これぐらいなんともありません……！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者A>「へへ、そうこなくちゃな！"]
           },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [-1, 1, 48]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 53]
-          },
-          {
-            "code": 313,
-            "indent": 0,
-            "parameters": [0, 0, 1, 51]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 333, "indent": 0, "parameters": [-1, 1, 48] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 53] },
+          { "code": 313, "indent": 0, "parameters": [0, 0, 1, 51] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -3921,11 +2461,7 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3933,11 +2469,7 @@
               "\\N<訓練所の冒険者B>「\\{うははははっ！\\}よっしゃあッ！！"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3945,16 +2477,8 @@
               "\\N<訓練所の冒険者C>「逃がすなよ！しっかり捕まえてろ！！"
             ]
           },
-          {
-            "code": 313,
-            "indent": 0,
-            "parameters": [0, 0, 0, 14]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 313, "indent": 0, "parameters": [0, 0, 0, 14] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -3974,51 +2498,23 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [-1, 1, 52]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 333, "indent": 0, "parameters": [-1, 1, 52] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者A>「お前ら、そろそろ行くぜ！！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B&C>「\\{おう！！"]
           },
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [392, 392, 0]
-          },
-          {
-            "code": 313,
-            "indent": 0,
-            "parameters": [0, 0, 0, 51]
-          },
-          {
-            "code": 339,
-            "indent": 0,
-            "parameters": [0, 0, 149, -2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 121, "indent": 0, "parameters": [392, 392, 0] },
+          { "code": 313, "indent": 0, "parameters": [0, 0, 0, 51] },
+          { "code": 339, "indent": 0, "parameters": [0, 0, 149, -2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4038,11 +2534,7 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4050,16 +2542,8 @@
               "\\N<訓練所の冒険者A>「おいおい、飛ばし過ぎじゃねぇか？訓練にならねぇよ。"
             ]
           },
-          {
-            "code": 331,
-            "indent": 0,
-            "parameters": [-1, 0, 0, 9999, false]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 331, "indent": 0, "parameters": [-1, 0, 0, 9999, false] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 2
       },
@@ -4079,36 +2563,16 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
           {
             "code": 122,
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'humaninSportswear'"]
           },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [-1, 0, 52]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [-1, 0, 48]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 333, "indent": 0, "parameters": [-1, 0, 52] },
+          { "code": 333, "indent": 0, "parameters": [-1, 0, 48] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
           {
             "code": 401,
             "indent": 0,
@@ -4116,16 +2580,8 @@
               "※この戦闘は敗北はありません。敵を倒すことでのみ終了します※"
             ]
           },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["※アイテム使用不可※"]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 401, "indent": 0, "parameters": ["※アイテム使用不可※"] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4145,11 +2601,7 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4157,11 +2609,7 @@
               "\\N<訓練所の冒険者A>「おやぁ？意外と体力ないなぁ。もうグロッキーかい？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4169,31 +2617,15 @@
               "\\N<訓練所の冒険者B>「俺たちゃ余裕だからよ、休んでいいぜぇ？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「くッ─────ま、まだまだです！"]
           },
-          {
-            "code": 314,
-            "indent": 0,
-            "parameters": [0, 0]
-          },
-          {
-            "code": 313,
-            "indent": 0,
-            "parameters": [0, 0, 1, 11]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 314, "indent": 0, "parameters": [0, 0] },
+          { "code": 313, "indent": 0, "parameters": [0, 0, 1, 11] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 1
       }
@@ -4201,14 +2633,7 @@
   },
   {
     "id": 53,
-    "members": [
-      {
-        "enemyId": 80,
-        "x": 321,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 80, "x": 321, "y": 444, "hidden": false }],
     "name": "訓練所の冒険者達２",
     "pages": [
       {
@@ -4227,21 +2652,13 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B>「うっほお！！丸見えだあっ！！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4252,21 +2669,13 @@
             "indent": 0,
             "parameters": ["乳首からまんこまでぜ～んぶ見えちゃってるよぉ！？"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「うぅ─────ッ"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4274,31 +2683,19 @@
               "\\N<訓練所の冒険者A>「顔が真っ赤だが───やっぱりもう止めとくかぁ？ん～？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「やめ……─────\\.ません！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B>「ひゃっほう！！"]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4318,21 +2715,13 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者A>「ぐっ……！ち、ちからが……─────"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4340,26 +2729,14 @@
               "\\N<訓練所の冒険者B>「ぜぃ、ぜぃ、はぁ、はぁ、はぁ、はぁ─────脇腹いてぇ……！"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者C>「もう、だめだぁ………っ"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [30] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4367,16 +2744,8 @@
               "\\C[13]\\OC[31]\\N<\\N[11]>(敵の魔力が急激に落ちた……いまがチャンス！"
             ]
           },
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [392, 392, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 121, "indent": 0, "parameters": [392, 392, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4396,36 +2765,20 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
           {
             "code": 122,
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'humaninSportswear'"]
           },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["※この戦闘はアイテム使用不可※"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4433,11 +2786,7 @@
               "\\N<訓練所の冒険者A>「言っておくが、俺らだって前回の訓練が本気じゃあないぜ！？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4445,16 +2794,8 @@
               "\\N<訓練所の冒険者B>「おめぇのそのどエロい身体を好きにできるってんなら、本気も本気の"
             ]
           },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["全力だ！！"]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 401, "indent": 0, "parameters": ["全力だ！！"] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4462,21 +2803,9 @@
               "\\N<訓練所の冒険者C>「乳ばっかり育った小娘が、大人舐めんなよ！！エロパワー見せてやるぁっ！"
             ]
           },
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [392, 392, 0]
-          },
-          {
-            "code": 339,
-            "indent": 0,
-            "parameters": [0, 0, 150, -2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 121, "indent": 0, "parameters": [392, 392, 0] },
+          { "code": 339, "indent": 0, "parameters": [0, 0, 150, -2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -4484,14 +2813,7 @@
   },
   {
     "id": 54,
-    "members": [
-      {
-        "enemyId": 80,
-        "x": 321,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 80, "x": 321, "y": 444, "hidden": false }],
     "name": "訓練所の冒険者達３(周回用)",
     "pages": [
       {
@@ -4510,21 +2832,13 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B>「うっほお！！丸見えだあっ！！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4535,21 +2849,13 @@
             "indent": 0,
             "parameters": ["乳首からまんこまでぜ～んぶ見えちゃってるよぉ！？"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「うぅ─────ッ"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4557,31 +2863,19 @@
               "\\N<訓練所の冒険者A>「顔が真っ赤だが───やっぱりもう止めとくかぁ？ん～？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<\\N[1]>「やめ……─────\\.ません！"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者B>「ひゃっほう！！"]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4601,21 +2895,13 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者A>「ぐっ……！ち、ちからが……─────"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4623,26 +2909,14 @@
               "\\N<訓練所の冒険者B>「ぜぃ、ぜぃ、はぁ、はぁ、はぁ、はぁ─────脇腹いてぇ……！"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\N<訓練所の冒険者C>「もう、だめだぁ………っ"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [30] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4650,16 +2924,8 @@
               "\\C[13]\\OC[31]\\N<\\N[11]>(敵の魔力が急激に落ちた……いまがチャンス！"
             ]
           },
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [392, 392, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 121, "indent": 0, "parameters": [392, 392, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4679,26 +2945,14 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
           {
             "code": 122,
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'humaninSportswear'"]
           },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4706,11 +2960,7 @@
               "\\N<訓練所の冒険者A>「言っておくが、俺らだって前回の試合が本気じゃあないぜ！？"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4718,16 +2968,8 @@
               "\\N<訓練所の冒険者B>「おめぇのそのどエロい身体を好きにできるってんなら、本気も本気の"
             ]
           },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["全力だ！！"]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 401, "indent": 0, "parameters": ["全力だ！！"] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4735,21 +2977,9 @@
               "\\N<訓練所の冒険者C>「乳ばっかり育った小娘が、大人舐めんなよ！！エロパワー見せてやるぁっ！"
             ]
           },
-          {
-            "code": 121,
-            "indent": 0,
-            "parameters": [392, 392, 0]
-          },
-          {
-            "code": 339,
-            "indent": 0,
-            "parameters": [0, 0, 150, -2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 121, "indent": 0, "parameters": [392, 392, 0] },
+          { "code": 339, "indent": 0, "parameters": [0, 0, 150, -2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -4757,14 +2987,7 @@
   },
   {
     "id": 55,
-    "members": [
-      {
-        "enemyId": 62,
-        "x": 267,
-        "y": 325,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 62, "x": 267, "y": 325, "hidden": false }],
     "name": "エビルスライム",
     "pages": [
       {
@@ -4783,16 +3006,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -4801,18 +3016,8 @@
   {
     "id": 56,
     "members": [
-      {
-        "enemyId": 63,
-        "x": 360,
-        "y": 388,
-        "hidden": false
-      },
-      {
-        "enemyId": 62,
-        "x": 147,
-        "y": 376,
-        "hidden": false
-      }
+      { "enemyId": 63, "x": 360, "y": 388, "hidden": false },
+      { "enemyId": 62, "x": 147, "y": 376, "hidden": false }
     ],
     "name": "テンタクルス・E+エビルスライム",
     "pages": [
@@ -4837,21 +3042,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'tentacles'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 3]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 3] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -4859,14 +3052,7 @@
   },
   {
     "id": 57,
-    "members": [
-      {
-        "enemyId": 76,
-        "x": 387,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 76, "x": 387, "y": 444, "hidden": false }],
     "name": "北東ダンジョンボス(復活)",
     "pages": [
       {
@@ -4885,36 +3071,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -4939,16 +3104,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss1_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -4956,11 +3113,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -4985,21 +3138,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'shadows'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 10]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 10] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5007,14 +3148,7 @@
   },
   {
     "id": 58,
-    "members": [
-      {
-        "enemyId": 29,
-        "x": 333,
-        "y": 424,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 29, "x": 333, "y": 424, "hidden": false }],
     "name": "北西ダンジョンボス(復活)",
     "pages": [
       {
@@ -5033,36 +3167,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -5082,16 +3195,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss2_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -5099,11 +3204,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5128,21 +3229,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'goblins'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 10]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 10] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5150,14 +3239,7 @@
   },
   {
     "id": 59,
-    "members": [
-      {
-        "enemyId": 78,
-        "x": 318,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 78, "x": 318, "y": 444, "hidden": false }],
     "name": "南東ダンジョンボス(復活)",
     "pages": [
       {
@@ -5176,36 +3258,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -5230,16 +3291,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss3_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -5247,11 +3300,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5276,21 +3325,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'slimefish'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 10]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 10] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5298,14 +3335,7 @@
   },
   {
     "id": 60,
-    "members": [
-      {
-        "enemyId": 79,
-        "x": 330,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 79, "x": 330, "y": 444, "hidden": false }],
     "name": "地下ダンジョンボス(復活)",
     "pages": [
       {
@@ -5324,36 +3354,15 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [80]
-          },
-          {
-            "code": 337,
-            "indent": 0,
-            "parameters": [0, 35, false]
-          },
-          {
-            "code": 333,
-            "indent": 0,
-            "parameters": [0, 0, 7]
-          },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [30]
-          },
+          { "code": 230, "indent": 0, "parameters": [80] },
+          { "code": 337, "indent": 0, "parameters": [0, 35, false] },
+          { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
+          { "code": 230, "indent": 0, "parameters": [30] },
           {
             "code": 250,
             "indent": 0,
             "parameters": [
-              {
-                "name": "Fire8",
-                "volume": 90,
-                "pitch": 100,
-                "pan": 0
-              }
+              { "name": "Fire8", "volume": 90, "pitch": 100, "pan": 0 }
             ]
           },
           {
@@ -5378,16 +3387,8 @@
             "indent": 0,
             "parameters": ["EPbattlername 0 boss4_2"]
           },
-          {
-            "code": 230,
-            "indent": 0,
-            "parameters": [150]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 230, "indent": 0, "parameters": [150] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -5395,11 +3396,7 @@
               "\\OC[31]\\N<\\N[1]>「魔力が跳ね上がった…！強力な攻撃に注意しないと……！"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5424,21 +3421,9 @@
             "indent": 0,
             "parameters": [133, 133, 0, 4, "'chain'"]
           },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 10]
-          },
-          {
-            "code": 117,
-            "indent": 0,
-            "parameters": [42]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 10] },
+          { "code": 117, "indent": 0, "parameters": [42] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5446,14 +3431,7 @@
   },
   {
     "id": 61,
-    "members": [
-      {
-        "enemyId": 38,
-        "x": 300,
-        "y": 403,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 38, "x": 300, "y": 403, "hidden": false }],
     "name": "ゲルゲイザー(南東)",
     "pages": [
       {
@@ -5472,16 +3450,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5489,14 +3459,7 @@
   },
   {
     "id": 62,
-    "members": [
-      {
-        "enemyId": 4,
-        "x": 309,
-        "y": 403,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 4, "x": 309, "y": 403, "hidden": false }],
     "name": "シャドウ",
     "pages": [
       {
@@ -5515,16 +3478,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5533,18 +3488,8 @@
   {
     "id": 63,
     "members": [
-      {
-        "enemyId": 21,
-        "x": 187,
-        "y": 340,
-        "hidden": false
-      },
-      {
-        "enemyId": 21,
-        "x": 408,
-        "y": 409,
-        "hidden": false
-      }
+      { "enemyId": 21, "x": 187, "y": 340, "hidden": false },
+      { "enemyId": 21, "x": 408, "y": 409, "hidden": false }
     ],
     "name": "シャドウスパイダー*2",
     "pages": [
@@ -5564,16 +3509,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5581,14 +3518,7 @@
   },
   {
     "id": 64,
-    "members": [
-      {
-        "enemyId": 6,
-        "x": 261,
-        "y": 388,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 6, "x": 261, "y": 388, "hidden": false }],
     "name": "マニーエッグ(北東ダンジョン)",
     "pages": [
       {
@@ -5607,16 +3537,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5624,14 +3546,7 @@
   },
   {
     "id": 65,
-    "members": [
-      {
-        "enemyId": 22,
-        "x": 243,
-        "y": 370,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 22, "x": 243, "y": 370, "hidden": false }],
     "name": "マニーエッグ(北西の洞窟)",
     "pages": [
       {
@@ -5650,16 +3565,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5667,14 +3574,7 @@
   },
   {
     "id": 66,
-    "members": [
-      {
-        "enemyId": 36,
-        "x": 228,
-        "y": 385,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 36, "x": 228, "y": 385, "hidden": false }],
     "name": "マニーエッグ(南東ダンジョン)",
     "pages": [
       {
@@ -5693,16 +3593,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5710,14 +3602,7 @@
   },
   {
     "id": 67,
-    "members": [
-      {
-        "enemyId": 50,
-        "x": 249,
-        "y": 406,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 50, "x": 249, "y": 406, "hidden": false }],
     "name": "マニーエッグ(地下ダンジョン)",
     "pages": [
       {
@@ -5736,16 +3621,8 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       }
@@ -5753,14 +3630,7 @@
   },
   {
     "id": 68,
-    "members": [
-      {
-        "enemyId": 73,
-        "x": 342,
-        "y": 444,
-        "hidden": false
-      }
-    ],
+    "members": [{ "enemyId": 73, "x": 342, "y": 444, "hidden": false }],
     "name": "魔物の像(ドラゴン)",
     "pages": [
       {
@@ -5779,21 +3649,9 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 0]
-          },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["【鍛錬ルール】"]
-          },
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
+          { "code": 401, "indent": 0, "parameters": ["【鍛錬ルール】"] },
           {
             "code": 401,
             "indent": 0,
@@ -5804,11 +3662,7 @@
             "indent": 0,
             "parameters": ["\\C[0]※アイテム使用不可※"]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5828,21 +3682,9 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["残り２ターン"]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
+          { "code": 401, "indent": 0, "parameters": ["残り２ターン"] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5862,21 +3704,9 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["ラストターン"]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
+          { "code": 401, "indent": 0, "parameters": ["ラストターン"] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5896,26 +3726,10 @@
           "turnValid": false
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\{鍛錬終了！"]
-          },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [554, 554, 0, 0, 1]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
+          { "code": 401, "indent": 0, "parameters": ["\\{鍛錬終了！"] },
+          { "code": 122, "indent": 0, "parameters": [554, 554, 0, 0, 1] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
       },
@@ -5935,31 +3749,11 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 1, 1]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\{鍛錬終了！"]
-          },
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [554, 554, 0, 0, 2]
-          },
-          {
-            "code": 340,
-            "indent": 0,
-            "parameters": []
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
+          { "code": 401, "indent": 0, "parameters": ["\\{鍛錬終了！"] },
+          { "code": 122, "indent": 0, "parameters": [554, 554, 0, 0, 2] },
+          { "code": 340, "indent": 0, "parameters": [] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 2
       }
@@ -5968,18 +3762,8 @@
   {
     "id": 69,
     "members": [
-      {
-        "enemyId": 3,
-        "x": 163,
-        "y": 328,
-        "hidden": false
-      },
-      {
-        "enemyId": 3,
-        "x": 333,
-        "y": 397,
-        "hidden": false
-      }
+      { "enemyId": 3, "x": 163, "y": 328, "hidden": false },
+      { "enemyId": 3, "x": 333, "y": 397, "hidden": false }
     ],
     "name": "デモンラット*2",
     "pages": [
@@ -5999,17 +3783,34 @@
           "turnValid": true
         },
         "list": [
-          {
-            "code": 122,
-            "indent": 0,
-            "parameters": [125, 125, 0, 0, 2]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": []
-          }
+          { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 2] },
+          { "code": 0, "indent": 0, "parameters": [] }
         ],
+        "span": 0
+      }
+    ]
+  },
+  {
+    "id": 70,
+    "members": [{ "enemyId": 2, "x": 285, "y": 418, "hidden": false }],
+    "name": "てすとん",
+    "pages": [
+      {
+        "conditions": {
+          "actorHp": 50,
+          "actorId": 1,
+          "actorValid": false,
+          "enemyHp": 50,
+          "enemyIndex": 0,
+          "enemyValid": false,
+          "switchId": 1,
+          "switchValid": false,
+          "turnA": 0,
+          "turnB": 0,
+          "turnEnding": false,
+          "turnValid": false
+        },
+        "list": [{ "code": 0, "indent": 0, "parameters": [] }],
         "span": 0
       }
     ]

@@ -97,102 +97,102 @@ Yanfly.GamepadConfig = Yanfly.GamepadConfig || {};
  * Config menu, the game will automatically eject the player out the prevent
  * the player from being locked inside.
  */
+ * 
+ /*:ja
+ * @plugindesc ゲームパッド向けにボタンコンフィグを行なうプラグインです。
+ * @author Yanfly Engine Plugins
  *
-	/*:ja
-	* @plugindesc ゲームパッド向けにボタンコンフィグを行なうプラグインです。
-	* @author Yanfly Engine Plugins
-	*
-	* @param Command Name
-	* @desc メインメニューに表示されるオプション名を変更できます
-	* @default Gamepad Config
-	*
-	* @param Button Name
-	* @desc コンフィグメニューでのボタン名の表示方法を変更できます
-	* @default Button %1
-	*
-	* @param OK Button
-	* @desc OKボタンに対するコマンド名を変更できます
-	* @default OK / Talk
-	*
-	* @param OK Help
-	* @desc OKボタンに対するヘルプを設定できます
-	* @default メニューの決定/人に話しかける際に使うボタンです
-	*
-	* @param Cancel Button
-	* @desc キャンセルボタン
-	* @desc キャンセルボタンに対するコマンド名を変更できます
-	* @default Cancel
-	*
-	* @param Cancel Help
-	* @desc キャンセルボタンに対するヘルプを設定できます
-	* @default メニューアクションをキャンセルする際に使うボタンです
-	*
-	* @param Shift Button
-	* @desc シフトボタンに対するコマンド名を変更できます
-	* @default ダッシュ
-	*
-	* @param Shift Help
-	* @desc シフトボタンに対するヘルプを設定できます
-	* @default 長押しするとフィールド上をダッシュできます
-	*
-	* @param Menu Button
-	* @desc メニューボタンに対するコマンド名を変更できます
-	* @default Menu
-	*
-	* @param Menu Help
-	* @desc メニューボタンに対するヘルプを設定できます
-	* @default フィールドからメインメニューにアクセスします
-	*
-	* @param PageUp Button
-	* @desc ページアップボタンに対するコマンド名を変更できます
-	* @default Page Up
-	*
-	* @param PageUp Help
-	* @desc ページアップボタンに対するヘルプを設定できます
-	* @default メニューを素早くスクロールアップできます
-	*
-	* @param PageDown Button
-	* @desc ページダウンボタンに対するコマンド名を変更できます
-	* @default Page Down
-	*
-	* @param PageDown Help
-	* @desc ページダウンボタンに対するヘルプを設定できます
-	* @default メニューを素早くスクロールダウンできます
-	*
-	* @param Reset Default
-	* @desc コンフィグをリセットする際のコマンド名を変更できます
-	* @default Reset to Default
-	*
-	* @param Reset Help
-	* @desc リセットボタンに対するヘルプを設定できます
-	* @default コントローラコンフィグをデフォルトに戻します
-	*
-	* @param Finish Config
-	* @desc コンフィグを完了する際のコマンド名を変更できます
-	* @default Finish Configuration
-	*
-	* @param Finish Help
-	* @desc 完了ボタンに対するヘルプを設定できます
-	* @default ゲームパッドのコンフィグを完了しますか？
-	*
-	* @help
-	* ゲームパッドが使用される場合、
-	* "Gamepad Config"をオプションメニューに追加してください。
-	* プレイヤーは好みのコンフィグ設定を行うことができ、
-	* その設定は毎回プレイ時に自動的にロードされます。
-	* 
-	* ゲームパッドがオプションやゲームパッドコンフィグから検出されなくなると、
-	* ゲームは自動的にプレイヤーを排出し、ゲーム内に閉じ込められることを防ぎます。
-	* 
-	*/
+ * @param Command Name
+ * @desc メインメニューに表示されるオプション名を変更できます
+ * @default Gamepad Config
+ *
+ * @param Button Name
+ * @desc コンフィグメニューでのボタン名の表示方法を変更できます
+ * @default Button %1
+ *
+ * @param OK Button
+ * @desc OKボタンに対するコマンド名を変更できます
+ * @default OK / Talk
+ *
+ * @param OK Help
+ * @desc OKボタンに対するヘルプを設定できます
+ * @default メニューの決定/人に話しかける際に使うボタンです
+ *
+ * @param Cancel Button
+ * @desc キャンセルボタン
+ * @desc キャンセルボタンに対するコマンド名を変更できます
+ * @default Cancel
+ *
+ * @param Cancel Help
+ * @desc キャンセルボタンに対するヘルプを設定できます
+ * @default メニューアクションをキャンセルする際に使うボタンです
+ *
+ * @param Shift Button
+ * @desc シフトボタンに対するコマンド名を変更できます
+ * @default ダッシュ
+ *
+ * @param Shift Help
+ * @desc シフトボタンに対するヘルプを設定できます
+ * @default 長押しするとフィールド上をダッシュできます
+ *
+ * @param Menu Button
+ * @desc メニューボタンに対するコマンド名を変更できます
+ * @default Menu
+ *
+ * @param Menu Help
+ * @desc メニューボタンに対するヘルプを設定できます
+ * @default フィールドからメインメニューにアクセスします
+ *
+ * @param PageUp Button
+ * @desc ページアップボタンに対するコマンド名を変更できます
+ * @default Page Up
+ *
+ * @param PageUp Help
+ * @desc ページアップボタンに対するヘルプを設定できます
+ * @default メニューを素早くスクロールアップできます
+ *
+ * @param PageDown Button
+ * @desc ページダウンボタンに対するコマンド名を変更できます
+ * @default Page Down
+ *
+ * @param PageDown Help
+ * @desc ページダウンボタンに対するヘルプを設定できます
+ * @default メニューを素早くスクロールダウンできます
+ *
+ * @param Reset Default
+ * @desc コンフィグをリセットする際のコマンド名を変更できます
+ * @default Reset to Default
+ *
+ * @param Reset Help
+ * @desc リセットボタンに対するヘルプを設定できます
+ * @default コントローラコンフィグをデフォルトに戻します
+ *
+ * @param Finish Config
+ * @desc コンフィグを完了する際のコマンド名を変更できます
+ * @default Finish Configuration
+ *
+ * @param Finish Help
+ * @desc 完了ボタンに対するヘルプを設定できます
+ * @default ゲームパッドのコンフィグを完了しますか？
+ *
+ * @help
+ * ゲームパッドが使用される場合、
+ * "Gamepad Config"をオプションメニューに追加してください。
+ * プレイヤーは好みのコンフィグ設定を行うことができ、
+ * その設定は毎回プレイ時に自動的にロードされます。
+ * 
+ * ゲームパッドがオプションやゲームパッドコンフィグから検出されなくなると、
+ * ゲームは自動的にプレイヤーを排出し、ゲーム内に閉じ込められることを防ぎます。
+ * 
+ */
 
-	//=============================================================================
+//=============================================================================
 
-	//=============================================================================
-	// Parameter Variables
-	//=============================================================================
+//=============================================================================
+// Parameter Variables
+//=============================================================================
 
-	Yanfly.Parameters = PluginManager.parameters('GamepadConfig');
+Yanfly.Parameters = PluginManager.parameters('GamepadConfig');
 Yanfly.Param = Yanfly.Param || {};
 
 Yanfly.Param.GamepadConfigName = String(Yanfly.Parameters['Command Name']);
@@ -218,7 +218,7 @@ Yanfly.Param.GamepadConfigFinishHelp = String(Yanfly.Parameters['Finish Help']);
 // Input
 //=============================================================================
 
-Input.getPressedGamepadButton = function () {
+Input.getPressedGamepadButton = function() {
 	if (Yanfly.Param.GamepadTimer > 0) {
 		Yanfly.Param.GamepadTimer -= 1;
 		return -1;
@@ -233,26 +233,26 @@ Input.getPressedGamepadButton = function () {
 				}
 			}
 		}
-	}
+  }
 	return -1;
 };
 
-Input.gamepadButtonId = function (gamepad) {
-	var buttons = gamepad.buttons;
-	for (var i = 0; i < buttons.length; i++) {
-		if (buttons[i].pressed) return i;
-	}
+Input.gamepadButtonId = function(gamepad) {
+  var buttons = gamepad.buttons;
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].pressed) return i;
+  }
 	return -1;
 };
 
-Input.getGamepadButton = function (type) {
+Input.getGamepadButton = function(type) {
 	for (var i = 0; i < 12; ++i) {
 		if (Input.gamepadMapper[i] === type) return i;
 	}
 	return null;
 };
 
-Input.isControllerConnected = function () {
+Input.isControllerConnected = function() {
 	if (navigator.getGamepads) {
 		var gamepads = navigator.getGamepads();
 		if (gamepads) {
@@ -283,43 +283,43 @@ ConfigManager.gamepadInput = {
 };
 
 Yanfly.GamepadConfig.ConfigManager_makeData = ConfigManager.makeData;
-ConfigManager.makeData = function () {
-	var config = Yanfly.GamepadConfig.ConfigManager_makeData.call(this);
+ConfigManager.makeData = function() {
+  var config = Yanfly.GamepadConfig.ConfigManager_makeData.call(this);
 	config.gamepadInput = this.gamepadInput;
 	return config;
 };
 
 Yanfly.GamepadConfig.ConfigManager_applyData = ConfigManager.applyData;
-ConfigManager.applyData = function (config) {
-	Yanfly.GamepadConfig.ConfigManager_applyData.call(this, config);
+ConfigManager.applyData = function(config) {
+  Yanfly.GamepadConfig.ConfigManager_applyData.call(this, config);
 	this.gamepadInput = this.readGamepadConfig(config, 'gamepadInput');
 	this.applyGamepadConfig();
 };
 
-ConfigManager.applyGamepadConfig = function () {
+ConfigManager.applyGamepadConfig = function() {
 	Input.gamepadMapper = this.gamepadInput;
 	Input.update();
 	Input.clear();
 };
 
-ConfigManager.readGamepadConfig = function (config, name) {
-	var value = config[name];
-	if (value !== undefined) {
-		return value;
-	} else {
-		return {
-			0: 'ok',
-			1: 'cancel',
-			2: 'shift',
-			3: 'menu',
-			4: 'pageup',
-			5: 'pagedown',
-			12: 'up',
-			13: 'down',
-			14: 'left',
-			15: 'right',
-		};
-	}
+ConfigManager.readGamepadConfig = function(config, name) {
+    var value = config[name];
+    if (value !== undefined) {
+        return value;
+    } else {
+        return {
+					0: 'ok',
+					1: 'cancel',
+					2: 'shift',
+					3: 'menu',
+					4: 'pageup',
+					5: 'pagedown',
+					12: 'up',
+					13: 'down',
+					14: 'left',
+					15: 'right',
+				};
+    }
 };
 
 //=============================================================================
@@ -328,12 +328,12 @@ ConfigManager.readGamepadConfig = function (config, name) {
 
 Yanfly.GamepadConfig.Window_Options_addGeneralOptions =
 	Window_Options.prototype.addGeneralOptions;
-Window_Options.prototype.addGeneralOptions = function () {
-	Yanfly.GamepadConfig.Window_Options_addGeneralOptions.call(this);
+Window_Options.prototype.addGeneralOptions = function() {
+  Yanfly.GamepadConfig.Window_Options_addGeneralOptions.call(this);
 	this.addGameConfigCommand();
 };
 
-Window_Options.prototype.addGameConfigCommand = function () {
+Window_Options.prototype.addGameConfigCommand = function() {
 	if (Input.isControllerConnected()) {
 		this.addCommand(Yanfly.Param.GamepadConfigName, 'gamepadConfig', true);
 		this._addedController = true;
@@ -342,7 +342,7 @@ Window_Options.prototype.addGameConfigCommand = function () {
 
 Yanfly.GamepadConfig.Window_Options_update =
 	Window_Options.prototype.update;
-Window_Options.prototype.update = function () {
+Window_Options.prototype.update = function() {
 	Yanfly.GamepadConfig.Window_Options_update.call(this);
 	if (this._addedController && !Input.isControllerConnected()) {
 		this.refresh();
@@ -353,22 +353,22 @@ Window_Options.prototype.update = function () {
 
 Yanfly.GamepadConfig.Window_Options_drawItem =
 	Window_Options.prototype.drawItem;
-Window_Options.prototype.drawItem = function (index) {
-	if (this.commandSymbol(index) === 'gamepadConfig') {
-		var rect = this.itemRectForText(index);
-		var text = this.commandName(index);
-		this.resetTextColor();
-		this.changePaintOpacity(this.isCommandEnabled(index));
-		this.drawText(text, rect.x, rect.y, rect.width, 'left');
-	} else {
-		Yanfly.GamepadConfig.Window_Options_drawItem.call(this, index);
-	}
+Window_Options.prototype.drawItem = function(index) {
+    if (this.commandSymbol(index) === 'gamepadConfig') {
+			var rect = this.itemRectForText(index);
+			var text = this.commandName(index);
+	    this.resetTextColor();
+	    this.changePaintOpacity(this.isCommandEnabled(index));
+	    this.drawText(text, rect.x, rect.y, rect.width, 'left');
+		} else {
+			Yanfly.GamepadConfig.Window_Options_drawItem.call(this, index);
+		}
 };
 
 Yanfly.GamepadConfig.Window_Options_processOk =
 	Window_Options.prototype.processOk;
-Window_Options.prototype.processOk = function () {
-	if (this.commandSymbol(this.index()) === 'gamepadConfig') {
+Window_Options.prototype.processOk = function() {
+  if (this.commandSymbol(this.index()) === 'gamepadConfig') {
 		Window_Command.prototype.processOk.call(this);
 	} else {
 		Yanfly.GamepadConfig.Window_Options_processOk.call(this);
@@ -380,27 +380,27 @@ Window_Options.prototype.processOk = function () {
 //=============================================================================
 
 function Window_GamepadConfig() {
-	this.initialize.apply(this, arguments);
+    this.initialize.apply(this, arguments);
 }
 
 Window_GamepadConfig.prototype = Object.create(Window_Command.prototype);
 Window_GamepadConfig.prototype.constructor = Window_GamepadConfig;
 
-Window_GamepadConfig.prototype.initialize = function (helpWindow) {
+Window_GamepadConfig.prototype.initialize = function(helpWindow) {
 	var wy = helpWindow.height;
 	Window_Command.prototype.initialize.call(this, 0, wy);
-	this.setHelpWindow(helpWindow);
+  this.setHelpWindow(helpWindow);
 	this.height = Graphics.boxHeight - wy;
 	this.refresh();
 	this.activate();
 	this.select(0);
 };
 
-Window_GamepadConfig.prototype.windowWidth = function () {
-	return Graphics.boxWidth;
+Window_GamepadConfig.prototype.windowWidth = function() {
+    return Graphics.boxWidth;
 };
 
-Window_GamepadConfig.prototype.makeCommandList = function (index) {
+Window_GamepadConfig.prototype.makeCommandList = function(index) {
 	for (var i = 0; i < 6; ++i) {
 		var text = this.getButtonTypeText(i);
 		this.addCommand(text, 'button', true);
@@ -410,22 +410,22 @@ Window_GamepadConfig.prototype.makeCommandList = function (index) {
 	this.addCommand(this.getButtonTypeText(8), 'finish', true);
 };
 
-Window_GamepadConfig.prototype.drawItem = function (index) {
+Window_GamepadConfig.prototype.drawItem = function(index) {
 	if (index > 5) {
 		Window_Command.prototype.drawItem.call(this, index);
 	} else {
 		var rect = this.itemRectForText(index);
-		var align = this.itemTextAlign();
+    var align = this.itemTextAlign();
 		var ww = rect.width / 2;
-		this.resetTextColor();
-		this.changePaintOpacity(this.isCommandEnabled(index));
+    this.resetTextColor();
+    this.changePaintOpacity(this.isCommandEnabled(index));
 		this.drawText(this.commandName(index), rect.x, rect.y, ww, align);
 		var text = this.getButtonConfig(index);
 		this.drawText(text, rect.x + ww, rect.y, ww, align);
 	}
 };
 
-Window_GamepadConfig.prototype.getButtonTypeText = function (index) {
+Window_GamepadConfig.prototype.getButtonTypeText = function(index) {
 	if (index === 0) return Yanfly.Param.GamepadConfigOkTx;
 	if (index === 1) return Yanfly.Param.GamepadConfigCancelTx;
 	if (index === 2) return Yanfly.Param.GamepadConfigShiftTx;
@@ -437,14 +437,14 @@ Window_GamepadConfig.prototype.getButtonTypeText = function (index) {
 	return '';
 };
 
-Window_GamepadConfig.prototype.getButtonConfig = function (index) {
+Window_GamepadConfig.prototype.getButtonConfig = function(index) {
 	if (index > 5) return '';
 	var key = this.getButtonKey(index);
 	var button = Input.getGamepadButton(key);
-	return Yanfly.Param.GamepadConfigButton.format(button);
+  return Yanfly.Param.GamepadConfigButton.format(button);
 };
 
-Window_GamepadConfig.prototype.getButtonKey = function (index) {
+Window_GamepadConfig.prototype.getButtonKey = function(index) {
 	if (index === 0) return 'ok';
 	if (index === 1) return 'cancel';
 	if (index === 2) return 'shift';
@@ -453,20 +453,20 @@ Window_GamepadConfig.prototype.getButtonKey = function (index) {
 	if (index === 5) return 'pagedown';
 };
 
-Window_GamepadConfig.prototype.itemTextAlign = function () {
-	return 'center';
+Window_GamepadConfig.prototype.itemTextAlign = function() {
+    return 'center';
 };
 
-Window_GamepadConfig.prototype.clearButtonConfig = function (index) {
-	var rect = this.itemRectForText(index);
-	rect.x += rect.width / 2;
-	rect.width /= 2;
-	this.contents.clearRect(rect.x, rect.y, rect.width, rect.height);
+Window_GamepadConfig.prototype.clearButtonConfig = function(index) {
+    var rect = this.itemRectForText(index);
+		rect.x += rect.width / 2;
+		rect.width /= 2;
+		this.contents.clearRect(rect.x, rect.y, rect.width, rect.height);
 };
 
-Window_GamepadConfig.prototype.updateHelp = function () {
-	if (!this._helpWindow) return;
-	switch (this.index()) {
+Window_GamepadConfig.prototype.updateHelp = function() {
+    if (!this._helpWindow) return;
+		switch (this.index()) {
 		case 0:
 			this._helpWindow.setText(Yanfly.Param.GamepadConfigOkHelp);
 			break;
@@ -494,7 +494,7 @@ Window_GamepadConfig.prototype.updateHelp = function () {
 		default:
 			this._helpWindow.clear();
 			break;
-	}
+		}
 };
 
 //=============================================================================
@@ -503,13 +503,13 @@ Window_GamepadConfig.prototype.updateHelp = function () {
 
 Yanfly.GamepadConfig.Scene_Options_createOptionsWindow =
 	Scene_Options.prototype.createOptionsWindow;
-Scene_Options.prototype.createOptionsWindow = function () {
-	Yanfly.GamepadConfig.Scene_Options_createOptionsWindow.call(this);
+Scene_Options.prototype.createOptionsWindow = function() {
+  Yanfly.GamepadConfig.Scene_Options_createOptionsWindow.call(this);
 	this._optionsWindow.setHandler('gamepadConfig',
 		this.commandGamepadConfig.bind(this));
 };
 
-Scene_Options.prototype.commandGamepadConfig = function () {
+Scene_Options.prototype.commandGamepadConfig = function() {
 	SceneManager.push(Scene_GamepadConfig);
 };
 
@@ -518,40 +518,40 @@ Scene_Options.prototype.commandGamepadConfig = function () {
 //=============================================================================
 
 function Scene_GamepadConfig() {
-	this.initialize.apply(this, arguments);
+  this.initialize.apply(this, arguments);
 }
 
 Scene_GamepadConfig.prototype = Object.create(Scene_MenuBase.prototype);
 Scene_GamepadConfig.prototype.constructor = Scene_GamepadConfig;
 
-Scene_GamepadConfig.prototype.initialize = function () {
-	Scene_MenuBase.prototype.initialize.call(this);
+Scene_GamepadConfig.prototype.initialize = function() {
+  Scene_MenuBase.prototype.initialize.call(this);
 };
 
-Scene_GamepadConfig.prototype.create = function () {
-	Scene_MenuBase.prototype.create.call(this);
-	this.createHelpWindow();
+Scene_GamepadConfig.prototype.create = function() {
+  Scene_MenuBase.prototype.create.call(this);
+  this.createHelpWindow();
 	this.createGamepadConfigWindow();
 };
 
-Scene_GamepadConfig.prototype.terminate = function () {
-	Scene_MenuBase.prototype.terminate.call(this);
-	ConfigManager.save();
+Scene_GamepadConfig.prototype.terminate = function() {
+  Scene_MenuBase.prototype.terminate.call(this);
+  ConfigManager.save();
 };
 
-Scene_GamepadConfig.prototype.update = function () {
-	Scene_MenuBase.prototype.update.call(this);
+Scene_GamepadConfig.prototype.update = function() {
+  Scene_MenuBase.prototype.update.call(this);
 	this.updateAttachedController();
 	this.updateButtonConfig();
 	this.updateAfterConfig();
 };
 
-Scene_GamepadConfig.prototype.updateAttachedController = function () {
+Scene_GamepadConfig.prototype.updateAttachedController = function() {
 	if (Input.isControllerConnected()) return;
 	this.popScene();
 };
 
-Scene_GamepadConfig.prototype.createGamepadConfigWindow = function () {
+Scene_GamepadConfig.prototype.createGamepadConfigWindow = function() {
 	this._configWindow = new Window_GamepadConfig(this._helpWindow);
 	this._configWindow.setHandler('button', this.commandButton.bind(this));
 	this._configWindow.setHandler('reset', this.commandReset.bind(this));
@@ -559,14 +559,14 @@ Scene_GamepadConfig.prototype.createGamepadConfigWindow = function () {
 	this.addWindow(this._configWindow);
 };
 
-Scene_GamepadConfig.prototype.commandButton = function () {
+Scene_GamepadConfig.prototype.commandButton = function() {
 	var index = this._configWindow.index();
 	this._configWindow.clearButtonConfig(index);
 	this._configEnabled = true;
 	Yanfly.Param.GamepadTimer = 12;
 };
 
-Scene_GamepadConfig.prototype.commandReset = function () {
+Scene_GamepadConfig.prototype.commandReset = function() {
 	ConfigManager.gamepadInput = {
 		0: 'ok',
 		1: 'cancel',
@@ -583,20 +583,20 @@ Scene_GamepadConfig.prototype.commandReset = function () {
 	this.refreshWindows();
 };
 
-Scene_GamepadConfig.prototype.refreshWindows = function () {
+Scene_GamepadConfig.prototype.refreshWindows = function() {
 	this._configWindow.refresh();
 	this._configWindow.activate();
 	ConfigManager.save();
 };
 
-Scene_GamepadConfig.prototype.updateButtonConfig = function () {
+Scene_GamepadConfig.prototype.updateButtonConfig = function() {
 	if (!this._configEnabled) return;
 	var buttonId = Input.getPressedGamepadButton();
 	if (buttonId > 11) return;
 	if (buttonId >= 0) this.applyButtonConfig(buttonId);
 };
 
-Scene_GamepadConfig.prototype.applyButtonConfig = function (buttonId) {
+Scene_GamepadConfig.prototype.applyButtonConfig = function(buttonId) {
 	this._configEnabled = false;
 	var index = this._configWindow.index();
 	var newConfig = this._configWindow.getButtonKey(index);
@@ -608,7 +608,7 @@ Scene_GamepadConfig.prototype.applyButtonConfig = function (buttonId) {
 	this._configTimer = 12;
 };
 
-Scene_GamepadConfig.prototype.updateAfterConfig = function () {
+Scene_GamepadConfig.prototype.updateAfterConfig = function() {
 	if (!this._configTimer) return;
 	if (--this._configTimer > 0) return;
 	SoundManager.playEquip();
