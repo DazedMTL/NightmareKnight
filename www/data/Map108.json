@@ -822,31 +822,9 @@
             {
               "code": 401,
               "indent": 0,
-              "parameters": ["\\n<兵士B>「私も……彼女と過ごすべきでした………"]
-            },
-            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": ["\\n<兵士C>「俺も………告白しておけばよかったな………"]
-            },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": ["ああ、あの時に勢いで言っておけばな……"]
-            },
-            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-            {
-              "code": 401,
-              "indent": 0,
               "parameters": [
-                "\\n<Soldier B>I... I should have spent time with them too..."
+                "\\n<Soldier B>I... I should have spent time with her too..."
               ]
-            },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": ["生き抜くことを考えろ！"]
             },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
@@ -856,16 +834,24 @@
                 "\\n<Soldier C>I... I should have confessed too... Ah, if only I\nhad said it in the heat of the moment back then..."
               ]
             },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
-              "code": 0,
+              "code": 401,
               "indent": 0,
-              "parameters": [""]
+              "parameters": [
+                "\\n<Soldier B>I... I should have spent time with them too...\nFocus on surviving!"
+              ]
             },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
-              "code": 101,
+              "code": 401,
               "indent": 0,
-              "parameters": ["", 0, 0, 2]
+              "parameters": [
+                "\\n<Soldier C>I... I should have confessed too... Ah, if only I\nhad said it in the heat of the moment back then..."
+              ]
             },
+            { "code": 0, "indent": 0, "parameters": [""] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -873,16 +859,8 @@
                 "\\n<Corporal>You fools! If you have time to regret, then think\nabout stopping them and surviving!"
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1230,11 +1208,7 @@
               "indent": 0,
               "parameters": ["\\CE[79]\\OC[31]\\N<Rain>I'm sorry for the wait."]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1247,7 +1221,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\n<Corporal>A-Are you planning to fight them alone!? That's way too\ndangerous!!"
+                "\\n<Corporal>A-Are you planning to fight them alone!? That's\nway too dangerous!!"
               ]
             },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -1279,13 +1253,8 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\n<兵長>「いえ！この重要な要地を前にして退くことはできません！"
+                "\\n<Captain>\"No! We cannot retreat in front of this crucial\nstronghold! At the very least, we need rear\nsupport to───────\""
               ]
-            },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": ["せめて後方支援を───────"]
             },
             { "code": 122, "indent": 0, "parameters": [78, 78, 0, 0, 1] },
             { "code": 117, "indent": 0, "parameters": [77] },
@@ -1294,7 +1263,7 @@
             {
               "code": 401,
               "indent": 0,
-              "parameters": ["\\CE[77]\\OC[31]\\N<Rain> Haaah!!"]
+              "parameters": ["\\CE[77]\\OC[31]\\N<Rain>Haaah!!"]
             },
             { "code": 242, "indent": 0, "parameters": [1] },
             { "code": 122, "indent": 0, "parameters": [78, 78, 0, 0, 99] },

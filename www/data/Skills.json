@@ -70,7 +70,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "デバッグ用",
+    "description": "For debugging purposes",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 0,
@@ -196,7 +196,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "拘束の苦痛に耐え、TPを溜める(TP+12)",
+    "description": "Endure the agony of restraint and accumulate TP (TP+12)",
     "effects": [{ "code": 21, "dataId": 15, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 0,
@@ -316,7 +316,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Physical [Special] Has a chance to\ninflict \"Flinch\" status on the enemy (25%)",
+    "description": "[Target] Single, [Attribute] Physical [Special] Has a chance to inflict Flinch\nstatus on the enemy (25%)",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 44, "value1": 0.25, "value2": 0 }
@@ -349,7 +349,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体ランダム×2　[属性]物理\n",
+    "description": "[Target] Single Random x2 [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -379,7 +379,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]全体　[属性]物理\n",
+    "description": "[Target] All [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -439,7 +439,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] All | [Attribute] Physical [Special] After use, your attack\nand defense power will be enhanced for 3 turns.",
+    "description": "[Target] All | [Attribute] Physical [Special] After use, your attack and defense\npower will be enhanced for 3 turns.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 45, "value1": 1, "value2": 0 }
@@ -472,7 +472,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single [Attribute] Physical [Special] After use, lowers the\nenemy's defense, magic defense, and agility for 5 turns.",
+    "description": "[Target] Single [Attribute] Physical [Special] After use, lowers the enemy's\ndefense, magic defense, and agility for 5 turns.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 32, "dataId": 3, "value1": 5, "value2": 0 },
@@ -507,7 +507,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[対象]単体　[属性]物理\n",
+    "description": "[Target] Single [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 13, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -537,7 +537,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Magic [Special] Has a chance to inflict\n\"Flinch\" status on the enemy (25%)",
+    "description": "[Target] Single, [Attribute] Magic [Special] Has a chance to inflict Flinch\nstatus on the enemy (25%)",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 44, "value1": 0.25, "value2": 0 }
@@ -570,7 +570,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体*2　[属性]魔法\n",
+    "description": "[Target] Single *2 [Attribute] Magic",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 124,
@@ -600,7 +600,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] All | [Attribute] Magic [Special] After use, your magic\nattack power is enhanced for 3 turns.",
+    "description": "[Target] All | [Attribute] Magic [Special] After use, your magic attack power is\nenhanced for 3 turns.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 46, "value1": 1, "value2": 0 }
@@ -633,7 +633,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体ランダム×2　[属性]物理\n",
+    "description": "[Target] Single Random x2 [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -663,7 +663,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Physical [Special] Can always perform a\npreemptive attack and will always hit the target.",
+    "description": "[Target] Single, [Attribute] Physical [Special] Can always perform a preemptive\nattack and will always hit the target.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 21, "value1": 1, "value2": 0 }
@@ -696,7 +696,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Physical [Special] Has a chance to\ninflict \"Flinch\" status on the enemy (30%)",
+    "description": "[Target] Single, [Attribute] Physical [Special] Has a chance to inflict Flinch\nstatus on the enemy (30%)",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 44, "value1": 0.3, "value2": 0 }
@@ -729,7 +729,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Physical [Special] Has a chance to\ninflict \"Flinch\" status on the enemy (35%)",
+    "description": "[Target] Single, [Attribute] Physical [Special] Has a chance to inflict Flinch\nstatus on the enemy (35%)",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 44, "value1": 0.35, "value2": 0 }
@@ -762,7 +762,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体ランダム×3　[属性]物理\n",
+    "description": "[Target] Single Random x3 [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -792,7 +792,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体ランダム×3　[属性]物理\n",
+    "description": "[Target] Single Random x3 [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -822,7 +822,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]全体　[属性]物理\n",
+    "description": "[Target] All [Attribute] Physical",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 76,
@@ -852,7 +852,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Physical [Special] Can always perform a\npreemptive attack and will always hit the target.",
+    "description": "[Target] Single, [Attribute] Physical [Special] Can always perform a preemptive\nattack and will always hit the target.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 21, "value1": 1, "value2": 0 }
@@ -885,7 +885,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] All | [Attribute] Physical [Special] After use, your attack\npower is enhanced for 3 turns.",
+    "description": "[Target] All | [Attribute] Physical [Special] After use, your attack power is\nenhanced for 3 turns.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 58, "value1": 1, "value2": 0 }
@@ -918,7 +918,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single [Attribute] Physical [Special] After use, lowers the\nenemy's defense, magic defense, and agility for 5 turns.",
+    "description": "[Target] Single [Attribute] Physical [Special] After use, lowers the enemy's\ndefense, magic defense, and agility for 5 turns.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 32, "dataId": 3, "value1": 5, "value2": 0 },
@@ -1013,7 +1013,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Magic [Special] Has a chance to inflict\n\"Flinch\" status on the enemy (30%)",
+    "description": "[Target] Single, [Attribute] Magic [Special] Has a chance to inflict Flinch\nstatus on the enemy (30%)",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 44, "value1": 0.3, "value2": 0 }
@@ -1046,7 +1046,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] Single, [Attribute] Magic [Special] Has a chance to inflict\n\"Flinch\" status on the enemy (35%)",
+    "description": "[Target] Single, [Attribute] Magic [Special] Has a chance to inflict Flinch\nstatus on the enemy (35%)",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 44, "value1": 0.35, "value2": 0 }
@@ -1079,7 +1079,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体ランダム×3　[属性]魔法\n",
+    "description": "[Target] Single Random x3 [Attribute] Magic",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 124,
@@ -1109,7 +1109,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[対象]単体ランダム×3　[属性]魔法\n",
+    "description": "[Target] Single Random x3 [Attribute] Magic",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 1,
     "iconIndex": 124,
@@ -1139,7 +1139,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "[Target] All | [Attribute] Magic [Special] After use, your magic\nattack power is enhanced for 3 turns.",
+    "description": "[Target] All | [Attribute] Magic [Special] After use, your magic attack power is\nenhanced for 3 turns.",
     "effects": [
       { "code": 21, "dataId": 0, "value1": 1, "value2": 0 },
       { "code": 21, "dataId": 59, "value1": 1, "value2": 0 }
@@ -1292,7 +1292,7 @@
       "type": 1,
       "variance": 20
     },
-    "description": "デバッグ用",
+    "description": "For debugging purposes",
     "effects": [{ "code": 21, "dataId": 0, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 0,
@@ -1352,7 +1352,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "攻撃は受けるがダメージを抑えることができる。\n[効果]TP+10",
+    "description": "Can take attacks but is able to reduce damage. [Effect] TP+10",
     "effects": [{ "code": 21, "dataId": 2, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 81,
@@ -1415,7 +1415,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Lacking concentration and spacing out. The damage received also\nincreases, and nothing good happens.",
+    "description": "Lacking concentration and spacing out. The damage received also increases, and\nnothing good happens.",
     "effects": [
       { "code": 21, "dataId": 47, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 345, "value1": 1, "value2": 0 }
@@ -1448,7 +1448,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Forcefully remove restraints by releasing magic power from the entire\nbody.",
+    "description": "Forcefully remove restraints by releasing magic power from the entire body.",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 426, "value1": 1, "value2": 0 }
@@ -1541,7 +1541,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n5ターンの間、攻撃力・魔法攻撃力を上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases attack power and magic attack\npower for 5 turns.",
     "effects": [{ "code": 21, "dataId": 17, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 34,
@@ -1571,7 +1571,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n5ターンの間、攻撃力・魔法攻撃力を上昇させる魔術",
+    "description": "[No Turn Consumption] A magic that increases attack power and magic attack power\nfor 5 turns.",
     "effects": [{ "code": 21, "dataId": 22, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 34,
@@ -1631,7 +1631,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n5ターンの間、防御・魔法防御力を上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases defense and magic defense for\n5 turns.",
     "effects": [{ "code": 21, "dataId": 19, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 35,
@@ -1661,7 +1661,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n5ターンの間、防御・魔法防御力を上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases defense and magic defense for\n5 turns.",
     "effects": [{ "code": 21, "dataId": 24, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 35,
@@ -1721,7 +1721,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n3ターンの間、すばやさと回避力を上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases agility and evasion for 3\nturns.",
     "effects": [{ "code": 21, "dataId": 18, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 38,
@@ -1751,7 +1751,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n3ターンの間、すばやさと回避力を上昇させる魔術",
+    "description": "[No Turn Consumption] A spell that increases agility and evasion for 3 turns.",
     "effects": [{ "code": 21, "dataId": 26, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 38,
@@ -1811,7 +1811,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n3ターンの間、攻撃,魔法攻撃,防御,魔法防御,すばやさを上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases attack, magic attack,\ndefense, magic defense, and agility for 3 turns.",
     "effects": [{ "code": 21, "dataId": 29, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 91,
@@ -1841,7 +1841,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n3ターンの間、攻撃,魔法攻撃,防御,魔法防御,すばやさを上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases attack, magic attack,\ndefense, magic defense, and agility for 3 turns.",
     "effects": [{ "code": 21, "dataId": 30, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 91,
@@ -1901,7 +1901,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n1ターンの間、会心率が上昇する",
+    "description": "[No Turn Consumption] Increases critical hit rate for 1 turn.",
     "effects": [{ "code": 21, "dataId": 28, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 90,
@@ -1991,7 +1991,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "癒しの光でHPを回復する魔術(HP回復+200)",
+    "description": "Heal with the light of recovery (HP Recovery +200)",
     "effects": [{ "code": 11, "dataId": 0, "value1": 0, "value2": 200 }],
     "hitType": 0,
     "iconIndex": 72,
@@ -2021,7 +2021,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "癒しの光でHPを回復する魔術(HP回復+400)",
+    "description": "A healing light that restores HP (HP Recovery +400)",
     "effects": [{ "code": 11, "dataId": 0, "value1": 0, "value2": 400 }],
     "hitType": 0,
     "iconIndex": 72,
@@ -2051,7 +2051,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "癒しの光でHPを大きく回復する魔術(HP回復+600)",
+    "description": "A healing light that greatly restores HP (HP Recovery +600)",
     "effects": [{ "code": 11, "dataId": 0, "value1": 0, "value2": 600 }],
     "hitType": 0,
     "iconIndex": 72,
@@ -2081,7 +2081,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "MPをTPに変換する魔術(TP+30)",
+    "description": "Magic that converts MP to TP (TP+30)",
     "effects": [{ "code": 13, "dataId": 0, "value1": 30, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 92,
@@ -2111,7 +2111,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "MPをTPに変換する魔術(TP+35)",
+    "description": "Convert MP to TP magic (TP+35)",
     "effects": [{ "code": 13, "dataId": 0, "value1": 35, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 92,
@@ -2141,7 +2141,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "MPをTPに変換する魔術(TP+40)",
+    "description": "A spell that converts MP to TP (TP+40)",
     "effects": [{ "code": 13, "dataId": 0, "value1": 40, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 92,
@@ -3627,7 +3627,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし]\n5ターンの間、攻撃力・魔法攻撃力を上昇させる魔術",
+    "description": "[No Turn Consumption] A magic spell that increases attack power and magic attack\npower for 5 turns.",
     "effects": [{ "code": 21, "dataId": 17, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 34,
@@ -4625,7 +4625,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[ターン消費なし][習得条件]ブレイドオーラLv1,バリアオーラLv1,フェザーオーラLv1\n3ターンの間、攻撃・魔法攻撃・防御・魔法防御・すばやさを上昇させる魔術",
+    "description": "[No Turn Consumption][Acquisition Conditions] Blade Aura Lv1, Barrier Aura Lv1,\nFeather Aura Lv1 A magic that increases attack, magic attack, defense, magic\ndefense, and agility for 3 turns.",
     "effects": [{ "code": 21, "dataId": 54, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 91,

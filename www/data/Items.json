@@ -11,7 +11,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[効果]HP回復(+250)",
+    "description": "[Effect] HP Recovery (+250)",
     "effects": [{ "code": 11, "dataId": 0, "value1": 0, "value2": 250 }],
     "hitType": 1,
     "iconIndex": 172,
@@ -37,7 +37,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[効果]HP回復(+500)",
+    "description": "[Effect] HP Recovery (+500)",
     "effects": [{ "code": 11, "dataId": 0, "value1": 0, "value2": 500 }],
     "hitType": 0,
     "iconIndex": 173,
@@ -63,7 +63,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[効果]HP回復(+1200)",
+    "description": "[Effect] HP Recovery (+1200)",
     "effects": [{ "code": 11, "dataId": 0, "value1": 0, "value2": 1200 }],
     "hitType": 0,
     "iconIndex": 174,
@@ -89,7 +89,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[効果]MP回復(+45)",
+    "description": "[Effect] MP Recovery (+45)",
     "effects": [{ "code": 12, "dataId": 0, "value1": 0, "value2": 45 }],
     "hitType": 0,
     "iconIndex": 172,
@@ -115,7 +115,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[効果]MP回復(+100)",
+    "description": "[Effect] MP Recovery (+100)",
     "effects": [{ "code": 12, "dataId": 0, "value1": 0, "value2": 100 }],
     "hitType": 0,
     "iconIndex": 173,
@@ -141,7 +141,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[効果]MP回復(+200)",
+    "description": "[Effect] MP Recovery (+200)",
     "effects": [{ "code": 12, "dataId": 0, "value1": 0, "value2": 200 }],
     "hitType": 0,
     "iconIndex": 174,
@@ -283,7 +283,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]TP増加(+30)",
+    "description": "[Effect] TP Increase (+30)",
     "effects": [{ "code": 13, "dataId": 0, "value1": 30, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 173,
@@ -309,7 +309,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]TP増加(+70)",
+    "description": "[Effect] TP Increase (+70)",
     "effects": [{ "code": 13, "dataId": 0, "value1": 70, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 174,
@@ -417,7 +417,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Equipment Durability Recovery (+20) \\C[17] *Cannot be used\nduring battle\\C[0]",
+    "description": "[Effect] Equipment Durability Recovery (+20) \\C[17] *Cannot be used during\nbattle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -446,7 +446,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Effect: Equipment Durability Recovery (+40) \\C[17] *Cannot be used\nduring battle\\C[0]",
+    "description": "Effect: Equipment Durability Recovery (+40) \\C[17] *Cannot be used during\nbattle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -475,7 +475,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]装備を段階的に破損させる \\C[17]※戦闘時使用不可\\C[0]\n",
+    "description": "[Effect] Gradually damages equipment ※Cannot be used during combat",
     "effects": [{ "code": 44, "dataId": 354, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 156,
@@ -557,7 +557,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[Effect] Removes \"Darkness\" status + HP recovery (+100) + MP recovery\n(+15)",
+    "description": "[Effect] Removes Darkness status + HP recovery (+100) + MP recovery (+15)",
     "effects": [
       { "code": 22, "dataId": 5, "value1": 1, "value2": 0 },
       { "code": 12, "dataId": 0, "value1": 0, "value2": 15 },
@@ -587,7 +587,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[Effect] Remove \"Poison\" status + HP recovery (+100) + MP recovery\n(+15)",
+    "description": "[Effect] Remove Poison status + HP recovery (+100) + MP recovery (+15)",
     "effects": [
       { "code": 22, "dataId": 4, "value1": 1, "value2": 0 },
       { "code": 12, "dataId": 0, "value1": 0, "value2": 15 },
@@ -617,7 +617,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] \"Bukkake\" and \"Stickiness\" state removed.",
+    "description": "[Effect] Bukkake and Stickiness state removed.",
     "effects": [
       { "code": 22, "dataId": 43, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 34, "value1": 1, "value2": 0 }
@@ -724,7 +724,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "Effect: Removes the status ailments \"Poison,\" \"Paralysis,\" and\n\"Blindness\" + HP recovery (+200) + MP recovery (+30) + TP recovery\n(+10)",
+    "description": "Effect: Removes the status ailments Poison, Paralysis, and Blindness + HP\nrecovery (+200) + MP recovery (+30) + TP recovery (+10)",
     "effects": [
       { "code": 22, "dataId": 5, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 4, "value1": 1, "value2": 0 },
@@ -783,7 +783,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increase in libido value and climax value (+10) \\C[17]※Will\nnot enter the 'climax' state\\C[0]",
+    "description": "[Effect] Increase in libido value and climax value (+10) \\C[17]※Will not enter\nthe 'climax' state\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -812,7 +812,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increase in libido value and climax value (+30) \\C[17]※Will\nnot enter the 'climax' state\\C[0]",
+    "description": "[Effect] Increase in libido value and climax value (+30) \\C[17]※Will not enter\nthe 'climax' state\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -841,7 +841,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[Effect] Decreases libido value and climax value (-10) \\C[17]※Cannot\nremove \"estrus\" state\\C[0]",
+    "description": "[Effect] Decreases libido value and climax value (-10) \\C[17]※Cannot remove\nestrus state\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -870,7 +870,7 @@
       "type": 0,
       "variance": 0
     },
-    "description": "[Effect] Decreases libido and climax value (-25) \\C[17]※Cannot remove\n\"estrus\" state\\C[0]",
+    "description": "[Effect] Decreases libido and climax value (-25) \\C[17]※Cannot remove estrus\nstate\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -925,7 +925,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increases libido value and climax value by (+15) \\C[17]※Will\nnot enter 'climax' state\\C[0] \\C[17]※Cannot be used during battle\\C[0]",
+    "description": "[Effect] Increases libido value and climax value by (+15) \\C[17]※Will not enter\n'climax' state\\C[0] \\C[17]※Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -954,7 +954,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increases libido value and climax value (+35) \\C[17]※Will not\nenter 'climax' state\\C[0] \\C[17]※Cannot be used during battle\\C[0]",
+    "description": "[Effect] Increases libido value and climax value (+35) \\C[17]※Will not enter\n'climax' state\\C[0] \\C[17]※Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 22, "dataId": 15, "value1": 1, "value2": 0 }
@@ -983,7 +983,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Becomes in a state of \"estrus\" \\C[17] ※ Cannot be used while\nin \"estrus\" \\C[0]",
+    "description": "[Effect] Becomes in a state of estrus \\C[17] ※ Cannot be used while in\nestrus \\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 353, "value1": 1, "value2": 0 },
@@ -1013,7 +1013,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Remove \"Estrus\" state.",
+    "description": "[Effect] Remove Estrus state.",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 410, "value1": 1, "value2": 0 },
@@ -1043,7 +1043,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increase in Rationality (+10) \\C[17] *Cannot be used during\nbattle\\C[0]",
+    "description": "[Effect] Increase in Rationality (+10) \\C[17] *Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 419, "value1": 1, "value2": 0 },
@@ -1073,7 +1073,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increase in Rationality (+25) \\C[17] *Cannot be used during\nbattle\\C[0]",
+    "description": "[Effect] Increase in Rationality (+25) \\C[17] *Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 419, "value1": 1, "value2": 0 },
@@ -1103,7 +1103,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Desire Increase (+15) \\C[17] *Cannot be used during\nbattle\\C[0]",
+    "description": "[Effect] Desire Increase (+15) \\C[17] *Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 419, "value1": 1, "value2": 0 },
@@ -1133,7 +1133,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Desire Increase (+30) \\C[17] *Cannot be used during\nbattle\\C[0]",
+    "description": "[Effect] Desire Increase (+30) \\C[17] *Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 419, "value1": 1, "value2": 0 },
@@ -1163,7 +1163,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increase in Rationality (+15) \\C[17] *Cannot be used during\nbattle\\C[0]",
+    "description": "[Effect] Increase in Rationality (+15) \\C[17] *Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 419, "value1": 1, "value2": 0 },
@@ -1193,7 +1193,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Effect] Increase in Rationality (+30) \\C[17] *Cannot be used during\nbattle\\C[0]",
+    "description": "[Effect] Increase in Rationality (+30) \\C[17] *Cannot be used during battle\\C[0]",
     "effects": [
       { "code": 21, "dataId": 15, "value1": 1, "value2": 0 },
       { "code": 44, "dataId": 419, "value1": 1, "value2": 0 },
@@ -1223,7 +1223,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]『ぶっかけ』状態になる　\\C[17]※戦闘時使用不可\\C[0]",
+    "description": "[Effect] Becomes Bukkake state ※Cannot be used during battle",
     "effects": [{ "code": 21, "dataId": 43, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 216,
@@ -1301,7 +1301,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]魔物から認識されなくなる(100歩)　\\C[17]※戦闘時使用不可\\C[0]",
+    "description": "[Effect] Become unrecognizable to monsters (for 100 steps) ※Cannot be used\nduring battle",
     "effects": [{ "code": 44, "dataId": 346, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 216,
@@ -1327,7 +1327,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]魔物から認識されなくなる(250歩)　\\C[17]※戦闘時使用不可\\C[0]",
+    "description": "[Effect] Become unrecognizable to monsters (for 250 steps) ※Cannot be used\nduring battle",
     "effects": [{ "code": 44, "dataId": 347, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 216,
@@ -1405,7 +1405,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "聖騎士に贈られる聖魔教のシンボルの徽章。\nスキルツリーを開き、Rainを強化することができる。(Sキーでショートカット)",
+    "description": "The emblem of the Holy Magic Order bestowed upon the holy knights. Open the\nskill tree to strengthen Rain. (Shortcut with the S key)",
     "effects": [{ "code": 44, "dataId": 413, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 223,
@@ -1431,7 +1431,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "ハクデティにいる間、町の好きな場所に即時移動ができる。(Fキーでショートカット)",
+    "description": "While in Hakdety, you can instantly move to your favorite places in town. (Use\nthe F key for a shortcut)",
     "effects": [{ "code": 44, "dataId": 420, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 223,
@@ -1457,7 +1457,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "ワールドマップへ即時移動できる。(Wキーでショートカット)",
+    "description": "You can move to the world map instantly. (Shortcut with the W key)",
     "effects": [{ "code": 44, "dataId": 33, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 223,
@@ -1483,7 +1483,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "エリア別獲得アイテムリストを開くことができる。(Gキーでショートカット)",
+    "description": "You can open the list of items acquired by area. (Shortcut with the G key)",
     "effects": [{ "code": 44, "dataId": 423, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 223,
@@ -1509,7 +1509,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A case to hold the chips used in the casino. The current number of\nchips owned is \\C[17]\\V[214]\\C[0] pieces.",
+    "description": "A case to hold the chips used in the casino. The current number of chips owned\nis \\C[17]\\V[214]\\C[0] pieces.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1587,7 +1587,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A precious fruit from a rare tree that is said to bring fertility when\nconsumed. It is sweet and easy to eat, but if eaten raw, it can be\ntoxic, so it is common to treat it properly and use it as a seasoning.",
+    "description": "A precious fruit from a rare tree that is said to bring fertility when consumed.\nIt is sweet and easy to eat, but if eaten raw, it can be toxic, so it is common\nto treat it properly and use it as a seasoning.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 183,
@@ -1613,7 +1613,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "The key to unlock the seal of the southeast dungeon, managed by the\nmayor of Hakudeti town.",
+    "description": "The key to unlock the seal of the southeast dungeon, managed by the mayor of\nHakudeti town.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1665,7 +1665,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A glass-like sphere with a triangle floating inside. Strangely, no\nmatter from which angle you look at it, the triangle is facing the\nsame direction.",
+    "description": "A glass-like sphere with a triangle floating inside. Strangely, no matter from\nwhich angle you look at it, the triangle is facing the same direction.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1691,7 +1691,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A glass-like sphere with a floating □ inside. Strangely, no matter\nfrom which angle you look at it, the □ is facing the same direction.",
+    "description": "A glass-like sphere with a floating □ inside. Strangely, no matter from which\nangle you look at it, the □ is facing the same direction.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1717,7 +1717,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A red crystal ball filled with magical power obtained in the\nunderground dungeon.",
+    "description": "A red crystal ball filled with magical power obtained in the underground\ndungeon.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1743,7 +1743,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A purple crystal ball filled with magical power obtained in the\nunderground dungeon.",
+    "description": "A purple crystal ball filled with magical power obtained in the underground\ndungeon.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1769,7 +1769,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A green crystal ball filled with magical power obtained in the\nunderground dungeon.",
+    "description": "A green crystal ball filled with magical power obtained in the underground\ndungeon.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1795,7 +1795,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A female masturbation device. When turned on, it vibrates and can be\napplied to the intimate area or inserted into the vagina for pleasure.",
+    "description": "A female masturbation device. When turned on, it vibrates and can be applied to\nthe intimate area or inserted into the vagina for pleasure.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1821,7 +1821,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A female masturbation device. When turned on, it vibrates and can be\napplied to the intimate area or inserted into the vagina for pleasure.",
+    "description": "A female masturbation device. When turned on, it vibrates and can be applied to\nthe intimate area or inserted into the vagina for pleasure.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1847,7 +1847,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A one-time use device that cancels low-level status abnormal magic. It\ncan prevent cheating at the casino.",
+    "description": "A one-time use device that cancels low-level status abnormal magic. It can\nprevent cheating at the casino.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1925,7 +1925,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "The key to the room at Tachimate Beach Inn that a guest of Hakudeti\nInn had.",
+    "description": "The key to the room at Tachimate Beach Inn that a guest of Hakudeti Inn had.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -1951,7 +1951,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A ring adorned with a beautiful stone that had become a prize at the\ncasino. A memento of a certain citizen of Hakudeti.",
+    "description": "A ring adorned with a beautiful stone that had become a prize at the casino. A\nmemento of a certain citizen of Hakudeti.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -2003,7 +2003,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "A part of Rain's heart obtained by succumbing to desire. It may have\nbeen a momentary impulse, but by repeating it, one can change their\nfate.",
+    "description": "A part of Rain's heart obtained by succumbing to desire. It may have been a\nmomentary impulse, but by repeating it, one can change their fate.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -2029,7 +2029,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Fragments of the \"Nightmare Heaven\" Activation Device Obtained after\ndestroying the device in the northeastern dungeon.",
+    "description": "Fragments of the Nightmare Heaven Activation Device Obtained after destroying\nthe device in the northeastern dungeon.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -2055,7 +2055,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Fragments of the \"Nightmare Heaven\" activation device Obtained after\ndestroying the device in the northwest cave.",
+    "description": "Fragments of the Nightmare Heaven activation device Obtained after destroying\nthe device in the northwest cave.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -2081,7 +2081,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Fragments of the \"Nightmare Heaven\" Activation Device Obtained after\ndestroying the device in the southeast dungeon.",
+    "description": "Fragments of the Nightmare Heaven Activation Device Obtained after destroying\nthe device in the southeast dungeon.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -2107,7 +2107,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "Fragments of the \"Nightmare Heaven\" Activation Device Obtained after\ndestroying the device in the underground dungeon.",
+    "description": "Fragments of the Nightmare Heaven Activation Device Obtained after destroying\nthe device in the underground dungeon.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 195,
@@ -2159,7 +2159,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "\\}【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Pussy Insertion 5~(\\V[429]), Fondling 10~(\\V[431]),\nGroping 5~(\\V[445])",
+    "description": "\\}【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nPussy Insertion 5~(\\V[429]), Fondling 10~(\\V[431]), Groping 5~(\\V[445])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2185,7 +2185,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Pussy Insertion 14~(\\V[429]), Fondling 25~(\\V[431]),\nMolestation 10~(\\V[445])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nPussy Insertion 14~(\\V[429]), Fondling 25~(\\V[431]), Molestation 10~(\\V[445])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2237,7 +2237,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Foreplay 13~(\\V[431]), Handjob 5~(\\V[432]), Service Act\n3~(\\V[437])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nForeplay 13~(\\V[431]), Handjob 5~(\\V[432]), Service Act 3~(\\V[437])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2263,7 +2263,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Foreplay 25~(\\V[431]), Handjob 10~(\\V[432]), Service Act\n7~(\\V[437])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nForeplay 25~(\\V[431]), Handjob 10~(\\V[432]), Service Act 7~(\\V[437])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2315,7 +2315,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Exhibitionism 11~(\\V[438]), Cosplay 3~(\\V[439]), Immoral\nActs 8~(\\V[450])\\n[[Desire] M-Play Lv1~(\\V[372])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nExhibitionism 11~(\\V[438]), Cosplay 3~(\\V[439]), Immoral Acts\n8~(\\V[450])\\n[[Desire] M-Play Lv1~(\\V[372])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2341,7 +2341,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Exhibitionism 18~(\\V[438]), Cosplay 8~(\\V[439]), Immoral\nActs 15~(\\V[450])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nExhibitionism 18~(\\V[438]), Cosplay 8~(\\V[439]), Immoral Acts 15~(\\V[450])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2393,7 +2393,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Kiss 5~(\\V[433]), Fellatio 4~(\\V[434]), Imaratio\n3~(\\V[435])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience] Kiss\n5~(\\V[433]), Fellatio 4~(\\V[434]), Imaratio 3~(\\V[435])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2419,7 +2419,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in parentheses are current values\n\\C[17][Sexual Experience] Fellatio 10~(\\V[434]), Imaratio 8~(\\V[435]),\nSemen Ingestion 5~(\\V[448])",
+    "description": "【LvUp Conditions】※Values in parentheses are current values \\C[17][Sexual\nExperience] Fellatio 10~(\\V[434]), Imaratio 8~(\\V[435]), Semen Ingestion\n5~(\\V[448])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2471,7 +2471,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Sex 1~(\\V[427]), interspecies sex 1~(\\V[428]), Pussy\npenetration 10~(\\V[429])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience] Sex\n1~(\\V[427]), interspecies sex 1~(\\V[428]), Pussy penetration 10~(\\V[429])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2497,7 +2497,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Sex 6~(\\V[427]), interspecies sex 3~(\\V[428]), Pussy\npenetration 14~(\\V[429])\\N climax 10~(\\V[442])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience] Sex\n6~(\\V[427]), interspecies sex 3~(\\V[428]), Pussy penetration 14~(\\V[429])\\N\nclimax 10~(\\V[442])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2549,7 +2549,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "\\}【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Sex 5~(\\V[427]), Pussy Ejaculation 3~(\\V[430]), Orgasm\n14~(\\V[442])\\NProstitution Acts 3~(\\V[444]), Bukkake 10~(\\V[447])",
+    "description": "\\}【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nSex 5~(\\V[427]), Pussy Ejaculation 3~(\\V[430]), Orgasm\n14~(\\V[442])\\NProstitution Acts 3~(\\V[444]), Bukkake 10~(\\V[447])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2575,7 +2575,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Sex 10～(\\V[427]), Pussy Ejaculation 10～(\\V[430]), Orgasm\n20～(\\V[442])\\NProstitution Acts 8～(\\V[444]), Humiliation\n10～(\\V[446])\\n[Desire] M Play Lv2～(\\V[372])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience] Sex\n10～(\\V[427]), Pussy Ejaculation 10～(\\V[430]), Orgasm 20～(\\V[442])\\NProstitution\nActs 8～(\\V[444]), Humiliation 10～(\\V[446])\\n[Desire] M Play Lv2～(\\V[372])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2627,7 +2627,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Foreplay 14~(\\V[431]), Anal Insertion 5~(\\V[441])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nForeplay 14~(\\V[431]), Anal Insertion 5~(\\V[441])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2653,7 +2653,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Sex 3~(\\V[427]), Anal Sex 4~(\\V[440]), Anal Insertion\n8~(\\V[441])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience] Sex\n3~(\\V[427]), Anal Sex 4~(\\V[440]), Anal Insertion 8~(\\V[441])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2705,7 +2705,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Climax 8~(\\V[442]), Restraint 12~(\\V[443]), Bukkake\n6~(\\V[447])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nClimax 8~(\\V[442]), Restraint 12~(\\V[443]), Bukkake 6~(\\V[447])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2731,7 +2731,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Climax 14~(\\V[442]), Restraint 20~(\\V[443]), Molestation\n15~(\\V[445])\\NBukkake 12~(\\V[447])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nClimax 14~(\\V[442]), Restraint 20~(\\V[443]), Molestation 15~(\\V[445])\\NBukkake\n12~(\\V[447])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2783,7 +2783,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※(Current values in parentheses) \\C[17][Sexual\nExperience] Breast Play 3~(\\V[436]), Service Acts 8~(\\V[437]),\nProstitution Acts 1~\\N, Bukkake 7~(\\V[447])",
+    "description": "【LvUp Conditions】※(Current values in parentheses) \\C[17][Sexual Experience]\nBreast Play 3~(\\V[436]), Service Acts 8~(\\V[437]), Prostitution Acts 1~\\N,\nBukkake 7~(\\V[447])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2809,7 +2809,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Breast Play 8~(\\V[436]), Service Act 13~(\\V[437]),\nProstitution Act 4~(\\V[444])\\NBukkake 15~(\\V[447])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nBreast Play 8~(\\V[436]), Service Act 13~(\\V[437]), Prostitution Act\n4~(\\V[444])\\NBukkake 15~(\\V[447])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2861,7 +2861,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Conditions】※Values in () are current values \\C[17]\nMasturbation 3~(\\V[449]), Immoral Acts 3~(\\V[450])\\n Also,\nmasturbating with hands, shower, and vibrator.",
+    "description": "【Release Conditions】※Values in () are current values \\C[17] Masturbation\n3~(\\V[449]), Immoral Acts 3~(\\V[450])\\n Also, masturbating with hands, shower,\nand vibrator.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -2887,7 +2887,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Climax 8~(\\V[442]), Masturbation 8~(\\V[449]), Immoral Acts\n5~(\\V[450])",
+    "description": "【LvUp Conditions】※Values in () are current values \\C[17][Sexual Experience]\nClimax 8~(\\V[442]), Masturbation 8~(\\V[449]), Immoral Acts 5~(\\V[450])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -4915,7 +4915,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure LvMAX\" \\C[0]\n[Lewdness]\\C[27] 22 or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure LvMAX \\C[0]\n[Lewdness]\\C[27] 22 or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -4941,7 +4941,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure Lv2\" \\C[0]\n[Lewdness]\\C[27] 20\\C[0] or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure Lv2 \\C[0] [Lewdness]\\C[27]\n20\\C[0] or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -4967,7 +4967,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure Lv1\" \\C[0]\n[Lewdness]\\C[27] 8\\C[0] or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure Lv1 \\C[0] [Lewdness]\\C[27]\n8\\C[0] or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -4993,7 +4993,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure Lv1\" \\C[0]\n[Lewdness]\\C[27] 5\\C[0] or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure Lv1 \\C[0] [Lewdness]\\C[27]\n5\\C[0] or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -5019,7 +5019,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure Lv2\" \\C[0]\n[Lewdness]\\C[27] 8\\C[0] or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure Lv2 \\C[0] [Lewdness]\\C[27]\n8\\C[0] or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -5045,7 +5045,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure Lv2\" \\C[0]\n[Lewdness]\\C[27] 18\\C[0] or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure Lv2 \\C[0] [Lewdness]\\C[27]\n18\\C[0] or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -5097,7 +5097,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure LvMAX\" \\C[0]\n[Lewdness]\\C[27] 22 or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure LvMAX \\C[0]\n[Lewdness]\\C[27] 22 or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -5123,7 +5123,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions\nat Tachimate Beach\\C[0] [Desire]\\C[27] Unlock \"Exposure Lv2\" \\C[0]\n[Lewdness]\\C[27] 18\\C[0] or higher (currently \\V[13]\\C[0])",
+    "description": "【Wearing Conditions】\\C[17] *Can be worn without meeting the conditions at\nTachimate Beach\\C[0] [Desire]\\C[27] Unlock Exposure Lv2 \\C[0] [Lewdness]\\C[27]\n18\\C[0] or higher (currently \\V[13]\\C[0])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 135,
@@ -8061,7 +8061,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]最大HP+30",
+    "description": "[Effect] Max HP +30",
     "effects": [{ "code": 42, "dataId": 0, "value1": 30, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8087,7 +8087,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]最大MP+5",
+    "description": "[Effect] Max MP +5",
     "effects": [{ "code": 42, "dataId": 1, "value1": 5, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8113,7 +8113,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]攻撃力+1",
+    "description": "[Effect] Attack Power +1",
     "effects": [{ "code": 42, "dataId": 2, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8139,7 +8139,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]防御力+1",
+    "description": "[Effect] Defense +1",
     "effects": [{ "code": 42, "dataId": 3, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8165,7 +8165,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]魔法攻撃力+1",
+    "description": "[Effect] Magic Attack Power +1",
     "effects": [{ "code": 42, "dataId": 4, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8191,7 +8191,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]魔法防御力+1",
+    "description": "[Effect] Magic Defense +1",
     "effects": [{ "code": 42, "dataId": 5, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8217,7 +8217,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[効果]素早さ+1",
+    "description": "[Effect] Agility +1",
     "effects": [{ "code": 42, "dataId": 6, "value1": 1, "value2": 0 }],
     "hitType": 0,
     "iconIndex": 299,
@@ -8873,7 +8873,7 @@
     "iconIndex": 0,
     "itypeId": 3,
     "name": "Hakudeti",
-    "note": "<SG説明:【Dropped by Enemies】\n None\n\n【Gathered from Sparkles or Pillars】\n \\i[181]Iyashima Grass \\i[181]Very Iyashima Grass \\i[181]Motivation Root\n \\i[181]Protein Chii \\i[247]Setro Carrot \\i[248]Love Beans\n \\i[84]Naughty Book \\i[84]Quite Naughty Book>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "note": "<SG説明:【Dropped by Enemies】  None  【Gathered from Sparkles or\nPillars】  \\i[181]Iyashima Grass \\i[181]Very Iyashima\nGrass \\i[181]Motivation Root  \\i[181]Protein\nChii \\i[247]Setro Carrot \\i[248]Love Beans  \\i[84]Naughty\nBook \\i[84]Quite Naughty Book>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -8899,7 +8899,7 @@
     "iconIndex": 0,
     "itypeId": 3,
     "name": "Northeast Dungeon",
-    "note": "<SG説明:【Dropped by Enemies】\n \\i[181]Magic Core (Small) \\i[247]Magic Core (Medium) \\i[248]Magic Core (Large)\n \\i[181]Demon Spirit Fang \\i[181]Demon Spirit Sword Fang\n \\i[181]Demon Spirit Skin \\i[181]Demon Spirit Bone\n \\i[247]Demon Spirit Soul Bone \\i[248]Magic Conductor \\i[250]Spirit Crystal\n\n【Gathered from Sparkles or Pillars】\n \\i[181]Earthen Grass \\i[181]Very Earthen Grass \\i[181]Steel Stone\n \\i[181]Barrier Steel Stone \\i[247]Demon Steel Stone \\i[247]Silver Silver Ore\n \\i[248]White White Ore \\i[181]Motivation Root \\i[247]Effort Root\n \\i[181]Mouth-Closing Grass \\i[250]Spirit Crystal \\i[248]Spirit Embryo Amber\n \\i[285]Treasure Stone \\i[286]Sparkling Treasure Stone>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "note": "<SG説明:【Dropped by Enemies】  \\i[181]Magic Core (Small) \\i[247]Magic\nCore (Medium) \\i[248]Magic Core (Large)  \\i[181]Demon Spirit\nFang \\i[181]Demon Spirit Sword Fang  \\i[181]Demon Spirit\nSkin \\i[181]Demon Spirit Bone  \\i[247]Demon Spirit Soul\nBone \\i[248]Magic Conductor \\i[250]Spirit Crystal  【Gathered\nfrom Sparkles or Pillars】  \\i[181]Earthen Grass \\i[181]Very\nEarthen Grass \\i[181]Steel Stone  \\i[181]Barrier Steel\nStone \\i[247]Demon Steel Stone \\i[247]Silver Silver Ore\n\\i[248]White White Ore \\i[181]Motivation Root \\i[247]Effort\nRoot  \\i[181]Mouth-Closing Grass \\i[250]Spirit\nCrystal \\i[248]Spirit Embryo Amber  \\i[285]Treasure\nStone \\i[286]Sparkling Treasure Stone>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -8925,7 +8925,7 @@
     "iconIndex": 0,
     "itypeId": 3,
     "name": "Mass Plains",
-    "note": "<SG説明:【Dropped by Enemies】\n \\i[181]Magic Core (Small) \\i[247]Magic Core (Medium) \\i[181]Demon Spirit Fang\n \\i[181]Demon Spirit Sword Fang \\i[181]Demon Spirit Bone\n \\i[181]Demon Spirit Sacred Bone \\i[181]Demon Spirit Body Fluid\n \\i[247]Demon Spirit Sacred Fluid \\i[247]Nectar \\i[248]Butt Gel\n\n【Gathered from Sparkles or Pillars】\n \\i[181]Earthen Grass \\i[181]Super Earthen Grass \\i[181]Mana Fruit\n \\i[181]Mana Mana Fruit \\i[181]Dondon Chestnut \\i[247]Dondon Chestnut Flower\n \\i[181]Mouth-Closing Grass \\i[181]Protein Chii \\i[247]Lipolipo Fruit\n \\i[248]Love Beans \\i[181]Spirit Water \\i[247]True Spirit Water\n \\i[248]Magic Apple (Red) \\i[286]Silver Pinecone \\i[287]Gold Pinecone\n \\i[285]Refreshing>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "note": "<SG説明:【Dropped by Enemies】  \\i[181]Magic Core (Small) \\i[247]Magic\nCore (Medium) \\i[181]Demon Spirit Fang  \\i[181]Demon Spirit\nSword Fang \\i[181]Demon Spirit Bone  \\i[181]Demon Spirit\nSacred Bone \\i[181]Demon Spirit Body Fluid  \\i[247]Demon\nSpirit Sacred Fluid \\i[247]Nectar \\i[248]Butt Gel  【Gathered\nfrom Sparkles or Pillars】  \\i[181]Earthen Grass \\i[181]Super\nEarthen Grass \\i[181]Mana Fruit  \\i[181]Mana Mana\nFruit \\i[181]Dondon Chestnut \\i[247]Dondon Chestnut Flower\n\\i[181]Mouth-Closing Grass \\i[181]Protein\nChii \\i[247]Lipolipo Fruit  \\i[248]Love Beans \\i[181]Spirit\nWater \\i[247]True Spirit Water  \\i[248]Magic Apple\n(Red) \\i[286]Silver Pinecone \\i[287]Gold Pinecone\n\\i[285]Refreshing>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -8951,7 +8951,7 @@
     "iconIndex": 0,
     "itypeId": 3,
     "name": "Forest of Destruction",
-    "note": "<SG説明:【Dropped by Enemies】\n \\i[181]Magic Core (Small) \\i[247]Magic Core (Medium) \\i[248]Magic Core (Large)\n \\i[181]Demon Essence Skin \\i[181]Demon Essence Spirit Skin\n \\i[181]Demon Essence Body Fluid \\i[181]Demon Essence Spirit Fluid\n \\i[247]Pufferfish Ball\n\n【Gathered from Sparkles or Pillars】\n \\i[181]Mana Fruit \\i[181]Mana Mana Fruit \\i[181]Motivation Root\n \\i[247]Effort Root \\i[181]Very Berry \\i[247]Very Very Berry\n \\i[247]Plump Fruit \\i[181]Spirit Water \\i[247]True Spirit Water\n \\i[248]Quick Tree Sap \\i[248]Magic Apple (Blue) \\i[286]Silver Pinecone\n \\i[287]Gold Pinecone \\i[286]Ajitsuki Fish>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "note": "<SG説明:【Dropped by Enemies】  \\i[181]Magic Core (Small) \\i[247]Magic\nCore (Medium) \\i[248]Magic Core (Large)  \\i[181]Demon\nEssence Skin \\i[181]Demon Essence Spirit Skin  \\i[181]Demon\nEssence Body Fluid \\i[181]Demon Essence Spirit Fluid\n\\i[247]Pufferfish Ball  【Gathered from Sparkles or Pillars】\n\\i[181]Mana Fruit \\i[181]Mana Mana Fruit \\i[181]Motivation\nRoot  \\i[247]Effort Root \\i[181]Very Berry \\i[247]Very Very\nBerry  \\i[247]Plump Fruit \\i[181]Spirit Water \\i[247]True\nSpirit Water  \\i[248]Quick Tree Sap \\i[248]Magic Apple\n(Blue) \\i[286]Silver Pinecone  \\i[287]Gold\nPinecone \\i[286]Ajitsuki Fish>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -8976,8 +8976,8 @@
     "hitType": 0,
     "iconIndex": 0,
     "itypeId": 3,
-    "name": "北西の洞窟",
-    "note": "<SG説明:【ドロップ】\n\\i[181]魔力核(小)　\\i[247]魔力核(中)　\\i[248]魔力核(大)　\\i[181]魔精の牙　\\i[181]魔精の剣牙\n\\i[181]魔精の皮　\\i[181]魔精の霊皮　\\i[181]魔精の骨　\\i[247]魔精の霊骨　\\i[181]霊糸　\\i[247]霊白糸\n\\i[248]魔導体　\\i[250]剛石\n\n【拾得】\n\\i[181]ハガネ石　\\i[181]バリハガネ石　\\i[247]オニハガネ石　\\i[247]銀銀鉱　\\i[248]金金鉱\n\\i[248]霊霊石　\\i[181]ベリベリー 　\\i[247]ベリーベリベリー　\\i[247]ホネヌキ草　\\i[247]タマヌキ草\n\\i[250]剛石　　\\i[181]霊糸　\\i[248]霊胎珀　\\i[285]タカラ石　\\i[286]キラタカラ石\n\\i[287]ダイヤモドキ　\\i[286]とてもいい枝　\n>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "name": "Northwest Cave",
+    "note": "<SG説明:【Drops】 Magic Core (Small) Magic Core (Medium) Magic Core\n(Large) Fairy Fang Fairy Sword Fang Fairy Hide Fairy Spirit\nHide Fairy Bone Fairy Spirit Bone Spirit Thread Spirit White\nThread Magical Conductor Sturdy Stone 【Loot】 Steel Stone\nQuality Steel Stone Demon Steel Stone Silver Ore Gold Ore\nSpirit Stone Very Berry Super Very Berry Bone-Removing Herb\nSoul-Removing Herb Sturdy Stone Spirit Thread Spirit Amber\nTreasure Stone Shiny Treasure Stone Faux Diamond Very Good\nBranch>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -9002,8 +9002,8 @@
     "hitType": 0,
     "iconIndex": 0,
     "itypeId": 3,
-    "name": "南東のダンジョン",
-    "note": "<SG説明:【ドロップ】\n\\i[181]魔力核(小)　\\i[247]魔力核(中)　\\i[181]魔力核(大)　\\i[181]魔精の皮　\\i[181]魔精の骨\n\\i[181]魔精の霊骨　\\i[181]魔精の体液　\\i[247]魔精の霊液　\\i[247]水蜜　\\i[248]オシリカジェル\n\\i[250]水晶石　\\i[248]魔導体\n\n【拾得】\n\\i[181]ハガネ石　\\i[181]バリハガネ石　\\i[248]霊霊石　\\i[181]ヤルキ根　\\i[247]ガンバル根\n\\i[181]水蜜　\\i[247]水石　\\i[247]ザラメ鉱　\\i[250]水晶水　\\i[248]霊胎珀\n\\i[181]霊水　\\i[247]霊真水　\\i[286]タカラ石　\\i[287]キラタカラ石　\\i[285]アカミイワシ\n\\i[287]タラバエビ　\\i[287]ヒトクチマグロ　\\i[286]モモイロ真珠\n>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "name": "The Dungeon to the Southeast",
+    "note": "<SG説明:【Drop】 Magic Core (Small) Magic Core (Medium) Magic Core\n(Large) Magic Essence Skin Magic Essence Bone Magic Essence\nSpirit Bone Magic Essence Body Fluid Magic Essence Spirit\nFluid Sweet Water Oshirika Gel Crystal Stone Magical\nConductor 【Loot】 Hagane Stone Barley Hagane Stone Spirit\nStone Yaruki Root Ganbaru Root Sweet Water Water Stone\nGranulated Ore Crystal Water Spirit Womb Amber Spirit Water\nPure Spirit Water Treasure Stone Shiny Treasure Stone Red\nFlesh Fish King Crab One-Bite Tuna Pink Pearl>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -9029,7 +9029,7 @@
     "iconIndex": 0,
     "itypeId": 3,
     "name": "Underground Dungeon",
-    "note": "<SG説明:【Dropped by Monsters】\n \\i[247]Magic Core (Medium) \\i[248]Magic Core (Large) \\i[181]Magic Fang\n \\i[181]Demon Spirit Fang \\i[181]Demon Spirit Sword Fang\n \\i[181]Demon Spirit Skin \\i[248]Magic Conductor \\i[250]Hellstone\n \\i[181]Spirit Thread \\i[247]Spirit White Thread \\i[84]Naughty Book\n \\i[84]Quite Naughty Book \\i[84]Go to Heaven \\i[155]Serotonin Nin\n\n【Gathered from Sparkles or Pillars】\n \\i[181]Steel Stone \\i[181]Barri Steel Stone \\i[247]Demon Steel Stone\n \\i[248]Spirit Stone \\i[250]Hellstone \\i[248]Spiritual Amber \\i[285]Treasure Stone\n \\i[286]Sparkling Treasure Stone \\i[287]Fake Diamond\n>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "note": "<SG説明:【Dropped by Monsters】  \\i[247]Magic Core\n(Medium) \\i[248]Magic Core (Large) \\i[181]Magic Fang\n\\i[181]Demon Spirit Fang \\i[181]Demon Spirit Sword Fang\n\\i[181]Demon Spirit Skin \\i[248]Magic\nConductor \\i[250]Hellstone  \\i[181]Spirit\nThread \\i[247]Spirit White Thread \\i[84]Naughty Book\n\\i[84]Quite Naughty Book \\i[84]Go to Heaven \\i[155]Serotonin\nNin  【Gathered from Sparkles or Pillars】  \\i[181]Steel\nStone \\i[181]Barri Steel Stone \\i[247]Demon Steel Stone\n\\i[248]Spirit Stone \\i[250]Hellstone \\i[248]Spiritual\nAmber \\i[285]Treasure Stone  \\i[286]Sparkling Treasure\nStone \\i[287]Fake Diamond>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -9081,7 +9081,7 @@
     "iconIndex": 0,
     "itypeId": 3,
     "name": "Demon Lord's Hall",
-    "note": "<SG説明:【Dropped by Monsters】\n \\i[181]Magic Core (Small) \\i[247]Magic Core (Medium) \\i[248]Magic Core (Large)\n \\i[181]Demon Essence Fluid \\i[181]Demon Essence Elixir \\i[248]Ass Jelly\n \\i[248]Magic Conductor \\i[248]Cloudy Secret Potion\n\n【Gathered from Sparkles or Pillars】\n None>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
+    "note": "<SG説明:【Dropped by Monsters】  \\i[181]Magic Core\n(Small) \\i[247]Magic Core (Medium) \\i[248]Magic Core (Large)\n\\i[181]Demon Essence Fluid \\i[181]Demon Essence\nElixir \\i[248]Ass Jelly  \\i[248]Magic\nConductor \\i[248]Cloudy Secret Potion  【Gathered from\nSparkles or Pillars】  None>\n<SG手動>                  // 用語を自動登録の対象から除外する\n<SGピクチャ位置:text>     // ピクチャの表示位置",
     "occasion": 3,
     "price": 0,
     "repeats": 1,
@@ -10193,7 +10193,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Conditions】※(Current values in parentheses) \\C[17][Sexual\nExperience] Fondling 5~(\\V[431]), Molestation 2~(\\V[445])\\n, or choose\n\"Desire\" through specific \"heart choices\".",
+    "description": "【Release Conditions】※(Current values in parentheses) \\C[17][Sexual Experience]\nFondling 5~(\\V[431]), Molestation 2~(\\V[445])\\n, or choose Desire through\nspecific heart choices.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10219,7 +10219,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Condition】※(Current value in parentheses) \\C[17][Sexual\nExperience] Choose \"Desire\" by caressing 8 to (\\V[431])\\n or through\nspecific \"heart choices\".",
+    "description": "【Release Condition】※(Current value in parentheses) \\C[17][Sexual Experience]\nChoose Desire by caressing 8 to (\\V[431])\\n or through specific heart\nchoices.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10245,7 +10245,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Conditions】※(Current values in parentheses) \\C[17][Sexual\nExperience] Exposure Acts 5~(\\V[438]), Immoral Acts 1~(\\V[450])\\n or\nchoose \"Desire\" through specific \"mental choices\".",
+    "description": "【Release Conditions】※(Current values in parentheses) \\C[17][Sexual Experience]\nExposure Acts 5~(\\V[438]), Immoral Acts 1~(\\V[450])\\n or choose Desire through\nspecific mental choices.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10271,7 +10271,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Condition】※(Current value in parentheses) \\C[17] [Sexual\nExperience] Choose \"Desire\" by kissing 3 to (\\V[433])\\n or through\nspecific \"heart choices\".",
+    "description": "【Release Condition】※(Current value in parentheses) \\C[17] [Sexual Experience]\nChoose Desire by kissing 3 to (\\V[433])\\n or through specific heart choices.",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10297,7 +10297,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Release Conditions] ※Values in () are current values \\C[17][Sexual\nExperience] Pussy Insertion 4~(\\V[429]), Masturbation 5~(\\V[449])\n[Desire] Want to be touched Lv1~(\\V[365])\\n or choose a specific\n\"mental choice\" to select \"Desire",
+    "description": "[Release Conditions] ※Values in () are current values \\C[17][Sexual Experience]\nPussy Insertion 4~(\\V[429]), Masturbation 5~(\\V[449]) [Desire] Want to be\ntouched Lv1~(\\V[365])\\n or choose a specific mental choice to select Desire",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10323,7 +10323,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Release Conditions] *Values in parentheses are current values \\C[17]\n[Sexual Experience] Sex 2~(\\V[427]), Climax 10~(\\V[442]), Bukkake\n5~(\\V[447]) \\n[ [Desire] Insertion Lv1~(\\V[369])",
+    "description": "[Release Conditions] *Values in parentheses are current values \\C[17] [Sexual\nExperience] Sex 2~(\\V[427]), Climax 10~(\\V[442]), Bukkake 5~(\\V[447]) \\n[\n[Desire] Insertion Lv1~(\\V[369])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10349,7 +10349,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "[Release Condition] * () indicates current value \\C[17] [Sexual\nExperience] Anal Insertion 1 ~ (\\V[441])",
+    "description": "[Release Condition] * () indicates current value \\C[17] [Sexual Experience] Anal\nInsertion 1 ~ (\\V[441])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10375,7 +10375,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Conditions】※Values in () are current values \\C[17][Sexual\nExperience] Climax 3~(\\V[442]), Restraint 5~(\\V[443])",
+    "description": "【Release Conditions】※Values in () are current values \\C[17][Sexual Experience]\nClimax 3~(\\V[442]), Restraint 5~(\\V[443])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10401,7 +10401,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Conditions】※(Current value in parentheses) \\C[17][Sexual\nExperience] Acts of Service 3~(\\V[437]) [Desire] Want to Touch\nLv1~(\\V[366])\\n or choose \"Desire\" with a specific \"heart's choice",
+    "description": "【Release Conditions】※(Current value in parentheses) \\C[17][Sexual Experience]\nActs of Service 3~(\\V[437]) [Desire] Want to Touch Lv1~(\\V[366])\\n or choose\nDesire with a specific heart's choice",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,
@@ -10427,7 +10427,7 @@
       "type": 0,
       "variance": 20
     },
-    "description": "【Release Conditions】※(Current values in parentheses) \\C[17][Sexual\nExperience] Fondling 3~(\\V[431]), Immoral Act 1~(\\V[450])",
+    "description": "【Release Conditions】※(Current values in parentheses) \\C[17][Sexual Experience]\nFondling 3~(\\V[431]), Immoral Act 1~(\\V[450])",
     "effects": [],
     "hitType": 0,
     "iconIndex": 7,

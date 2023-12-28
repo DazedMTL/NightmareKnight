@@ -6165,11 +6165,7 @@
                 "Do you want to unlock all the memories?\n\\C[17]※Once unlocked, you cannot revert it back."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             {
               "code": 102,
               "indent": 0,
@@ -6263,17 +6259,14 @@
             {
               "code": 401,
               "indent": 1,
-              "parameters": ["ver2.0で追加されたイベントの回想を解放しますか？"]
-            },
-            {
-              "code": 401,
-              "indent": 1,
-              "parameters": ["\\C[17]※一度解放すると元に戻すことはできません。"]
+              "parameters": [
+                "Would you like to unlock the event reminiscence\nadded in ver2.0?\\C[17]*Once unlocked, it cannot be\nreversed."
+              ]
             },
             {
               "code": 102,
               "indent": 1,
-              "parameters": [["する", "しない"], 1, 0, 2, 0]
+              "parameters": [["Yes", "Do not unlock"], 1, 0, 2, 0]
             },
             { "code": 402, "indent": 1, "parameters": [0, "する"] },
             { "code": 221, "indent": 2, "parameters": [] },
@@ -10752,11 +10745,7 @@
                 "\\N<Urayama>Hello, I'm the author Urayama. Thank you very much\nfor playing this game."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -10765,11 +10754,7 @@
                 "\\N<Urayama>In this day and age where there are countless ways\nto pass the time, I am truly delighted that you\nhave dedicated your precious time to playing this\ngame."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 230, "indent": 0, "parameters": [15] },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
@@ -10779,11 +10764,7 @@
                 "\\N<Urayama>The main scenario of this game comes to a close.\nThank you for your long hours of dedication."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -10792,11 +10773,7 @@
                 "\\N<Urayama>After this, you can decide what to do through the\ntwo gates below. Please proceed in whichever\ndirection you prefer."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
@@ -12043,16 +12020,8 @@
                 "Do you want to proceed to the New Game \\C[0] while\ninheriting Rain's status? ※You cannot return to\nthis point. ※Some items and equipment will be\nreset."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
+            { "code": 0, "indent": 0, "parameters": [""] },
             {
               "code": 102,
               "indent": 0,
@@ -12179,11 +12148,7 @@
                 "Do you want to proceed with the situation right\nbefore the final battle \\C[17]in its current\nstate\\C[0]? ※You can always come back to this\nplace."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             {
               "code": 102,
               "indent": 0,
@@ -12336,11 +12301,9 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Bug Bird No.1>If you handle the issue, the flashback of the\n'Heart's Choice' event (the old man at Tachimate\nBeach) will be unlocked. \\. Will you handle it?"
+                "\\N<Bug Bird No.1>If you handle the issue, the flashback of the\n'Heart's Choice' event (the old man at Tachimate\nBeach) will be unlocked. Will you handle it?"
               ]
             },
-            { "code": 401, "indent": 0, "parameters": ["解放されます。"] },
-            { "code": 401, "indent": 0, "parameters": ["\\.処理しますか？"] },
             {
               "code": 102,
               "indent": 0,

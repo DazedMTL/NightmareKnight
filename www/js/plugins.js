@@ -324,7 +324,7 @@ var $plugins = [
       数値項目: "",
       文字項目: "",
       スイッチ項目:
-        '["{\\"Name\\":\\"エッチシーンでの断面図表示\\",\\"DefaultValue\\":\\"true\\",\\"SwitchID\\":\\"241\\",\\"HiddenFlag\\":\\"false\\",\\"Script\\":\\"\\",\\"AddPosition\\":\\"\\",\\"PaddingTop\\":\\"0\\"}","{\\"Name\\":\\"Light Effects\\",\\"DefaultValue\\":\\"false\\",\\"SwitchID\\":\\"451\\",\\"HiddenFlag\\":\\"false\\",\\"Script\\":\\"$gameTemp.reserveCommonEvent(430)\\",\\"AddPosition\\":\\"\\",\\"PaddingTop\\":\\"0\\"}"]',
+        '["{\\"Name\\":\\"Cross-Sectional View\\",\\"DefaultValue\\":\\"true\\",\\"SwitchID\\":\\"241\\",\\"HiddenFlag\\":\\"false\\",\\"Script\\":\\"\\",\\"AddPosition\\":\\"\\",\\"PaddingTop\\":\\"0\\"}","{\\"Name\\":\\"Light Effects\\",\\"DefaultValue\\":\\"false\\",\\"SwitchID\\":\\"451\\",\\"HiddenFlag\\":\\"false\\",\\"Script\\":\\"$gameTemp.reserveCommonEvent(430)\\",\\"AddPosition\\":\\"\\",\\"PaddingTop\\":\\"0\\"}"]',
       音量項目:
         '["{\\"Name\\":\\"Voice Volume\\",\\"DefaultValue\\":\\"60\\",\\"VariableID\\":\\"321\\",\\"HiddenFlag\\":\\"false\\",\\"Script\\":\\"\\",\\"AddPosition\\":\\"\\",\\"PaddingTop\\":\\"0\\"}"]',
     },

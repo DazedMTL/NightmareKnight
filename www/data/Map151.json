@@ -1958,7 +1958,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Escort>Seriously... this can't be happening! Why are there so\nmany monsters on this road?!"
+                "\\N<Escort>Seriously... this can't be happening! Why are\nthere so many monsters on this road?!"
               ]
             },
             {
@@ -1996,7 +1996,6 @@
                 "\\N<Escort>This isn't worth it! Sorry, old man, but the\nescort ends here! Life comes first, you know!\nGoodbye!"
               ]
             },
-            { "code": 401, "indent": 0, "parameters": ["あばよ！"] },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -2639,11 +2638,7 @@
                 "\\CE[79]\\N<Merchant>Ah... I'm okay. I thought it was all over... Thank\nyou so much for helping me."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 111, "indent": 1, "parameters": [1, 37, 0, 2, 1] },
             { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
             {
@@ -2701,14 +2696,10 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Merchant>I've passed through this road many times, but this\nis the first time I've seen so many monsters... \nWhat in the world is going on...?"
+                "\\N<Merchant>I've passed through this road many times, but this\nis the first time I've seen so many monsters...\nWhat in the world is going on...?"
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             {
               "code": 122,
               "indent": 1,
@@ -2729,15 +2720,15 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>────I'm actually investigating that right now.\nHowever, it might not be resolved anytime soon,\nso please try to avoid this road if possible or\nincrease your guards."
+                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>────I'm actually investigating that right now.\nHowever, it might not be resolved anytime soon, so\nplease try to avoid this road if possible or\nincrease your guards."
               ]
             },
+            { "code": 0, "indent": 1, "parameters": [""] },
             {
-              "code": 0,
+              "code": 401,
               "indent": 1,
-              "parameters": [""]
+              "parameters": ["Please increase them."]
             },
-            { "code": 401, "indent": 1, "parameters": ["増やしてください。"] },
             {
               "code": 122,
               "indent": 1,
@@ -2751,12 +2742,12 @@
                 "\\CE[79]\\N<Merchant>Is that so... Are you a member of the knight\norder? I'm sorry, but please resolve this as soon\nas possible. If the road is blocked, it will have\na huge impact on my business."
               ]
             },
+            { "code": 0, "indent": 1, "parameters": [""] },
             {
-              "code": 0,
+              "code": 401,
               "indent": 1,
-              "parameters": [""]
+              "parameters": ["Because it's too big."]
             },
-            { "code": 401, "indent": 1, "parameters": ["でかすぎるからな。"] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -2765,11 +2756,7 @@
                 "\\N<Merchant>I'll be staying in Hakudeti for a while to do\nbusiness, so if you need anything, feel free to\nask. As a token of gratitude for helping me, I'll\ngive you the best price I can."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             {
               "code": 122,
               "indent": 1,
@@ -2785,15 +2772,15 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>It is the duty of a knight to help the people, so\nthere is no need for thanks. Instead, please be\ncareful as you head towards the town, it should\nbe relatively safe from here on."
+                "\\CE[79]\\CE[84]\\OC[31]\\N<Rain>It is the duty of a knight to help the people, so\nthere is no need for thanks. Instead, please be\ncareful as you head towards the town, it should be\nrelatively safe from here on."
               ]
             },
+            { "code": 0, "indent": 1, "parameters": [""] },
             {
-              "code": 0,
+              "code": 401,
               "indent": 1,
-              "parameters": [""]
+              "parameters": ["Please head that way."]
             },
-            { "code": 401, "indent": 1, "parameters": ["向かってください。"] },
             { "code": 230, "indent": 1, "parameters": [30] },
             { "code": 221, "indent": 1, "parameters": [] },
             { "code": 122, "indent": 1, "parameters": [269, 269, 0, 0, 2] },
@@ -2823,14 +2810,10 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\CE[79]\\OC[31]\\N<Rain>Alright, with this the items for the item shop\nshould have arrived. Let's go report to the\n\\.\\C[17]item shop\\C[0]."
+                "\\CE[79]\\OC[31]\\N<Rain>Alright, with this the items for the item shop\nshould have arrived. Let's go report to the\n\\C[17]item shop\\C[0]."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 122, "indent": 1, "parameters": [78, 78, 0, 0, 99] },
             { "code": 117, "indent": 1, "parameters": [77] },
             { "code": 230, "indent": 1, "parameters": [15] },
@@ -2940,11 +2923,7 @@
                 "\\N<Escaped Escort>So you went to Hakudeti... Hehe, I wonder if I can\nget a little closer to you~!"
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 230, "indent": 1, "parameters": [30] },
             { "code": 221, "indent": 1, "parameters": [] },
             { "code": 230, "indent": 1, "parameters": [30] },

@@ -464,11 +464,7 @@
               "\\OC[6]\\N<Buster>You're amazing, Rain! But can you still stand\nafter taking this?!"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 230, "indent": 0, "parameters": [15] },
           { "code": 339, "indent": 0, "parameters": [0, 0, 140, -2] },
           { "code": 230, "indent": 0, "parameters": [15] },
@@ -1532,12 +1528,12 @@
               "\\C[18]CAUTION!!\\C[0]※Losing this battle will\nresult in a game over※※Retry is possible after\nlosing※"
             ]
           },
+          { "code": 0, "indent": 0, "parameters": [""] },
           {
-            "code": 0,
+            "code": 401,
             "indent": 0,
-            "parameters": [""]
+            "parameters": ["※Retry is possible after defeat※"]
           },
-          { "code": 401, "indent": 0, "parameters": ["※敗北後リトライ可能※"] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -1574,7 +1570,7 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\OC[6]\\N<Buster>Rain, you really are amazing...! \\. But it's not\nover yet! I'm going all out, damn it!!"
+              "\\OC[6]\\N<Buster>Rain, you really are amazing...!  But it's not\nover yet! I'm going all out, damn it!!"
             ]
           },
           { "code": 230, "indent": 0, "parameters": [30] },
@@ -1646,12 +1642,12 @@
               "\\C[18]CAUTION!!\\C[0]※Losing this battle will\nresult in a game over※※Retry is possible after\nlosing※"
             ]
           },
+          { "code": 0, "indent": 0, "parameters": [""] },
           {
-            "code": 0,
+            "code": 401,
             "indent": 0,
-            "parameters": [""]
+            "parameters": ["※Retry is possible after losing※"]
           },
-          { "code": 401, "indent": 0, "parameters": ["※敗北後リトライ可能※"] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -2173,11 +2169,7 @@
               "\\OC[5]\\N<Dimon>Humans can be quite cheeky, can't they? But I'm\nstarting to get tired of it... I'll crush them for\nreal!!"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 333, "indent": 0, "parameters": [0, 0, 7] },
           { "code": 230, "indent": 0, "parameters": [30] },
           {
@@ -2281,7 +2273,6 @@
               "※There is no defeat in this battle. It will only\nend by defeating the enemy※※Item usage not\nallowed※"
             ]
           },
-          { "code": 401, "indent": 0, "parameters": ["※アイテム使用不可※"] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -2313,31 +2304,8 @@
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者B>「うっほお！！丸見えだあっ！！"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者C>「うはははぁやったぜぇ！"]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["乳首からまんこまでぜ～んぶ見えちゃってるよぉ！？"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\OC[31]\\N<Rain>「うぅ─────ッ"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
             "parameters": [
-              "\\N<Adventurer B at the training facility>Woahh!! It's all exposed!"
+              "\\N<Adventurer B of the Training Facility>\"Woahh!! It's all exposed!!\""
             ]
           },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -2345,25 +2313,39 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer C at the training facility>Uwahaha! I did it! I can see everything from\nnipples to pussy, you know!"
+              "\\N<Adventurer C at the training facility>\"Uwahaha! I did it! I can see everything from\nnipples to pussy, you know!?\""
             ]
           },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
-            "code": 0,
+            "code": 401,
             "indent": 0,
-            "parameters": [""]
+            "parameters": ["\\OC[31]\\N<Rain>\"Ughhhhhh───\""]
           },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer B at the training facility>\"Woahh!! It's all exposed!\""
+            ]
+          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer C at the training facility>\"Uwahaha! I did it! I can see everything from\nnipples to pussy, you know!\""
+            ]
+          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<Rain>Ughhhhhh───"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2371,21 +2353,13 @@
               "\\N<Adventurer A at the training facility>Your face is all red... Should I stop after all?\nHmmm?"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\OC[31]\\N<Rain>Don't...─────\\. stop!"]
+            "parameters": ["\\OC[31]\\N<Rain>Don't...───── stop!"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2442,11 +2416,7 @@
               "\\N<Adventurer A at the training facility>What, this is just our usual combat training!\nGradually wearing down the enemy and pushing them\ninto a corner is a common tactic against strong\nopponents, you know!"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
@@ -2455,24 +2425,16 @@
               "\\N<Adventurer A at the training facility>We're always fighting for our lives, so we won't\nrun away just because our clothes get torn...\nWell, you're a woman after all. If you feel\nembarrassed, I can stop if you want?"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\OC[31]\\N<Rain>─────Ah! \\.\\.Even I always put my life on the\nline! \\.\\.This is nothing at all...!"
+              "\\OC[31]\\N<Rain>─────Ah! Even I always put my life on the line!\nThis is nothing at all...!"
             ]
           },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
@@ -2627,7 +2589,6 @@
               "※There is no defeat in this battle. It will only\nend by defeating the enemy※※Item usage not\nallowed※"
             ]
           },
-          { "code": 401, "indent": 0, "parameters": ["※アイテム使用不可※"] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -2703,31 +2664,8 @@
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者B>「うっほお！！丸見えだあっ！！"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者C>「うはははぁやったぜぇ！"]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["乳首からまんこまでぜ～んぶ見えちゃってるよぉ！？"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\OC[31]\\N<Rain>「うぅ─────ッ"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
             "parameters": [
-              "\\N<Adventurer B at the training facility>Woahh!! It's all exposed!"
+              "\\N<Adventurer B at the Training Facility>\"Woahh!! It's all exposed!!\""
             ]
           },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -2735,25 +2673,39 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer C at the training facility>Uwahaha! I did it! I can see everything from\nnipples to pussy, you know!"
+              "\\N<Training Hall Adventurer C>\"Uwahaha! I did it! I can see everything from\nnipples to pussy, you know!?\""
             ]
           },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
-            "code": 0,
+            "code": 401,
             "indent": 0,
-            "parameters": [""]
+            "parameters": ["\\OC[31]\\N<Rain>\"Ughhhhhh─────\""]
           },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer B at the training facility>\"Woahh!! It's all exposed!\""
+            ]
+          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer C at the training facility>\"Uwahaha! I did it! I can see everything from\nnipples to pussy, you know!\""
+            ]
+          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<Rain>Ughhhhhh───"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2761,21 +2713,13 @@
               "\\N<Adventurer A at the training facility>Your face is all red... Should I stop after all?\nHmmm?"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\OC[31]\\N<Rain>Don't...─────\\. stop!"]
+            "parameters": ["\\OC[31]\\N<Rain>Don't...───── stop!"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2807,14 +2751,8 @@
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者A>「ぐっ……！ち、ちからが……─────"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
             "parameters": [
-              "\\N<Adventurer A at the training facility>Ugh...! M-My strength is..."
+              "\\N<Training Hall Adventurer A>\"Ugh...! M-My strength is...\""
             ]
           },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -2822,19 +2760,23 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer B at the training facility>Huff, huff, haa, haa, haa, haa... My side\nhurts..."
+              "\\N<Adventurer A at the training facility>\"Ugh...! M-My strength is...\""
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer C at the training facility>I-I can't go on anymore..."
+              "\\N<Adventurer B at the training facility>\"Huff, huff, haa, haa, haa, haa... My side\nhurts...\""
+            ]
+          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer C at the training facility>\"I-I can't go on anymore...\""
             ]
           },
           { "code": 230, "indent": 0, "parameters": [30] },
@@ -2843,7 +2785,7 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\C[13]\\OC[31]\\N<Inner Rain>(The enemy's magical power has dropped suddenly...\nNow's the chance!)"
+              "\\C[13]\\OC[31]\\N<Inner Rain>\"(The enemy's magical power has dropped\nsuddenly... Now's the chance!)\""
             ]
           },
           { "code": 121, "indent": 0, "parameters": [392, 392, 1] },
@@ -2896,7 +2838,6 @@
               "\\N<Adventurer B at the training facility>If I can do whatever I want with your sexy body,\nthen I'll give it my all!"
             ]
           },
-          { "code": 401, "indent": 0, "parameters": ["全力だ！！"] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
@@ -2938,31 +2879,8 @@
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者B>「うっほお！！丸見えだあっ！！"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者C>「うはははぁやったぜぇ！"]
-          },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["乳首からまんこまでぜ～んぶ見えちゃってるよぉ！？"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
-            "parameters": ["\\OC[31]\\N<Rain>「うぅ─────ッ"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
             "parameters": [
-              "\\N<Adventurer B at the training facility>Woahh!! It's all exposed!!"
+              "\\N<Training Hall Adventurer B>\"Woahh!! It's all exposed!!\""
             ]
           },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -2970,25 +2888,39 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer C at the training facility>Uwahaha! I did it! Everything from nipples to\npussy is completely exposed, you know?!"
+              "\\N<Training Center's Adventurer C>\"Uwahaha! I did it! Everything from nipples to\npussy is completely visible, you know?!\""
             ]
           },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
-            "code": 0,
+            "code": 401,
             "indent": 0,
-            "parameters": [""]
+            "parameters": ["\\OC[31]\\N<Rain>\"Ughhhhhh───\""]
           },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer B at the training facility>\"Woahh!! It's all exposed!!\""
+            ]
+          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer C at the training facility>\"Uwahaha! I did it! Everything from nipples to\npussy is completely exposed, you know?!\""
+            ]
+          },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": ["\\OC[31]\\N<Rain>Ughhhhhh───"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -2996,21 +2928,13 @@
               "\\N<Adventurer A at the training facility>Your face is all red... Should I stop after all?\nHmmm?"
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\OC[31]\\N<Rain>Don't... I won't stop... \\.!"]
+            "parameters": ["\\OC[31]\\N<Rain>Don't... I won't stop... !"]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
@@ -3042,14 +2966,8 @@
           {
             "code": 401,
             "indent": 0,
-            "parameters": ["\\N<訓練所の冒険者A>「ぐっ……！ち、ちからが……─────"]
-          },
-          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
-          {
-            "code": 401,
-            "indent": 0,
             "parameters": [
-              "\\N<Adventurer A at the training facility>Ugh...! M-My strength is..."
+              "\\N<Adventurer A at the Training Facility>\"Ugh...! M-My strength is...\""
             ]
           },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -3057,19 +2975,23 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer B at the training facility>Huff, huff, haa, haa, haa, haa... My side\nhurts..."
+              "\\N<Adventurer A at the training facility>\"Ugh...! M-My strength is...\""
             ]
           },
-          {
-            "code": 101,
-            "indent": 0,
-            "parameters": ["", 0, 0, 2]
-          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer C at the training facility>I-I can't go on anymore..."
+              "\\N<Adventurer B at the training facility>\"Huff, huff, haa, haa, haa, haa... My side\nhurts...\""
+            ]
+          },
+          { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+          {
+            "code": 401,
+            "indent": 0,
+            "parameters": [
+              "\\N<Adventurer C at the training facility>\"I-I can't go on anymore...\""
             ]
           },
           { "code": 230, "indent": 0, "parameters": [30] },
@@ -3078,7 +3000,7 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\C[13]\\OC[31]\\N<Inner Rain>(The enemy's magical power has dropped suddenly...\nNow's the chance!)"
+              "\\C[13]\\OC[31]\\N<Inner Rain>\"(The enemy's magical power has dropped\nsuddenly... Now's the chance!)\""
             ]
           },
           { "code": 121, "indent": 0, "parameters": [392, 392, 1] },
@@ -3122,10 +3044,9 @@
             "code": 401,
             "indent": 0,
             "parameters": [
-              "\\N<Adventurer B at the training facility>If I can do whatever I want with your sexy body,\nthen I'll give it my all!"
+              "\\N<Adventurer B at the training facility>If I can do whatever I want with your sexy body,\nthen I'll give it my all! Full power!!"
             ]
           },
-          { "code": 401, "indent": 0, "parameters": ["全力だ！！"] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
           {
             "code": 401,
@@ -3808,17 +3729,9 @@
         "list": [
           { "code": 122, "indent": 0, "parameters": [125, 125, 0, 0, 0] },
           { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
-          { "code": 401, "indent": 0, "parameters": ["【鍛錬ルール】"] },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
-          {
-            "code": 0,
-            "indent": 0,
-            "parameters": [""]
-          },
+          { "code": 401, "indent": 0, "parameters": ["[Training Rules]"] },
+          { "code": 0, "indent": 0, "parameters": [""] },
+          { "code": 0, "indent": 0, "parameters": [""] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -3840,7 +3753,7 @@
         },
         "list": [
           { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
-          { "code": 401, "indent": 0, "parameters": ["残り２ターン"] },
+          { "code": 401, "indent": 0, "parameters": ["Only 2 turns left"] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -3862,7 +3775,7 @@
         },
         "list": [
           { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
-          { "code": 401, "indent": 0, "parameters": ["ラストターン"] },
+          { "code": 401, "indent": 0, "parameters": ["Last Turn"] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
         "span": 0
@@ -3884,7 +3797,7 @@
         },
         "list": [
           { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
-          { "code": 401, "indent": 0, "parameters": ["\\{鍛錬終了！"] },
+          { "code": 401, "indent": 0, "parameters": ["Training complete!"] },
           { "code": 122, "indent": 0, "parameters": [554, 554, 0, 0, 1] },
           { "code": 0, "indent": 0, "parameters": [] }
         ],
@@ -3907,7 +3820,7 @@
         },
         "list": [
           { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
-          { "code": 401, "indent": 0, "parameters": ["\\{鍛錬終了！"] },
+          { "code": 401, "indent": 0, "parameters": ["Training complete!"] },
           { "code": 122, "indent": 0, "parameters": [554, 554, 0, 0, 2] },
           { "code": 340, "indent": 0, "parameters": [] },
           { "code": 0, "indent": 0, "parameters": [] }

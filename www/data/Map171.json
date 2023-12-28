@@ -791,7 +791,6 @@
                 "\\N<Casino Reception>Dear customers, we kindly ask that you refrain\nfrom wearing anything other than formal attire\nwhile in our establishment."
               ]
             },
-            { "code": 401, "indent": 1, "parameters": ["おります。"] },
             { "code": 0, "indent": 1, "parameters": [] },
             { "code": 412, "indent": 0, "parameters": [] },
             { "code": 356, "indent": 0, "parameters": ["ChoicePos 953 475"] },
@@ -1200,11 +1199,7 @@
                 "\\N<Casino Reception>Welcome. Please specify the number of chips you\nwould like to purchase. \\C[17] *Each chip is\n1000\\G\\C[0]\\$."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             {
               "code": 102,
               "indent": 1,
@@ -1319,11 +1314,7 @@
                 "\\N<Casino Reception>It seems that you don't have enough \\G. I\napologize for the inconvenience, but please bring\n\\G and come again."
               ]
             },
-            {
-              "code": 0,
-              "indent": 3,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 3, "parameters": [""] },
             { "code": 118, "indent": 3, "parameters": ["reChoice"] },
             { "code": 356, "indent": 3, "parameters": ["ChoicePos 953 475"] },
             { "code": 101, "indent": 3, "parameters": ["", 0, 0, 2] },
@@ -2298,14 +2289,10 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\EMP ...Because there are many customers who like\nthat kind of appearance, I will close my eyes."
+                "...Because there are many customers who like that\nkind of appearance, I will close my eyes."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 0, "indent": 1, "parameters": [] },
             { "code": 411, "indent": 0, "parameters": [] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
@@ -2313,10 +2300,9 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\EMP The second floor is divided into a restaurant\nand accommodation area."
+                "The second floor is divided into a restaurant and\naccommodation area."
               ]
             },
-            { "code": 401, "indent": 1, "parameters": ["なっております。"] },
             { "code": 0, "indent": 1, "parameters": [] },
             { "code": 412, "indent": 0, "parameters": [] },
             { "code": 230, "indent": 0, "parameters": [180] },
@@ -2482,10 +2468,9 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\EMP Please enjoy yourself. (Damn, those tits are\nhuge...)"
+                "Please enjoy yourself. (Damn, those tits are\nhuge...)"
               ]
             },
-            { "code": 401, "indent": 0, "parameters": ["\\}(乳でけぇな……。)"] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
@@ -2673,14 +2658,10 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Red-haired Casino Staff>Excuse me, but is there anything troubling you,\n\\.? For example, are you struggling with winning\nbets and feeling frustrated..."
+                "\\N<Red-haired Casino Staff>Excuse me, but is there anything troubling you,\n{Noun_1}? For example, are you struggling with\nwinning bets and feeling frustrated..."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 213, "indent": 0, "parameters": [-1, 8, true] },
             {
               "code": 122,
@@ -2711,7 +2692,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Red-haired Casino Staff>I'm sorry, but it seems like it ended up being a\ndisappointing result, \\.."
+                "\\N<Red-haired Casino Staff>I'm sorry, but it seems like it ended up being a\ndisappointing result, {Noun_1}."
               ]
             },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
@@ -2719,10 +2700,9 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Red-haired Casino Staff>However, that is definitely cheating. \\. So if you\ndon't take action, no matter how many times you\ntry, you won't be able to win."
+                "\\N<Red-haired Casino Staff>However, that is definitely cheating. So if you\ndon't take action, no matter how many times you\ntry, you won't be able to win."
               ]
             },
-            { "code": 401, "indent": 0, "parameters": ["勝てないでしょう。"] },
             { "code": 213, "indent": 0, "parameters": [-1, 1, false] },
             {
               "code": 122,
@@ -2776,11 +2756,7 @@
                 "\\N<Red-haired Casino Staff>Well, considering the number of chips we could\nearn with this information, would you be willing\nto pay \\C[17]100000\\G\\C[0] for it?"
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             {
               "code": 122,
               "indent": 0,
@@ -2794,11 +2770,7 @@
                 "\\CE[79]\\OC[31]\\N<Rain>Um... but, isn't it the responsibility of the\ncasino staff to oversee gambling matches...? Don't\nyou regulate cheating?"
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             {
               "code": 122,
               "indent": 0,
@@ -2809,14 +2781,10 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Red-haired Casino Staff>That cheating is done through magic. \\. We are\nbasically amateurs when it comes to that field, so\nthere are times when we can't even deal with it or\nrecognize it."
+                "\\N<Red-haired Casino Staff>That cheating is done through magic.  We are\nbasically amateurs when it comes to that field, so\nthere are times when we can't even deal with it or\nrecognize it."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -2825,12 +2793,8 @@
                 "\\N<Red-haired Casino Staff>However, personally, I have dabbled in magic a\nbit. I understand that I am doing something\nnaughty. In other words, please consider this\ntransaction as something personal rather than as a\nstaff member."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
-            { "code": 401, "indent": 0, "parameters": ["下さい。"] },
+            { "code": 0, "indent": 0, "parameters": [""] },
+            { "code": 401, "indent": 0, "parameters": ["Please."] },
             {
               "code": 122,
               "indent": 0,
@@ -2853,7 +2817,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\CE[79]\\N<Red-haired Casino Staff>Of course, I can teach you the countermeasures as\nwell. \\. What will you do? \\$"
+                "\\CE[79]\\N<Red-haired Casino Staff>Of course, I can teach you the countermeasures as\nwell. What will you do? $"
               ]
             },
             {
@@ -2891,11 +2855,7 @@
                 "\\N<Red-haired Casino Staff>I believe the magic being used probably causes\nperception interference within a specific range.\nSo if you're within the effective range, it would\nbe difficult to see through it on your own."
               ]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 2, "parameters": [""] },
             { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -2904,12 +2864,12 @@
                 "\\N<Red-haired Casino Staff>In that case, as a countermeasure, I recommend\nusing \\C[17]『\\ni[68]』\\C[0]. With this item, if you\ntemporarily disrupt the transmission of magic\npower, you should be able to prevent perception\ninterference during gambling matches."
               ]
             },
+            { "code": 0, "indent": 2, "parameters": [""] },
             {
-              "code": 0,
+              "code": 401,
               "indent": 2,
-              "parameters": [""]
+              "parameters": ["You should be able to prevent it."]
             },
-            { "code": 401, "indent": 2, "parameters": ["防げるはずです。"] },
             { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -2918,11 +2878,7 @@
                 "\\N<Red-haired Casino Staff>\\ni[68] can be obtained as a prize through\nexchanging \\C[17] chips at our store, so please\nwork hard to earn chips, \\C[0]."
               ]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 2, "parameters": [""] },
             { "code": 117, "indent": 2, "parameters": [12] },
             {
               "code": 122,
@@ -2956,16 +2912,8 @@
                 "\\N<Red-haired Casino Staff>Oh, it seems you're short on \\G. I recommend\nplaying our games to earn more chips and then\nselling the exchanged prizes to obtain funds.\nHehe."
               ]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 2, "parameters": [""] },
+            { "code": 0, "indent": 2, "parameters": [""] },
             { "code": 119, "indent": 2, "parameters": ["end"] },
             { "code": 0, "indent": 2, "parameters": [] },
             { "code": 412, "indent": 1, "parameters": [] },
@@ -2976,7 +2924,7 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Red-haired Casino Staff>I see. Well, if you ever understand \\., feel free\nto come and ask me anytime."
+                "\\N<Red-haired Casino Staff>I see. Well, if you ever understand , feel free to\ncome and ask me anytime."
               ]
             },
             { "code": 118, "indent": 1, "parameters": ["end"] },
@@ -3045,14 +2993,10 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Red-haired Casino Staff>Congratulations. It seems you have won the game\nsplendidly. \\.100000\\G must have been easy for\nyou, right? Hehe."
+                "\\N<Red-haired Casino Staff>Congratulations. It seems you have won the game\nsplendidly. 100000\\G must have been easy for you,\nright? Hehe."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 0, "indent": 1, "parameters": [] },
             { "code": 411, "indent": 0, "parameters": [] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
@@ -3063,11 +3007,7 @@
                 "\\N<Red-haired Casino Staff>\\C[17]'\\ni[68]' can be obtained as a prize through\nour \\C[17] chip exchange, so please work hard to\nearn chips\\C[0]."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 0, "indent": 1, "parameters": [] },
             { "code": 412, "indent": 0, "parameters": [] },
             { "code": 0, "indent": 0, "parameters": [] }
@@ -3378,7 +3318,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Betting Match Reception>The reception for the betting match is over here.\n\\. Would you like to participate?"
+                "\\N<Betting Match Reception>The reception for the betting match is over here.\nWould you like to participate?"
               ]
             },
             {
@@ -3396,11 +3336,7 @@
                 "\\N<Betting Match Reception>Oh, it seems you don't have any chips with you.\nPlease make sure to have at least one chip before\nparticipating."
               ]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 2, "parameters": [""] },
             { "code": 119, "indent": 2, "parameters": ["cancel"] },
             { "code": 0, "indent": 2, "parameters": [] },
             { "code": 411, "indent": 1, "parameters": [] },
@@ -3466,11 +3402,7 @@
                 "\\N<Betting Match Reception>Oh, it seems you made a mistake in your input. You\ncannot bet more chips than you have."
               ]
             },
-            {
-              "code": 0,
-              "indent": 3,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 3, "parameters": [""] },
             { "code": 119, "indent": 3, "parameters": ["bet"] },
             { "code": 0, "indent": 3, "parameters": [] },
             { "code": 411, "indent": 2, "parameters": [] },
@@ -3483,11 +3415,7 @@
                 "\\N<Betting Match Reception>Oh, it seems you made a mistake in your input.\nPlease make sure to have at least one chip."
               ]
             },
-            {
-              "code": 0,
-              "indent": 4,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 4, "parameters": [""] },
             { "code": 119, "indent": 4, "parameters": ["bet"] },
             { "code": 0, "indent": 4, "parameters": [] },
             { "code": 411, "indent": 3, "parameters": [] },
@@ -3513,11 +3441,7 @@
                 "\\N<Betting Match Reception>We have received your bet with \\C[17]\\V[220]\nchips. The match will start soon, so please wait\nat your seat, \\C[0]."
               ]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 2, "parameters": [""] },
             { "code": 235, "indent": 2, "parameters": [98] },
             { "code": 230, "indent": 2, "parameters": [30] },
             { "code": 221, "indent": 2, "parameters": [] },
@@ -3659,7 +3583,7 @@
               "code": 401,
               "indent": 3,
               "parameters": [
-                "\\N<Betting Match Reception>Congratulations on your win. The number of chips\nfor the payout will be \\.."
+                "\\N<Betting Match Reception>Congratulations on your win. The number of chips\nfor the payout will be ."
               ]
             },
             {
@@ -3693,11 +3617,7 @@
                 "\\N<Betting Match Reception>Thank you for your hard work. Although the result\nwas unfortunate, the betting matches are held\nevery day. Please participate again."
               ]
             },
-            {
-              "code": 0,
-              "indent": 3,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 3, "parameters": [""] },
             { "code": 119, "indent": 3, "parameters": ["end"] },
             { "code": 0, "indent": 3, "parameters": [] },
             { "code": 412, "indent": 2, "parameters": [] },
@@ -3785,11 +3705,7 @@
                 "\\N<Betting Match Reception>Today's betting match has concluded. Matches are\nheld every day, so please join us again tomorrow."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
@@ -3930,11 +3846,7 @@
                 "\\EMP We will forcefully collect on our 'gambling\nbets.' It's also a matter of our reputation."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
@@ -4101,11 +4013,7 @@
                 "\\EMP If there is doubt in the judge, the shop\ncannot continue. They will make a fair judgment."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
@@ -4276,7 +4184,7 @@
               "code": 401,
               "indent": 5,
               "parameters": [
-                "\\N<Green-haired Gambler>Wow... you've got that shine! I can sense the 'value'\nin you."
+                "\\N<Green-haired Gambler>Wow... you've got that shine! I can sense the\n'value' in you."
               ]
             },
             {
@@ -4305,14 +4213,10 @@
               "code": 401,
               "indent": 5,
               "parameters": [
-                "\\N<Kaji>I'll put down 500 chips. How about you use\nyour body as the bet?"
+                "\\N<Kaji>I'll put down 500 chips. How about you use your\nbody as the bet?"
               ]
             },
-            {
-              "code": 0,
-              "indent": 5,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 5, "parameters": [""] },
             {
               "code": 122,
               "indent": 5,
@@ -4384,11 +4288,7 @@
                 "\\N<Casino Staff>───Are you sure about the wager, Mr. Kaji with 500\nchips\\C[0], and Rain with the 'right to do as they\nplease with her body'\\C[0]?"
               ]
             },
-            {
-              "code": 0,
-              "indent": 6,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 6, "parameters": [""] },
             { "code": 101, "indent": 6, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -4405,7 +4305,7 @@
             {
               "code": 401,
               "indent": 7,
-              "parameters": ["\\N<Kaji>Alright, I won! \\. I did it♪"]
+              "parameters": ["\\N<Kaji>Alright, I won!  I did it♪"]
             },
             {
               "code": 122,
@@ -4428,14 +4328,10 @@
               "code": 401,
               "indent": 7,
               "parameters": [
-                "\\N<Kaji>By the way, trying to escape in any way is\nuseless. \\. The gambling match is set up \nby the casino staff. They will collect \nfrom you no matter where you run."
+                "\\N<Kaji>By the way, trying to escape in any way is\nuseless.  The gambling match is set up  by the\ncasino staff. They will collect  from you no\nmatter where you run."
               ]
             },
-            {
-              "code": 0,
-              "indent": 7,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 7, "parameters": [""] },
             {
               "code": 122,
               "indent": 7,
@@ -4456,7 +4352,7 @@
               "code": 401,
               "indent": 7,
               "parameters": [
-                "\\CE[79]\\OC[31]\\CE[83]\\N<Rain>───I won't run away...! I'll properly\n\\.fulfill\\. my end of the deal..."
+                "\\CE[79]\\OC[31]\\CE[83]\\N<Rain>───I won't run away...! I'll properly fulfill my\nend of the deal..."
               ]
             },
             { "code": 101, "indent": 7, "parameters": ["", 0, 0, 2] },
@@ -4464,7 +4360,7 @@
               "code": 401,
               "indent": 7,
               "parameters": [
-                "\\N<Kaji>Hehe, \\.... Well then, I guess I'll have you pay up\nright away..."
+                "\\N<Kaji>Hehe, .. Well then, I guess I'll have you pay up\nright away..."
               ]
             },
             { "code": 117, "indent": 7, "parameters": [97] },
@@ -4482,7 +4378,7 @@
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\N<Green-haired Gambler>Tch, why are you trying to act all high and mighty?"
+                "\\N<Green-haired Gambler>Tch, why are you trying to act all high and\nmighty?"
               ]
             },
             { "code": 0, "indent": 6, "parameters": [] },
@@ -4518,16 +4414,8 @@
                 "【Event Unlock Conditions】※Values in parentheses\nare current values. Unlock Desire\\C[27] 'Insertion\nLv2 (\\V[369])', 'M Play Lv2 (\\V[372])', 'Service\nLv2 (\\V[373])' \\C[0]. Lewdness level must be\n30\\C[0] or higher (currently \\C[17]\\V[13]\\C[0])."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 1, 1] },
             {
               "code": 401,
@@ -4622,7 +4510,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\CE[79]\\N<Kaji>Oh, it's you \\.. Hehe, did you come here for a\nrematch or something?"
+                "\\CE[79]\\N<Kaji>Oh, it's you. Hehe, did you come here for a\nrematch or something?"
               ]
             },
             {
@@ -4661,16 +4549,15 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Kaji>You'll never learn, huh? Well, as far as I'm\nconcerned, I get to fuck a beauty like you for free ♪,\n it's my lucky day!"
+                "\\N<Kaji>You'll never learn, huh? Well, as far as I'm\nconcerned, I get to fuck a beauty like you for\nfree ♪, it's my lucky day! Thank goodness for\nthat♪"
               ]
             },
-            { "code": 401, "indent": 1, "parameters": ["ありがてぇ話だけど♪"] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Kaji>Well then, let's get to it. \\. I'll win quickly\nso we can have some hot, flesh onahole sex\ntonight ♪"
+                "\\N<Kaji>Well then, let's get to it. I'll win quickly so we\ncan have some hot, flesh onahole sex tonight ♪"
               ]
             },
             { "code": 230, "indent": 1, "parameters": [30] },
@@ -4692,14 +4579,10 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Casino Staff>─────Now, as for the things being wagered, it will\nbe the same as last time, correct? Mr.Kaji with 500\nchips\\C[0], and Miss Rain with the 'right to do as\nthey please with her body'\\C[0]."
+                "\\N<Casino Staff>─────Now, as for the things being wagered, it will\nbe the same as last time, correct? Mr.Kaji with\n500 chips\\C[0], and Miss Rain with the 'right to\ndo as they please with her body'\\C[0]."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
@@ -4749,11 +4632,7 @@
               ]
             },
             { "code": 101, "indent": 4, "parameters": ["", 0, 0, 2] },
-            {
-              "code": 401,
-              "indent": 4,
-              "parameters": ["\\N<Kaji>Ugh─────!"]
-            },
+            { "code": 401, "indent": 4, "parameters": ["\\N<Kaji>Ugh─────!"] },
             { "code": 0, "indent": 4, "parameters": [] },
             { "code": 402, "indent": 3, "parameters": [1, "使わない"] },
             { "code": 0, "indent": 4, "parameters": [] },
@@ -4769,7 +4648,7 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": ["\\N<Kaji>I-I lost...!? \\. How...!?"]
+              "parameters": ["\\N<Kaji>I-I lost...!? How...!?"]
             },
             {
               "code": 122,
@@ -4786,7 +4665,7 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>That same move won't work. \\. Now, let's settle\nthis."
+                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>That same move won't work. Now, let's settle this."
               ]
             },
             {
@@ -4820,7 +4699,7 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\N<Kaji>Tch... What a huge loss! I won't be able to bet big\nfor a while..."
+                "\\N<Kaji>Tch... What a huge loss! I won't be able to bet\nbig for a while..."
               ]
             },
             {
@@ -5023,27 +4902,13 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Kaji>Tch, what the hell. After getting cheated like that,\nI won't be able to bet big for a while."
-              ]
-            },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": [
-                "あんだけ毟り取られたんだ、\\C[17]チップ300枚\\C[0]の勝負ならやってやるよ。"
-              ]
-            },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": [
-                "\\.あんたにはまた\\C[27]\"身体は好きにする権利\"\\C[0]を賭けてもらうぜ？"
+                "\\N<Kaji>Tch, what the hell. After getting cheated like\nthat, I won't be able to bet big for a while. If\nit's a bet of \\C[17]300 chips\\C[0], I'll take you\non. You're going to bet the \"right to do as you\nplease with your body\" again, right?"
               ]
             },
             {
               "code": 102,
               "indent": 0,
-              "parameters": [["勝負する", "なんでもない"], 1, 0, 2, 0]
+              "parameters": [["Let's do this", "Never mind"], 1, 0, 2, 0]
             },
             { "code": 402, "indent": 0, "parameters": [0, "勝負する"] },
             {
@@ -5061,7 +4926,7 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\CE[79]\\CE[78]\\N<\\N[17]>「っしゃあ、今度は勝たせてもらうぜ……！"
+                "\\CE[79]\\CE[78]\\N<\\N[17]>\"Hell yeah, this time I'm going to win...!\""
               ]
             },
             { "code": 230, "indent": 1, "parameters": [30] },
@@ -5083,7 +4948,7 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「───ではこの賭け勝負、私が責任をもって取り仕切らせていただきます。"
+                "\\N<Casino Staff>\"───Then, I will take responsibility for\noverseeing this wagering match.\""
               ]
             },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
@@ -5091,20 +4956,15 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「─────賭けるもの\\N[17]様が\\C[17]チップ300枚\\C[0]、Rain様が\\C[27]\"身体を"
+                "\\N<Casino Staff>\"─────The wager is \\N[17] betting \\C[17]300\nchips\\C[0], and Rain betting the \\C[27]\"right to\ndo as you please with her body\"\\C[0], correct?\""
               ]
-            },
-            {
-              "code": 401,
-              "indent": 1,
-              "parameters": ["好きにする権利\"\\C[0]でお間違いありませんね？"]
             },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「では─────勝負を始めてください。"
+                "\\N<Casino Staff>\"Then─────please begin the match.\""
               ]
             },
             { "code": 230, "indent": 1, "parameters": [30] },
@@ -5115,16 +4975,14 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": [
-                "\\N<\\N[17]>「くっそ、負けた………っ！あ～あ、ちくしょう……。"
-              ]
+              "parameters": ["\\N<\\N[17]>\"Damn it, I lost...! Ahh, damn...\""]
             },
             { "code": 122, "indent": 2, "parameters": [214, 214, 1, 0, 300] },
             { "code": 117, "indent": 2, "parameters": [357] },
             {
               "code": 356,
               "indent": 2,
-              "parameters": ["ShowInfo チップ300枚を手に入れた"]
+              "parameters": ["ShowInfo Acquired_300_chips"]
             },
             {
               "code": 250,
@@ -5158,7 +5016,7 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": ["\\N<\\N[17]>「─────っしゃあ！俺の勝ちだ！！"]
+              "parameters": ["\\N<\\N[17]>\"─────Yeah! I won!!\""]
             },
             {
               "code": 122,
@@ -5174,16 +5032,14 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": [
-                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>「く……ぅ……─────"
-              ]
+              "parameters": ["\\CE[79]\\CE[78]\\OC[31]\\N<Rain>\"Ugh...─────\""]
             },
             { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\N<\\N[17]>「へへ、\\.じゃあ早速支払ってもらうとするかぁ！"
+                "\\N<\\N[17]>\"Heh, then let's get that payment started!\""
               ]
             },
             { "code": 117, "indent": 2, "parameters": [97] },
@@ -5368,7 +5224,7 @@
               "code": 401,
               "indent": 5,
               "parameters": [
-                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>─────.........It's proper etiquette to introduce\nyourself first."
+                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>─────...It's proper etiquette to introduce\nyourself first."
               ]
             },
             { "code": 101, "indent": 5, "parameters": ["", 0, 0, 2] },
@@ -5376,7 +5232,7 @@
               "code": 401,
               "indent": 5,
               "parameters": [
-                "\\N<Redbeard Gambler>Oh, you're quite cheeky. Not bad. \\. My name is\nTakagi."
+                "\\N<Redbeard Gambler>Oh, you're quite cheeky. Not bad. My name is\nTakagi."
               ]
             },
             {
@@ -5400,7 +5256,7 @@
               "code": 401,
               "indent": 5,
               "parameters": [
-                "\\CE[79]\\N<Takagi>I see. \\. I'm quite fond of your strong-willed\npersonality and exquisite appearance."
+                "\\CE[79]\\N<Takagi>I see. I'm quite fond of your strong-willed\npersonality and exquisite appearance."
               ]
             },
             { "code": 101, "indent": 5, "parameters": ["", 0, 0, 2] },
@@ -5411,11 +5267,7 @@
                 "\\N<Takagi>Rain, let's have a gambling match with me. I'll\nbet 1500 chips. If you lose, you'll become my\nwoman for the night."
               ]
             },
-            {
-              "code": 0,
-              "indent": 5,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 5, "parameters": [""] },
             {
               "code": 122,
               "indent": 5,
@@ -5462,7 +5314,7 @@
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\CE[79]\\CE[78]\\N<Takagi>Oh, you have guts. Perfect for being\nmy woman."
+                "\\CE[79]\\CE[78]\\N<Takagi>Oh, you have guts. Perfect for being my woman."
               ]
             },
             { "code": 230, "indent": 6, "parameters": [30] },
@@ -5529,14 +5381,10 @@
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\N<Casino Staff>─────Are you sure about the wager? Mr.Takagi\nbets 1500 chips, and Miss Rain bets 'the right to\nbecome Mr.Takagi's woman for the night'."
+                "\\N<Casino Staff>─────Are you sure about the wager? Mr.Takagi bets\n1500 chips, and Miss Rain bets 'the right to\nbecome Mr.Takagi's woman for the night'."
               ]
             },
-            {
-              "code": 0,
-              "indent": 6,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 6, "parameters": [""] },
             { "code": 230, "indent": 6, "parameters": [30] },
             {
               "code": 231,
@@ -5609,7 +5457,7 @@
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\N<Casino Staff>Understood. \\. Mr.Takagi will be choosing the\nopposite player."
+                "\\N<Casino Staff>Understood. Mr.Takagi will be choosing the\nopposite player."
               ]
             },
             { "code": 101, "indent": 6, "parameters": ["", 0, 0, 2] },
@@ -5620,11 +5468,7 @@
                 "\\N<Casino Staff>The person who chooses the winning player will be\nthe winner of this gambling match. Now, the match\nwill begin shortly."
               ]
             },
-            {
-              "code": 0,
-              "indent": 6,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 6, "parameters": [""] },
             { "code": 230, "indent": 6, "parameters": [30] },
             {
               "code": 108,
@@ -5751,23 +5595,17 @@
             {
               "code": 401,
               "indent": 6,
-              "parameters": [
-                "\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>Ugh........."
-              ]
+              "parameters": ["\\CE[79]\\CE[78]\\CE[84]\\OC[31]\\N<Rain>Ugh..."]
             },
             { "code": 101, "indent": 6, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\N<Takagi>Don't try backing out of the wager now. The casino\nstaff not only oversees gambling matches\nthey also enforce collection on bets."
+                "\\N<Takagi>Don't try backing out of the wager now. The casino\nstaff not only oversees gambling matches they also\nenforce collection on bets."
               ]
             },
-            {
-              "code": 0,
-              "indent": 6,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 6, "parameters": [""] },
             {
               "code": 122,
               "indent": 6,
@@ -5796,14 +5634,10 @@
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\N<Takagi>Hehe, \\.even if it's just for one night, you're\nworthy of being my partner.\\. Now, come to my\nroom. Right away."
+                "\\N<Takagi>Hehe, even if it's just for one night, you're\nworthy of being my partner. Now, come to my room.\nRight away."
               ]
             },
-            {
-              "code": 0,
-              "indent": 6,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 6, "parameters": [""] },
             { "code": 117, "indent": 6, "parameters": [97] },
             { "code": 230, "indent": 6, "parameters": [30] },
             { "code": 221, "indent": 6, "parameters": [] },
@@ -5829,15 +5663,11 @@
               "code": 401,
               "indent": 6,
               "parameters": [
-                "\\CE[79]\\N<Takagi>The goal of the game is to guess the winner of this\n'gambling match' in front of us. \\.There aren't\nany particularly difficult rules since it's just about\nguessing the winner, but if you're unsure,\nyou can try placing a bet yourself."
+                "\\CE[79]\\N<Takagi>The goal of the game is to guess the winner of\nthis 'gambling match' in front of us. There aren't\nany particularly difficult rules since it's just\nabout guessing the winner, but if you're unsure,\nyou can try placing a bet yourself."
               ]
             },
-            {
-              "code": 0,
-              "indent": 6,
-              "parameters": [""]
-            },
-            { "code": 401, "indent": 6, "parameters": ["ことだな。"] },
+            { "code": 0, "indent": 6, "parameters": [""] },
+            { "code": 401, "indent": 6, "parameters": ["That's right."] },
             { "code": 230, "indent": 6, "parameters": [15] },
             { "code": 356, "indent": 6, "parameters": ["ChoicePos 953 475"] },
             { "code": 101, "indent": 6, "parameters": ["", 0, 0, 2] },
@@ -5936,16 +5766,8 @@
                 "【Event Unlock Conditions】※The values inside are\ncurrent values. To unlock Desire\\C[27], 'Insertion\nLv3(\\V[369])', 'M Play Lv3(\\V[372])', and 'Service\nLv3(\\V[373])' must be unlocked. Lewdness\nlevel\\C[27] must be 32 or higher (currently\n\\C[17]\\V[13]\\C[0])."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 1, 1] },
             {
               "code": 401,
@@ -6040,7 +5862,7 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\CE[79]\\N<Takagi>─────What is it? \\.Don't tell me you've come to\nchallenge me again, expecting to lose?"
+                "\\CE[79]\\N<Takagi>─────What is it? Don't tell me you've come to\nchallenge me again, expecting to lose?"
               ]
             },
             {
@@ -6147,14 +5969,10 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Casino Staff>─────Now then, the stakes will be the same as last\ntime, correct? Mr.Takagi with \\C[17] 1500 chips\\C[0], and\nMiss Rain with \\C[27] 'The right to become Mr.Takagi's\n woman for one night'\\C[0]."
+                "\\N<Casino Staff>─────Now then, the stakes will be the same as last\ntime, correct? Mr.Takagi with \\C[17] 1500\nchips\\C[0], and Miss Rain with \\C[27] 'The right\nto become Mr.Takagi's  woman for one night'\\C[0]."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 230, "indent": 1, "parameters": [30] },
             {
               "code": 231,
@@ -6227,7 +6045,7 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<Casino Staff>Understood. \\. Mr.Takagi will be choosing the\nopposite player."
+                "\\N<Casino Staff>Understood.  Mr.Takagi will be choosing the\nopposite player."
               ]
             },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
@@ -6238,11 +6056,7 @@
                 "\\N<Casino Staff>The person who chooses the winning player will be\nthe winner of the gambling match. Now, the match\nwill begin shortly."
               ]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 1, "parameters": [""] },
             { "code": 235, "indent": 1, "parameters": [70] },
             { "code": 235, "indent": 1, "parameters": [71] },
             { "code": 235, "indent": 1, "parameters": [72] },
@@ -6272,9 +6086,7 @@
             {
               "code": 401,
               "indent": 4,
-              "parameters": [
-                "\\N<Takagi>Huh────!? \\.Rain, what have you done!?"
-              ]
+              "parameters": ["\\N<Takagi>Huh────!? Rain, what have you done!?"]
             },
             {
               "code": 122,
@@ -6293,7 +6105,7 @@
             {
               "code": 401,
               "indent": 4,
-              "parameters": ["\\N<Takagi>Nghhh.........─────"]
+              "parameters": ["\\N<Takagi>Nghhh...─────"]
             },
             { "code": 0, "indent": 4, "parameters": [] },
             { "code": 402, "indent": 3, "parameters": [1, "使わない"] },
@@ -6381,7 +6193,7 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": ["\\N<Takagi>Stu─────stupid...! \\.I lost...!?"]
+              "parameters": ["\\N<Takagi>Stu─────stupid...! I lost...!?"]
             },
             {
               "code": 122,
@@ -6398,7 +6210,7 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>If you thought the same trick would work on\nme multiple times, you were gravely mistaken!"
+                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>If you thought the same trick would work on me\nmultiple times, you were gravely mistaken!"
               ]
             },
             {
@@ -6410,7 +6222,7 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": ["\\CE[79]\\N<Takagi>Nugugugugu.........─────"]
+              "parameters": ["\\CE[79]\\N<Takagi>Nugugugugu...─────"]
             },
             { "code": 122, "indent": 2, "parameters": [214, 214, 1, 0, 1500] },
             { "code": 117, "indent": 2, "parameters": [357] },
@@ -6432,7 +6244,7 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\N<Takagi>────To defeat me, it seems my estimation was\nwrong after all."
+                "\\N<Takagi>────To defeat me, it seems my estimation was wrong\nafter all."
               ]
             },
             { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
@@ -6556,7 +6368,7 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Ugh...... A-again........."
+                "\\CE[79]\\CE[78]\\OC[31]\\N<Rain>Ugh... A-again..."
               ]
             },
             { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
@@ -6564,14 +6376,10 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\N<Takagi>I know. You intentionally lost, didn't you? \\.As\nyou wish, you can be my woman for\nanother night.\\. Let's go."
+                "\\N<Takagi>I know. You intentionally lost, didn't you? As you\nwish, you can be my woman for another night. Let's\ngo."
               ]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 2, "parameters": [""] },
             { "code": 117, "indent": 2, "parameters": [97] },
             { "code": 230, "indent": 2, "parameters": [30] },
             { "code": 221, "indent": 2, "parameters": [] },
@@ -6699,25 +6507,23 @@
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\N<Takagi>This is the first time I've lost to a woman in a\ngambling match... \\. It's really shocking, I don't\nthink I'll be able to play for a while..."
+                "\\N<Takagi>This is the first time I've lost to a woman in a\ngambling match... It's really shocking, I don't\nthink I'll be able to play for a while..."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             {
               "code": 102,
               "indent": 0,
-              "parameters": [["勝負する", "なんでもない"], 1, 0, 2, 0]
+              "parameters": [["Let's have a match", "It's nothing"], 1, 0, 2, 0]
             },
             { "code": 402, "indent": 0, "parameters": [0, "勝負する"] },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 1,
-              "parameters": ["\\N<\\N[18]>「ふん、幸運が続くと思うなよ。"]
+              "parameters": [
+                "\\N<\\N[18]>\"Hmph, don't think your luck will last forever.\""
+              ]
             },
             { "code": 230, "indent": 1, "parameters": [30] },
             { "code": 221, "indent": 1, "parameters": [] },
@@ -6775,14 +6581,7 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「─────では、賭けるものは前回と同じく、\\N[18]様が\\C[17]チップ1200枚\\C[0]、"
-              ]
-            },
-            {
-              "code": 401,
-              "indent": 1,
-              "parameters": [
-                "Rain様が\\C[27]\"一晩\\N[18]様の女になる権利\"\\C[0]でお間違いありませんね？"
+                "\\N<Casino Staff>\"─────So, the stakes are the same as last time,\nwith \\N[18]-sama wagering 1200 chips\\C[0], and\nRain-sama wagering the right to become\n\\N[18]-sama's woman for one night\\C[0], is that\ncorrect?\""
               ]
             },
             { "code": 230, "indent": 1, "parameters": [30] },
@@ -6829,13 +6628,22 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「では、賭ける選手を選択してください。"
+                "\\N<Casino Staff>\"Now, please select the player you wish to bet\non.\""
               ]
             },
             {
               "code": 102,
               "indent": 1,
-              "parameters": [["左の選手", "右の選手"], -1, 0, 2, 0]
+              "parameters": [
+                [
+                  "Choose the player on the left",
+                  "Choose the player on the right"
+                ],
+                -1,
+                0,
+                2,
+                0
+              ]
             },
             { "code": 402, "indent": 1, "parameters": [0, "左の選手"] },
             { "code": 122, "indent": 2, "parameters": [215, 215, 0, 0, 1] },
@@ -6850,7 +6658,7 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「承りました。\\.\\N[18]様は逆の選手を選択ということになります。"
+                "\\N<Casino Staff>\"Understood. \\N[18]-sama will be selecting the\nopposite player then.\""
               ]
             },
             { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
@@ -6858,13 +6666,8 @@
               "code": 401,
               "indent": 1,
               "parameters": [
-                "\\N<カジノスタッフ>「勝った選手を選択した方が賭け勝負の勝者となります。"
+                "\\N<Casino Staff>\"The one who has chosen the winning player will be\nthe victor of the bet. The match will start\nshortly.\""
               ]
-            },
-            {
-              "code": 401,
-              "indent": 1,
-              "parameters": ["\\.\\.では、間もなく試合開始です。"]
             },
             { "code": 235, "indent": 1, "parameters": [70] },
             { "code": 235, "indent": 1, "parameters": [71] },
@@ -6948,14 +6751,14 @@
             {
               "code": 401,
               "indent": 2,
-              "parameters": ["\\N<\\N[18]>「ばかな………俺が負けるなんて……っ"]
+              "parameters": ["\\N<\\N[18]>\"Impossible... for me to lose...!\""]
             },
             { "code": 122, "indent": 2, "parameters": [214, 214, 1, 0, 1200] },
             { "code": 117, "indent": 2, "parameters": [357] },
             {
               "code": 356,
               "indent": 2,
-              "parameters": ["ShowInfo チップ1200枚を手に入れた"]
+              "parameters": ["ShowInfo Acquired_1200_chips"]
             },
             {
               "code": 250,
@@ -7038,7 +6841,7 @@
               "code": 401,
               "indent": 2,
               "parameters": [
-                "\\N<\\N[18]>「ふははは、俺の勝ちだ！さぁ部屋に来てもらうぞ！"
+                "\\N<\\N[18]>\"Hahaha, I win! Now, come to my room!\""
               ]
             },
             { "code": 117, "indent": 2, "parameters": [97] },
@@ -7280,9 +7083,8 @@
             {
               "code": 401,
               "indent": 0,
-              "parameters": ["\\EMP Good, come on, come on...! ─────Tch."]
+              "parameters": ["Good, come on, come on...! ─────Tch.─────"]
             },
-            { "code": 401, "indent": 0, "parameters": ["─────チッ。"] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
@@ -8351,11 +8153,7 @@
                 "\\EMP It seems like the underdog in a gambling\nmatch gets a little boost in performance."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
@@ -8743,11 +8541,7 @@
                 "\\EMP If I win a little, I'll immediately challenge\nyou to another match. This is also part of my\nstrategy to ultimately win, you know♪"
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
@@ -8878,11 +8672,7 @@
                 "\\EMP There's a 'Celestial Eye Stone Ring' as a\nprize, so I have to earn lots of tips♪"
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
+            { "code": 0, "indent": 0, "parameters": [""] },
             { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,

@@ -36,7 +36,7 @@
     "startX": 0,
     "startY": 0
   },
-  "currencyUnit": "ジェム",
+  "currencyUnit": "Gems",
   "defeatMe": { "name": "Gameover1", "pan": 0, "pitch": 100, "volume": 90 },
   "editMapId": 48,
   "elements": [
@@ -52,8 +52,15 @@
     "闇",
     "魔法"
   ],
-  "equipTypes": ["", "武器", "防具", "装飾品", "装飾品", "装飾品"],
-  "gameTitle": "ナイトメアナイト~聖なる騎士と堕欲の魔術~ ver2.00",
+  "equipTypes": [
+    "",
+    "Weapon",
+    "Armor",
+    "Accessories",
+    "Accessories",
+    "Accessories"
+  ],
+  "gameTitle": "Nightmare Night ~The Holy Knight and the Magic of Carnal Desires~ ver2.00",
   "gameoverMe": { "name": "Gameover2", "pan": 0, "pitch": 100, "volume": 90 },
   "locale": "ja_JP",
   "magicSkills": [1],
@@ -832,11 +839,11 @@
     "basic": [
       "Level",
       "Lv",
-      "ＨＰ",
       "HP",
-      "ＭＰ",
+      "HP",
       "MP",
-      "ＴＰ",
+      "MP",
+      "TP",
       "TP",
       "Experience Points",
       "EXP"
