@@ -3,18 +3,8 @@
   "autoplayBgs": false,
   "battleback1Name": "",
   "battleback2Name": "",
-  "bgm": {
-    "name": "01_bgm_doukutu",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
-  "bgs": {
-    "name": "",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
+  "bgm": { "name": "01_bgm_doukutu", "pan": 0, "pitch": 100, "volume": 90 },
+  "bgs": { "name": "", "pan": 0, "pitch": 100, "volume": 90 },
   "disableDashing": false,
   "displayName": "Hidden Underground Passage",
   "encounterList": [],
@@ -201,65 +191,24 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 223,
-              "indent": 0,
-              "parameters": [[0, 0, 0, 0], 1, true]
-            },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light activate"]
-            },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 1"]
-            },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Tint set #a1b0bc"]
-            },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [1, 81, 0, 0, 0]
-            },
+            { "code": 223, "indent": 0, "parameters": [[0, 0, 0, 0], 1, true] },
+            { "code": 356, "indent": 0, "parameters": ["Light activate"] },
+            { "code": 356, "indent": 0, "parameters": ["Light on 1"] },
+            { "code": 356, "indent": 0, "parameters": ["Tint set #a1b0bc"] },
+            { "code": 111, "indent": 0, "parameters": [1, 81, 0, 0, 0] },
             {
               "code": 356,
               "indent": 1,
               "parameters": ["Light radius 100 #96c9e4"]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 214,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 214, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 2,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -310,33 +259,15 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move6",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Move6", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 163, 9, 6, 0, 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 201, "indent": 0, "parameters": [0, 163, 9, 6, 0, 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -383,25 +314,12 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -459,11 +377,7 @@
               "indent": 0,
               "parameters": ["EMW_メッセージウィンドウ指定 2"]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -476,40 +390,19 @@
               "indent": 0,
               "parameters": [""]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [180]
-            },
+            { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["EMW_メッセージウィンドウ強制終了 2"]
             },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["MWP_INVALID"]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 356, "indent": 0, "parameters": ["MWP_INVALID"] },
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -546,21 +439,10 @@
             "pattern": 0,
             "tileId": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -612,25 +494,12 @@
               "indent": 0,
               "parameters": ["iconballoon event:7 15 normal"]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -677,11 +546,7 @@
             "tileId": 0
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["MWP_INVALID"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["MWP_INVALID"] },
             {
               "code": 205,
               "indent": 0,
@@ -689,23 +554,10 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -716,40 +568,19 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -757,11 +588,7 @@
                 "\\N<Gatekeeper>I was holding onto this weapon. I'll return it to\nyou."
               ]
             },
-            {
-              "code": 313,
-              "indent": 0,
-              "parameters": [0, 0, 1, 36]
-            },
+            { "code": 313, "indent": 0, "parameters": [0, 0, 1, 36] },
             {
               "code": 355,
               "indent": 0,
@@ -776,92 +603,38 @@
                 "$gameActors.actor(1).changeEquipById(1,$gameVariables.value(314))"
               ]
             },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [4, 1, 6, 12]
-            },
+            { "code": 111, "indent": 0, "parameters": [4, 1, 6, 12] },
             {
               "code": 122,
               "indent": 1,
               "parameters": [121, 121, 0, 4, "\"sb_normal2_sword\""]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
             {
               "code": 122,
               "indent": 1,
               "parameters": [121, 121, 0, 4, "\"sb_normal_sword\""]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [99]
-            },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 117, "indent": 0, "parameters": [99] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Equip1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Equip1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [215, 215, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [99, 99, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [454, 454, 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [30] },
+            { "code": 121, "indent": 0, "parameters": [215, 215, 1] },
+            { "code": 121, "indent": 0, "parameters": [99, 99, 1] },
+            { "code": 121, "indent": 0, "parameters": [454, 454, 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -898,21 +671,10 @@
             "pattern": 0,
             "tileId": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -958,21 +720,10 @@
             "pattern": 1,
             "characterIndex": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -1019,31 +770,15 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["MWP_INVALID"]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [10]
-            },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [1, 81, 0, 0, 5]
-            },
+            { "code": 356, "indent": 0, "parameters": ["MWP_INVALID"] },
+            { "code": 117, "indent": 0, "parameters": [10] },
+            { "code": 111, "indent": 0, "parameters": [1, 81, 0, 0, 5] },
             {
               "code": 108,
               "indent": 1,
               "parameters": ["セイントクロス以外の時は着替えさせる"]
             },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [12]
-            },
+            { "code": 117, "indent": 1, "parameters": [12] },
             {
               "code": 122,
               "indent": 1,
@@ -1054,11 +789,7 @@
               "indent": 1,
               "parameters": [89, 89, 0, 4, "\"sweat\""]
             },
-            {
-              "code": 101,
-              "indent": 1,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 1,
@@ -1066,16 +797,8 @@
                 "\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(I don't know what's in the club, so let's change\ninto our Saint Cross outfits and go.)"
               ]
             },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [12]
-            },
-            {
-              "code": 122,
-              "indent": 1,
-              "parameters": [81, 81, 0, 0, 0]
-            },
+            { "code": 117, "indent": 1, "parameters": [12] },
+            { "code": 122, "indent": 1, "parameters": [81, 81, 0, 0, 0] },
             {
               "code": 250,
               "indent": 1,
@@ -1088,41 +811,13 @@
                 }
               ]
             },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [69]
-            },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [73]
-            },
-            {
-              "code": 230,
-              "indent": 1,
-              "parameters": [30]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 213,
-              "indent": 0,
-              "parameters": [3, 1, true]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 117, "indent": 1, "parameters": [69] },
+            { "code": 117, "indent": 1, "parameters": [73] },
+            { "code": 230, "indent": 1, "parameters": [30] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 213, "indent": 0, "parameters": [3, 1, true] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1137,23 +832,10 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -1164,55 +846,30 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
             {
               "code": 122,
               "indent": 0,
               "parameters": [87, 87, 0, 4, "\"001\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
               "parameters": ["\\CE[79]\\OC[31]\\N<Rain>Yes, may I come in?"]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1220,11 +877,7 @@
                 "\\N<Gatekeeper>No, first we need a physical examination...!"
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
+            { "code": 230, "indent": 0, "parameters": [30] },
             {
               "code": 241,
               "indent": 0,
@@ -1237,58 +890,29 @@
                 }
               ]
             },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [78, 78, 0, 0, 99]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [77]
-            },
+            { "code": 122, "indent": 0, "parameters": [78, 78, 0, 0, 99] },
+            { "code": 117, "indent": 0, "parameters": [77] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "01_momi01",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_momi01", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [166, 166, 0, 0, 3]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [134]
-            },
+            { "code": 122, "indent": 0, "parameters": [166, 166, 0, 0, 3] },
+            { "code": 117, "indent": 0, "parameters": [134] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["SV_PLAY_VOICE 241_kyaa"]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
               "parameters": ["\\OC[31]\\N<Rain>Ah...! Wh-what is this...!?"]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1301,21 +925,13 @@
               "indent": 0,
               "parameters": [""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
               "parameters": ["\\OC[31]\\N<Rain>Th-there's no way... ahh..."]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1332,19 +948,10 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "01_momi01",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_momi01", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1352,11 +959,7 @@
                 "\\N<Gatekeeper>Hmm... I see. This softness... seems to be the\nreal deal, like genuine breasts."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1364,11 +967,7 @@
                 "\\OC[31]\\N<Rain>I-I told you! Let go of me quickly──!"
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1378,44 +977,23 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "01_momi01",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_momi01", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [166, 166, 0, 0, 1]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [134]
-            },
+            { "code": 122, "indent": 0, "parameters": [166, 166, 0, 0, 1] },
+            { "code": 117, "indent": 0, "parameters": [134] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["SV_PLAY_VOICE 243_an"]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
               "parameters": ["\\OC[31]\\N<Rain>Ahhhh───"]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1423,11 +1001,7 @@
                 "\\N<Gatekeeper>Surprisingly, there are people who hide things\nover here too."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1435,11 +1009,7 @@
                 "\\OC[31]\\N<Rain>F-fine, I understand, so please finish quickly!"
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1447,33 +1017,16 @@
                 "\\N<Gatekeeper>I got it, I got it. I have a responsibility to do\nmy job here too, so don't rush me."
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
+            { "code": 230, "indent": 0, "parameters": [30] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "01_momi01",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_momi01", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1481,11 +1034,7 @@
                 "\\N<Gatekeeper>Ohh~ For someone so slender, you have a surprisingly\nlarge ass. It's quite firm to the touch."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1495,19 +1044,10 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "01_momi01",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_momi01", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1515,31 +1055,15 @@
                 "\\N<Gatekeeper>Hmm hmm... Well, this place seems to be fine too."
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
+            { "code": 230, "indent": 0, "parameters": [30] },
             {
               "code": 232,
               "indent": 0,
               "parameters": [60, 0, 1, 0, 640, 295, 100, 100, 0, 0, 60, true]
             },
-            {
-              "code": 235,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 235, "indent": 0, "parameters": [60] },
+            { "code": 230, "indent": 0, "parameters": [30] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1547,16 +1071,8 @@
                 "\\N<Gatekeeper>I think that is good enough for the body\nexamination. I'll let you pass."
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [78, 78, 0, 0, 0]
-            },
+            { "code": 230, "indent": 0, "parameters": [30] },
+            { "code": 122, "indent": 0, "parameters": [78, 78, 0, 0, 0] },
             {
               "code": 122,
               "indent": 0,
@@ -1572,11 +1088,7 @@
               "indent": 0,
               "parameters": [85, 85, 0, 4, "\"002\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1584,11 +1096,7 @@
                 "\\CE[77]\\OC[31]\\N<Rain>───... Well then, I'll go in already!"
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1601,21 +1109,9 @@
               "indent": 0,
               "parameters": [""]
             },
-            {
-              "code": 213,
-              "indent": 0,
-              "parameters": [-1, 1, true]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [12]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [78, 78, 0, 0, 0]
-            },
+            { "code": 213, "indent": 0, "parameters": [-1, 1, true] },
+            { "code": 117, "indent": 0, "parameters": [12] },
+            { "code": 122, "indent": 0, "parameters": [78, 78, 0, 0, 0] },
             {
               "code": 122,
               "indent": 0,
@@ -1631,11 +1127,7 @@
               "indent": 0,
               "parameters": [87, 87, 0, 4, "\"012\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1643,16 +1135,8 @@
                 "\\CE[77]\\C[13]\\OC[31]\\N<Inner Rain>(I'm unarmed... I'm worried, but there's no other\nchoice...)"
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [12]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
+            { "code": 117, "indent": 0, "parameters": [12] },
+            { "code": 230, "indent": 0, "parameters": [30] },
             {
               "code": 122,
               "indent": 0,
@@ -1668,11 +1152,7 @@
               "indent": 0,
               "parameters": [88, 88, 0, 4, "\"empty\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1690,26 +1170,13 @@
               "indent": 0,
               "parameters": [121, 121, 0, 4, "\"empty\""]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [99]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [79]
-            },
+            { "code": 117, "indent": 0, "parameters": [99] },
+            { "code": 117, "indent": 0, "parameters": [79] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Equip1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Equip1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -1723,11 +1190,7 @@
                 "$gameActors.actor(1)._equips[0]._itemId"
               ]
             },
-            {
-              "code": 313,
-              "indent": 0,
-              "parameters": [0, 0, 0, 36]
-            },
+            { "code": 313, "indent": 0, "parameters": [0, 0, 0, 36] },
             {
               "code": 355,
               "indent": 0,
@@ -1735,31 +1198,15 @@
                 "$gameParty.gainItem($dataWeapons[$gameVariables.value(314)], -1, true)"
               ]
             },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [215, 215, 0]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [80]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 121, "indent": 0, "parameters": [215, 215, 0] },
+            { "code": 230, "indent": 0, "parameters": [80] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
               "parameters": ["\\N<Gatekeeper>Alright, then go in."]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [80]
-            },
+            { "code": 117, "indent": 0, "parameters": [80] },
             {
               "code": 205,
               "indent": 0,
@@ -1767,23 +1214,10 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -1794,45 +1228,23 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Open1",
-                  "pan": 0,
-                  "pitch": 100,
-                  "volume": 90
-                }
+                { "name": "Open1", "pan": 0, "pitch": 100, "volume": 90 }
               ]
             },
             {
@@ -1842,36 +1254,13 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [12],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 15, "parameters": [12], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1882,65 +1271,32 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [12],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [12], "indent": null }]
             },
             {
               "code": 205,
@@ -1949,21 +1305,10 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 37,
-                      "indent": null
-                    },
-                    {
-                      "code": 12,
-                      "indent": null
-                    },
-                    {
-                      "code": 38,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 37, "indent": null },
+                    { "code": 12, "indent": null },
+                    { "code": 38, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -1974,114 +1319,41 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 37,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 37, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 12,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 12, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 38,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 38, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "pan": 0,
-                  "pitch": 100,
-                  "volume": 90
-                }
+                { "name": "Move1", "pan": 0, "pitch": 100, "volume": 90 }
               ]
             },
-            {
-              "code": 221,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 242,
-              "indent": 0,
-              "parameters": [1]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [124, 124, 0, 0, 15]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [66]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [80]
-            },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 97, 12, 30, 0, 0]
-            },
-            {
-              "code": 222,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [454, 454, 0]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [53, 53, 0, 0, 99]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [56, 56, 0, 0, 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 221, "indent": 0, "parameters": [] },
+            { "code": 242, "indent": 0, "parameters": [1] },
+            { "code": 230, "indent": 0, "parameters": [30] },
+            { "code": 122, "indent": 0, "parameters": [124, 124, 0, 0, 15] },
+            { "code": 117, "indent": 0, "parameters": [66] },
+            { "code": 230, "indent": 0, "parameters": [80] },
+            { "code": 201, "indent": 0, "parameters": [0, 97, 12, 30, 0, 0] },
+            { "code": 222, "indent": 0, "parameters": [] },
+            { "code": 121, "indent": 0, "parameters": [454, 454, 0] },
+            { "code": 122, "indent": 0, "parameters": [53, 53, 0, 0, 99] },
+            { "code": 122, "indent": 0, "parameters": [56, 56, 0, 0, 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2119,31 +1391,15 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["MWP_INVALID"]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [1, 81, 0, 0, 5]
-            },
+            { "code": 356, "indent": 0, "parameters": ["MWP_INVALID"] },
+            { "code": 230, "indent": 0, "parameters": [30] },
+            { "code": 111, "indent": 0, "parameters": [1, 81, 0, 0, 5] },
             {
               "code": 108,
               "indent": 1,
               "parameters": ["セイントクロス以外の時は着替えさせる"]
             },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [12]
-            },
+            { "code": 117, "indent": 1, "parameters": [12] },
             {
               "code": 122,
               "indent": 1,
@@ -2154,11 +1410,7 @@
               "indent": 1,
               "parameters": [89, 89, 0, 4, "\"sweat\""]
             },
-            {
-              "code": 101,
-              "indent": 1,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 1,
@@ -2166,16 +1418,8 @@
                 "\\CE[79]\\C[13]\\OC[31]\\N<Inner Rain>(I don't know what's going on at the club, so\nlet's change into our Saint Cross outfits and go.)"
               ]
             },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [12]
-            },
-            {
-              "code": 122,
-              "indent": 1,
-              "parameters": [81, 81, 0, 0, 0]
-            },
+            { "code": 117, "indent": 1, "parameters": [12] },
+            { "code": 122, "indent": 1, "parameters": [81, 81, 0, 0, 0] },
             {
               "code": 250,
               "indent": 1,
@@ -2188,46 +1432,18 @@
                 }
               ]
             },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [69]
-            },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [73]
-            },
-            {
-              "code": 230,
-              "indent": 1,
-              "parameters": [30]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 117, "indent": 1, "parameters": [69] },
+            { "code": 117, "indent": 1, "parameters": [73] },
+            { "code": 230, "indent": 1, "parameters": [30] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
             {
               "code": 205,
               "indent": 0,
               "parameters": [
                 -1,
                 {
-                  "list": [
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
-                  ],
+                  "list": [{ "code": 17, "indent": null }, { "code": 0 }],
                   "repeat": false,
                   "skippable": true,
                   "wait": false
@@ -2237,18 +1453,9 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2261,21 +1468,12 @@
               "indent": 0,
               "parameters": [121, 121, 0, 4, "\"empty\""]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [99]
-            },
+            { "code": 117, "indent": 0, "parameters": [99] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Equip1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Equip1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -2289,11 +1487,7 @@
                 "$gameActors.actor(1)._equips[0]._itemId"
               ]
             },
-            {
-              "code": 313,
-              "indent": 0,
-              "parameters": [0, 0, 0, 36]
-            },
+            { "code": 313, "indent": 0, "parameters": [0, 0, 0, 36] },
             {
               "code": 355,
               "indent": 0,
@@ -2301,36 +1495,16 @@
                 "$gameParty.gainItem($dataWeapons[$gameVariables.value(314)], -1, true)"
               ]
             },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [215, 215, 0]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [454, 454, 0]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
+            { "code": 121, "indent": 0, "parameters": [215, 215, 0] },
+            { "code": 121, "indent": 0, "parameters": [454, 454, 0] },
+            { "code": 230, "indent": 0, "parameters": [60] },
             {
               "code": 205,
               "indent": 0,
               "parameters": [
                 -1,
                 {
-                  "list": [
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
-                  ],
+                  "list": [{ "code": 19, "indent": null }, { "code": 0 }],
                   "repeat": false,
                   "skippable": true,
                   "wait": false
@@ -2340,23 +1514,13 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Open1",
-                  "pan": 0,
-                  "pitch": 100,
-                  "volume": 90
-                }
+                { "name": "Open1", "pan": 0, "pitch": 100, "volume": 90 }
               ]
             },
             {
@@ -2366,36 +1530,13 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [12],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 15, "parameters": [12], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -2406,65 +1547,32 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [12],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [12], "indent": null }]
             },
             {
               "code": 205,
@@ -2473,21 +1581,10 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 37,
-                      "indent": null
-                    },
-                    {
-                      "code": 12,
-                      "indent": null
-                    },
-                    {
-                      "code": 38,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 37, "indent": null },
+                    { "code": 12, "indent": null },
+                    { "code": 38, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -2498,64 +1595,31 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 37,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 37, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 12,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 12, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 38,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 38, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "pan": 0,
-                  "pitch": 100,
-                  "volume": 90
-                }
+                { "name": "Move1", "pan": 0, "pitch": 100, "volume": 90 }
               ]
             },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 97, 12, 30, 0, 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 201, "indent": 0, "parameters": [0, 97, 12, 30, 0, 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2597,12 +1661,7 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Open1",
-                  "pan": 0,
-                  "pitch": 100,
-                  "volume": 90
-                }
+                { "name": "Open1", "pan": 0, "pitch": 100, "volume": 90 }
               ]
             },
             {
@@ -2612,36 +1671,13 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [12],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 15, "parameters": [12], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -2652,65 +1688,32 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [12],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [12], "indent": null }]
             },
             {
               "code": 205,
@@ -2719,21 +1722,10 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 37,
-                      "indent": null
-                    },
-                    {
-                      "code": 12,
-                      "indent": null
-                    },
-                    {
-                      "code": 38,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 37, "indent": null },
+                    { "code": 12, "indent": null },
+                    { "code": 38, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -2744,64 +1736,31 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 37,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 37, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 12,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 12, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 38,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 38, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "pan": 0,
-                  "pitch": 100,
-                  "volume": 90
-                }
+                { "name": "Move1", "pan": 0, "pitch": 100, "volume": 90 }
               ]
             },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 97, 12, 30, 0, 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 201, "indent": 0, "parameters": [0, 97, 12, 30, 0, 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false

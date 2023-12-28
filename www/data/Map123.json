@@ -3,18 +3,8 @@
   "autoplayBgs": false,
   "battleback1Name": "",
   "battleback2Name": "",
-  "bgm": {
-    "name": "01_bgm_huon01",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
-  "bgs": {
-    "name": "",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
+  "bgm": { "name": "01_bgm_huon01", "pan": 0, "pitch": 100, "volume": 90 },
+  "bgs": { "name": "", "pan": 0, "pitch": 100, "volume": 90 },
   "disableDashing": false,
   "displayName": "",
   "encounterList": [],
@@ -383,96 +373,36 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 201, 0]
-            },
-            {
-              "code": 111,
-              "indent": 1,
-              "parameters": [0, 451, 1]
-            },
+            { "code": 111, "indent": 0, "parameters": [0, 201, 0] },
+            { "code": 111, "indent": 1, "parameters": [0, 451, 1] },
             {
               "code": 356,
               "indent": 2,
               "parameters": ["particle set dungeon01 spriteset dungeonPar 1"]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 1,
-              "parameters": []
-            },
+            { "code": 0, "indent": 2, "parameters": [] },
+            { "code": 411, "indent": 1, "parameters": [] },
             {
               "code": 356,
               "indent": 2,
               "parameters": ["particle clear dungeon01 spriteset dungeonPar 1"]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 0, "indent": 2, "parameters": [] },
+            { "code": 412, "indent": 1, "parameters": [] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
             {
               "code": 356,
               "indent": 1,
               "parameters": ["particle clear dungeon01 spriteset dungeonPar 1"]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 451, 1]
-            },
-            {
-              "code": 223,
-              "indent": 1,
-              "parameters": [[0, 0, 0, 0], 1, true]
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light activate"]
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 1"]
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Tint set #8d6c78"]
-            },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 111, "indent": 0, "parameters": [0, 451, 1] },
+            { "code": 223, "indent": 1, "parameters": [[0, 0, 0, 0], 1, true] },
+            { "code": 356, "indent": 1, "parameters": ["Light activate"] },
+            { "code": 356, "indent": 1, "parameters": ["Light on 1"] },
+            { "code": 356, "indent": 1, "parameters": ["Tint set #8d6c78"] },
             {
               "code": 356,
               "indent": 1,
@@ -483,55 +413,22 @@
               "indent": 1,
               "parameters": ["RegionFire 50 ON #aa1859 200"]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light deactivate"]
-            },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light deactivate"] },
             {
               "code": 223,
               "indent": 1,
               "parameters": [[-15, -40, -15, 0], 1, true]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 214,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 214, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -577,13 +474,7 @@
             "pattern": 1,
             "characterIndex": 4
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 4,
           "moveRoute": {
             "list": [
@@ -627,10 +518,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -677,13 +565,7 @@
             "pattern": 1,
             "characterIndex": 4
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 4,
           "moveRoute": {
             "list": [
@@ -727,10 +609,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -777,13 +656,7 @@
             "pattern": 1,
             "characterIndex": 4
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 4,
           "moveRoute": {
             "list": [
@@ -827,10 +700,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,

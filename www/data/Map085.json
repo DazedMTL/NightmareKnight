@@ -3,18 +3,8 @@
   "autoplayBgs": false,
   "battleback1Name": "",
   "battleback2Name": "",
-  "bgm": {
-    "name": "01_bgm_dungeon03",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
-  "bgs": {
-    "name": "",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
+  "bgm": { "name": "01_bgm_dungeon03", "pan": 0, "pitch": 100, "volume": 90 },
+  "bgs": { "name": "", "pan": 0, "pitch": 100, "volume": 90 },
   "disableDashing": false,
   "displayName": "Southeast Dungeon 1F",
   "encounterList": [],
@@ -1067,311 +1057,107 @@
             "tileId": 0
           },
           "list": [
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [246, 246, 0]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [4, 4, 0, 0, 7]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [552, 552, 0, 0, 2]
-            },
+            { "code": 121, "indent": 0, "parameters": [246, 246, 0] },
+            { "code": 122, "indent": 0, "parameters": [4, 4, 0, 0, 7] },
+            { "code": 122, "indent": 0, "parameters": [552, 552, 0, 0, 2] },
             {
               "code": 283,
               "indent": 0,
               "parameters": ["01_nk_RockCave3", "battleFrame"]
             },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 203, 0]
-            },
-            {
-              "code": 111,
-              "indent": 1,
-              "parameters": [0, 451, 1]
-            },
+            { "code": 111, "indent": 0, "parameters": [0, 203, 0] },
+            { "code": 111, "indent": 1, "parameters": [0, 451, 1] },
             {
               "code": 356,
               "indent": 2,
               "parameters": ["particle set dungeon01 spriteset dungeonPar 1"]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 1,
-              "parameters": []
-            },
+            { "code": 0, "indent": 2, "parameters": [] },
+            { "code": 411, "indent": 1, "parameters": [] },
             {
               "code": 356,
               "indent": 2,
               "parameters": ["particle clear dungeon01 spriteset dungeonPar 1"]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 0, "indent": 2, "parameters": [] },
+            { "code": 412, "indent": 1, "parameters": [] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
             {
               "code": 356,
               "indent": 1,
               "parameters": ["particle clear dungeon01 spriteset dungeonPar 1"]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light activate"]
-            },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 0, "parameters": ["Light activate"] },
             {
               "code": 111,
               "indent": 0,
               "parameters": [12, "$gameSelfSwitches.value([85,8,'A'])"]
             },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 1"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light off 1"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 356, "indent": 1, "parameters": ["Light on 1"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light off 1"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
             {
               "code": 111,
               "indent": 0,
               "parameters": [12, "$gameSelfSwitches.value([85,9,'A'])"]
             },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 2"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light off 2"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 356, "indent": 1, "parameters": ["Light on 2"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light off 2"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
             {
               "code": 111,
               "indent": 0,
               "parameters": [12, "$gameSelfSwitches.value([85,10,'A'])"]
             },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 3"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light off 3"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 356, "indent": 1, "parameters": ["Light on 3"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light off 3"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
             {
               "code": 111,
               "indent": 0,
               "parameters": [12, "$gameSelfSwitches.value([85,11,'A'])"]
             },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 4"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light off 4"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 356, "indent": 1, "parameters": ["Light on 4"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light off 4"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
             {
               "code": 111,
               "indent": 0,
               "parameters": [12, "$gameSelfSwitches.value([85,12,'A'])"]
             },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 5"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light off 5"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 356, "indent": 1, "parameters": ["Light on 5"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light off 5"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
             {
               "code": 111,
               "indent": 0,
               "parameters": [12, "$gameSelfSwitches.value([85,13,'A'])"]
             },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 6"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light off 6"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Tint set #223848"]
-            },
+            { "code": 356, "indent": 1, "parameters": ["Light on 6"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 1, "parameters": ["Light off 6"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 356, "indent": 0, "parameters": ["Tint set #223848"] },
             {
               "code": 356,
               "indent": 0,
@@ -1387,50 +1173,17 @@
               "indent": 0,
               "parameters": ["RegionLight 190 ON #fffaa2 100"]
             },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light off 16"]
-            },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 32, 0]
-            },
-            {
-              "code": 356,
-              "indent": 1,
-              "parameters": ["Light on 16"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 214,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 356, "indent": 0, "parameters": ["Light off 16"] },
+            { "code": 111, "indent": 0, "parameters": [0, 32, 0] },
+            { "code": 356, "indent": 1, "parameters": ["Light on 16"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 214, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -1481,63 +1234,21 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Move1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 100, 0]
-            },
-            {
-              "code": 201,
-              "indent": 1,
-              "parameters": [0, 164, 45, 8, 0, 0]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 201,
-              "indent": 1,
-              "parameters": [0, 86, 45, 8, 0, 0]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 111, "indent": 0, "parameters": [0, 100, 0] },
+            { "code": 201, "indent": 1, "parameters": [0, 164, 45, 8, 0, 0] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 201, "indent": 1, "parameters": [0, 86, 45, 8, 0, 0] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -1584,16 +1295,8 @@
             "characterIndex": 3
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 38]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 38] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -1638,10 +1341,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -1689,25 +1389,12 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -1745,26 +1432,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 16"]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [32, 32, 0]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 16"] },
+            { "code": 121, "indent": 0, "parameters": [32, 32, 0] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Magic4",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Magic4", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -1772,21 +1446,9 @@
               "indent": 0,
               "parameters": [[255, 255, 255, 170], 60, false]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [90]
-            },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 89, 1]
-            },
-            {
-              "code": 101,
-              "indent": 1,
-              "parameters": ["", 0, 1, 1]
-            },
+            { "code": 230, "indent": 0, "parameters": [90] },
+            { "code": 111, "indent": 0, "parameters": [0, 89, 1] },
+            { "code": 101, "indent": 1, "parameters": ["", 0, 1, 1] },
             {
               "code": 401,
               "indent": 1,
@@ -1799,11 +1461,7 @@
               "indent": 1,
               "parameters": [""]
             },
-            {
-              "code": 101,
-              "indent": 1,
-              "parameters": ["", 0, 1, 1]
-            },
+            { "code": 101, "indent": 1, "parameters": ["", 0, 1, 1] },
             {
               "code": 401,
               "indent": 1,
@@ -1811,26 +1469,10 @@
                 "Furthermore, Warp Crystals activated within the\nsame dungeon allow for direct transportation back\nand forth."
               ]
             },
-            {
-              "code": 121,
-              "indent": 1,
-              "parameters": [89, 89, 0]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 101,
-              "indent": 1,
-              "parameters": ["", 0, 1, 1]
-            },
+            { "code": 121, "indent": 1, "parameters": [89, 89, 0] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 101, "indent": 1, "parameters": ["", 0, 1, 1] },
             {
               "code": 401,
               "indent": 1,
@@ -1843,35 +1485,14 @@
               "indent": 1,
               "parameters": [""]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["B", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 123, "indent": 0, "parameters": ["B", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -1909,16 +1530,8 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["ChoicePos 953 475"]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 1, 2]
-            },
+            { "code": 356, "indent": 0, "parameters": ["ChoicePos 953 475"] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 1, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1948,29 +1561,12 @@
               "code": 250,
               "indent": 1,
               "parameters": [
-                {
-                  "name": "01_warp",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_warp", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 201,
-              "indent": 1,
-              "parameters": [0, 88, 68, 54, 2, 0]
-            },
-            {
-              "code": 230,
-              "indent": 1,
-              "parameters": [30]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
+            { "code": 201, "indent": 1, "parameters": [0, 88, 68, 54, 2, 0] },
+            { "code": 230, "indent": 1, "parameters": [30] },
+            { "code": 0, "indent": 1, "parameters": [] },
             {
               "code": 402,
               "indent": 0,
@@ -1980,63 +1576,21 @@
               "code": 250,
               "indent": 1,
               "parameters": [
-                {
-                  "name": "01_warp",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "01_warp", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 121,
-              "indent": 1,
-              "parameters": [246, 246, 1]
-            },
-            {
-              "code": 122,
-              "indent": 1,
-              "parameters": [127, 127, 0, 0, 10]
-            },
-            {
-              "code": 117,
-              "indent": 1,
-              "parameters": [1]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 402,
-              "indent": 0,
-              "parameters": [2, "やめる"]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 404,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 121, "indent": 1, "parameters": [246, 246, 1] },
+            { "code": 122, "indent": 1, "parameters": [127, 127, 0, 0, 10] },
+            { "code": 117, "indent": 1, "parameters": [1] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 402, "indent": 0, "parameters": [2, "やめる"] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 404, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2083,21 +1637,9 @@
             "tileId": 0
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [80]
-            },
-            {
-              "code": 213,
-              "indent": 0,
-              "parameters": [-1, 8, true]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [78, 78, 0, 0, 0]
-            },
+            { "code": 230, "indent": 0, "parameters": [80] },
+            { "code": 213, "indent": 0, "parameters": [-1, 8, true] },
+            { "code": 122, "indent": 0, "parameters": [78, 78, 0, 0, 0] },
             {
               "code": 122,
               "indent": 0,
@@ -2113,11 +1655,7 @@
               "indent": 0,
               "parameters": [87, 87, 0, 4, "\"011\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2125,11 +1663,7 @@
                 "\\CE[77]\\OC[31]\\N<Rain>I can sense something... It feels like it's\nnearby. There's a third device here...!"
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
+            { "code": 230, "indent": 0, "parameters": [30] },
             {
               "code": 122,
               "indent": 0,
@@ -2140,11 +1674,7 @@
               "indent": 0,
               "parameters": [87, 87, 0, 4, "\"004\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2157,11 +1687,7 @@
               "indent": 0,
               "parameters": [""]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [85]
-            },
+            { "code": 117, "indent": 0, "parameters": [85] },
             {
               "code": 108,
               "indent": 0,
@@ -2172,30 +1698,13 @@
               "indent": 0,
               "parameters": ["$gameParty.gainItem($dataItems[343], 1)"]
             },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [51, 51, 0, 0, 11]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [11]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [51, 51, 0, 0, 11] },
+            { "code": 117, "indent": 0, "parameters": [11] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 1,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2232,21 +1741,10 @@
             "pattern": 0,
             "tileId": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2293,16 +1791,8 @@
             "characterIndex": 4
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 39]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 39] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -2347,10 +1837,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -2398,30 +1885,13 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 126,
-              "indent": 0,
-              "parameters": [1, 0, 0, 1]
-            },
-            {
-              "code": 126,
-              "indent": 0,
-              "parameters": [4, 0, 0, 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 126, "indent": 0, "parameters": [1, 0, 0, 1] },
+            { "code": 126, "indent": 0, "parameters": [4, 0, 0, 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2468,42 +1938,20 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 1"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 1"] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Fire1",
-                  "volume": 90,
-                  "pitch": 110,
-                  "pan": 0
-                }
+                { "name": "Fire1", "volume": 90, "pitch": 110, "pan": 0 }
               ]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2540,21 +1988,10 @@
             "pattern": 1,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2601,42 +2038,20 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 2"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 2"] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Fire1",
-                  "volume": 90,
-                  "pitch": 110,
-                  "pan": 0
-                }
+                { "name": "Fire1", "volume": 90, "pitch": 110, "pan": 0 }
               ]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2673,21 +2088,10 @@
             "pattern": 1,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2734,42 +2138,20 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 3"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 3"] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Fire1",
-                  "volume": 90,
-                  "pitch": 110,
-                  "pan": 0
-                }
+                { "name": "Fire1", "volume": 90, "pitch": 110, "pan": 0 }
               ]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2806,21 +2188,10 @@
             "pattern": 1,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2867,42 +2238,20 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 4"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 4"] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Fire1",
-                  "volume": 90,
-                  "pitch": 110,
-                  "pan": 0
-                }
+                { "name": "Fire1", "volume": 90, "pitch": 110, "pan": 0 }
               ]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2939,21 +2288,10 @@
             "pattern": 1,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3000,42 +2338,20 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 5"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 5"] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Fire1",
-                  "volume": 90,
-                  "pitch": 110,
-                  "pan": 0
-                }
+                { "name": "Fire1", "volume": 90, "pitch": 110, "pan": 0 }
               ]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3072,21 +2388,10 @@
             "pattern": 1,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3133,42 +2438,20 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["Light on 6"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["Light on 6"] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Fire1",
-                  "volume": 90,
-                  "pitch": 110,
-                  "pan": 0
-                }
+                { "name": "Fire1", "volume": 90, "pitch": 110, "pan": 0 }
               ]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3205,21 +2488,10 @@
             "pattern": 1,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3266,11 +2538,7 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [163, 163, 0, 0, 3]
-            },
+            { "code": 122, "indent": 0, "parameters": [163, 163, 0, 0, 3] },
             {
               "code": 108,
               "indent": 0,
@@ -3281,20 +2549,11 @@
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 4"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3332,25 +2591,12 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [163, 163, 0, 0, 3]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [163, 163, 0, 0, 3] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3387,21 +2633,10 @@
             "pattern": 1,
             "characterIndex": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3448,11 +2683,7 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [163, 163, 0, 0, 3]
-            },
+            { "code": 122, "indent": 0, "parameters": [163, 163, 0, 0, 3] },
             {
               "code": 108,
               "indent": 0,
@@ -3463,20 +2694,11 @@
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 4"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3514,25 +2736,12 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [163, 163, 0, 0, 3]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [163, 163, 0, 0, 3] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3569,21 +2778,10 @@
             "pattern": 1,
             "characterIndex": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -3630,16 +2828,8 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -3684,10 +2874,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -3735,16 +2922,8 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -3789,10 +2968,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -3840,16 +3016,8 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -3894,10 +3062,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -3945,16 +3110,8 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -3999,10 +3156,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -4050,30 +3204,17 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [308, 308, 0, 0, 0]
-            },
+            { "code": 122, "indent": 0, "parameters": [308, 308, 0, 0, 0] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 6"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4110,21 +3251,10 @@
             "pattern": 1,
             "characterIndex": 7
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4161,21 +3291,10 @@
             "pattern": 1,
             "characterIndex": 3
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4222,16 +3341,8 @@
             "characterIndex": 3
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 38]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 38] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -4276,10 +3387,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,
@@ -4327,30 +3435,17 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [308, 308, 0, 0, 1]
-            },
+            { "code": 122, "indent": 0, "parameters": [308, 308, 0, 0, 1] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 4"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4387,21 +3482,10 @@
             "pattern": 1,
             "characterIndex": 7
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4438,21 +3522,10 @@
             "pattern": 1,
             "characterIndex": 3
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4499,30 +3572,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4567,58 +3623,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -4629,137 +3645,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4806,30 +3749,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -4874,58 +3800,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -4936,137 +3822,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5113,30 +3926,17 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [308, 308, 0, 0, 1]
-            },
+            { "code": 122, "indent": 0, "parameters": [308, 308, 0, 0, 1] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 4"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5173,21 +3973,10 @@
             "pattern": 1,
             "characterIndex": 7
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5224,21 +4013,10 @@
             "pattern": 1,
             "characterIndex": 3
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5285,30 +4063,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5353,58 +4114,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -5415,137 +4136,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5592,30 +4240,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5660,58 +4291,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -5722,137 +4313,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5899,30 +4417,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -5967,58 +4468,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -6029,137 +4490,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -6206,30 +4594,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -6274,58 +4645,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -6336,137 +4667,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -6513,30 +4771,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -6581,58 +4822,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -6643,137 +4844,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -6820,30 +4948,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -6888,58 +4999,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -6950,137 +5021,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7127,30 +5125,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7195,58 +5176,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -7257,137 +5198,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7434,30 +5302,13 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [100]
-            },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [100] },
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7502,58 +5353,18 @@
                 0,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [5],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [5], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -7564,137 +5375,64 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [5],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [5], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7741,52 +5479,22 @@
             "tileId": 0
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [4, 4, 0, 0, 7]
-            },
+            { "code": 122, "indent": 0, "parameters": [4, 4, 0, 0, 7] },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Move1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [29]
-            },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 84, 24, 9, 2, 0]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [28]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 117, "indent": 0, "parameters": [29] },
+            { "code": 201, "indent": 0, "parameters": [0, 84, 24, 9, 2, 0] },
+            { "code": 117, "indent": 0, "parameters": [28] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7833,30 +5541,17 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [308, 308, 0, 0, 0]
-            },
+            { "code": 122, "indent": 0, "parameters": [308, 308, 0, 0, 0] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 6"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7893,21 +5588,10 @@
             "pattern": 1,
             "characterIndex": 7
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -7944,21 +5628,10 @@
             "pattern": 1,
             "characterIndex": 3
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8005,30 +5678,17 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [308, 308, 0, 0, 1]
-            },
+            { "code": 122, "indent": 0, "parameters": [308, 308, 0, 0, 1] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 4"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8065,21 +5725,10 @@
             "pattern": 1,
             "characterIndex": 7
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8116,21 +5765,10 @@
             "pattern": 1,
             "characterIndex": 3
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8177,30 +5815,17 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [308, 308, 0, 0, 1]
-            },
+            { "code": 122, "indent": 0, "parameters": [308, 308, 0, 0, 1] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 3 0 4"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8237,21 +5862,10 @@
             "pattern": 1,
             "characterIndex": 7
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8288,21 +5902,10 @@
             "pattern": 1,
             "characterIndex": 3
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8349,25 +5952,12 @@
             "characterIndex": 0
           },
           "list": [
-            {
-              "code": 125,
-              "indent": 0,
-              "parameters": [0, 0, 2300]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 125, "indent": 0, "parameters": [0, 0, 2300] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -8414,21 +6004,13 @@
             "characterIndex": 4
           },
           "list": [
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [324, 324, 0, 0, 66]
-            },
+            { "code": 122, "indent": 0, "parameters": [324, 324, 0, 0, 66] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["TE_SET_SELF_VARIABLE 1 0 1"]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 4,
           "moveRoute": {
@@ -8473,10 +6055,7 @@
                 "parameters": [" this._returnAfter = true"],
                 "indent": null
               },
-              {
-                "code": 0,
-                "parameters": []
-              }
+              { "code": 0, "parameters": [] }
             ],
             "repeat": false,
             "skippable": true,

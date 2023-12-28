@@ -3,18 +3,8 @@
   "autoplayBgs": false,
   "battleback1Name": "",
   "battleback2Name": "",
-  "bgm": {
-    "name": "",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
-  "bgs": {
-    "name": "",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
+  "bgm": { "name": "", "pan": 0, "pitch": 100, "volume": 90 },
+  "bgs": { "name": "", "pan": 0, "pitch": 100, "volume": 90 },
   "disableDashing": false,
   "displayName": "Checkpoint",
   "encounterList": [],
@@ -244,21 +234,10 @@
             "pattern": 0,
             "characterIndex": 2
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -296,25 +275,12 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 63, 29, 47, 0, 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 201, "indent": 0, "parameters": [0, 63, 29, 47, 0, 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -362,25 +328,12 @@
             "characterIndex": 7
           },
           "list": [
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 0]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 0] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -424,15 +377,7 @@
               "parameters": [
                 0,
                 {
-                  "list": [
-                    {
-                      "code": 25,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
-                  ],
+                  "list": [{ "code": 25, "indent": null }, { "code": 0 }],
                   "repeat": false,
                   "skippable": false,
                   "wait": true
@@ -442,12 +387,7 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 25,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 25, "indent": null }]
             },
             {
               "code": 122,
@@ -469,16 +409,8 @@
               "indent": 0,
               "parameters": ["EMW_メッセージウィンドウ指定 1"]
             },
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [1, 323, 0, 3, 1]
-            },
-            {
-              "code": 101,
-              "indent": 1,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 111, "indent": 0, "parameters": [1, 323, 0, 3, 1] },
+            { "code": 101, "indent": 1, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 1,
@@ -491,26 +423,10 @@
               "indent": 1,
               "parameters": [""]
             },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 111,
-              "indent": 1,
-              "parameters": [1, 312, 0, 0, 0]
-            },
-            {
-              "code": 101,
-              "indent": 2,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 111, "indent": 1, "parameters": [1, 312, 0, 0, 0] },
+            { "code": 101, "indent": 2, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 2,
@@ -523,101 +439,37 @@
               "indent": 2,
               "parameters": [""]
             },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 111,
-              "indent": 2,
-              "parameters": [1, 312, 0, 1, 1]
-            },
-            {
-              "code": 101,
-              "indent": 3,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 0, "indent": 2, "parameters": [] },
+            { "code": 411, "indent": 1, "parameters": [] },
+            { "code": 111, "indent": 2, "parameters": [1, 312, 0, 1, 1] },
+            { "code": 101, "indent": 3, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 3,
               "parameters": ["\\EMP Please feel free to drop by anytime!"]
             },
-            {
-              "code": 0,
-              "indent": 3,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 3,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 2,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [180]
-            },
+            { "code": 0, "indent": 3, "parameters": [] },
+            { "code": 411, "indent": 2, "parameters": [] },
+            { "code": 0, "indent": 3, "parameters": [] },
+            { "code": 412, "indent": 2, "parameters": [] },
+            { "code": 0, "indent": 2, "parameters": [] },
+            { "code": 412, "indent": 1, "parameters": [] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 230, "indent": 0, "parameters": [180] },
             {
               "code": 356,
               "indent": 0,
               "parameters": ["EMW_メッセージウィンドウ強制終了 1"]
             },
-            {
-              "code": 356,
-              "indent": 0,
-              "parameters": ["MWP_INVALID"]
-            },
+            { "code": 356, "indent": 0, "parameters": ["MWP_INVALID"] },
             {
               "code": 205,
               "indent": 0,
               "parameters": [
                 0,
                 {
-                  "list": [
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
-                  ],
+                  "list": [{ "code": 16, "indent": null }, { "code": 0 }],
                   "repeat": false,
                   "skippable": false,
                   "wait": true
@@ -627,32 +479,14 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
-            {
-              "code": 123,
-              "indent": 0,
-              "parameters": ["A", 1]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 123, "indent": 0, "parameters": ["A", 1] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -698,21 +532,10 @@
             "direction": 2,
             "pattern": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -758,21 +581,10 @@
             "pattern": 1,
             "characterIndex": 0
           },
-          "list": [
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
-          ],
+          "list": [{ "code": 0, "indent": 0, "parameters": [] }],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -819,11 +631,7 @@
             "tileId": 0
           },
           "list": [
-            {
-              "code": 222,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 222, "indent": 0, "parameters": [] },
             {
               "code": 241,
               "indent": 0,
@@ -836,11 +644,7 @@
                 }
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [90]
-            },
+            { "code": 230, "indent": 0, "parameters": [90] },
             {
               "code": 205,
               "indent": 0,
@@ -848,46 +652,16 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 2,
-                      "indent": null
-                    },
-                    {
-                      "code": 2,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 2, "indent": null },
+                    { "code": 2, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -898,93 +672,47 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 2,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 2, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 2,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 2, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
             {
               "code": 205,
@@ -993,18 +721,9 @@
                 3,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [10],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [10], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1015,34 +734,15 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [10],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [10], "indent": null }]
             },
-            {
-              "code": 213,
-              "indent": 0,
-              "parameters": [3, 1, true]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 213, "indent": 0, "parameters": [3, 1, true] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1050,33 +750,34 @@
                 "\\N<Checkpoint Guard>Ah, has the equipment been successfully repaired?"
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [73]
-            },
+            { "code": 117, "indent": 0, "parameters": [73] },
             {
               "code": 122,
               "indent": 0,
               "parameters": [87, 87, 0, 4, "\"004\""]
             },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
-              "code": 101,
+              "code": 401,
               "indent": 0,
-              "parameters": ["", 0, 0, 2]
+              "parameters": [
+                "\\CE[79]\\OC[31]\\N<\\N[1]>「はい──すみません、慌しくしてしまって。"
+              ]
+            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
+            {
+              "code": 401,
+              "indent": 0,
+              "parameters": ["\\N<検問兵>「いえ、気にしないでください。"]
             },
             {
               "code": 401,
               "indent": 0,
               "parameters": [
-                "\\CE[79]\\OC[31]\\N<Rain>Yes... I'm sorry, I got flustered."
+                "最近は町が荒れてるので、急な事態は慣れたもんです。"
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1084,33 +785,8 @@
                 "\\N<Checkpoint Guard>No, please don't worry. The town has been quite\nchaotic lately, so we're used to unexpected\nsituations."
               ]
             },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
-            {
-              "code": 401,
-              "indent": 0,
-              "parameters": [
-                "\\N<Checkpoint Guard>Well, I certainly didn't expect a beautiful person\nlike you to appear half- naked. Hahaha."
-              ]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": [""]
-            },
-            {
-              "code": 213,
-              "indent": 0,
-              "parameters": [-1, 7, true]
-            },
+            { "code": 401, "indent": 0, "parameters": ["ははは。"] },
+            { "code": 213, "indent": 0, "parameters": [-1, 7, true] },
             {
               "code": 122,
               "indent": 0,
@@ -1126,11 +802,7 @@
               "indent": 0,
               "parameters": [88, 88, 0, 4, "\"blush\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1143,11 +815,7 @@
               "indent": 0,
               "parameters": [""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1168,11 +836,7 @@
               "indent": 0,
               "parameters": [88, 88, 0, 4, "\"empty\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1180,16 +844,8 @@
                 "\\CE[78]\\CE[79]\\CE[83]\\OC[31]\\N<Rain>Well then, I'll take my leave. Thank you for the\nsupplies."
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [80]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [81, 81, 0]
-            },
+            { "code": 117, "indent": 0, "parameters": [80] },
+            { "code": 121, "indent": 0, "parameters": [81, 81, 0] },
             {
               "code": 205,
               "indent": 0,
@@ -1197,14 +853,8 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 29,
-                      "parameters": [3],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 29, "parameters": [3], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1215,13 +865,7 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 29,
-                  "parameters": [3],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 29, "parameters": [3], "indent": null }]
             },
             {
               "code": 356,
@@ -1235,14 +879,8 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 29,
-                      "parameters": [4],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 29, "parameters": [4], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1253,13 +891,7 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 29,
-                  "parameters": [4],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 29, "parameters": [4], "indent": null }]
             },
             {
               "code": 205,
@@ -1267,15 +899,7 @@
               "parameters": [
                 3,
                 {
-                  "list": [
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
-                  ],
+                  "list": [{ "code": 19, "indent": null }, { "code": 0 }],
                   "repeat": false,
                   "skippable": false,
                   "wait": false
@@ -1285,23 +909,13 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Open1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Open1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -1311,36 +925,13 @@
                 1,
                 {
                   "list": [
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [12],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 15, "parameters": [12], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1351,65 +942,32 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [12],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [12], "indent": null }]
             },
             {
               "code": 205,
@@ -1418,25 +976,11 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 37,
-                      "indent": null
-                    },
-                    {
-                      "code": 12,
-                      "indent": null
-                    },
-                    {
-                      "code": 39,
-                      "indent": null
-                    },
-                    {
-                      "code": 38,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 37, "indent": null },
+                    { "code": 12, "indent": null },
+                    { "code": 39, "indent": null },
+                    { "code": 38, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -1447,53 +991,28 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 37,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 37, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 12,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 12, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 39,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 39, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 38,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 38, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Move1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -1503,23 +1022,10 @@
                 3,
                 {
                   "list": [
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [15],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [15], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1530,40 +1036,19 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [15],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [15], "indent": null }]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1571,80 +1056,23 @@
                 "\\N<Checkpoint Guard>I've seen something good... This is definitely\ntonight's fap material...!"
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 221,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [312, 312, 1, 0, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [81, 81, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [235, 235, 1]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 211,
-              "indent": 0,
-              "parameters": [1]
-            },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 63, 29, 47, 8, 0]
-            },
-            {
-              "code": 222,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [235, 235, 0, 0, 0]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [73]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 221, "indent": 0, "parameters": [] },
+            { "code": 122, "indent": 0, "parameters": [312, 312, 1, 0, 1] },
+            { "code": 121, "indent": 0, "parameters": [81, 81, 1] },
+            { "code": 121, "indent": 0, "parameters": [235, 235, 1] },
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 211, "indent": 0, "parameters": [1] },
+            { "code": 201, "indent": 0, "parameters": [0, 63, 29, 47, 8, 0] },
+            { "code": 222, "indent": 0, "parameters": [] },
+            { "code": 122, "indent": 0, "parameters": [235, 235, 0, 0, 0] },
+            { "code": 117, "indent": 0, "parameters": [73] },
+            { "code": 117, "indent": 0, "parameters": [41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -1682,11 +1110,7 @@
             "tileId": 0
           },
           "list": [
-            {
-              "code": 222,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 222, "indent": 0, "parameters": [] },
             {
               "code": 241,
               "indent": 0,
@@ -1699,11 +1123,7 @@
                 }
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [90]
-            },
+            { "code": 230, "indent": 0, "parameters": [90] },
             {
               "code": 205,
               "indent": 0,
@@ -1711,46 +1131,16 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 2,
-                      "indent": null
-                    },
-                    {
-                      "code": 2,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 1,
-                      "indent": null
-                    },
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [30],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 2, "indent": null },
+                    { "code": 2, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 1, "indent": null },
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [30], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1761,93 +1151,47 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 2,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 2, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 2,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 2, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 1,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 1, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [30],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [30], "indent": null }]
             },
             {
               "code": 205,
@@ -1856,18 +1200,9 @@
                 3,
                 {
                   "list": [
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [10],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [10], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -1878,34 +1213,15 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [10],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [10], "indent": null }]
             },
-            {
-              "code": 213,
-              "indent": 0,
-              "parameters": [3, 1, true]
-            },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 213, "indent": 0, "parameters": [3, 1, true] },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1913,21 +1229,13 @@
                 "\\N<Checkpoint Guard>Has the equipment repair been completed?"
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [73]
-            },
+            { "code": 117, "indent": 0, "parameters": [73] },
             {
               "code": 122,
               "indent": 0,
               "parameters": [87, 87, 0, 4, "\"004\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1935,11 +1243,7 @@
                 "\\CE[79]\\OC[31]\\N<Rain>Yes... I've caused trouble again, haven't I..."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1947,11 +1251,7 @@
                 "\\N<Checkpoint Guard>No, no, please don't worry about it at all."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1974,11 +1274,7 @@
               "indent": 0,
               "parameters": [85, 85, 0, 4, "\"004\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1986,11 +1282,7 @@
                 "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Thank you. Indeed, it seems like something like\nthis might happen again..."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -1998,11 +1290,7 @@
                 "\\N<Checkpoint Guard>I am honored to be able to assist you, Holy\nKnight-sama."
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [30]
-            },
+            { "code": 230, "indent": 0, "parameters": [30] },
             {
               "code": 122,
               "indent": 0,
@@ -2013,11 +1301,7 @@
               "indent": 0,
               "parameters": [85, 85, 0, 4, "\"000\""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2025,16 +1309,8 @@
                 "\\CE[78]\\CE[79]\\OC[31]\\N<Rain>Well then, I'll be in a hurry. Thank you very\nmuch."
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [80]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [81, 81, 0]
-            },
+            { "code": 117, "indent": 0, "parameters": [80] },
+            { "code": 121, "indent": 0, "parameters": [81, 81, 0] },
             {
               "code": 205,
               "indent": 0,
@@ -2042,14 +1318,8 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 29,
-                      "parameters": [3],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 29, "parameters": [3], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -2060,13 +1330,7 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 29,
-                  "parameters": [3],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 29, "parameters": [3], "indent": null }]
             },
             {
               "code": 356,
@@ -2080,14 +1344,8 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 29,
-                      "parameters": [4],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 29, "parameters": [4], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -2098,13 +1356,7 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 29,
-                  "parameters": [4],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 29, "parameters": [4], "indent": null }]
             },
             {
               "code": 205,
@@ -2112,15 +1364,7 @@
               "parameters": [
                 3,
                 {
-                  "list": [
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
-                  ],
+                  "list": [{ "code": 19, "indent": null }, { "code": 0 }],
                   "repeat": false,
                   "skippable": false,
                   "wait": false
@@ -2130,23 +1374,13 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Open1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Open1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -2156,36 +1390,13 @@
                 1,
                 {
                   "list": [
-                    {
-                      "code": 17,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 18,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [8],
-                      "indent": null
-                    },
-                    {
-                      "code": 19,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [12],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 17, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 18, "indent": null },
+                    { "code": 15, "parameters": [8], "indent": null },
+                    { "code": 19, "indent": null },
+                    { "code": 15, "parameters": [12], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -2196,65 +1407,32 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 17,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 17, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 18,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 18, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [8],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [8], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 19,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 19, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [12],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [12], "indent": null }]
             },
             {
               "code": 205,
@@ -2263,25 +1441,11 @@
                 -1,
                 {
                   "list": [
-                    {
-                      "code": 37,
-                      "indent": null
-                    },
-                    {
-                      "code": 12,
-                      "indent": null
-                    },
-                    {
-                      "code": 39,
-                      "indent": null
-                    },
-                    {
-                      "code": 38,
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 37, "indent": null },
+                    { "code": 12, "indent": null },
+                    { "code": 39, "indent": null },
+                    { "code": 38, "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": true,
@@ -2292,53 +1456,28 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 37,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 37, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 12,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 12, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 39,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 39, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 38,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 38, "indent": null }]
             },
             {
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Move1",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Move1", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
             {
@@ -2348,23 +1487,10 @@
                 3,
                 {
                   "list": [
-                    {
-                      "code": 15,
-                      "parameters": [60],
-                      "indent": null
-                    },
-                    {
-                      "code": 16,
-                      "indent": null
-                    },
-                    {
-                      "code": 15,
-                      "parameters": [15],
-                      "indent": null
-                    },
-                    {
-                      "code": 0
-                    }
+                    { "code": 15, "parameters": [60], "indent": null },
+                    { "code": 16, "indent": null },
+                    { "code": 15, "parameters": [15], "indent": null },
+                    { "code": 0 }
                   ],
                   "repeat": false,
                   "skippable": false,
@@ -2375,40 +1501,19 @@
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [60],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [60], "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 16,
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 16, "indent": null }]
             },
             {
               "code": 505,
               "indent": 0,
-              "parameters": [
-                {
-                  "code": 15,
-                  "parameters": [15],
-                  "indent": null
-                }
-              ]
+              "parameters": [{ "code": 15, "parameters": [15], "indent": null }]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2416,11 +1521,7 @@
                 "\\N<Checkpoint Guard>Sigh... Seriously, you have an irresistible\nbody... I mean, your breasts were exposed after\nall."
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2433,11 +1534,7 @@
               "indent": 0,
               "parameters": [""]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 0, 2]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 0, 2] },
             {
               "code": 401,
               "indent": 0,
@@ -2445,75 +1542,22 @@
                 "\\N<Checkpoint Guard>Ugh, tonight I'm going to jerk off to that girl\nagain...!"
               ]
             },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 221,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [312, 312, 1, 0, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [81, 81, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [235, 235, 1]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 211,
-              "indent": 0,
-              "parameters": [1]
-            },
-            {
-              "code": 201,
-              "indent": 0,
-              "parameters": [0, 63, 29, 47, 8, 0]
-            },
-            {
-              "code": 222,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [73]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 221, "indent": 0, "parameters": [] },
+            { "code": 122, "indent": 0, "parameters": [312, 312, 1, 0, 1] },
+            { "code": 121, "indent": 0, "parameters": [81, 81, 1] },
+            { "code": 121, "indent": 0, "parameters": [235, 235, 1] },
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 211, "indent": 0, "parameters": [1] },
+            { "code": 201, "indent": 0, "parameters": [0, 63, 29, 47, 8, 0] },
+            { "code": 222, "indent": 0, "parameters": [] },
+            { "code": 117, "indent": 0, "parameters": [73] },
+            { "code": 117, "indent": 0, "parameters": [41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false
@@ -2555,49 +1599,20 @@
               "code": 250,
               "indent": 0,
               "parameters": [
-                {
-                  "name": "Heal3",
-                  "volume": 90,
-                  "pitch": 100,
-                  "pan": 0
-                }
+                { "name": "Heal3", "volume": 90, "pitch": 100, "pan": 0 }
               ]
             },
-            {
-              "code": 101,
-              "indent": 0,
-              "parameters": ["", 0, 1, 1]
-            },
+            { "code": 101, "indent": 0, "parameters": ["", 0, 1, 1] },
             {
               "code": 401,
               "indent": 0,
               "parameters": ["Rain fixed her equipment at the checkpoint."]
             },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [81, 81, 1]
-            },
-            {
-              "code": 121,
-              "indent": 0,
-              "parameters": [235, 235, 1]
-            },
-            {
-              "code": 122,
-              "indent": 0,
-              "parameters": [312, 312, 1, 0, 1]
-            },
-            {
-              "code": 230,
-              "indent": 0,
-              "parameters": [60]
-            },
-            {
-              "code": 222,
-              "indent": 0,
-              "parameters": []
-            },
+            { "code": 121, "indent": 0, "parameters": [81, 81, 1] },
+            { "code": 121, "indent": 0, "parameters": [235, 235, 1] },
+            { "code": 122, "indent": 0, "parameters": [312, 312, 1, 0, 1] },
+            { "code": 230, "indent": 0, "parameters": [60] },
+            { "code": 222, "indent": 0, "parameters": [] },
             {
               "code": 241,
               "indent": 0,
@@ -2610,30 +1625,13 @@
                 }
               ]
             },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [73]
-            },
-            {
-              "code": 117,
-              "indent": 0,
-              "parameters": [41]
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 117, "indent": 0, "parameters": [73] },
+            { "code": 117, "indent": 0, "parameters": [41] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false

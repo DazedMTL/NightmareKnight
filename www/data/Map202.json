@@ -3,18 +3,8 @@
   "autoplayBgs": false,
   "battleback1Name": "",
   "battleback2Name": "",
-  "bgm": {
-    "name": "",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 90
-  },
-  "bgs": {
-    "name": "River",
-    "pan": 0,
-    "pitch": 100,
-    "volume": 40
-  },
+  "bgm": { "name": "", "pan": 0, "pitch": 100, "volume": 90 },
+  "bgs": { "name": "River", "pan": 0, "pitch": 100, "volume": 40 },
   "disableDashing": false,
   "displayName": "Northeast Dungeon",
   "encounterList": [],
@@ -2102,60 +2092,19 @@
             "characterIndex": 2
           },
           "list": [
-            {
-              "code": 111,
-              "indent": 0,
-              "parameters": [0, 2, 0]
-            },
-            {
-              "code": 212,
-              "indent": 1,
-              "parameters": [0, 1, false]
-            },
-            {
-              "code": 214,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 315,
-              "indent": 1,
-              "parameters": [0, 1, 0, 0, 100, true]
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 411,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 1,
-              "parameters": []
-            },
-            {
-              "code": 412,
-              "indent": 0,
-              "parameters": []
-            },
-            {
-              "code": 0,
-              "indent": 0,
-              "parameters": []
-            }
+            { "code": 111, "indent": 0, "parameters": [0, 2, 0] },
+            { "code": 212, "indent": 1, "parameters": [0, 1, false] },
+            { "code": 214, "indent": 1, "parameters": [] },
+            { "code": 315, "indent": 1, "parameters": [0, 1, 0, 0, 100, true] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 411, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 1, "parameters": [] },
+            { "code": 412, "indent": 0, "parameters": [] },
+            { "code": 0, "indent": 0, "parameters": [] }
           ],
           "moveFrequency": 3,
           "moveRoute": {
-            "list": [
-              {
-                "code": 0,
-                "parameters": []
-              }
-            ],
+            "list": [{ "code": 0, "parameters": [] }],
             "repeat": true,
             "skippable": false,
             "wait": false

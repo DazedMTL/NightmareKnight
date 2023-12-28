@@ -4311,19 +4311,19 @@ DataManager._databaseFiles.push({
   "use strict";
 
   /*! *****************************************************************************
-	Copyright (c) Microsoft Corporation. All rights reserved.
-	Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-	this file except in compliance with the License. You may obtain a copy of the
-	License at http://www.apache.org/licenses/LICENSE-2.0
-	
-	THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-	KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-	WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-	MERCHANTABLITY OR NON-INFRINGEMENT.
-	
-	See the Apache Version 2.0 License for specific language governing permissions
-	and limitations under the License.
-	***************************************************************************** */
+Copyright (c) Microsoft Corporation. All rights reserved.
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
+WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
+MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing permissions
+and limitations under the License.
+***************************************************************************** */
   /* global Reflect, Promise */
   var extendStatics = function (d, b) {
     extendStatics =
@@ -5023,7 +5023,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Scene_Map
-	===================================*/
+===================================*/
   var _Scene_Map_start = Scene_Map.prototype.start;
   Scene_Map.prototype.start = function () {
     if ($gameMap && $gameScreen._particle) {
@@ -5034,7 +5034,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Event
-	===================================*/
+===================================*/
   var _Game_Event_setupPage = Game_Event.prototype.setupPage;
   Game_Event.prototype.setupPage = function () {
     _Game_Event_setupPage.call(this);
@@ -5078,7 +5078,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Game_Battler
-	===================================*/
+===================================*/
   Game_Battler.prototype.setupStateParticles = function (state) {
     var meta = state.meta;
     if (!meta.particle && !meta.particle1) return;
@@ -5095,7 +5095,7 @@ DataManager._databaseFiles.push({
   };
 
   /* State
-	===================================*/
+===================================*/
   if (!disableState) {
     var _Game_Battler_addNewState = Game_Battler.prototype.addNewState;
     Game_Battler.prototype.addNewState = function (stateId) {
@@ -5156,7 +5156,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Troop&Enemy
-	===================================*/
+===================================*/
   var _Game_Troop_setup = Game_Troop.prototype.setup;
   Game_Troop.prototype.setup = function (troopId) {
     _Game_Troop_setup.apply(this, arguments);
@@ -5189,7 +5189,7 @@ DataManager._databaseFiles.push({
   };
 
   /* skill
-	===================================*/
+===================================*/
   if (!disableSkill) {
     var _Window_BattleLog_startAction = Window_BattleLog.prototype.startAction;
     Window_BattleLog.prototype.startAction = function (
@@ -5297,7 +5297,7 @@ DataManager._databaseFiles.push({
   }
 
   /* Scene_Battle
-	===================================*/
+===================================*/
   var _Scene_Battle_terminate = Scene_Battle.prototype.terminate;
   Scene_Battle.prototype.terminate = function () {
     _Scene_Battle_terminate.call(this);
@@ -5408,7 +5408,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Scene_Boot
-	===================================*/
+===================================*/
   var _Scene_Boot_start = Scene_Boot.prototype.start;
   Scene_Boot.prototype.start = function () {
     _Scene_Boot_start.call(this);
@@ -5416,7 +5416,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Scene_Map
-	===================================*/
+===================================*/
   Scene_Map.prototype.initializeParticleSystem = function () {
     Scene_Base.prototype.initializeParticleSystem.call(this);
     this._useCachedParticleSystem = false;
@@ -5502,7 +5502,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Scene_Battle
-	===================================*/
+===================================*/
   Scene_Battle.prototype.useParticleSystem = function () {
     return true;
   };
@@ -5527,7 +5527,7 @@ DataManager._databaseFiles.push({
   };
 
   /* Scene_Load
-	===================================*/
+===================================*/
   var _Scene_Load_onLoadSuccess = Scene_Load.prototype.onLoadSuccess;
   Scene_Load.prototype.onLoadSuccess = function () {
     ParticleSystem.clearCache();
@@ -6246,7 +6246,7 @@ DataManager._databaseFiles.push({
   };
 
   /* exceed
-	===================================*/
+===================================*/
   Game_Particle.prototype.particleExceed = function (id, arg) {
     var targetIds = this.targetIds(id);
     var length = targetIds.length;
@@ -6270,7 +6270,7 @@ DataManager._databaseFiles.push({
   };
 
   /* loop
-	===================================*/
+===================================*/
   Game_Particle.prototype.particleLoop = function (id, x, y) {
     if (x === undefined) {
       x = 48;
@@ -6297,7 +6297,7 @@ DataManager._databaseFiles.push({
   };
 
   /* filter
-	===================================*/
+===================================*/
   Game_Particle.prototype.particleFilter = function (args) {
     var id = args.shift();
     var filterType = args.shift().toLowerCase();
@@ -6375,13 +6375,13 @@ DataManager._databaseFiles.push({
   };
 
   /* maxParticles
-	===================================*/
+===================================*/
   Game_Particle.prototype.resetMaxParticles = function () {
     this.maxParticles = maxParticles;
   };
 
   /* cache & auto clear
-	===================================*/
+===================================*/
   Game_Particle.prototype.removeAll = function () {
     var keys = this._keys;
     var length = keys.length;
@@ -6594,7 +6594,7 @@ DataManager._databaseFiles.push({
   };
 
   /* tag
-	===================================*/
+===================================*/
   Game_Particle.prototype.extractTagRegister = function (args) {
     var tag = "";
 
@@ -6644,7 +6644,7 @@ DataManager._databaseFiles.push({
   };
 
   /* helper&accessor
-	===================================*/
+===================================*/
   Game_Particle.prototype.dataWithId = function (id, noErrorLog) {
     if (this._suffix) {
       var suffixIdx = id.indexOf(this._suffix);
@@ -7175,7 +7175,7 @@ DataManager._databaseFiles.push({
   };
 
   /* capacity
-	===================================*/
+===================================*/
   ParticleSystem.prototype.refreshCapacity = function () {
     var keys = this._keys;
     var emitters = this._emitters;
@@ -7555,7 +7555,7 @@ DataManager._databaseFiles.push({
   };
 
   /* util interface
-	===================================*/
+===================================*/
   ParticleEmitter.prototype.setParticleCapacity = function (value) {
     if (this._freezed) return;
     if (
@@ -7586,7 +7586,7 @@ DataManager._databaseFiles.push({
   };
 
   /* start
-	===================================*/
+===================================*/
   ParticleEmitter.prototype.tryStart = function (image, bitmaps) {
     if (this._started) return;
 
@@ -7725,7 +7725,7 @@ DataManager._databaseFiles.push({
   };
 
   /* update
-	===================================*/
+===================================*/
   ParticleEmitter.prototype.particleCount = function (subId = "") {
     if (this._freezed || !this._emitter) return 0;
     if (subId) {
@@ -8588,7 +8588,7 @@ DataManager._databaseFiles.push({
   };
 
   /* loop
-	===================================*/
+===================================*/
   ParticleEmitter.prototype.loopParticles = function (
     loopX,
     loopY,
@@ -8635,7 +8635,7 @@ DataManager._databaseFiles.push({
   };
 
   /* each targets
-	===================================*/
+===================================*/
   ParticleEmitter.prototype.updateCharacterOutsideFreeze = function (x, y) {
     if (this._data.stop) {
       this._freezed = false;
@@ -8779,13 +8779,13 @@ DataManager._databaseFiles.push({
   };
 
   /* accessor
-	===================================*/
+===================================*/
   ParticleEmitter.prototype.container = function () {
     return this._container;
   };
 
   /* helper
-	===================================*/
+===================================*/
   ParticleEmitter.TRIGGER_TYPE_TARGETS = [
     TARGET_TYPES.walk,
     TARGET_TYPES.startdash,
@@ -8803,7 +8803,7 @@ DataManager._databaseFiles.push({
   };
 
   /* filters
-	===================================*/
+===================================*/
   if (PIXI.filters) {
     var FILTER = {
       classWithType: {
@@ -9554,7 +9554,7 @@ DataManager._databaseFiles.push({
   ParticleEmitter.TRP_Particle = TRP_Particle;
 
   /* test command
-	===================================*/
+===================================*/
   //PRAGMA: testCommands
   Game_Interpreter.prototype.trpParticleTest = function () {
     var eventId = this.isOnCurrentMap() ? this._eventId : 0;
@@ -9851,7 +9851,7 @@ DataManager._databaseFiles.push({
   };
 
   /* instant bug fix
-	===================================*/
+===================================*/
   (() => {
     if (
       parameters.windowBugFix === "false" ||
@@ -9868,7 +9868,7 @@ DataManager._databaseFiles.push({
   })();
 
   /* cache config
-	===================================*/
+===================================*/
   (function () {
     "use strict";
     if (!parameters.useCache || parameters.useCache === "false") return;

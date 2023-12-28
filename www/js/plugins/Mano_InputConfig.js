@@ -780,71 +780,71 @@
  *  @type note
  */
 /*~struct~MultiLangNoteFull:
- * @param jp
- *  @text 日本語
- *  @type multiline_string
- *  @type note
+  * @param jp
+  *  @text 日本語
+  *  @type multiline_string
+  *  @type note
 
- *  @param en
- *  @type multiline_string
- *  @type note
+  *  @param en
+  *  @type multiline_string
+  *  @type note
 
- *  @param ch
- *  @text 中文
- *  @type multiline_string
- *  @type note
+  *  @param ch
+  *  @text 中文
+  *  @type multiline_string
+  *  @type note
 
- *  @param ko
- *  @text 한국
- *  @type multiline_string
- *  @type note
+  *  @param ko
+  *  @text 한국
+  *  @type multiline_string
+  *  @type note
 
- *  @param ge
- *  @text Deutsche
- *  @type multiline_string
- *  @type note
+  *  @param ge
+  *  @text Deutsche
+  *  @type multiline_string
+  *  @type note
 
- *  @param fr
- *  @text français
- *  @type multiline_string
- *  @type note
+  *  @param fr
+  *  @text français
+  *  @type multiline_string
+  *  @type note
 
- *  @param ru
- *  @text русский
- *  @type multiline_string
- *  @type note
-*/
+  *  @param ru
+  *  @text русский
+  *  @type multiline_string
+  *  @type note
+ */
 
 /*~struct~MultiLangString:
- * @param jp
- * @text 日本語
+  * @param jp
+  * @text 日本語
 
- * @param en
- * @text English
-*/
+  * @param en
+  * @text English
+ */
 
 /*~struct~MultiLangStringFull:
- * @param jp
-   @text 日本語
+  * @param jp
+    @text 日本語
 
-   @param en
-   @text English
+    @param en
+    @text English
 
-   @param ch
-   @text 中文
+    @param ch
+    @text 中文
 
-   @param ko
-   @text 한국
+    @param ko
+    @text 한국
 
-   @param ge
-   @text Deutsche
+    @param ge
+    @text Deutsche
 
-   @param fr
-   @text français
+    @param fr
+    @text français
 
-   @param ru
-   @text русский
-*/
+    @param ru
+    @text русский
+ */
 /*~struct~KeyconfigCommand:
  *
  * @param width

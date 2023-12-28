@@ -92,7 +92,7 @@
     var forAll = targetName === "all" || targetName === "全員";
 
     /* process resetAllCostume firstly
-		===================================*/
+	===================================*/
     if (forAll) {
       if (isCommandOn) return;
       if (isCommandOff) return;
@@ -101,7 +101,7 @@
     }
 
     /* prepare target actor data
-		===================================*/
+	===================================*/
     targetName = this.actorFolderName(targetName);
     if (!targetName) return;
 
@@ -111,7 +111,7 @@
     }
 
     /* prepare targetCostumeType
-		===================================*/
+	===================================*/
     var targetType;
     var typeName = parameters.costumeTypeMap[costumeName];
     if (typeName) {
@@ -127,7 +127,7 @@
     }
 
     /* remove costumes at once
-		===================================*/
+	===================================*/
     var costumeAll =
       costumeName.toLowerCase() === "all" || costumeName === "全て";
     if (targetType) {
@@ -138,7 +138,7 @@
     }
 
     /* processCommand
-		===================================*/
+	===================================*/
     if (isCommandOn) {
       this._processCostumeOn(targetData, costumeName);
     } else if (isCommandOff) {
@@ -148,7 +148,7 @@
     }
 
     /* apply costume if showing
-		===================================*/
+	===================================*/
     if (forAll) {
       this._applyAllActorsCostume(fade);
     } else if (this.names().contains(targetName)) {
@@ -280,7 +280,7 @@
   };
 
   /* apply Costume
-	===================================*/
+===================================*/
   SkitActor.prototype.applyCostume = function (animation, force) {
     if (this.isShowing()) {
       this.setupCostume();
@@ -418,7 +418,7 @@
     var overlayNames = picture._exOverlays.concat();
 
     /* remove old overlays
-		===================================*/
+	===================================*/
     var overlayNamePrefix = this._pictureName + "_costume_";
     for (i = length; i >= 0; i = (i - 1) | 0) {
       overlay = overlays[i];
@@ -446,7 +446,7 @@
     }
 
     /* add new overlays
-		===================================*/
+	===================================*/
     length = overlayNames.length;
     for (i = 0; i < length; i = (i + 1) | 0) {
       var name = "costume_" + overlayNames[i] + "_" + this._pictureName;

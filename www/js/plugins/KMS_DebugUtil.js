@@ -728,26 +728,26 @@ if (Utils.isOptionValid("test")) {
      *  ※ 警告が出るので使わない
      */
     /*
-        DataManager.loadDataFileSync = function(name, src)
-        {
-            var xhr = new XMLHttpRequest();
-            var url = 'data/' + src;
-            xhr.open('GET', url, false);
-            xhr.overrideMimeType('application/json');
-            window[name] = null;
-            xhr.send(null);
-        
-            if (xhr.status < 400)
-            {
-                window[name] = JSON.parse(xhr.responseText);
-                DataManager.onLoad(window[name]);
-            }
-            else
-            {
-                DataManager._errorUrl = DataManager._errorUrl || url;
-            }
-        };
-        */
+DataManager.loadDataFileSync = function(name, src)
+{
+    var xhr = new XMLHttpRequest();
+    var url = 'data/' + src;
+    xhr.open('GET', url, false);
+    xhr.overrideMimeType('application/json');
+    window[name] = null;
+    xhr.send(null);
+
+    if (xhr.status < 400)
+    {
+        window[name] = JSON.parse(xhr.responseText);
+        DataManager.onLoad(window[name]);
+    }
+    else
+    {
+        DataManager._errorUrl = DataManager._errorUrl || url;
+    }
+};
+*/
 
     /**
      * 一時マップデータの読み込み
@@ -3876,15 +3876,15 @@ if (Utils.isOptionValid("test")) {
       this._editWindow.y = wy;
       this._editWindow.height = this._rangeWindow.height;
       /*
-                this._debugHelpWindow.y      = wy + this._editWindow.height;
-                this._debugHelpWindow.height = Graphics.boxHeight - this._debugHelpWindow.y;
-                this._debugHelpWindow.resetFontSettings = function()
-                {
-                    Window_Base.prototype.resetFontSettings.call(this);
-            
-                    this.contents.fontSize *= 0.75;
-                };
-            */
+    this._debugHelpWindow.y      = wy + this._editWindow.height;
+    this._debugHelpWindow.height = Graphics.boxHeight - this._debugHelpWindow.y;
+    this._debugHelpWindow.resetFontSettings = function()
+    {
+        Window_Base.prototype.resetFontSettings.call(this);
+
+        this.contents.fontSize *= 0.75;
+    };
+*/
 
       // 表示状態で作成されるが、初期状態では非表示にしておくウィンドウ群
       this._rangeWindow.deactivate();
