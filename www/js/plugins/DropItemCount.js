@@ -43,62 +43,68 @@ https://opensource.org/licenses/mit-license.php
 @default \I[%1]%2を%3個手に入れた！
 */
 (() => {
-    'use strict';
+  "use strict";
 
-    // ベースプラグインの処理
-    function Potadra_getPluginName(extension = 'js') {
-        const reg = new RegExp(".+\/(.+)\." + extension);
-        return decodeURIComponent(document.currentScript.src).replace(reg, '$1');
-    }
+  // ベースプラグインの処理
+  function Potadra_getPluginName(extension = "js") {
+    const reg = new RegExp(".+/(.+)." + extension);
+    return decodeURIComponent(document.currentScript.src).replace(reg, "$1");
+  }
 
-    // パラメータ用変数
-    const plugin_name = Potadra_getPluginName();
-    const params = PluginManager.parameters(plugin_name);
+  // パラメータ用変数
+  const plugin_name = Potadra_getPluginName();
+  const params = PluginManager.parameters(plugin_name);
 
-    // 各パラメータ用変数
-    const ObtainItemMessage = String(params.ObtainItemMessage);
+  // 各パラメータ用変数
+  const ObtainItemMessage = String(params.ObtainItemMessage);
 
-    /**
-     * 戦闘の進行を管理する静的クラスです。
-     *
-     * @namespace
-     */
+  /**
+   * 戦闘の進行を管理する静的クラスです。
+   *
+   * @namespace
+   */
 
-    /**
-     * ドロップアイテムの表示
-     */
-    BattleManager.displayDropItems = function () {
-        // ドロップアイテムを配列で取得
-        const items = this._rewards.items;
+  /**
+   * ドロップアイテムの表示
+   */
+  BattleManager.displayDropItems = function () {
+    // ドロップアイテムを配列で取得
+    const items = this._rewards.items;
 
-        // ドロップアイテムがない場合は、終了
-        if (items.length > 0) {
-            // ドロップアイテムの個数を調べる
-            const item_counts = {};
-            items.forEach(function (item) {
-                if (item) {
-                    if (item_counts[item.name]) {
-                        item_counts[item.name]++;
-                    } else {
-                        item_counts[item.name] = 1;
-                    }
-                }
-            });
-
-            // ドロップアイテムの表示
-            const gain_items = [];
-            $gameMessage.newPage();
-            items.forEach(function (item) {
-                if (item) {
-                    // 同じアイテムを重複して表示しないようにする
-                    if (gain_items.indexOf(item) == -1) {
-                        if (ObtainItemMessage) {
-                            $gameMessage.add(ObtainItemMessage.format(item.iconIndex, item.name, item_counts[item.name]));
-                        }
-                        gain_items.push(item);
-                    }
-                }
-            });
+    // ドロップアイテムがない場合は、終了
+    if (items.length > 0) {
+      // ドロップアイテムの個数を調べる
+      const item_counts = {};
+      items.forEach(function (item) {
+        if (item) {
+          if (item_counts[item.name]) {
+            item_counts[item.name]++;
+          } else {
+            item_counts[item.name] = 1;
+          }
         }
-    };
+      });
+
+      // ドロップアイテムの表示
+      const gain_items = [];
+      $gameMessage.newPage();
+      items.forEach(function (item) {
+        if (item) {
+          // 同じアイテムを重複して表示しないようにする
+          if (gain_items.indexOf(item) == -1) {
+            if (ObtainItemMessage) {
+              $gameMessage.add(
+                ObtainItemMessage.format(
+                  item.iconIndex,
+                  item.name,
+                  item_counts[item.name]
+                )
+              );
+            }
+            gain_items.push(item);
+          }
+        }
+      });
+    }
+  };
 })();

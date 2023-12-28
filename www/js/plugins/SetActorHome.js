@@ -27,10 +27,10 @@
  * プラグインコマンド例（応用編）：
  *   SetActorHomeX (index == 0) ? 100 : 200
  *   : 「indexが0の場合、100。それ以外の場合、200」
- *   
+ *
  *   SetActorHomeX (index == 0 || index == 1) ? 100 : 200
  *   : 「indexが0か1の場合、100。それ以外の場合、200」
- *   
+ *
  *   SetActorHomeX (index == 0) ? 100 : (index == 1) ? 200 : 300
  *   : 「indexが0の場合、100。indexが1の場合、200。それ以外の場合、300」
  *
@@ -52,32 +52,35 @@
  */
 
 (function () {
-    var _PLUGIN = 'SetActorHome';
-    var _PARAMETERS = PluginManager.parameters(_PLUGIN);
+  var _PLUGIN = "SetActorHome";
+  var _PARAMETERS = PluginManager.parameters(_PLUGIN);
 
-    var _DEFAULT_HOME_X = _PARAMETERS['Default Home X'];
-    var _DEFAULT_HOME_Y = _PARAMETERS['Default Home Y'];
+  var _DEFAULT_HOME_X = _PARAMETERS["Default Home X"];
+  var _DEFAULT_HOME_Y = _PARAMETERS["Default Home Y"];
 
-    function _p(o) { return o[_PLUGIN] = o[_PLUGIN] || {} };
+  function _p(o) {
+    return (o[_PLUGIN] = o[_PLUGIN] || {});
+  }
 
-    var _alias_Sprite_Actor_setActorHome = Sprite_Actor.prototype.setActorHome;
-    Sprite_Actor.prototype.setActorHome = function (index) {
-        _alias_Sprite_Actor_setActorHome.call(this, index);
-        var homeX = _p($gameSystem).x ? _p($gameSystem).x : _DEFAULT_HOME_X;
-        var homeY = _p($gameSystem).y ? _p($gameSystem).y : _DEFAULT_HOME_Y;
-        this.setHome(eval(homeX), eval(homeY));
-    };
+  var _alias_Sprite_Actor_setActorHome = Sprite_Actor.prototype.setActorHome;
+  Sprite_Actor.prototype.setActorHome = function (index) {
+    _alias_Sprite_Actor_setActorHome.call(this, index);
+    var homeX = _p($gameSystem).x ? _p($gameSystem).x : _DEFAULT_HOME_X;
+    var homeY = _p($gameSystem).y ? _p($gameSystem).y : _DEFAULT_HOME_Y;
+    this.setHome(eval(homeX), eval(homeY));
+  };
 
-    var _alias_Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _alias_Game_Interpreter_pluginCommand.call(this, command, args);
-        switch (command) {
-            case 'SetActorHomeX':
-                _p($gameSystem).x = args.join(' ');
-                break;
-            case 'SetActorHomeY':
-                _p($gameSystem).y = args.join(' ');
-                break;
-        }
+  var _alias_Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _alias_Game_Interpreter_pluginCommand.call(this, command, args);
+    switch (command) {
+      case "SetActorHomeX":
+        _p($gameSystem).x = args.join(" ");
+        break;
+      case "SetActorHomeY":
+        _p($gameSystem).y = args.join(" ");
+        break;
     }
-}());
+  };
+})();

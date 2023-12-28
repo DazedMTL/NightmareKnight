@@ -36,35 +36,37 @@
  */
 
 (function () {
-    const _PNAME = 'AlwaysAppliedBattleEvent';
-    const _PARAMETERS = PluginManager.parameters(_PNAME);
+  const _PNAME = "AlwaysAppliedBattleEvent";
+  const _PARAMETERS = PluginManager.parameters(_PNAME);
 
-    const _TROOP_ID = +_PARAMETERS['Troop ID'];
+  const _TROOP_ID = +_PARAMETERS["Troop ID"];
 
-    function _(f) { return f[_PNAME] = f[_PNAME] || {} }
+  function _(f) {
+    return (f[_PNAME] = f[_PNAME] || {});
+  }
 
-    //==========================================================================
-    // Game Troop
-    //==========================================================================
+  //==========================================================================
+  // Game Troop
+  //==========================================================================
 
-    var _Game_Troop_initialize = Game_Troop.prototype.initialize;
-    Game_Troop.prototype.initialize = function () {
-        _Game_Troop_initialize.call(this);
-        _(this)._alwaysEvent = [];
-        $dataTroops.some(function (troop) {
-            if (troop && troop.id === _TROOP_ID) {
-                _(this)._alwaysEvent = troop.pages;
-                return true;
-            }
-        }, this);
-    };
+  var _Game_Troop_initialize = Game_Troop.prototype.initialize;
+  Game_Troop.prototype.initialize = function () {
+    _Game_Troop_initialize.call(this);
+    _(this)._alwaysEvent = [];
+    $dataTroops.some(function (troop) {
+      if (troop && troop.id === _TROOP_ID) {
+        _(this)._alwaysEvent = troop.pages;
+        return true;
+      }
+    }, this);
+  };
 
-    var _Game_Troop_troop = Game_Troop.prototype.troop;
-    Game_Troop.prototype.troop = function () {
-        var troop = JsonEx.makeDeepCopy(_Game_Troop_troop.call(this));
-        if (this._troopId !== _TROOP_ID) {
-            Array.prototype.push.apply(troop.pages, _(this)._alwaysEvent);
-        }
-        return troop;
-    };
-}());
+  var _Game_Troop_troop = Game_Troop.prototype.troop;
+  Game_Troop.prototype.troop = function () {
+    var troop = JsonEx.makeDeepCopy(_Game_Troop_troop.call(this));
+    if (this._troopId !== _TROOP_ID) {
+      Array.prototype.push.apply(troop.pages, _(this)._alwaysEvent);
+    }
+    return troop;
+  };
+})();

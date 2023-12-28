@@ -43,43 +43,50 @@
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    var getCommandName = function (command) {
-        return (command || '').toUpperCase();
-    };
+  var getCommandName = function (command) {
+    return (command || "").toUpperCase();
+  };
 
-    //=============================================================================
-    // Game_Interpreter
-    //  プラグインコマンドを追加定義します。
-    //=============================================================================
-    var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.apply(this, arguments);
-        this.pluginCommandDisableFastForward(command, args);
-    };
+  //=============================================================================
+  // Game_Interpreter
+  //  プラグインコマンドを追加定義します。
+  //=============================================================================
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    this.pluginCommandDisableFastForward(command, args);
+  };
 
-    Game_Interpreter.prototype.pluginCommandDisableFastForward = function (command, args) {
-        switch (getCommandName(command)) {
-            case 'イベント高速化禁止':
-            case 'DISABLE_FAST_FORWARD':
-                $gameSystem.disableFastForward = true;
-                break;
-            case 'イベント高速化許可':
-            case 'ENABLE_FAST_FORWARD':
-                $gameSystem.disableFastForward = false;
-                break;
-        }
-    };
+  Game_Interpreter.prototype.pluginCommandDisableFastForward = function (
+    command,
+    args
+  ) {
+    switch (getCommandName(command)) {
+      case "イベント高速化禁止":
+      case "DISABLE_FAST_FORWARD":
+        $gameSystem.disableFastForward = true;
+        break;
+      case "イベント高速化許可":
+      case "ENABLE_FAST_FORWARD":
+        $gameSystem.disableFastForward = false;
+        break;
+    }
+  };
 
-    var _Game_System_initialize = Game_System.prototype.initialize;
-    Game_System.prototype.initialize = function () {
-        _Game_System_initialize.apply(this, arguments);
-        this.disableFastForward = false;
-    };
+  var _Game_System_initialize = Game_System.prototype.initialize;
+  Game_System.prototype.initialize = function () {
+    _Game_System_initialize.apply(this, arguments);
+    this.disableFastForward = false;
+  };
 
-    var _Scene_Map_isFastForward = Scene_Map.prototype.isFastForward;
-    Scene_Map.prototype.isFastForward = function () {
-        return !$gameSystem.disableFastForward && _Scene_Map_isFastForward.apply(this, arguments);
-    };
+  var _Scene_Map_isFastForward = Scene_Map.prototype.isFastForward;
+  Scene_Map.prototype.isFastForward = function () {
+    return (
+      !$gameSystem.disableFastForward &&
+      _Scene_Map_isFastForward.apply(this, arguments)
+    );
+  };
 })();

@@ -404,369 +404,450 @@
  */
 
 (function () {
-    'use strict';
-    //=============================================================================
-    // ユーザ書き換え領域 - 開始 -
-    //  高度な設定を記述しています。必要な場合は書き換えてください。
-    //=============================================================================
-    var settings = {
-        /* 署名のフォント情報です。faceはあらかじめフォントをロードしておかなければ使えません */
-        signature: { face: 'GameFont', color: 'rgba(255,255,255,1.0)', align: 'right' },
-        /* 効果音情報です。ファイル名はプラグイン管理画面から取得します */
-        se: { volume: 90, pitch: 100, pan: 0 },
-        /* テストプレー以外での動作を無効にするフラグです */
-        testOnly: true
-    };
-    //=============================================================================
-    // ユーザ書き換え領域 - 終了 -
-    //=============================================================================
-    var pluginName = 'MakeScreenCapture';
+  "use strict";
+  //=============================================================================
+  // ユーザ書き換え領域 - 開始 -
+  //  高度な設定を記述しています。必要な場合は書き換えてください。
+  //=============================================================================
+  var settings = {
+    /* 署名のフォント情報です。faceはあらかじめフォントをロードしておかなければ使えません */
+    signature: {
+      face: "GameFont",
+      color: "rgba(255,255,255,1.0)",
+      align: "right",
+    },
+    /* 効果音情報です。ファイル名はプラグイン管理画面から取得します */
+    se: { volume: 90, pitch: 100, pan: 0 },
+    /* テストプレー以外での動作を無効にするフラグです */
+    testOnly: true,
+  };
+  //=============================================================================
+  // ユーザ書き換え領域 - 終了 -
+  //=============================================================================
+  var pluginName = "MakeScreenCapture";
 
-    var getParamString = function (paramNames) {
-        var value = getParamOther(paramNames);
-        return value == null ? '' : value;
-    };
+  var getParamString = function (paramNames) {
+    var value = getParamOther(paramNames);
+    return value == null ? "" : value;
+  };
 
-    var getParamNumber = function (paramNames, min, max) {
-        var value = getParamOther(paramNames);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(value, 10) || 0).clamp(min, max);
-    };
+  var getParamNumber = function (paramNames, min, max) {
+    var value = getParamOther(paramNames);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(value, 10) || 0).clamp(min, max);
+  };
 
-    var getParamBoolean = function (paramNames) {
-        var value = getParamOther(paramNames);
-        return (value || '').toUpperCase() === 'ON' || (value || '').toUpperCase() === 'TRUE';
-    };
+  var getParamBoolean = function (paramNames) {
+    var value = getParamOther(paramNames);
+    return (
+      (value || "").toUpperCase() === "ON" ||
+      (value || "").toUpperCase() === "TRUE"
+    );
+  };
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return Utils.isNwjs() ? convertEnvironmentVariable(name) : name;
-        }
-        return null;
-    };
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return Utils.isNwjs() ? convertEnvironmentVariable(name) : name;
+    }
+    return null;
+  };
 
-    var getCommandName = function (command) {
-        return (command || '').toUpperCase();
-    };
+  var getCommandName = function (command) {
+    return (command || "").toUpperCase();
+  };
 
-    var getArgString = function (arg, upperFlg) {
-        arg = convertEscapeCharacters(arg);
-        return upperFlg ? arg.toUpperCase() : arg;
-    };
+  var getArgString = function (arg, upperFlg) {
+    arg = convertEscapeCharacters(arg);
+    return upperFlg ? arg.toUpperCase() : arg;
+  };
 
-    var convertEnvironmentVariable = function (text) {
-        if (text == null) text = '';
-        text = text.replace(/%(\w+)%/gi, function () {
-            return process.env[arguments[1]] || '';
-        }.bind(this));
-        return text;
-    };
+  var convertEnvironmentVariable = function (text) {
+    if (text == null) text = "";
+    text = text.replace(
+      /%(\w+)%/gi,
+      function () {
+        return process.env[arguments[1]] || "";
+      }.bind(this)
+    );
+    return text;
+  };
 
-    var convertEscapeCharacters = function (text) {
-        if (text == null) text = '';
-        var window = SceneManager._scene._windowLayer.children[0];
-        return window ? window.convertEscapeCharacters(text) : text;
-    };
+  var convertEscapeCharacters = function (text) {
+    if (text == null) text = "";
+    var window = SceneManager._scene._windowLayer.children[0];
+    return window ? window.convertEscapeCharacters(text) : text;
+  };
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var paramFuncKeyPngCapture = getParamString(['FuncKeyPngCapture', 'PNGキャプチャキー']);
-    var paramFuncKeyJpegCapture = getParamString(['FuncKeyJpegCapture', 'JPEGキャプチャキー']);
-    var paramFuncKeyWebpCapture = getParamString(['FuncKeyWebpCapture', 'WEBPキャプチャキー']);
-    var paramFileName = getParamString(['FileName', 'ファイル名']);
-    var paramLocation = getParamString(['Location', '出力場所']);
-    var paramFileFormat = getParamString(['FileFormat', '保存形式']).toLowerCase();
-    var paramSignature = getParamString(['Signature', '署名']);
-    var paramSignatureImage = getParamString(['SignatureImage', '署名画像']);
-    var paramSignatureSize = getParamNumber(['SignatureSize', '署名サイズ']);
-    var paramNumberDigit = getParamNumber(['NumberDigit', '連番桁数']);
-    var paramInterval = getParamNumber(['Interval', '実行間隔']);
-    var paramSeName = getParamString(['SeName', '効果音']);
-    var paramTimeStamp = getParamBoolean(['TimeStamp', 'タイムスタンプ']);
-    var paramJpegQuality = getParamNumber(['JpegQuality', 'JPEG品質']);
-    var paramSimultaneousCtrl = getParamBoolean(['SimultaneousCtrl', 'Ctrl同時押し']);
-    var paramSimultaneousAlt = getParamBoolean(['SimultaneousAlt', 'Alt同時押し']);
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var paramFuncKeyPngCapture = getParamString([
+    "FuncKeyPngCapture",
+    "PNGキャプチャキー",
+  ]);
+  var paramFuncKeyJpegCapture = getParamString([
+    "FuncKeyJpegCapture",
+    "JPEGキャプチャキー",
+  ]);
+  var paramFuncKeyWebpCapture = getParamString([
+    "FuncKeyWebpCapture",
+    "WEBPキャプチャキー",
+  ]);
+  var paramFileName = getParamString(["FileName", "ファイル名"]);
+  var paramLocation = getParamString(["Location", "出力場所"]);
+  var paramFileFormat = getParamString([
+    "FileFormat",
+    "保存形式",
+  ]).toLowerCase();
+  var paramSignature = getParamString(["Signature", "署名"]);
+  var paramSignatureImage = getParamString(["SignatureImage", "署名画像"]);
+  var paramSignatureSize = getParamNumber(["SignatureSize", "署名サイズ"]);
+  var paramNumberDigit = getParamNumber(["NumberDigit", "連番桁数"]);
+  var paramInterval = getParamNumber(["Interval", "実行間隔"]);
+  var paramSeName = getParamString(["SeName", "効果音"]);
+  var paramTimeStamp = getParamBoolean(["TimeStamp", "タイムスタンプ"]);
+  var paramJpegQuality = getParamNumber(["JpegQuality", "JPEG品質"]);
+  var paramSimultaneousCtrl = getParamBoolean([
+    "SimultaneousCtrl",
+    "Ctrl同時押し",
+  ]);
+  var paramSimultaneousAlt = getParamBoolean([
+    "SimultaneousAlt",
+    "Alt同時押し",
+  ]);
 
-    //=============================================================================
-    // Game_Interpreter
-    //  プラグインコマンドを追加定義します。
-    //=============================================================================
-    var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.apply(this, arguments);
-        this.pluginCommandMakeScreenCapture(command, args);
-    };
+  //=============================================================================
+  // Game_Interpreter
+  //  プラグインコマンドを追加定義します。
+  //=============================================================================
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    this.pluginCommandMakeScreenCapture(command, args);
+  };
 
-    Game_Interpreter.prototype.pluginCommandMakeScreenCapture = function (command, args) {
-        switch (getCommandName(command)) {
-            case 'MSC_MAKE':
-            case '画面キャプチャ作成':
-                SceneManager.makeCapture();
-                break;
-            case 'MSC_PICTURE':
-            case '画面キャプチャピクチャ':
-                $gameScreen.captureFlg = true;
-                break;
-            case 'MSC_SAVE':
-            case '画面キャプチャ保存':
-                SceneManager.saveCapture(getArgString(args[0]) || paramFileName, paramFileFormat);
-                break;
-        }
-    };
+  Game_Interpreter.prototype.pluginCommandMakeScreenCapture = function (
+    command,
+    args
+  ) {
+    switch (getCommandName(command)) {
+      case "MSC_MAKE":
+      case "画面キャプチャ作成":
+        SceneManager.makeCapture();
+        break;
+      case "MSC_PICTURE":
+      case "画面キャプチャピクチャ":
+        $gameScreen.captureFlg = true;
+        break;
+      case "MSC_SAVE":
+      case "画面キャプチャ保存":
+        SceneManager.saveCapture(
+          getArgString(args[0]) || paramFileName,
+          paramFileFormat
+        );
+        break;
+    }
+  };
 
-    //=============================================================================
-    // Game_Screen
-    //  キャプチャピクチャ用のプロパティを追加定義します。
-    //=============================================================================
-    var _Game_Screen_clear = Game_Screen.prototype.clear;
-    Game_Screen.prototype.clear = function () {
-        _Game_Screen_clear.apply(this, arguments);
-        this.clearCapturePicture();
-    };
+  //=============================================================================
+  // Game_Screen
+  //  キャプチャピクチャ用のプロパティを追加定義します。
+  //=============================================================================
+  var _Game_Screen_clear = Game_Screen.prototype.clear;
+  Game_Screen.prototype.clear = function () {
+    _Game_Screen_clear.apply(this, arguments);
+    this.clearCapturePicture();
+  };
 
-    Game_Screen.prototype.clearCapturePicture = function () {
-        this.captureFlg = false;
-    };
+  Game_Screen.prototype.clearCapturePicture = function () {
+    this.captureFlg = false;
+  };
 
-    //=============================================================================
-    // Game_Picture
-    //  キャプチャピクチャ用のプロパティを追加定義します。
-    //=============================================================================
-    var _Game_Picture_show = Game_Picture.prototype.show;
-    Game_Picture.prototype.show = function (name, origin, x, y, scaleX,
-        scaleY, opacity, blendMode) {
-        if ($gameScreen.captureFlg) {
-            arguments[0] = Date.now().toString();
-            this.captureFlg = true;
-        } else {
-            this.captureFlg = null;
-        }
-        $gameScreen.clearCapturePicture();
-        _Game_Picture_show.apply(this, arguments);
-    };
+  //=============================================================================
+  // Game_Picture
+  //  キャプチャピクチャ用のプロパティを追加定義します。
+  //=============================================================================
+  var _Game_Picture_show = Game_Picture.prototype.show;
+  Game_Picture.prototype.show = function (
+    name,
+    origin,
+    x,
+    y,
+    scaleX,
+    scaleY,
+    opacity,
+    blendMode
+  ) {
+    if ($gameScreen.captureFlg) {
+      arguments[0] = Date.now().toString();
+      this.captureFlg = true;
+    } else {
+      this.captureFlg = null;
+    }
+    $gameScreen.clearCapturePicture();
+    _Game_Picture_show.apply(this, arguments);
+  };
 
-    //=============================================================================
-    // Scene_Base
-    //  定期実行キャプチャを定義します。
-    //=============================================================================
-    var _Scene_Base_update = Scene_Base.prototype.update;
-    Scene_Base.prototype.update = function () {
-        _Scene_Base_update.apply(this, arguments);
-        var count = Graphics.frameCount;
-        if (paramInterval !== 0 && Utils.isTestCapture() && (count + 1) % (paramInterval * 60) === 0) {
-            SceneManager.takeCapture();
-        }
-    };
+  //=============================================================================
+  // Scene_Base
+  //  定期実行キャプチャを定義します。
+  //=============================================================================
+  var _Scene_Base_update = Scene_Base.prototype.update;
+  Scene_Base.prototype.update = function () {
+    _Scene_Base_update.apply(this, arguments);
+    var count = Graphics.frameCount;
+    if (
+      paramInterval !== 0 &&
+      Utils.isTestCapture() &&
+      (count + 1) % (paramInterval * 60) === 0
+    ) {
+      SceneManager.takeCapture();
+    }
+  };
 
-    //=============================================================================
-    // Sprite_Picture
-    //  画像の動的生成を追加定義します。
-    //=============================================================================
-    var _Sprite_Picture_loadBitmap = Sprite_Picture.prototype.loadBitmap;
-    Sprite_Picture.prototype.loadBitmap = function () {
-        if (this.picture().captureFlg) {
-            this.bitmap = SceneManager.getCapture();
-        } else {
-            _Sprite_Picture_loadBitmap.apply(this, arguments);
-        }
-    };
+  //=============================================================================
+  // Sprite_Picture
+  //  画像の動的生成を追加定義します。
+  //=============================================================================
+  var _Sprite_Picture_loadBitmap = Sprite_Picture.prototype.loadBitmap;
+  Sprite_Picture.prototype.loadBitmap = function () {
+    if (this.picture().captureFlg) {
+      this.bitmap = SceneManager.getCapture();
+    } else {
+      _Sprite_Picture_loadBitmap.apply(this, arguments);
+    }
+  };
 
-    //=============================================================================
-    // Utils
-    //  テスト用のキャプチャを許可するかどうかを返します。
-    //=============================================================================
-    Utils.isTestCapture = function () {
-        return !settings.testOnly || Utils.isOptionValid('test');
-    };
+  //=============================================================================
+  // Utils
+  //  テスト用のキャプチャを許可するかどうかを返します。
+  //=============================================================================
+  Utils.isTestCapture = function () {
+    return !settings.testOnly || Utils.isOptionValid("test");
+  };
 
-    //=============================================================================
-    // Bitmap
-    //  対象のビットマップを保存します。現状、ローカル環境下でのみ動作します。
-    //=============================================================================
-    Bitmap.prototype.save = function (fileName, format, extend) {
-        var data = this._canvas.toDataURL('image/' + format, extend);
-        data = data.replace(/^.*,/, '');
-        if (format === 'jpeg') format = 'jpg';
-        if (data) StorageManager.saveImg(fileName, format, data);
-    };
+  //=============================================================================
+  // Bitmap
+  //  対象のビットマップを保存します。現状、ローカル環境下でのみ動作します。
+  //=============================================================================
+  Bitmap.prototype.save = function (fileName, format, extend) {
+    var data = this._canvas.toDataURL("image/" + format, extend);
+    data = data.replace(/^.*,/, "");
+    if (format === "jpeg") format = "jpg";
+    if (data) StorageManager.saveImg(fileName, format, data);
+  };
 
-    Bitmap.prototype.sign = function (text, fontInfo) {
-        this.fontFace = fontInfo.face;
-        this.fontSize = fontInfo.size;
-        this.textColor = fontInfo.color;
-        this.drawText(text, 8, this.height - this.fontSize - 8, this.width - 8 * 2, this.fontSize, fontInfo.align);
-    };
+  Bitmap.prototype.sign = function (text, fontInfo) {
+    this.fontFace = fontInfo.face;
+    this.fontSize = fontInfo.size;
+    this.textColor = fontInfo.color;
+    this.drawText(
+      text,
+      8,
+      this.height - this.fontSize - 8,
+      this.width - 8 * 2,
+      this.fontSize,
+      fontInfo.align
+    );
+  };
 
-    Bitmap.prototype.signAndSave = function (signature, fileName, format, signatureImage) {
-        var fileFullPath = StorageManager.getLocalImgFileName(fileName);
-        if (signatureImage) {
-            this.signImage(signatureImage, signature);
-        }
-        this.sign(convertEscapeCharacters(paramSignature), signature);
-        this.save(fileFullPath, format, format === 'jpeg' ? paramJpegQuality / 10 : undefined);
-    };
+  Bitmap.prototype.signAndSave = function (
+    signature,
+    fileName,
+    format,
+    signatureImage
+  ) {
+    var fileFullPath = StorageManager.getLocalImgFileName(fileName);
+    if (signatureImage) {
+      this.signImage(signatureImage, signature);
+    }
+    this.sign(convertEscapeCharacters(paramSignature), signature);
+    this.save(
+      fileFullPath,
+      format,
+      format === "jpeg" ? paramJpegQuality / 10 : undefined
+    );
+  };
 
-    Bitmap.prototype.signImage = function (signBitmap, fontInfo) {
-        var dx = 0, dy = this.height - signBitmap.height;
-        switch (fontInfo.align) {
-            case 'center':
-                dx = this.width / 2 - signBitmap.width / 2;
-                break;
-            case 'right':
-                dx = this.width - signBitmap.width;
-                break;
-        }
-        this.blt(signBitmap, 0, 0, signBitmap.width, signBitmap.height, dx, dy);
-    };
+  Bitmap.prototype.signImage = function (signBitmap, fontInfo) {
+    var dx = 0,
+      dy = this.height - signBitmap.height;
+    switch (fontInfo.align) {
+      case "center":
+        dx = this.width / 2 - signBitmap.width / 2;
+        break;
+      case "right":
+        dx = this.width - signBitmap.width;
+        break;
+    }
+    this.blt(signBitmap, 0, 0, signBitmap.width, signBitmap.height, dx, dy);
+  };
 
-    //=============================================================================
-    // Input
-    //  ファンクションキーのマップを定義します。
-    //=============================================================================
-    Input.functionReverseMapper = {
-        F1: 112,
-        F2: 113,
-        F3: 114,
-        F4: 115,
-        F5: 116,
-        F6: 117,
-        F7: 118,
-        F8: 119,
-        F9: 120,
-        F10: 121,
-        F11: 122,
-        F12: 123
-    };
+  //=============================================================================
+  // Input
+  //  ファンクションキーのマップを定義します。
+  //=============================================================================
+  Input.functionReverseMapper = {
+    F1: 112,
+    F2: 113,
+    F3: 114,
+    F4: 115,
+    F5: 116,
+    F6: 117,
+    F7: 118,
+    F8: 119,
+    F9: 120,
+    F10: 121,
+    F11: 122,
+    F12: 123,
+  };
 
-    //=============================================================================
-    // SceneManager
-    //  ファンクションキーが押下されたときにキャプチャを実行します。
-    //=============================================================================
-    SceneManager.captureNumber = 0;
-    SceneManager.makeCapture = function () {
-        if (paramSeName) {
-            var se = settings.se;
-            se.name = paramSeName;
-            AudioManager.playSe(se);
-        }
-        this._captureBitmap = this.snap();
-    };
+  //=============================================================================
+  // SceneManager
+  //  ファンクションキーが押下されたときにキャプチャを実行します。
+  //=============================================================================
+  SceneManager.captureNumber = 0;
+  SceneManager.makeCapture = function () {
+    if (paramSeName) {
+      var se = settings.se;
+      se.name = paramSeName;
+      AudioManager.playSe(se);
+    }
+    this._captureBitmap = this.snap();
+  };
 
-    SceneManager.getCapture = function () {
-        return this._captureBitmap || ImageManager.loadEmptyBitmap();
-    };
+  SceneManager.getCapture = function () {
+    return this._captureBitmap || ImageManager.loadEmptyBitmap();
+  };
 
-    SceneManager.saveCapture = function (fileName, format) {
-        if (!this._captureBitmap) return;
-        var signature = this.getSignature();
-        if (paramSignatureImage) {
-            var image = ImageManager.loadPicture(paramSignatureImage, 0);
-            image.addLoadListener(function () {
-                this._captureBitmap.signAndSave(signature, fileName, format, image);
-            }.bind(this));
-        } else {
-            this._captureBitmap.signAndSave(signature, fileName, format, null);
-        }
-    };
+  SceneManager.saveCapture = function (fileName, format) {
+    if (!this._captureBitmap) return;
+    var signature = this.getSignature();
+    if (paramSignatureImage) {
+      var image = ImageManager.loadPicture(paramSignatureImage, 0);
+      image.addLoadListener(
+        function () {
+          this._captureBitmap.signAndSave(signature, fileName, format, image);
+        }.bind(this)
+      );
+    } else {
+      this._captureBitmap.signAndSave(signature, fileName, format, null);
+    }
+  };
 
-    SceneManager.getSignature = function () {
-        var signature = settings.signature;
-        signature.size = paramSignatureSize;
-        return signature;
-    };
+  SceneManager.getSignature = function () {
+    var signature = settings.signature;
+    signature.size = paramSignatureSize;
+    return signature;
+  };
 
-    SceneManager.takeCapture = function (format) {
-        if (!format) {
-            format = paramFileFormat;
-        }
-        this.makeCapture();
-        this.saveCapture(paramFileName, format);
-    };
+  SceneManager.takeCapture = function (format) {
+    if (!format) {
+      format = paramFileFormat;
+    }
+    this.makeCapture();
+    this.saveCapture(paramFileName, format);
+  };
 
-    var _SceneManager_setupErrorHandlers = SceneManager.setupErrorHandlers;
-    SceneManager.setupErrorHandlers = function () {
-        _SceneManager_setupErrorHandlers.apply(this, arguments);
-        if (Utils.isTestCapture()) {
-            document.addEventListener('keyup', this.onKeyUpForCapture.bind(this));
-        }
-    };
+  var _SceneManager_setupErrorHandlers = SceneManager.setupErrorHandlers;
+  SceneManager.setupErrorHandlers = function () {
+    _SceneManager_setupErrorHandlers.apply(this, arguments);
+    if (Utils.isTestCapture()) {
+      document.addEventListener("keyup", this.onKeyUpForCapture.bind(this));
+    }
+  };
 
-    var _SceneManager_onKeyDown = SceneManager.onKeyDown;
-    SceneManager.onKeyDown = function (event) {
-        _SceneManager_onKeyDown.apply(this, arguments);
-        if (paramSimultaneousCtrl === event.ctrlKey && paramSimultaneousAlt === event.altKey && Utils.isTestCapture()) {
-            this.onKeyDownForCapture(event);
-        }
-    };
+  var _SceneManager_onKeyDown = SceneManager.onKeyDown;
+  SceneManager.onKeyDown = function (event) {
+    _SceneManager_onKeyDown.apply(this, arguments);
+    if (
+      paramSimultaneousCtrl === event.ctrlKey &&
+      paramSimultaneousAlt === event.altKey &&
+      Utils.isTestCapture()
+    ) {
+      this.onKeyDownForCapture(event);
+    }
+  };
 
-    SceneManager.onKeyDownForCapture = function (event) {
-        switch (event.keyCode) {
-            case Input.functionReverseMapper[paramFuncKeyPngCapture]:
-                SceneManager.takeCapture('png');
-                break;
-            case Input.functionReverseMapper[paramFuncKeyJpegCapture]:
-                SceneManager.takeCapture('jpeg');
-                break;
-            case Input.functionReverseMapper[paramFuncKeyWebpCapture]:
-                SceneManager.takeCapture('webp');
-                break;
-        }
-    };
+  SceneManager.onKeyDownForCapture = function (event) {
+    switch (event.keyCode) {
+      case Input.functionReverseMapper[paramFuncKeyPngCapture]:
+        SceneManager.takeCapture("png");
+        break;
+      case Input.functionReverseMapper[paramFuncKeyJpegCapture]:
+        SceneManager.takeCapture("jpeg");
+        break;
+      case Input.functionReverseMapper[paramFuncKeyWebpCapture]:
+        SceneManager.takeCapture("webp");
+        break;
+    }
+  };
 
-    SceneManager.onKeyUpForCapture = function (event) {
-        // PrintScreen
-        if (event.keyCode === 44) SceneManager.takeCapture();
-    };
+  SceneManager.onKeyUpForCapture = function (event) {
+    // PrintScreen
+    if (event.keyCode === 44) SceneManager.takeCapture();
+  };
 
-    //=============================================================================
-    // StorageManager
-    //  イメージファイルを保存します。
-    //=============================================================================
-    StorageManager.saveImg = function (fileName, format, data) {
-        if (this.isLocalMode()) {
-            this.saveImgToLocalFile(fileName + '.' + format, data);
-        } else {
-            this.saveImgToWebStorage(fileName, data);
-        }
-    };
+  //=============================================================================
+  // StorageManager
+  //  イメージファイルを保存します。
+  //=============================================================================
+  StorageManager.saveImg = function (fileName, format, data) {
+    if (this.isLocalMode()) {
+      this.saveImgToLocalFile(fileName + "." + format, data);
+    } else {
+      this.saveImgToWebStorage(fileName, data);
+    }
+  };
 
-    StorageManager.saveImgToWebStorage = function (fileName, data) {
-        localStorage.setItem(fileName, data);
-    };
+  StorageManager.saveImgToWebStorage = function (fileName, data) {
+    localStorage.setItem(fileName, data);
+  };
 
-    StorageManager.saveImgToLocalFile = function (fileName, data) {
-        var fs = require('fs');
-        var dirPath = this.localImgFileDirectoryPath();
-        var filePath = dirPath + fileName;
-        if (!fs.existsSync(dirPath)) {
-            fs.mkdirSync(dirPath);
-        }
-        fs.writeFileSync(filePath, new Buffer(data, 'base64'));
-    };
+  StorageManager.saveImgToLocalFile = function (fileName, data) {
+    var fs = require("fs");
+    var dirPath = this.localImgFileDirectoryPath();
+    var filePath = dirPath + fileName;
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath);
+    }
+    fs.writeFileSync(filePath, new Buffer(data, "base64"));
+  };
 
-    StorageManager.localImgFileDirectoryPath = function () {
-        var filePath = paramLocation;
-        if (!filePath.match(/^[A-Z]:/)) {
-            var path = require('path');
-            filePath = path.join(path.dirname(process.mainModule.filename), filePath);
-        }
-        return decodeURIComponent(filePath.match(/\/$/) ? filePath : filePath + '/');
-    };
+  StorageManager.localImgFileDirectoryPath = function () {
+    var filePath = paramLocation;
+    if (!filePath.match(/^[A-Z]:/)) {
+      var path = require("path");
+      filePath = path.join(path.dirname(process.mainModule.filename), filePath);
+    }
+    return decodeURIComponent(
+      filePath.match(/\/$/) ? filePath : filePath + "/"
+    );
+  };
 
-    StorageManager.getLocalImgFileName = function (fileName) {
-        if (paramTimeStamp) {
-            var date = new Date();
-            return fileName + '_' + date.getFullYear() + (date.getMonth() + 1).padZero(2) + date.getDate().padZero(2) +
-                '_' + date.getHours().padZero(2) + date.getMinutes().padZero(2) + date.getSeconds().padZero(2);
-        } else {
-            var number = SceneManager.captureNumber;
-            if (number >= Math.pow(10, paramNumberDigit)) number = 0;
-            SceneManager.captureNumber = number + 1;
-            return fileName + (number > 0 ? number.padZero(paramNumberDigit) : '');
-        }
-    };
+  StorageManager.getLocalImgFileName = function (fileName) {
+    if (paramTimeStamp) {
+      var date = new Date();
+      return (
+        fileName +
+        "_" +
+        date.getFullYear() +
+        (date.getMonth() + 1).padZero(2) +
+        date.getDate().padZero(2) +
+        "_" +
+        date.getHours().padZero(2) +
+        date.getMinutes().padZero(2) +
+        date.getSeconds().padZero(2)
+      );
+    } else {
+      var number = SceneManager.captureNumber;
+      if (number >= Math.pow(10, paramNumberDigit)) number = 0;
+      SceneManager.captureNumber = number + 1;
+      return fileName + (number > 0 ? number.padZero(paramNumberDigit) : "");
+    }
+  };
 })();

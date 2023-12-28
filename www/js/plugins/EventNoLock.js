@@ -49,34 +49,38 @@
  */
 
 (function () {
-    'use strict';
-    var metaTagPrefix = 'ENL';
+  "use strict";
+  var metaTagPrefix = "ENL";
 
-    var getMetaValue = function (object, name) {
-        var metaTagName = metaTagPrefix + (name ? name : '');
-        return object.meta.hasOwnProperty(metaTagName) ? object.meta[metaTagName] : undefined;
-    };
+  var getMetaValue = function (object, name) {
+    var metaTagName = metaTagPrefix + (name ? name : "");
+    return object.meta.hasOwnProperty(metaTagName)
+      ? object.meta[metaTagName]
+      : undefined;
+  };
 
-    var getMetaValues = function (object, names) {
-        if (!Array.isArray(names)) return getMetaValue(object, names);
-        for (var i = 0, n = names.length; i < n; i++) {
-            var value = getMetaValue(object, names[i]);
-            if (value !== undefined) return value;
-        }
-        return undefined;
-    };
+  var getMetaValues = function (object, names) {
+    if (!Array.isArray(names)) return getMetaValue(object, names);
+    for (var i = 0, n = names.length; i < n; i++) {
+      var value = getMetaValue(object, names[i]);
+      if (value !== undefined) return value;
+    }
+    return undefined;
+  };
 
-    //=============================================================================
-    // Game_Event
-    //  イベントロックを無効にします。
-    //=============================================================================
-    var _Game_Event_lock = Game_Event.prototype.lock;
-    Game_Event.prototype.lock = function () {
-        _Game_Event_lock.apply(this, arguments);
-        var disableLock = getMetaValues(this.event(), ['ロック無効', 'DisableLock']);
-        if (disableLock) {
-            this.setDirection(this._prelockDirection);
-        }
-    };
+  //=============================================================================
+  // Game_Event
+  //  イベントロックを無効にします。
+  //=============================================================================
+  var _Game_Event_lock = Game_Event.prototype.lock;
+  Game_Event.prototype.lock = function () {
+    _Game_Event_lock.apply(this, arguments);
+    var disableLock = getMetaValues(this.event(), [
+      "ロック無効",
+      "DisableLock",
+    ]);
+    if (disableLock) {
+      this.setDirection(this._prelockDirection);
+    }
+  };
 })();
-

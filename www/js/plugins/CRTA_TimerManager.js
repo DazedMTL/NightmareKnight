@@ -59,95 +59,92 @@
  */
 
 (function () {
+  var parameters = PluginManager.parameters("CRTA_TimerManager");
+  var fontSize = Number(parameters["Font Size"] || 32);
+  var width = Number(parameters["Width"] || 96);
+  var height = Number(parameters["Height"] || 48);
+  var posX = String(parameters["Position X"]);
+  var posY = String(parameters["Position Y"]);
 
-    var parameters = PluginManager.parameters('CRTA_TimerManager');
-    var fontSize = Number(parameters['Font Size'] || 32);
-    var width = Number(parameters['Width'] || 96);
-    var height = Number(parameters['Height'] || 48);
-    var posX = String(parameters['Position X']);
-    var posY = String(parameters['Position Y']);
+  var _timerPause = false;
 
-    var _timerPause = false;
-
-    var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.call(this, command, args);
-        if (command === 'CRTA_TimerManager') {
-
-            switch (args[0]) {
-                case 'add':
-                    $gameTimer.addFrames(eval(args[1]));
-                    break;
-                case 'sub':
-                    $gameTimer.subFrames(eval(args[1]));
-                    break;
-                case 'pause':
-                    $gameTimer.pause();
-                    break;
-                case 'resume':
-                    $gameTimer.resume();
-                    break;
-            }
-        }
-    };
-
-    var _Sprite_Timer_createBitmap = Sprite_Timer.prototype.createBitmap;
-    Sprite_Timer.prototype.createBitmap = function () {
-        _Sprite_Timer_createBitmap.call(this);
-
-        this.bitmap.width = width;
-        this.bitmap.height = height;
-        this.bitmap.fontSize = fontSize;
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.call(this, command, args);
+    if (command === "CRTA_TimerManager") {
+      switch (args[0]) {
+        case "add":
+          $gameTimer.addFrames(eval(args[1]));
+          break;
+        case "sub":
+          $gameTimer.subFrames(eval(args[1]));
+          break;
+        case "pause":
+          $gameTimer.pause();
+          break;
+        case "resume":
+          $gameTimer.resume();
+          break;
+      }
     }
+  };
 
-    var _Sprite_Timer_updatePosition = Sprite_Timer.prototype.updatePosition;
-    Sprite_Timer.prototype.updatePosition = function () {
-        _Sprite_Timer_updatePosition.call(this);
+  var _Sprite_Timer_createBitmap = Sprite_Timer.prototype.createBitmap;
+  Sprite_Timer.prototype.createBitmap = function () {
+    _Sprite_Timer_createBitmap.call(this);
 
-        this.x = eval(posX);
-        this.y = eval(posY);
-    };
+    this.bitmap.width = width;
+    this.bitmap.height = height;
+    this.bitmap.fontSize = fontSize;
+  };
 
+  var _Sprite_Timer_updatePosition = Sprite_Timer.prototype.updatePosition;
+  Sprite_Timer.prototype.updatePosition = function () {
+    _Sprite_Timer_updatePosition.call(this);
 
-    //=================================
-    // Game_Timer (プラグインスクリプト用)
-    //=================================
-    // override
-    var _Game_Timer_start = Game_Timer.prototype.start;
-    Game_Timer.prototype.start = function (count) {
-        _Game_Timer_start.call(this, count);
-        _timerPause = false;
-    };
+    this.x = eval(posX);
+    this.y = eval(posY);
+  };
 
-    // override
-    var _Game_Timer_update = Game_Timer.prototype.update;
-    Game_Timer.prototype.update = function (sceneActive) {
-        if (!_timerPause) {
-            _Game_Timer_update.call(this, sceneActive);
-        }
-    };
+  //=================================
+  // Game_Timer (プラグインスクリプト用)
+  //=================================
+  // override
+  var _Game_Timer_start = Game_Timer.prototype.start;
+  Game_Timer.prototype.start = function (count) {
+    _Game_Timer_start.call(this, count);
+    _timerPause = false;
+  };
 
-    // Game_Timer に addFrames を追加
-    Game_Timer.prototype.addFrames = function (second) {
-        this._frames += second * 60;
-    };
+  // override
+  var _Game_Timer_update = Game_Timer.prototype.update;
+  Game_Timer.prototype.update = function (sceneActive) {
+    if (!_timerPause) {
+      _Game_Timer_update.call(this, sceneActive);
+    }
+  };
 
-    // Game_Timer に subFrames を追加
-    Game_Timer.prototype.subFrames = function (second) {
-        this._frames -= second * 60;
-        if (this._frames < 0) {
-            this._frames = 0;
-        }
-    };
+  // Game_Timer に addFrames を追加
+  Game_Timer.prototype.addFrames = function (second) {
+    this._frames += second * 60;
+  };
 
-    // Game_Timer に pause を追加
-    Game_Timer.prototype.pause = function () {
-        _timerPause = true;
-    };
+  // Game_Timer に subFrames を追加
+  Game_Timer.prototype.subFrames = function (second) {
+    this._frames -= second * 60;
+    if (this._frames < 0) {
+      this._frames = 0;
+    }
+  };
 
-    // Game_Timer に resume を追加
-    Game_Timer.prototype.resume = function () {
-        _timerPause = false;
-    };
+  // Game_Timer に pause を追加
+  Game_Timer.prototype.pause = function () {
+    _timerPause = true;
+  };
 
+  // Game_Timer に resume を追加
+  Game_Timer.prototype.resume = function () {
+    _timerPause = false;
+  };
 })();

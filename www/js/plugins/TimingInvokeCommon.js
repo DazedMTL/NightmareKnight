@@ -11,29 +11,29 @@
 //
 
 var Imported = Imported || {};
-Imported['TimingInvokeCommon'] = 1.00;
+Imported["TimingInvokeCommon"] = 1.0;
 /*:
  * @plugindesc ver1.00/場所移動時や戦闘開始時、戦闘終了時等にコモンイベントを予約します。
  * @author Yana
- * 
+ *
  * @param TransferCommonID
  * @desc 場所移動時に予約するコモンイベントのIDです。
  * @default 10
- * 
+ *
  * @param BattleStartCommonID
  * @desc 戦闘開始時に予約するコモンイベントのIDです。
  * @default 11
- * 
+ *
  * @param BattleEndCommonID
  * @desc 戦闘終了時時に予約するコモンイベントのIDです。
  * @default 12
- * 
+ *
  * @help ------------------------------------------------------
  * 使用方法
  * ------------------------------------------------------
  * プラグインパラメータで各タイミングで発動するコモンイベントのIDを設定すると、
  * そのコモンイベントが設定したタイミングで発動を予約されます。
- * 
+ *
  * ------------------------------------------------------
  * 利用規約
  * ------------------------------------------------------
@@ -52,40 +52,40 @@ Imported['TimingInvokeCommon'] = 1.00;
  */
 
 (function () {
-	////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
 
-	var parameters = PluginManager.parameters('TimingInvokeCommon');
-	var transferCommonId = Number(parameters['TransferCommonID'] || 0);
-	var battleStartCommonId = Number(parameters['BattleStartCommonID'] || 0);
-	var battleEndCommonId = Number(parameters['BattleEndCommonID'] || 0);
+  var parameters = PluginManager.parameters("TimingInvokeCommon");
+  var transferCommonId = Number(parameters["TransferCommonID"] || 0);
+  var battleStartCommonId = Number(parameters["BattleStartCommonID"] || 0);
+  var battleEndCommonId = Number(parameters["BattleEndCommonID"] || 0);
 
-	////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
 
-	var __BManager_startBattle = BattleManager.startBattle;
-	BattleManager.startBattle = function () {
-		__BManager_startBattle.call(this);
-		if (battleStartCommonId > 0) {
-			$gameTemp.reserveCommonEvent(battleStartCommonId);
-		}
-	};
+  var __BManager_startBattle = BattleManager.startBattle;
+  BattleManager.startBattle = function () {
+    __BManager_startBattle.call(this);
+    if (battleStartCommonId > 0) {
+      $gameTemp.reserveCommonEvent(battleStartCommonId);
+    }
+  };
 
-	var __BManager_endBattle = BattleManager.endBattle;
-	BattleManager.endBattle = function (result) {
-		__BManager_endBattle.call(this, result);
-		if (battleEndCommonId > 0) {
-			$gameTemp.reserveCommonEvent(battleEndCommonId);
-		}
-	};
+  var __BManager_endBattle = BattleManager.endBattle;
+  BattleManager.endBattle = function (result) {
+    __BManager_endBattle.call(this, result);
+    if (battleEndCommonId > 0) {
+      $gameTemp.reserveCommonEvent(battleEndCommonId);
+    }
+  };
 
-	////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
 
-	var __GInterpreter_command201 = Game_Interpreter.prototype.command201;
-	Game_Interpreter.prototype.command201 = function () {
-		__GInterpreter_command201.call(this);
-		if (transferCommonId > 0) {
-			$gameTemp.reserveCommonEvent(transferCommonId);
-		}
-	};
+  var __GInterpreter_command201 = Game_Interpreter.prototype.command201;
+  Game_Interpreter.prototype.command201 = function () {
+    __GInterpreter_command201.call(this);
+    if (transferCommonId > 0) {
+      $gameTemp.reserveCommonEvent(transferCommonId);
+    }
+  };
 
-	////////////////////////////////////////////////////////////////////////////////////
-}());
+  ////////////////////////////////////////////////////////////////////////////////////
+})();

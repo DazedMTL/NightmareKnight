@@ -39,37 +39,40 @@
  */
 
 (function () {
-    'use strict';
+  "use strict";
 
-    const _PNAME = 'CommonEventBeforeAfterMenu';
-    const _PARAMETERS = PluginManager.parameters(_PNAME);
+  const _PNAME = "CommonEventBeforeAfterMenu";
+  const _PARAMETERS = PluginManager.parameters(_PNAME);
 
-    const _COMMON_EVENT_ID_BM = +_PARAMETERS['Common Event ID (before Menu)'] || 0;
-    const _COMMON_EVENT_ID_AM = +_PARAMETERS['Common Event ID (after Menu)'] || 0;
+  const _COMMON_EVENT_ID_BM =
+    +_PARAMETERS["Common Event ID (before Menu)"] || 0;
+  const _COMMON_EVENT_ID_AM = +_PARAMETERS["Common Event ID (after Menu)"] || 0;
 
-    function _(f) { return f[_PNAME] = f[_PNAME] || {} }
+  function _(f) {
+    return (f[_PNAME] = f[_PNAME] || {});
+  }
 
-    var _Scene_Map_isMenuCalled = Scene_Map.prototype.isMenuCalled;
-    Scene_Map.prototype.isMenuCalled = function () {
-        return _Scene_Map_isMenuCalled.call(this) || _(this).reserveCallMenu;
-    };
+  var _Scene_Map_isMenuCalled = Scene_Map.prototype.isMenuCalled;
+  Scene_Map.prototype.isMenuCalled = function () {
+    return _Scene_Map_isMenuCalled.call(this) || _(this).reserveCallMenu;
+  };
 
-    var _Scene_Map_callMenu = Scene_Map.prototype.callMenu;
-    Scene_Map.prototype.callMenu = function () {
-        if (_COMMON_EVENT_ID_BM && !_(this).reserveCallMenu) {
-            _(this).reserveCallMenu = true;
-            $gameTemp.reserveCommonEvent(_COMMON_EVENT_ID_BM);
-        } else {
-            _(this).reserveCallMenu = false;
-            _Scene_Map_callMenu.call(this);
-        }
-    };
+  var _Scene_Map_callMenu = Scene_Map.prototype.callMenu;
+  Scene_Map.prototype.callMenu = function () {
+    if (_COMMON_EVENT_ID_BM && !_(this).reserveCallMenu) {
+      _(this).reserveCallMenu = true;
+      $gameTemp.reserveCommonEvent(_COMMON_EVENT_ID_BM);
+    } else {
+      _(this).reserveCallMenu = false;
+      _Scene_Map_callMenu.call(this);
+    }
+  };
 
-    var _Scene_Menu_terminate = Scene_Menu.prototype.terminate;
-    Scene_Menu.prototype.terminate = function () {
-        if (_COMMON_EVENT_ID_AM && SceneManager.isNextScene(Scene_Map)) {
-            $gameTemp.reserveCommonEvent(_COMMON_EVENT_ID_AM);
-        }
-        _Scene_Menu_terminate.call(this);
-    };
-}());
+  var _Scene_Menu_terminate = Scene_Menu.prototype.terminate;
+  Scene_Menu.prototype.terminate = function () {
+    if (_COMMON_EVENT_ID_AM && SceneManager.isNextScene(Scene_Map)) {
+      $gameTemp.reserveCommonEvent(_COMMON_EVENT_ID_AM);
+    }
+    _Scene_Menu_terminate.call(this);
+  };
+})();

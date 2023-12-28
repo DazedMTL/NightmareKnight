@@ -181,64 +181,72 @@ Imported.dsShowBattleCommand = true;
 var dsShowBattleCommand = {};
 
 (function (ns) {
+  ns.Param = (function () {
+    var ret = {};
+    var parameters = PluginManager.parameters("dsShowBattleCommand");
+    ret.ShowAttackCommand = Boolean(
+      parameters["Show Attack Command"] === "true" || false
+    );
+    ret.ShowGuardCommand = Boolean(
+      parameters["Show Guard Command"] === "true" || false
+    );
+    ret.ShowItemCommand = Boolean(
+      parameters["Show Item Command"] === "true" || false
+    );
+    ret.ShowSkillTypeMax = 1 + 30;
+    ret.ShowSkillType = [];
+    for (var ii = 1; ii < ret.ShowSkillTypeMax; ii++) {
+      var paramName = "Show Skill Type " + ("00" + ii).slice(-2);
+      ret.ShowSkillType[ii] = Boolean(
+        parameters[paramName] === "true" || false
+      );
+    }
+    return ret;
+  })();
 
-	ns.Param = (function () {
-		var ret = {};
-		var parameters = PluginManager.parameters('dsShowBattleCommand');
-		ret.ShowAttackCommand = Boolean(parameters['Show Attack Command'] === 'true' || false);
-		ret.ShowGuardCommand = Boolean(parameters['Show Guard Command'] === 'true' || false);
-		ret.ShowItemCommand = Boolean(parameters['Show Item Command'] === 'true' || false);
-		ret.ShowSkillTypeMax = 1 + 30;
-		ret.ShowSkillType = [];
-		for (var ii = 1; ii < ret.ShowSkillTypeMax; ii++) {
-			var paramName = 'Show Skill Type ' + ('00' + ii).slice(-2);
-			ret.ShowSkillType[ii] = Boolean(parameters[paramName] === 'true' || false);
-		}
-		return ret;
-	})();
+  //--------------------------------------------------------------------------
+  /** Window_ActorCommand */
+  var _Window_ActorCommand_addAttackCommand =
+    Window_ActorCommand.prototype.addAttackCommand;
+  Window_ActorCommand.prototype.addAttackCommand = function () {
+    if (ns.Param.ShowAttackCommand) {
+      _Window_ActorCommand_addAttackCommand.call(this);
+    }
+  };
 
-	//--------------------------------------------------------------------------
-	/** Window_ActorCommand */
-	var _Window_ActorCommand_addAttackCommand = Window_ActorCommand.prototype.addAttackCommand;
-	Window_ActorCommand.prototype.addAttackCommand = function () {
-		if (ns.Param.ShowAttackCommand) {
-			_Window_ActorCommand_addAttackCommand.call(this);
-		}
-	};
+  Window_ActorCommand.prototype.addSkillCommands = function () {
+    var skillTypes = this._actor.addedSkillTypes();
+    skillTypes.sort(function (a, b) {
+      return a - b;
+    });
+    skillTypes.forEach(function (stypeId) {
+      if (this.isShowSkillType(stypeId)) {
+        var name = $dataSystem.skillTypes[stypeId];
+        this.addCommand(name, "skill", true, stypeId);
+      }
+    }, this);
+  };
 
-	Window_ActorCommand.prototype.addSkillCommands = function () {
-		var skillTypes = this._actor.addedSkillTypes();
-		skillTypes.sort(function (a, b) {
-			return a - b;
-		});
-		skillTypes.forEach(function (stypeId) {
-			if (this.isShowSkillType(stypeId)) {
-				var name = $dataSystem.skillTypes[stypeId];
-				this.addCommand(name, 'skill', true, stypeId);
-			}
-		}, this);
-	};
+  var _Window_ActorCommand_addGuardCommand =
+    Window_ActorCommand.prototype.addGuardCommand;
+  Window_ActorCommand.prototype.addGuardCommand = function () {
+    if (ns.Param.ShowGuardCommand) {
+      _Window_ActorCommand_addGuardCommand.call(this);
+    }
+  };
 
-	var _Window_ActorCommand_addGuardCommand = Window_ActorCommand.prototype.addGuardCommand;
-	Window_ActorCommand.prototype.addGuardCommand = function () {
-		if (ns.Param.ShowGuardCommand) {
-			_Window_ActorCommand_addGuardCommand.call(this);
-		}
-	};
+  var _Window_ActorCommand_addItemCommand =
+    Window_ActorCommand.prototype.addItemCommand;
+  Window_ActorCommand.prototype.addItemCommand = function () {
+    if (ns.Param.ShowItemCommand) {
+      _Window_ActorCommand_addItemCommand.call(this);
+    }
+  };
 
-	var _Window_ActorCommand_addItemCommand = Window_ActorCommand.prototype.addItemCommand;
-	Window_ActorCommand.prototype.addItemCommand = function () {
-		if (ns.Param.ShowItemCommand) {
-			_Window_ActorCommand_addItemCommand.call(this);
-		}
-	};
-
-	Window_ActorCommand.prototype.isShowSkillType = function (stypeId) {
-		if (stypeId < ns.Param.ShowSkillTypeMax) {
-			return ns.Param.ShowSkillType[stypeId];
-		}
-		return true;
-	};
-
+  Window_ActorCommand.prototype.isShowSkillType = function (stypeId) {
+    if (stypeId < ns.Param.ShowSkillTypeMax) {
+      return ns.Param.ShowSkillType[stypeId];
+    }
+    return true;
+  };
 })(dsShowBattleCommand);
-

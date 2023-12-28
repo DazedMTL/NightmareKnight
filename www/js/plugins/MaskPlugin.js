@@ -18,23 +18,25 @@
  */
 
 (function () {
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.call(this, command, args);
 
-	var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-	Game_Interpreter.prototype.pluginCommand = function (command, args) {
-		_Game_Interpreter_pluginCommand.call(this, command, args);
+    console.log(command);
+    if (command == "SETMASK") {
+      console.log("APPLY");
+      id_1 = args[0] - 1;
+      id_2 = args[1] - 1;
+      SceneManager._scene._spriteset._pictureContainer.children[id_1].mask =
+        SceneManager._scene._spriteset._pictureContainer.children[id_2];
+    }
 
-		console.log(command);
-		if (command == 'SETMASK') {
-			console.log('APPLY');
-			id_1 = args[0] - 1;
-			id_2 = args[1] - 1;
-			SceneManager._scene._spriteset._pictureContainer.children[id_1].mask = SceneManager._scene._spriteset._pictureContainer.children[id_2];
-		}
-
-		if (command == 'REMOVEMASK') {
-			id_1 = args[0] - 1;
-			SceneManager._scene._spriteset._pictureContainer.children[id_1].mask = false;
-		}
-	}
-
+    if (command == "REMOVEMASK") {
+      id_1 = args[0] - 1;
+      SceneManager._scene._spriteset._pictureContainer.children[
+        id_1
+      ].mask = false;
+    }
+  };
 })();

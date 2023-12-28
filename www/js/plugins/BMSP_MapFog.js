@@ -65,217 +65,214 @@
  */
 
 (function () {
+  /*
+   * プラグインバージョン
+   */
+  PluginManager.setVersion("BMSP_MapFog", 1.02);
 
-    /*
-     * プラグインバージョン
-     */
-    PluginManager.setVersion('BMSP_MapFog', 1.02);
+  /*
+   * 必須プラグインチェック
+   */
+  var _Scene_Boot_start = Scene_Boot.prototype.start;
+  Scene_Boot.prototype.start = function () {
+    BMSP.requirePlugin("BMSP", 1.0);
+    _Scene_Boot_start.call(this);
+  };
 
-    /*
-     * 必須プラグインチェック
-     */
-    var _Scene_Boot_start = Scene_Boot.prototype.start;
-    Scene_Boot.prototype.start = function () {
-        BMSP.requirePlugin('BMSP', 1.00);
-        _Scene_Boot_start.call(this);
-    };
-
-    /*
-     * プラグインコマンド
-     */
-    var _Game_Interpreter_pluginCommand =
-        Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.call(this, command, args);
-        if (command === 'MapFog') {
-            $gameMap.setFogParameter(args[1], Number(args[0]), args[2]);
-        }
-    };
-
-    /*
-     * MapFog
-     */
-    BMSP.MapFog = function () {
-        throw new Error('This is a static class');
-    };
-
-    var parameters = PluginManager.parameters('BMSP_MapFog');
-    BMSP.MapFog._label = parameters['Label'];
-
-    BMSP.MapFog._cache_settings = {};
-
-    BMSP.MapFog.getSettings = function (map) {
-        var objectId = BMSP.getObjectId(map);
-        if (objectId in this._cache_settings) {
-            return this._cache_settings[objectId];
-        }
-        var index = 1;
-        var settings = {};
-        while ((this._label + index) in map.meta) {
-            settings[index] = map.meta[this._label + index].split(',');
-            index++;
-        }
-        this._cache_settings[objectId] = settings;
-        return settings;
-    };
-
-    BMSP.MapFog.getSprite = function (index) {
-        if (!SceneManager._scene || SceneManager._scene.constructor !== Scene_Map) {
-            return null;
-        }
-        var fogData = SceneManager._scene._spriteset._fogData;
-        for (var i in fogData) {
-            var data = fogData[i];
-            if (data.index == index) return data.sprite;
-        }
-        return null;
-    };
-
-    /*
-     * ImageManager
-     */
-    ImageManager.loadFog = function (filename, hue) {
-        return this.loadBitmap('img/fogs/', filename, hue, true);
-    };
-
-    var _Game_Map_setup = Game_Map.prototype.setup;
-    Game_Map.prototype.setup = function (mapId) {
-        _Game_Map_setup.call(this, mapId);
-        this.setupFogs();
-    };
-
-    Game_Map.prototype.setupFogs = function () {
-        this._fogs = {};
-        var settings = BMSP.MapFog.getSettings($dataMap);
-        for (var index in settings) {
-            var setting = settings[index];
-            var cond = (setting[6] || '').split(':');
-            var visible = true;
-            if (cond[0] !== '') {
-                visible = cond.every(function (id) {
-                    return $gameSwitches.value(id);
-                });
-            }
-            this._fogs[index] = {
-                name: setting[0] || '',
-                sx: Number(setting[1] || 0),
-                sy: Number(setting[2] || 0),
-                opacity: Number(setting[3] || 255),
-                z: Number(setting[4] || 1),
-                blend: Number(setting[5] || 1),
-                visible: visible,
-                x: 0,
-                y: 0,
-            }
-        }
-    };
-
-    Game_Map.prototype.fogs = function () {
-        return this._fogs;
+  /*
+   * プラグインコマンド
+   */
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.call(this, command, args);
+    if (command === "MapFog") {
+      $gameMap.setFogParameter(args[1], Number(args[0]), args[2]);
     }
+  };
 
-    var _Game_Map_update = Game_Map.prototype.update;
-    Game_Map.prototype.update = function (sceneActive) {
-        _Game_Map_update.call(this, sceneActive);
-        this.updateFogs();
-    };
+  /*
+   * MapFog
+   */
+  BMSP.MapFog = function () {
+    throw new Error("This is a static class");
+  };
 
-    Game_Map.prototype.updateFogs = function () {
-        for (var index in this._fogs) {
-            this._fogs[index].x += this._fogs[index].sx;
-            this._fogs[index].y += this._fogs[index].sy;
-        }
-    };
+  var parameters = PluginManager.parameters("BMSP_MapFog");
+  BMSP.MapFog._label = parameters["Label"];
 
-    Game_Map.prototype.setFogParameter = function (name, index, value) {
-        if (!(index in this._fogs)) return;
-        if (value === undefined) return;
-        var fog = this._fogs[index];
-        switch (name) {
-            case 'name':
-                fog[name] = value;
-                break;
-            case 'sx':
-            case 'sy':
-            case 'opacity':
-            case 'blend':
-                fog[name] = Number(value);
-                break;
-            case 'visible':
-                fog[name] = Boolean(Number(value));
-                break;
-        }
-    };
+  BMSP.MapFog._cache_settings = {};
 
-    /*
-     * Spriteset_Map
-     */
-    var _Spriteset_Map_initialize = Spriteset_Map.prototype.initialize;
-    Spriteset_Map.prototype.initialize = function () {
-        this._fogContainer = [];
-        this._fogData = [];
-        _Spriteset_Map_initialize.call(this);
-    };
+  BMSP.MapFog.getSettings = function (map) {
+    var objectId = BMSP.getObjectId(map);
+    if (objectId in this._cache_settings) {
+      return this._cache_settings[objectId];
+    }
+    var index = 1;
+    var settings = {};
+    while (this._label + index in map.meta) {
+      settings[index] = map.meta[this._label + index].split(",");
+      index++;
+    }
+    this._cache_settings[objectId] = settings;
+    return settings;
+  };
 
-    var _Spriteset_Map_createParallax = Spriteset_Map.prototype.createParallax;
-    Spriteset_Map.prototype.createParallax = function () {
-        _Spriteset_Map_createParallax.call(this);
-        this.createFogs(0);
-    };
+  BMSP.MapFog.getSprite = function (index) {
+    if (!SceneManager._scene || SceneManager._scene.constructor !== Scene_Map) {
+      return null;
+    }
+    var fogData = SceneManager._scene._spriteset._fogData;
+    for (var i in fogData) {
+      var data = fogData[i];
+      if (data.index == index) return data.sprite;
+    }
+    return null;
+  };
 
-    var _Spriteset_Map_createPictures = Spriteset_Map.prototype.createPictures;
-    Spriteset_Map.prototype.createPictures = function () {
-        this.createFogs(1);
-        _Spriteset_Map_createPictures.call(this);
-        this.createFogs(2);
-    };
+  /*
+   * ImageManager
+   */
+  ImageManager.loadFog = function (filename, hue) {
+    return this.loadBitmap("img/fogs/", filename, hue, true);
+  };
 
-    var _Spriteset_Map_update = Spriteset_Map.prototype.update;
-    Spriteset_Map.prototype.update = function () {
-        _Spriteset_Map_update.call(this);
-        this.updateFogs();
-    };
+  var _Game_Map_setup = Game_Map.prototype.setup;
+  Game_Map.prototype.setup = function (mapId) {
+    _Game_Map_setup.call(this, mapId);
+    this.setupFogs();
+  };
 
-    Spriteset_Map.prototype.createFogs = function (z) {
-        this._fogContainer[z] = new Sprite();
-        var fogs = $gameMap.fogs();
-        for (var index in fogs) {
-            if (fogs[index].z !== z) continue;
+  Game_Map.prototype.setupFogs = function () {
+    this._fogs = {};
+    var settings = BMSP.MapFog.getSettings($dataMap);
+    for (var index in settings) {
+      var setting = settings[index];
+      var cond = (setting[6] || "").split(":");
+      var visible = true;
+      if (cond[0] !== "") {
+        visible = cond.every(function (id) {
+          return $gameSwitches.value(id);
+        });
+      }
+      this._fogs[index] = {
+        name: setting[0] || "",
+        sx: Number(setting[1] || 0),
+        sy: Number(setting[2] || 0),
+        opacity: Number(setting[3] || 255),
+        z: Number(setting[4] || 1),
+        blend: Number(setting[5] || 1),
+        visible: visible,
+        x: 0,
+        y: 0,
+      };
+    }
+  };
 
-            var fogSprite = new TilingSprite();
-            fogSprite.move(0, 0, Graphics.width, Graphics.height);
-            this._fogContainer[z].addChild(fogSprite);
-            this._fogData.push({
-                index: index,
-                sprite: fogSprite,
-                name: null,
-            });
-        }
-        if (z === 2) {
-            this.addChild(this._fogContainer[z]);
-        } else {
+  Game_Map.prototype.fogs = function () {
+    return this._fogs;
+  };
 
-            this._baseSprite.addChild(this._fogContainer[z]);
-        }
-    };
+  var _Game_Map_update = Game_Map.prototype.update;
+  Game_Map.prototype.update = function (sceneActive) {
+    _Game_Map_update.call(this, sceneActive);
+    this.updateFogs();
+  };
 
-    Spriteset_Map.prototype.updateFogs = function () {
-        var fogs = $gameMap.fogs();
-        this._fogData.forEach(function (data) {
-            var fog = fogs[data.index];
-            var sprite = data.sprite;
-            if (data.name !== fog.name) {
-                data.name = fog.name;
-                sprite.bitmap = ImageManager.loadFog(data.name);
-            }
-            if (sprite.bitmap) {
-                sprite.origin.x = fog.x;
-                sprite.origin.y = fog.y;
-                sprite.opacity = fog.opacity;
-                sprite.visible = fog.visible;
-                sprite.blendMode = fog.blend;
-            }
-        }, this);
-    };
+  Game_Map.prototype.updateFogs = function () {
+    for (var index in this._fogs) {
+      this._fogs[index].x += this._fogs[index].sx;
+      this._fogs[index].y += this._fogs[index].sy;
+    }
+  };
 
+  Game_Map.prototype.setFogParameter = function (name, index, value) {
+    if (!(index in this._fogs)) return;
+    if (value === undefined) return;
+    var fog = this._fogs[index];
+    switch (name) {
+      case "name":
+        fog[name] = value;
+        break;
+      case "sx":
+      case "sy":
+      case "opacity":
+      case "blend":
+        fog[name] = Number(value);
+        break;
+      case "visible":
+        fog[name] = Boolean(Number(value));
+        break;
+    }
+  };
+
+  /*
+   * Spriteset_Map
+   */
+  var _Spriteset_Map_initialize = Spriteset_Map.prototype.initialize;
+  Spriteset_Map.prototype.initialize = function () {
+    this._fogContainer = [];
+    this._fogData = [];
+    _Spriteset_Map_initialize.call(this);
+  };
+
+  var _Spriteset_Map_createParallax = Spriteset_Map.prototype.createParallax;
+  Spriteset_Map.prototype.createParallax = function () {
+    _Spriteset_Map_createParallax.call(this);
+    this.createFogs(0);
+  };
+
+  var _Spriteset_Map_createPictures = Spriteset_Map.prototype.createPictures;
+  Spriteset_Map.prototype.createPictures = function () {
+    this.createFogs(1);
+    _Spriteset_Map_createPictures.call(this);
+    this.createFogs(2);
+  };
+
+  var _Spriteset_Map_update = Spriteset_Map.prototype.update;
+  Spriteset_Map.prototype.update = function () {
+    _Spriteset_Map_update.call(this);
+    this.updateFogs();
+  };
+
+  Spriteset_Map.prototype.createFogs = function (z) {
+    this._fogContainer[z] = new Sprite();
+    var fogs = $gameMap.fogs();
+    for (var index in fogs) {
+      if (fogs[index].z !== z) continue;
+
+      var fogSprite = new TilingSprite();
+      fogSprite.move(0, 0, Graphics.width, Graphics.height);
+      this._fogContainer[z].addChild(fogSprite);
+      this._fogData.push({
+        index: index,
+        sprite: fogSprite,
+        name: null,
+      });
+    }
+    if (z === 2) {
+      this.addChild(this._fogContainer[z]);
+    } else {
+      this._baseSprite.addChild(this._fogContainer[z]);
+    }
+  };
+
+  Spriteset_Map.prototype.updateFogs = function () {
+    var fogs = $gameMap.fogs();
+    this._fogData.forEach(function (data) {
+      var fog = fogs[data.index];
+      var sprite = data.sprite;
+      if (data.name !== fog.name) {
+        data.name = fog.name;
+        sprite.bitmap = ImageManager.loadFog(data.name);
+      }
+      if (sprite.bitmap) {
+        sprite.origin.x = fog.x;
+        sprite.origin.y = fog.y;
+        sprite.opacity = fog.opacity;
+        sprite.visible = fog.visible;
+        sprite.blendMode = fog.blend;
+      }
+    }, this);
+  };
 })();

@@ -94,111 +94,124 @@
  */
 
 (function () {
-    'use strict';
-    var pluginName = 'ThroughFailedToLoad';
+  "use strict";
+  var pluginName = "ThroughFailedToLoad";
 
-    var getParamOther = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return null;
+  var getParamOther = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
+    }
+    return null;
+  };
+
+  var getParamBoolean = function (paramNames) {
+    var value = (getParamOther(paramNames) || "").toUpperCase();
+    return value === "ON" || value === "TRUE";
+  };
+
+  var getParamNumber = function (paramNames, min, max) {
+    var value = getParamOther(paramNames);
+    if (arguments.length < 2) min = -Infinity;
+    if (arguments.length < 3) max = Infinity;
+    return (parseInt(value) || 0).clamp(min, max);
+  };
+
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var paramInvalidIfTest = getParamBoolean([
+    "InvalidIfTest",
+    "テストプレー時無効",
+  ]);
+  var paramInvalidIfWeb = getParamBoolean(["InvalidIfWeb", "Web版で無効"]);
+  var paramThroughType = getParamNumber(["ThroughType", "無視種別"], 1, 3);
+
+  //=============================================================================
+  // プラグイン無効条件の判定
+  //=============================================================================
+  if (paramInvalidIfTest && Utils.isOptionValid("test")) {
+    return;
+  } else if (paramInvalidIfWeb && !Utils.isNwjs()) {
+    return;
+  }
+
+  if (paramThroughType !== 1) {
+    //=============================================================================
+    // Bitmap
+    //  エラー発生用のフラグをキャンセルします。
+    //=============================================================================
+    var _Bitmap_isReady = Bitmap.prototype.isReady;
+    Bitmap.prototype.isReady = function () {
+      if (this.isError()) {
+        this.eraseError();
+      }
+      return _Bitmap_isReady.apply(this, arguments);
     };
 
-    var getParamBoolean = function (paramNames) {
-        var value = (getParamOther(paramNames) || '').toUpperCase();
-        return value === 'ON' || value === 'TRUE';
+    var _Bitmap_decode = Bitmap.prototype.decode;
+    Bitmap.prototype.decode = function () {
+      _Bitmap_decode.apply(this, arguments);
+      if (this._loadingState === "requesting") {
+        this._image.addEventListener("error", this._onError.bind(this));
+      }
     };
 
-    var getParamNumber = function (paramNames, min, max) {
-        var value = getParamOther(paramNames);
-        if (arguments.length < 2) min = -Infinity;
-        if (arguments.length < 3) max = Infinity;
-        return (parseInt(value) || 0).clamp(min, max);
+    Bitmap.prototype.eraseError = function () {
+      this._hasError = false;
+      this._isLoading = false;
+      this._loadingState = "loaded";
     };
 
     //=============================================================================
-    // パラメータの取得と整形
+    // Graphics
+    //  エラーイベントを登録します。
     //=============================================================================
-    var paramInvalidIfTest = getParamBoolean(['InvalidIfTest', 'テストプレー時無効']);
-    var paramInvalidIfWeb = getParamBoolean(['InvalidIfWeb', 'Web版で無効']);
-    var paramThroughType = getParamNumber(['ThroughType', '無視種別'], 1, 3);
+    var _Graphics__playVideo = Graphics._playVideo;
+    Graphics._playVideo = function (src) {
+      _Graphics__playVideo.apply(this, arguments);
+      this._video.onerror = this._videoLoader || this._onVideoError.bind(this);
+    };
+  }
 
+  if (paramThroughType !== 2) {
     //=============================================================================
-    // プラグイン無効条件の判定
+    // AudioManager
+    //  エラーチェック処理を無視します。
     //=============================================================================
-    if (paramInvalidIfTest && Utils.isOptionValid('test')) {
-        return;
-    } else if (paramInvalidIfWeb && !Utils.isNwjs()) {
-        return;
-    }
+    AudioManager.checkErrors = function () {};
+  }
 
-    if (paramThroughType !== 1) {
-        //=============================================================================
-        // Bitmap
-        //  エラー発生用のフラグをキャンセルします。
-        //=============================================================================
-        var _Bitmap_isReady = Bitmap.prototype.isReady;
-        Bitmap.prototype.isReady = function () {
-            if (this.isError()) {
-                this.eraseError();
-            }
-            return _Bitmap_isReady.apply(this, arguments);
-        };
+  if (typeof ResourceHandler !== "undefined") {
+    //=============================================================================
+    // ResourceHandler
+    //  リトライ機能の仕様を変更します。
+    //=============================================================================
+    var _ResourceHandler_createLoader = ResourceHandler.createLoader;
+    ResourceHandler.createLoader = function (
+      url,
+      retryMethod,
+      resignMethod,
+      retryInterval
+    ) {
+      return this.isNeedLoader(url)
+        ? _ResourceHandler_createLoader.apply(this, arguments)
+        : null;
+    };
 
-        var _Bitmap_decode = Bitmap.prototype.decode;
-        Bitmap.prototype.decode = function () {
-            _Bitmap_decode.apply(this, arguments);
-            if (this._loadingState === 'requesting') {
-                this._image.addEventListener('error', this._onError.bind(this));
-            }
-        };
-
-        Bitmap.prototype.eraseError = function () {
-            this._hasError = false;
-            this._isLoading = false;
-            this._loadingState = 'loaded';
-        };
-
-        //=============================================================================
-        // Graphics
-        //  エラーイベントを登録します。
-        //=============================================================================
-        var _Graphics__playVideo = Graphics._playVideo;
-        Graphics._playVideo = function (src) {
-            _Graphics__playVideo.apply(this, arguments);
-            this._video.onerror = this._videoLoader || this._onVideoError.bind(this);
-        };
-    }
-
-    if (paramThroughType !== 2) {
-        //=============================================================================
-        // AudioManager
-        //  エラーチェック処理を無視します。
-        //=============================================================================
-        AudioManager.checkErrors = function () { };
-    }
-
-    if (typeof ResourceHandler !== 'undefined') {
-        //=============================================================================
-        // ResourceHandler
-        //  リトライ機能の仕様を変更します。
-        //=============================================================================
-        var _ResourceHandler_createLoader = ResourceHandler.createLoader;
-        ResourceHandler.createLoader = function (url, retryMethod, resignMethod, retryInterval) {
-            return this.isNeedLoader(url) ? _ResourceHandler_createLoader.apply(this, arguments) : null;
-        };
-
-        ResourceHandler.isNeedLoader = function (url) {
-            if (paramThroughType === 1 && !url.match(/^audio\//)) {
-                return true;
-            } else if (paramThroughType === 2 && (!url.match(/^img\//) && !url.match(/^movie\//))) {
-                return true;
-            } else {
-                return false;
-            }
-        };
-    }
+    ResourceHandler.isNeedLoader = function (url) {
+      if (paramThroughType === 1 && !url.match(/^audio\//)) {
+        return true;
+      } else if (
+        paramThroughType === 2 &&
+        !url.match(/^img\//) &&
+        !url.match(/^movie\//)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
+  }
 })();
-

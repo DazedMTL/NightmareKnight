@@ -13,7 +13,7 @@ DependStateEscape.js
  * @plugindesc パーティの誰かが特定ステート時にバトル中の逃げるコマンドを封印
  * @author さうと
  *
- * 
+ *
  * @param stateNo
  * @desc 逃走不可状態にするステートのデータ番号
  * @default 0
@@ -22,21 +22,21 @@ DependStateEscape.js
  */
 
 (function () {
-	var parameters = PluginManager.parameters('DependStateEscape');
+  var parameters = PluginManager.parameters("DependStateEscape");
 
-	//rpg_manager.js
-	BattleManager.canEscape = function () {
-		var ret = this._canEscape;
-		for (i = 0; i < $dataActors.length; i++) {
-			if ($gameActors.actor(i) == null)
-				continue;
+  //rpg_manager.js
+  BattleManager.canEscape = function () {
+    var ret = this._canEscape;
+    for (i = 0; i < $dataActors.length; i++) {
+      if ($gameActors.actor(i) == null) continue;
 
-			//パラは文字列なのでint変換する
-			if ($gameActors.actor(i).isStateAffected(parseInt(parameters['stateNo']))) {
-				ret = false;
-			}
-		}
-		return ret;
-	};
-
+      //パラは文字列なのでint変換する
+      if (
+        $gameActors.actor(i).isStateAffected(parseInt(parameters["stateNo"]))
+      ) {
+        ret = false;
+      }
+    }
+    return ret;
+  };
 })();

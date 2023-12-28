@@ -26,19 +26,18 @@
  *
  */
 (function () {
-    'use strict';
+  "use strict";
 
-    var pluginName = 'BalloonSkip';
+  var pluginName = "BalloonSkip";
 
-    var _update = Sprite_Balloon.prototype.update;
-    Sprite_Balloon.prototype.update = function () {
-        if (Input.isTriggered('ok') || Input.isPressed('control')) {
-            this._duration = 0;
-        }
-        if (Input.isPressed('ok')) {
-            this._duration -= 5;
-        }
-        _update.apply(this);
+  var _update = Sprite_Balloon.prototype.update;
+  Sprite_Balloon.prototype.update = function () {
+    if (Input.isTriggered("ok") || Input.isPressed("control")) {
+      this._duration = 0;
     }
-
+    if (Input.isPressed("ok")) {
+      this._duration -= 5;
+    }
+    _update.apply(this);
+  };
 })();

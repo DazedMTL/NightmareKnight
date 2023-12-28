@@ -74,15 +74,20 @@ Imported.TMBattlerEx = true;
 
 var TMPlugin = TMPlugin || {};
 TMPlugin.BattlerEx = {};
-TMPlugin.BattlerEx.Parameters = PluginManager.parameters('TMBattlerEx');
-TMPlugin.BattlerEx.BaseY = +(TMPlugin.BattlerEx.Parameters['baseY'] || 400);
-TMPlugin.BattlerEx.BreathH = +(TMPlugin.BattlerEx.Parameters['breathH'] || 0.05);
-TMPlugin.BattlerEx.MirrorRate = +(TMPlugin.BattlerEx.Parameters['mirrorRate'] || 0.4);
-TMPlugin.BattlerEx.BreathStop = TMPlugin.BattlerEx.Parameters['breathStop'] === '1';
-TMPlugin.BattlerEx.ShakeEffect = TMPlugin.BattlerEx.Parameters['shakeEffect'] === '1';
+TMPlugin.BattlerEx.Parameters = PluginManager.parameters("TMBattlerEx");
+TMPlugin.BattlerEx.BaseY = +(TMPlugin.BattlerEx.Parameters["baseY"] || 400);
+TMPlugin.BattlerEx.BreathH = +(
+  TMPlugin.BattlerEx.Parameters["breathH"] || 0.05
+);
+TMPlugin.BattlerEx.MirrorRate = +(
+  TMPlugin.BattlerEx.Parameters["mirrorRate"] || 0.4
+);
+TMPlugin.BattlerEx.BreathStop =
+  TMPlugin.BattlerEx.Parameters["breathStop"] === "1";
+TMPlugin.BattlerEx.ShakeEffect =
+  TMPlugin.BattlerEx.Parameters["shakeEffect"] === "1";
 
 (function () {
-
   //-----------------------------------------------------------------------------
   // Sprite_Enemy
   //
@@ -90,10 +95,16 @@ TMPlugin.BattlerEx.ShakeEffect = TMPlugin.BattlerEx.Parameters['shakeEffect'] ==
   var _Sprite_Enemy_initialize = Sprite_Enemy.prototype.initialize;
   Sprite_Enemy.prototype.initialize = function (battler) {
     _Sprite_Enemy_initialize.call(this, battler);
-    var r = +(battler.enemy().meta.scale || this.y / (TMPlugin.BattlerEx.BaseY * 2) + 0.5);
+    var r = +(
+      battler.enemy().meta.scale ||
+      this.y / (TMPlugin.BattlerEx.BaseY * 2) + 0.5
+    );
     this._baseScale = new Point(r, r);
-    if (!$gameSystem.isSideView() && Math.random() < TMPlugin.BattlerEx.MirrorRate &&
-      !battler.enemy().meta.noMirror) {
+    if (
+      !$gameSystem.isSideView() &&
+      Math.random() < TMPlugin.BattlerEx.MirrorRate &&
+      !battler.enemy().meta.noMirror
+    ) {
       this._baseScale.x = 0 - r;
       this._stateIconSprite.scale.x = -1;
     }
@@ -117,7 +128,8 @@ TMPlugin.BattlerEx.ShakeEffect = TMPlugin.BattlerEx.Parameters['shakeEffect'] ==
     var scaleX = this._baseScale.x;
     var scaleY = this._baseScale.y;
     var bh = +(this._enemy.enemy().meta.breathH || TMPlugin.BattlerEx.BreathH);
-    scaleY += Math.sin(Math.PI * this._breathCount / (this._breathMax / 2)) * bh;
+    scaleY +=
+      Math.sin((Math.PI * this._breathCount) / (this._breathMax / 2)) * bh;
     this.scale.set(scaleX, scaleY);
   };
 
@@ -130,5 +142,4 @@ TMPlugin.BattlerEx.ShakeEffect = TMPlugin.BattlerEx.Parameters['shakeEffect'] ==
       _Sprite_Enemy_updateBlink.call(this);
     }
   };
-
 })();

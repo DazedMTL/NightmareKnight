@@ -25,61 +25,65 @@
  */
 
 {
-    'use strict';
+  ("use strict");
 
-    function extToEncryptExt(url) {
-        if (window.Decrypter) {
-            return Decrypter.extToEncryptExt(url);
-        }
-        return `${url}_`;
+  function extToEncryptExt(url) {
+    if (window.Decrypter) {
+      return Decrypter.extToEncryptExt(url);
     }
+    return `${url}_`;
+  }
 
-    function decryptArrayBuffer(arrayBuffer) {
-        if (window.Decrypter) {
-            return Decrypter.decryptArrayBuffer(arrayBuffer);
-        }
-        if (!Utils._encryptionKey) {
-            Utils._encryptionKey = $dataSystem.encryptionKey;
-        }
-        return Utils.decryptArrayBuffer(arrayBuffer);
+  function decryptArrayBuffer(arrayBuffer) {
+    if (window.Decrypter) {
+      return Decrypter.decryptArrayBuffer(arrayBuffer);
     }
+    if (!Utils._encryptionKey) {
+      Utils._encryptionKey = $dataSystem.encryptionKey;
+    }
+    return Utils.decryptArrayBuffer(arrayBuffer);
+  }
 
-    //==============================================================================
-    // Image
-    //==============================================================================
+  //==============================================================================
+  // Image
+  //==============================================================================
 
-    (__set => {
-        Object.defineProperty(Image.prototype, 'src', {
-            set: function (value) {
-                function decrypt() {
-                    if (!$dataSystem) {
-                        setTimeout(decrypt.bind(this), 0);
-                        return;
-                    }
-                    if (!$dataSystem.hasEncryptedImages || !value || !value.match(/\.[a-z]{3,5}$/i)) {
-                        __set.call(this, value);
-                        return;
-                    }
-                    let url = extToEncryptExt(value);
-                    let xhr = new XMLHttpRequest();
-                    xhr.open('GET', url);
-                    xhr.responseType = 'arraybuffer';
-                    xhr.onload = () => {
-                        if (xhr.status >= 400) {
-                            __set.call(this, value);
-                            return;
-                        }
-                        let buffer = decryptArrayBuffer(xhr.response);
-                        let blob = new Blob([buffer]);
-                        __set.call(this, URL.createObjectURL(blob));
-                    };
-                    xhr.onerror = () => {
-                        __set.call(this, value);
-                    };
-                    xhr.send();
-                }
-                decrypt.call(this);
+  ((__set) => {
+    Object.defineProperty(Image.prototype, "src", {
+      set: function (value) {
+        function decrypt() {
+          if (!$dataSystem) {
+            setTimeout(decrypt.bind(this), 0);
+            return;
+          }
+          if (
+            !$dataSystem.hasEncryptedImages ||
+            !value ||
+            !value.match(/\.[a-z]{3,5}$/i)
+          ) {
+            __set.call(this, value);
+            return;
+          }
+          let url = extToEncryptExt(value);
+          let xhr = new XMLHttpRequest();
+          xhr.open("GET", url);
+          xhr.responseType = "arraybuffer";
+          xhr.onload = () => {
+            if (xhr.status >= 400) {
+              __set.call(this, value);
+              return;
             }
-        });
-    })(Object.getOwnPropertyDescriptor(Image.prototype, 'src').set);
+            let buffer = decryptArrayBuffer(xhr.response);
+            let blob = new Blob([buffer]);
+            __set.call(this, URL.createObjectURL(blob));
+          };
+          xhr.onerror = () => {
+            __set.call(this, value);
+          };
+          xhr.send();
+        }
+        decrypt.call(this);
+      },
+    });
+  })(Object.getOwnPropertyDescriptor(Image.prototype, "src").set);
 }

@@ -22,7 +22,7 @@
  *
  *   プラグインコマンドによるフキダシループは、イベントページの切り替わりや
  *   イベントコマンド『イベントの一時消去』などによって解除されます。
- * 
+ *
  * プラグインコマンド:
  *   setBalloonLoop 2 1
  *   ２番のイベントにフキダシループとしてびっくりアイコンを設定します。イベ
@@ -44,7 +44,6 @@ Imported.TMBalloonLoop = true;
 if (!Imported.TMEventBase) {
   Imported.TMEventBase = true;
   (function () {
-
     //-----------------------------------------------------------------------------
     // Game_Event
     //
@@ -63,11 +62,11 @@ if (!Imported.TMEventBase) {
       var list = this.list();
       for (var i = 0; i < list.length; i++) {
         var command = list[i];
-        if (command && command.code == 108 || command.code == 408) {
-          for (; ;) {
+        if ((command && command.code == 108) || command.code == 408) {
+          for (;;) {
             var match = re.exec(command.parameters[0]);
             if (match) {
-              if (match[2] === ':') {
+              if (match[2] === ":") {
                 this._commentParams[match[1]] = match[3];
               } else {
                 this._commentParams[match[1]] = true;
@@ -91,12 +90,10 @@ if (!Imported.TMEventBase) {
         return null;
       }
     };
-
   })();
 }
 
 (function () {
-
   //-----------------------------------------------------------------------------
   // Game_CharacterBase
   //
@@ -126,7 +123,7 @@ if (!Imported.TMEventBase) {
   Game_Event.prototype.setupPage = function () {
     _Game_Event_setupPage.call(this);
     if (this._pageIndex >= 0) {
-      var balloonLoop = +this.loadTagParam('balloonLoop');
+      var balloonLoop = +this.loadTagParam("balloonLoop");
       if (balloonLoop) {
         this.setBalloonLoop(balloonLoop);
       }
@@ -139,10 +136,11 @@ if (!Imported.TMEventBase) {
   // Game_Interpreter
   //
 
-  var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
   Game_Interpreter.prototype.pluginCommand = function (command, args) {
     _Game_Interpreter_pluginCommand.call(this, command, args);
-    if (command === 'setBalloonLoop') {
+    if (command === "setBalloonLoop") {
       var character = this.character(+args[0]);
       if (character) {
         character.setBalloonLoop(+args[1]);
@@ -163,5 +161,4 @@ if (!Imported.TMEventBase) {
       _Sprite_Character_endBalloon.call(this);
     }
   };
-
 })();

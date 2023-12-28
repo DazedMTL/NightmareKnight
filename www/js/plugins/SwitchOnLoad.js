@@ -25,14 +25,12 @@
  */
 
 (function () {
+  var parameters = PluginManager.parameters("SwitchOnLoad");
+  var switchId = Number(parameters["Switch ID"] || 0);
 
-    var parameters = PluginManager.parameters('SwitchOnLoad');
-    var switchId = Number(parameters['Switch ID'] || 0);
-
-    var _Scene_Load_onLoadSuccess = Scene_Load.prototype.onLoadSuccess;
-    Scene_Load.prototype.onLoadSuccess = function () {
-        _Scene_Load_onLoadSuccess.call(this);
-        $gameSwitches.setValue(switchId, true);
-    };
-
+  var _Scene_Load_onLoadSuccess = Scene_Load.prototype.onLoadSuccess;
+  Scene_Load.prototype.onLoadSuccess = function () {
+    _Scene_Load_onLoadSuccess.call(this);
+    $gameSwitches.setValue(switchId, true);
+  };
 })();

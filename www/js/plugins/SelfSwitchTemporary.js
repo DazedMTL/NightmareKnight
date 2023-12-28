@@ -89,126 +89,144 @@
  */
 
 (function () {
-    'use strict';
-    var metaTagPrefix = 'SST_';
+  "use strict";
+  var metaTagPrefix = "SST_";
 
-    //=============================================================================
-    // ローカル関数
-    //  プラグインパラメータやプラグインコマンドパラメータの整形やチェックをします
-    //=============================================================================
-    var getMetaValue = function (object, name) {
-        var metaTagName = metaTagPrefix + name;
-        return object.meta.hasOwnProperty(metaTagName) ? convertEscapeCharacters(object.meta[metaTagName]) : undefined;
+  //=============================================================================
+  // ローカル関数
+  //  プラグインパラメータやプラグインコマンドパラメータの整形やチェックをします
+  //=============================================================================
+  var getMetaValue = function (object, name) {
+    var metaTagName = metaTagPrefix + name;
+    return object.meta.hasOwnProperty(metaTagName)
+      ? convertEscapeCharacters(object.meta[metaTagName])
+      : undefined;
+  };
+
+  var getMetaValues = function (object, names) {
+    for (var i = 0, n = names.length; i < n; i++) {
+      var value = getMetaValue(object, names[i]);
+      if (value !== undefined) return value;
+    }
+    return undefined;
+  };
+
+  var getArgArrayString = function (args) {
+    var values = args.split(",");
+    for (var i = 0; i < values.length; i++) {
+      values[i] = values[i].trim();
+    }
+    return values;
+  };
+
+  var convertEscapeCharacters = function (text) {
+    if (String(text) !== text) return text;
+    var windowLayer = SceneManager._scene._windowLayer;
+    return windowLayer
+      ? windowLayer.children[0].convertEscapeCharacters(text)
+      : text;
+  };
+
+  var createPluginParameter = function (pluginName) {
+    var paramReplacer = function (key, value) {
+      if (value === "null") {
+        return value;
+      }
+      if (value[0] === '"' && value[value.length - 1] === '"') {
+        return value;
+      }
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        return value;
+      }
     };
+    var parameter = JSON.parse(
+      JSON.stringify(PluginManager.parameters(pluginName), paramReplacer)
+    );
+    PluginManager.setParameters(pluginName, parameter);
+    return parameter;
+  };
 
-    var getMetaValues = function (object, names) {
-        for (var i = 0, n = names.length; i < n; i++) {
-            var value = getMetaValue(object, names[i]);
-            if (value !== undefined) return value;
-        }
-        return undefined;
-    };
+  var param = createPluginParameter("SelfSwitchTemporary");
 
-    var getArgArrayString = function (args) {
-        var values = args.split(',');
-        for (var i = 0; i < values.length; i++) {
-            values[i] = values[i].trim();
-        }
-        return values;
-    };
+  /**
+   * Game_Interpreter
+   * プラグインコマンドを追加定義します。
+   */
+  var _Game_Interpreter_pluginCommand =
+    Game_Interpreter.prototype.pluginCommand;
+  Game_Interpreter.prototype.pluginCommand = function (command, args) {
+    _Game_Interpreter_pluginCommand.apply(this, arguments);
+    if (
+      command === "CLEAR_TEMPORARY_SELF_SWITCH" ||
+      command === "一時セルフスイッチ解除"
+    ) {
+      $gameSelfSwitches.clearTemporary();
+    }
+  };
 
-    var convertEscapeCharacters = function (text) {
-        if (String(text) !== text) return text;
-        var windowLayer = SceneManager._scene._windowLayer;
-        return windowLayer ? windowLayer.children[0].convertEscapeCharacters(text) : text;
-    };
+  /**
+   * Game_SelfSwitches
+   */
+  Game_SelfSwitches.prototype.appendTemporary = function (
+    mapId,
+    eventId,
+    type
+  ) {
+    if (!this._temporaryList) {
+      this._temporaryList = {};
+    }
+    this._temporaryList[[mapId, eventId, type]] = true;
+  };
 
-    var createPluginParameter = function (pluginName) {
-        var paramReplacer = function (key, value) {
-            if (value === 'null') {
-                return value;
-            }
-            if (value[0] === '"' && value[value.length - 1] === '"') {
-                return value;
-            }
-            try {
-                return JSON.parse(value);
-            } catch (e) {
-                return value;
-            }
-        };
-        var parameter = JSON.parse(JSON.stringify(PluginManager.parameters(pluginName), paramReplacer));
-        PluginManager.setParameters(pluginName, parameter);
-        return parameter;
-    };
+  Game_SelfSwitches.prototype.clearTemporary = function () {
+    if (!this._temporaryList) {
+      return;
+    }
+    Object.keys(this._temporaryList).forEach(function (key) {
+      this.setValue(key, false);
+    }, this);
+  };
 
-    var param = createPluginParameter('SelfSwitchTemporary');
+  /**
+   * Game_Map
+   */
+  var _Game_Map_setupEvents = Game_Map.prototype.setupEvents;
+  Game_Map.prototype.setupEvents = function () {
+    if (param.clearTransfer) {
+      $gameSelfSwitches.clearTemporary();
+    }
+    _Game_Map_setupEvents.apply(this, arguments);
+    this.events().forEach(function (event) {
+      event.addTemporarySelfSwitch();
+    });
+  };
 
-    /**
-     * Game_Interpreter
-     * プラグインコマンドを追加定義します。
-     */
-    var _Game_Interpreter_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-    Game_Interpreter.prototype.pluginCommand = function (command, args) {
-        _Game_Interpreter_pluginCommand.apply(this, arguments);
-        if (command === 'CLEAR_TEMPORARY_SELF_SWITCH' || command === '一時セルフスイッチ解除') {
-            $gameSelfSwitches.clearTemporary();
-        }
-    };
+  /**
+   * Game_Event
+   */
+  Game_Event.prototype.addTemporarySelfSwitch = function () {
+    var switchList = this.findTemporarySelfSwitch();
+    if (!switchList) {
+      return;
+    }
+    switchList.forEach(function (type) {
+      $gameSelfSwitches.appendTemporary(
+        $gameMap.mapId(),
+        this.eventId(),
+        type.toUpperCase()
+      );
+    }, this);
+  };
 
-    /**
-     * Game_SelfSwitches
-     */
-    Game_SelfSwitches.prototype.appendTemporary = function (mapId, eventId, type) {
-        if (!this._temporaryList) {
-            this._temporaryList = {};
-        }
-        this._temporaryList[[mapId, eventId, type]] = true;
-    };
-
-    Game_SelfSwitches.prototype.clearTemporary = function () {
-        if (!this._temporaryList) {
-            return;
-        }
-        Object.keys(this._temporaryList).forEach(function (key) {
-            this.setValue(key, false);
-        }, this);
-    };
-
-    /**
-     * Game_Map
-     */
-    var _Game_Map_setupEvents = Game_Map.prototype.setupEvents;
-    Game_Map.prototype.setupEvents = function () {
-        if (param.clearTransfer) {
-            $gameSelfSwitches.clearTemporary();
-        }
-        _Game_Map_setupEvents.apply(this, arguments);
-        this.events().forEach(function (event) {
-            event.addTemporarySelfSwitch();
-        });
-    };
-
-    /**
-     * Game_Event
-     */
-    Game_Event.prototype.addTemporarySelfSwitch = function () {
-        var switchList = this.findTemporarySelfSwitch();
-        if (!switchList) {
-            return;
-        }
-        switchList.forEach(function (type) {
-            $gameSelfSwitches.appendTemporary($gameMap.mapId(), this.eventId(), type.toUpperCase());
-        }, this);
-    };
-
-    Game_Event.prototype.findTemporarySelfSwitch = function () {
-        var metaValue = getMetaValues(this.event(), ['Switch', 'スイッチ']);
-        if (!metaValue) {
-            return param.defaultTemporary || null;
-        }
-        var list = metaValue === true ? ['A', 'B', 'C', 'D'] : getArgArrayString(metaValue);
-        return param.defaultTemporary ? list.concat(param.defaultTemporary) : list;
-    };
+  Game_Event.prototype.findTemporarySelfSwitch = function () {
+    var metaValue = getMetaValues(this.event(), ["Switch", "スイッチ"]);
+    if (!metaValue) {
+      return param.defaultTemporary || null;
+    }
+    var list =
+      metaValue === true ? ["A", "B", "C", "D"] : getArgArrayString(metaValue);
+    return param.defaultTemporary ? list.concat(param.defaultTemporary) : list;
+  };
 })();
-

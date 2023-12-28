@@ -722,7 +722,7 @@ Yanfly.Core.version = 1.32;
  *
  * Version 1.32:
  * - Reversed the disable for the screen jitter fix from version 1.24. Somehow
- * it came back and I don't know when, but now it needs to go. 
+ * it came back and I don't know when, but now it needs to go.
  *
  * Version 1.31:
  * - Added Fallen Angel Olivia's full error message display to the Core Engine
@@ -892,90 +892,90 @@ Yanfly.Core.version = 1.32;
 // Parameter Variables
 //=============================================================================
 
-Yanfly.Parameters = PluginManager.parameters('YEP_CoreEngine');
+Yanfly.Parameters = PluginManager.parameters("YEP_CoreEngine");
 Yanfly.Param = Yanfly.Param || {};
 Yanfly.Icon = Yanfly.Icon || {};
 
-Yanfly.Param.ScreenWidth = Number(Yanfly.Parameters['Screen Width'] || 816);
-Yanfly.Param.ScreenHeight = Number(Yanfly.Parameters['Screen Height'] || 624);
-Yanfly.Param.ScaleBattleback = String(Yanfly.Parameters['Scale Battlebacks']);
+Yanfly.Param.ScreenWidth = Number(Yanfly.Parameters["Screen Width"] || 816);
+Yanfly.Param.ScreenHeight = Number(Yanfly.Parameters["Screen Height"] || 624);
+Yanfly.Param.ScaleBattleback = String(Yanfly.Parameters["Scale Battlebacks"]);
 Yanfly.Param.ScaleBattleback = eval(Yanfly.Param.ScaleBattleback);
-Yanfly.Param.ScaleTitle = eval(String(Yanfly.Parameters['Scale Title']));
-Yanfly.Param.ScaleGameOver = eval(String(Yanfly.Parameters['Scale Game Over']));
-Yanfly.Param.OpenConsole = String(Yanfly.Parameters['Open Console']);
+Yanfly.Param.ScaleTitle = eval(String(Yanfly.Parameters["Scale Title"]));
+Yanfly.Param.ScaleGameOver = eval(String(Yanfly.Parameters["Scale Game Over"]));
+Yanfly.Param.OpenConsole = String(Yanfly.Parameters["Open Console"]);
 Yanfly.Param.OpenConsole = eval(Yanfly.Param.OpenConsole);
-Yanfly.Param.ReposBattlers = String(Yanfly.Parameters['Reposition Battlers']);
+Yanfly.Param.ReposBattlers = String(Yanfly.Parameters["Reposition Battlers"]);
 Yanfly.Param.ReposBattlers = eval(Yanfly.Param.ReposBattlers);
-Yanfly.Param.GameFontTimer = Number(Yanfly.Parameters['GameFont Load Timer']);
-Yanfly.Param.UpdateRealScale = String(Yanfly.Parameters['Update Real Scale']);
+Yanfly.Param.GameFontTimer = Number(Yanfly.Parameters["GameFont Load Timer"]);
+Yanfly.Param.UpdateRealScale = String(Yanfly.Parameters["Update Real Scale"]);
 Yanfly.Param.UpdateRealScale = eval(Yanfly.Param.UpdateRealScale);
-Yanfly.Param.CollectionClear = String(Yanfly.Parameters['Collection Clear']);
+Yanfly.Param.CollectionClear = String(Yanfly.Parameters["Collection Clear"]);
 Yanfly.Param.CollectionClear = eval(Yanfly.Param.CollectionClear);
 
-Yanfly.Param.MaxGold = String(Yanfly.Parameters['Gold Max']);
-Yanfly.Param.GoldFontSize = Number(Yanfly.Parameters['Gold Font Size']);
-Yanfly.Icon.Gold = Number(Yanfly.Parameters['Gold Icon']);
-Yanfly.Param.GoldOverlap = String(Yanfly.Parameters['Gold Overlap']);
+Yanfly.Param.MaxGold = String(Yanfly.Parameters["Gold Max"]);
+Yanfly.Param.GoldFontSize = Number(Yanfly.Parameters["Gold Font Size"]);
+Yanfly.Icon.Gold = Number(Yanfly.Parameters["Gold Icon"]);
+Yanfly.Param.GoldOverlap = String(Yanfly.Parameters["Gold Overlap"]);
 
-Yanfly.Param.MaxItem = Number(Yanfly.Parameters['Default Max']);
-Yanfly.Param.ItemQuantitySize = Number(Yanfly.Parameters['Quantity Text Size']);
+Yanfly.Param.MaxItem = Number(Yanfly.Parameters["Default Max"]);
+Yanfly.Param.ItemQuantitySize = Number(Yanfly.Parameters["Quantity Text Size"]);
 
-Yanfly.Param.MaxLevel = Number(Yanfly.Parameters['Max Level']);
-Yanfly.Param.EnemyMaxHp = Number(Yanfly.Parameters['Enemy MaxHP']);
-Yanfly.Param.EnemyMaxMp = Number(Yanfly.Parameters['Enemy MaxMP']);
-Yanfly.Param.EnemyParam = Number(Yanfly.Parameters['Enemy Parameter']);
-Yanfly.Param.ActorMaxHp = Number(Yanfly.Parameters['Actor MaxHP']);
-Yanfly.Param.ActorMaxMp = Number(Yanfly.Parameters['Actor MaxMP']);
-Yanfly.Param.ActorParam = Number(Yanfly.Parameters['Actor Parameter']);
+Yanfly.Param.MaxLevel = Number(Yanfly.Parameters["Max Level"]);
+Yanfly.Param.EnemyMaxHp = Number(Yanfly.Parameters["Enemy MaxHP"]);
+Yanfly.Param.EnemyMaxMp = Number(Yanfly.Parameters["Enemy MaxMP"]);
+Yanfly.Param.EnemyParam = Number(Yanfly.Parameters["Enemy Parameter"]);
+Yanfly.Param.ActorMaxHp = Number(Yanfly.Parameters["Actor MaxHP"]);
+Yanfly.Param.ActorMaxMp = Number(Yanfly.Parameters["Actor MaxMP"]);
+Yanfly.Param.ActorParam = Number(Yanfly.Parameters["Actor Parameter"]);
 
-Yanfly.Param.AnimationRate = Number(Yanfly.Parameters['Animation Rate']);
-Yanfly.Param.FlashTarget = eval(String(Yanfly.Parameters['Flash Target']));
-Yanfly.Param.ShowEvTrans = String(Yanfly.Parameters['Show Events Transition']);
+Yanfly.Param.AnimationRate = Number(Yanfly.Parameters["Animation Rate"]);
+Yanfly.Param.FlashTarget = eval(String(Yanfly.Parameters["Flash Target"]));
+Yanfly.Param.ShowEvTrans = String(Yanfly.Parameters["Show Events Transition"]);
 Yanfly.Param.ShowEvTrans = eval(Yanfly.Param.ShowEvTrans);
-Yanfly.Param.ShowEvSnap = String(Yanfly.Parameters['Show Events Snapshot']);
+Yanfly.Param.ShowEvSnap = String(Yanfly.Parameters["Show Events Snapshot"]);
 Yanfly.Param.ShowEvSnap = eval(Yanfly.Param.ShowEvSnap);
 
-Yanfly.Param.RefreshUpdateHp = String(Yanfly.Parameters['Refresh Update HP']);
+Yanfly.Param.RefreshUpdateHp = String(Yanfly.Parameters["Refresh Update HP"]);
 Yanfly.Param.RefreshUpdateHp = eval(Yanfly.Param.RefreshUpdateHp);
-Yanfly.Param.RefreshUpdateMp = String(Yanfly.Parameters['Refresh Update MP']);
+Yanfly.Param.RefreshUpdateMp = String(Yanfly.Parameters["Refresh Update MP"]);
 Yanfly.Param.RefreshUpdateMp = eval(Yanfly.Param.RefreshUpdateMp);
-Yanfly.Param.RefreshUpdateTp = String(Yanfly.Parameters['Refresh Update TP']);
+Yanfly.Param.RefreshUpdateTp = String(Yanfly.Parameters["Refresh Update TP"]);
 Yanfly.Param.RefreshUpdateTp = eval(Yanfly.Param.RefreshUpdateTp);
 
-Yanfly.Param.ChineseFont = String(Yanfly.Parameters['Chinese Font']);
-Yanfly.Param.KoreanFont = String(Yanfly.Parameters['Korean Font']);
-Yanfly.Param.DefaultFont = String(Yanfly.Parameters['Default Font']);
-Yanfly.Param.FontSize = Number(Yanfly.Parameters['Font Size']);
-Yanfly.Param.TextAlign = String(Yanfly.Parameters['Text Align']);
+Yanfly.Param.ChineseFont = String(Yanfly.Parameters["Chinese Font"]);
+Yanfly.Param.KoreanFont = String(Yanfly.Parameters["Korean Font"]);
+Yanfly.Param.DefaultFont = String(Yanfly.Parameters["Default Font"]);
+Yanfly.Param.FontSize = Number(Yanfly.Parameters["Font Size"]);
+Yanfly.Param.TextAlign = String(Yanfly.Parameters["Text Align"]);
 
-Yanfly.Param.DigitGroup = eval(String(Yanfly.Parameters['Digit Grouping']));
-Yanfly.Param.LineHeight = Number(Yanfly.Parameters['Line Height']);
-Yanfly.Param.IconWidth = Number(Yanfly.Parameters['Icon Width'] || 32);;
-Yanfly.Param.IconHeight = Number(Yanfly.Parameters['Icon Height'] || 32);;
-Yanfly.Param.FaceWidth = Number(Yanfly.Parameters['Face Width'] || 144);
-Yanfly.Param.FaceHeight = Number(Yanfly.Parameters['Face Height'] || 144);
-Yanfly.Param.WindowPadding = Number(Yanfly.Parameters['Window Padding']);
-Yanfly.Param.TextPadding = Number(Yanfly.Parameters['Text Padding']);
-Yanfly.Param.WindowOpacity = Number(Yanfly.Parameters['Window Opacity']);
-Yanfly.Param.GaugeOutline = eval(String(Yanfly.Parameters['Gauge Outline']));
-Yanfly.Param.GaugeHeight = Number(Yanfly.Parameters['Gauge Height']);
-Yanfly.Param.MenuTpGauge = eval(String(Yanfly.Parameters['Menu TP Bar']));
+Yanfly.Param.DigitGroup = eval(String(Yanfly.Parameters["Digit Grouping"]));
+Yanfly.Param.LineHeight = Number(Yanfly.Parameters["Line Height"]);
+Yanfly.Param.IconWidth = Number(Yanfly.Parameters["Icon Width"] || 32);
+Yanfly.Param.IconHeight = Number(Yanfly.Parameters["Icon Height"] || 32);
+Yanfly.Param.FaceWidth = Number(Yanfly.Parameters["Face Width"] || 144);
+Yanfly.Param.FaceHeight = Number(Yanfly.Parameters["Face Height"] || 144);
+Yanfly.Param.WindowPadding = Number(Yanfly.Parameters["Window Padding"]);
+Yanfly.Param.TextPadding = Number(Yanfly.Parameters["Text Padding"]);
+Yanfly.Param.WindowOpacity = Number(Yanfly.Parameters["Window Opacity"]);
+Yanfly.Param.GaugeOutline = eval(String(Yanfly.Parameters["Gauge Outline"]));
+Yanfly.Param.GaugeHeight = Number(Yanfly.Parameters["Gauge Height"]);
+Yanfly.Param.MenuTpGauge = eval(String(Yanfly.Parameters["Menu TP Bar"]));
 
-Yanfly.Param.ColorNormal = Number(Yanfly.Parameters['Color: Normal']);
-Yanfly.Param.ColorSystem = Number(Yanfly.Parameters['Color: System']);
-Yanfly.Param.ColorCrisis = Number(Yanfly.Parameters['Color: Crisis']);
-Yanfly.Param.ColorDeath = Number(Yanfly.Parameters['Color: Death']);
-Yanfly.Param.ColorGaugeBack = Number(Yanfly.Parameters['Color: Gauge Back']);
-Yanfly.Param.ColorHpGauge1 = Number(Yanfly.Parameters['Color: HP Gauge 1']);
-Yanfly.Param.ColorHpGauge2 = Number(Yanfly.Parameters['Color: HP Gauge 2']);
-Yanfly.Param.ColorMpGauge1 = Number(Yanfly.Parameters['Color: MP Gauge 1']);
-Yanfly.Param.ColorMpGauge2 = Number(Yanfly.Parameters['Color: MP Gauge 2']);
-Yanfly.Param.ColorMpCost = Number(Yanfly.Parameters['Color: MP Cost']);
-Yanfly.Param.ColorPowerUp = Number(Yanfly.Parameters['Color: Power Up']);
-Yanfly.Param.ColorPowerDown = Number(Yanfly.Parameters['Color: Power Down']);
-Yanfly.Param.ColorTpGauge1 = Number(Yanfly.Parameters['Color: TP Gauge 1']);
-Yanfly.Param.ColorTpGauge2 = Number(Yanfly.Parameters['Color: TP Gauge 2']);
-Yanfly.Param.ColorTpCost = Number(Yanfly.Parameters['Color: TP Cost Color']);
+Yanfly.Param.ColorNormal = Number(Yanfly.Parameters["Color: Normal"]);
+Yanfly.Param.ColorSystem = Number(Yanfly.Parameters["Color: System"]);
+Yanfly.Param.ColorCrisis = Number(Yanfly.Parameters["Color: Crisis"]);
+Yanfly.Param.ColorDeath = Number(Yanfly.Parameters["Color: Death"]);
+Yanfly.Param.ColorGaugeBack = Number(Yanfly.Parameters["Color: Gauge Back"]);
+Yanfly.Param.ColorHpGauge1 = Number(Yanfly.Parameters["Color: HP Gauge 1"]);
+Yanfly.Param.ColorHpGauge2 = Number(Yanfly.Parameters["Color: HP Gauge 2"]);
+Yanfly.Param.ColorMpGauge1 = Number(Yanfly.Parameters["Color: MP Gauge 1"]);
+Yanfly.Param.ColorMpGauge2 = Number(Yanfly.Parameters["Color: MP Gauge 2"]);
+Yanfly.Param.ColorMpCost = Number(Yanfly.Parameters["Color: MP Cost"]);
+Yanfly.Param.ColorPowerUp = Number(Yanfly.Parameters["Color: Power Up"]);
+Yanfly.Param.ColorPowerDown = Number(Yanfly.Parameters["Color: Power Down"]);
+Yanfly.Param.ColorTpGauge1 = Number(Yanfly.Parameters["Color: TP Gauge 1"]);
+Yanfly.Param.ColorTpGauge2 = Number(Yanfly.Parameters["Color: TP Gauge 2"]);
+Yanfly.Param.ColorTpCost = Number(Yanfly.Parameters["Color: TP Cost Color"]);
 
 //=============================================================================
 // Bitmap
@@ -1036,7 +1036,6 @@ Bitmap.prototype.drawText = function (text, x, y, mW, l, align) {
 //=============================================================================
 
 if (Yanfly.Param.UpdateRealScale) {
-
   Graphics._updateRealScale = function () {
     if (this._stretchEnabled) {
       var h = window.innerWidth / this._width;
@@ -1051,36 +1050,47 @@ if (Yanfly.Param.UpdateRealScale) {
       this._realScale = this._scale;
     }
   };
-
-}; // Yanfly.Param.UpdateRealScale
+} // Yanfly.Param.UpdateRealScale
 
 Graphics.printFullError = function (name, message, stack) {
   stack = this.processErrorStackMessage(stack);
   if (this._errorPrinter) {
-    this._errorPrinter.innerHTML =
-      this._makeFullErrorHtml(name, message, stack);
+    this._errorPrinter.innerHTML = this._makeFullErrorHtml(
+      name,
+      message,
+      stack
+    );
   }
   this._applyCanvasFilter();
   this._clearUpperCanvas();
 };
 
 Graphics._makeFullErrorHtml = function (name, message, stack) {
-  var text = '';
+  var text = "";
   for (var i = 2; i < stack.length; ++i) {
-    text += '<font color=white>' + stack[i] + '</font><br>';
+    text += "<font color=white>" + stack[i] + "</font><br>";
   }
-  return ('<font color="yellow"><b>' + stack[0] + '</b></font><br>' +
-    '<font color="yellow"><b>' + stack[1] + '</b></font><br>' + text);
+  return (
+    '<font color="yellow"><b>' +
+    stack[0] +
+    "</b></font><br>" +
+    '<font color="yellow"><b>' +
+    stack[1] +
+    "</b></font><br>" +
+    text
+  );
 };
 
 Graphics.processErrorStackMessage = function (stack) {
   var data = stack.split(/(?:\r\n|\r|\n)/);
-  data.unshift('Game has encountered a bug. Please report it.<br>');
+  data.unshift("Game has encountered a bug. Please report it.<br>");
   for (var i = 1; i < data.length; ++i) {
-    data[i] = data[i].replace(/[\(](.*[\/])/, '(');
+    data[i] = data[i].replace(/[\(](.*[\/])/, "(");
   }
-  data.push('<br><font color="yellow"><b>Press F5 to restart the game.' +
-    '</b></font><br>');
+  data.push(
+    '<br><font color="yellow"><b>Press F5 to restart the game.' +
+      "</b></font><br>"
+  );
   return data;
 };
 
@@ -1088,7 +1098,7 @@ Yanfly.Core.Graphics_updateErrorPrinter = Graphics._updateErrorPrinter;
 Graphics._updateErrorPrinter = function () {
   Yanfly.Core.Graphics_updateErrorPrinter.call(this);
   this._errorPrinter.height = this._height * 0.5;
-  this._errorPrinter.style.textAlign = 'left';
+  this._errorPrinter.style.textAlign = "left";
   this._centerElement(this._errorPrinter);
 };
 
@@ -1097,7 +1107,7 @@ SceneManager.catchException = function (e) {
     Graphics.printFullError(e.name, e.message, e.stack);
     console.error(e.stack);
   } else {
-    Graphics.printError('UnknownError', e);
+    Graphics.printError("UnknownError", e);
   }
   AudioManager.stopAll();
   this.stop();
@@ -1131,7 +1141,7 @@ Sprite.prototype.updateTransform = function () {
 Yanfly.Core.ScreenSprite_initialize = ScreenSprite.prototype.initialize;
 ScreenSprite.prototype.initialize = function () {
   Yanfly.Core.ScreenSprite_initialize.call(this);
-  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.3.0') return;
+  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.3.0") return;
   this.scale.x = Graphics.boxWidth * 10;
   this.scale.y = Graphics.boxHeight * 10;
   this.anchor.x = 0.5;
@@ -1191,43 +1201,43 @@ DataManager.processCORENotetags1 = function (group) {
         var stat = String(RegExp.$1).toUpperCase();
         var value = parseInt(RegExp.$2);
         switch (stat) {
-          case 'HP':
-          case 'MAXHP':
-          case 'MAX HP':
+          case "HP":
+          case "MAXHP":
+          case "MAX HP":
             obj.params[0] = value;
             break;
-          case 'MP':
-          case 'MAXMP':
-          case 'MAX MP':
-          case 'SP':
-          case 'MAXSP':
-          case 'MAX SP':
+          case "MP":
+          case "MAXMP":
+          case "MAX MP":
+          case "SP":
+          case "MAXSP":
+          case "MAX SP":
             obj.params[1] = value;
             break;
-          case 'ATK':
-          case 'STR':
+          case "ATK":
+          case "STR":
             obj.params[2] = value;
             break;
-          case 'DEF':
+          case "DEF":
             obj.params[3] = value;
             break;
-          case 'MAT':
-          case 'INT' || 'SPI':
+          case "MAT":
+          case "INT" || "SPI":
             obj.params[4] = value;
             break;
-          case 'MDF':
-          case 'RES':
+          case "MDF":
+          case "RES":
             obj.params[5] = value;
             break;
-          case 'AGI':
-          case 'SPD':
+          case "AGI":
+          case "SPD":
             obj.params[6] = value;
             break;
-          case 'LUK':
+          case "LUK":
             obj.params[7] = value;
             break;
-          case 'EXP':
-          case 'XP':
+          case "EXP":
+          case "XP":
             obj.exp = value;
             break;
         }
@@ -1249,44 +1259,44 @@ DataManager.processCORENotetags2 = function (group) {
         var stat = String(RegExp.$1).toUpperCase();
         var value = parseInt(RegExp.$2);
         switch (stat) {
-          case 'HP':
-          case 'MAXHP':
-          case 'MAX HP':
+          case "HP":
+          case "MAXHP":
+          case "MAX HP":
             obj.params[0] = value;
             break;
-          case 'MP':
-          case 'MAXMP':
-          case 'MAX MP':
-          case 'SP':
-          case 'MAXSP':
-          case 'MAX SP':
+          case "MP":
+          case "MAXMP":
+          case "MAX MP":
+          case "SP":
+          case "MAXSP":
+          case "MAX SP":
             obj.params[1] = value;
             break;
-          case 'ATK':
-          case 'STR':
+          case "ATK":
+          case "STR":
             obj.params[2] = value;
             break;
-          case 'DEF':
+          case "DEF":
             obj.params[3] = value;
             break;
-          case 'MAT':
-          case 'INT':
-          case 'SPI':
+          case "MAT":
+          case "INT":
+          case "SPI":
             obj.params[4] = value;
             break;
-          case 'MDF':
-          case 'RES':
+          case "MDF":
+          case "RES":
             obj.params[5] = value;
             break;
-          case 'AGI':
-          case 'SPD':
+          case "AGI":
+          case "SPD":
             obj.params[6] = value;
             break;
-          case 'LUK':
+          case "LUK":
             obj.params[7] = value;
             break;
-          case 'EXP':
-          case 'XP':
+          case "EXP":
+          case "XP":
             obj.exp = value;
             break;
         }
@@ -1364,7 +1374,7 @@ SceneManager.updateInputData = function () {
 SceneManager._screenWidth = Yanfly.Param.ScreenWidth;
 SceneManager._screenHeight = Yanfly.Param.ScreenHeight;
 SceneManager._boxWidth = Yanfly.Param.ScreenWidth;
-SceneManager._boxHeight = Yanfly.Param.ScreenHeight
+SceneManager._boxHeight = Yanfly.Param.ScreenHeight;
 
 Yanfly.Core.SceneManager_run = SceneManager.run;
 SceneManager.run = function (sceneClass) {
@@ -1379,15 +1389,15 @@ Yanfly.updateResolution = function () {
   var resizeWidth = Yanfly.Param.ScreenWidth - window.innerWidth;
   var resizeHeight = Yanfly.Param.ScreenHeight - window.innerHeight;
   if (!Imported.ScreenResolution) {
-    window.moveBy(-1 * resizeWidth / 2, -1 * resizeHeight / 2);
+    window.moveBy((-1 * resizeWidth) / 2, (-1 * resizeHeight) / 2);
     window.resizeBy(resizeWidth, resizeHeight);
   }
 };
 
 Yanfly.openConsole = function () {
   Yanfly._openedConsole = true;
-  if (Utils.isNwjs() && Utils.isOptionValid('test')) {
-    var _debugWindow = require('nw.gui').Window.get().showDevTools();
+  if (Utils.isNwjs() && Utils.isOptionValid("test")) {
+    var _debugWindow = require("nw.gui").Window.get().showDevTools();
     if (_debugWindow) _debugWindow.moveTo(0, 0);
     window.focus();
   }
@@ -1396,8 +1406,8 @@ Yanfly.openConsole = function () {
 Yanfly.Core.SceneManager_onKeyDown = SceneManager.onKeyDown;
 SceneManager.onKeyDown = function (event) {
   if (!event.ctrlKey && !event.altKey && event.keyCode === 116) {
-    if (Utils.isNwjs() && Utils.isOptionValid('test')) {
-      var win = require('nw.gui').Window.get();
+    if (Utils.isNwjs() && Utils.isOptionValid("test")) {
+      var win = require("nw.gui").Window.get();
       win.closeDevTools();
     }
   }
@@ -1405,12 +1415,11 @@ SceneManager.onKeyDown = function (event) {
 };
 
 if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.6.0") {
-
   Yanfly.openConsole = function () {
     Yanfly._openedConsole = true;
     if (!Yanfly.Param.OpenConsole) return;
-    if (Utils.isNwjs() && Utils.isOptionValid('test')) {
-      var win = require('nw.gui').Window.get();
+    if (Utils.isNwjs() && Utils.isOptionValid("test")) {
+      var win = require("nw.gui").Window.get();
       win.showDevTools();
       setTimeout(this.focusWindow.bind(this, win), 500);
     }
@@ -1431,8 +1440,7 @@ if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.6.0") {
     Yanfly.Core.Scene_Battle_update.call(this);
     if (!Yanfly._openedConsole) Yanfly.openConsole();
   };
-
-}; // 1.6.0
+} // 1.6.0
 
 //=============================================================================
 // BattleManager
@@ -1450,7 +1458,7 @@ BattleManager.displayStartMessages = function () {
 BattleManager.processEscape = function () {
   $gameParty.performEscape();
   SoundManager.playEscape();
-  var success = this._preemptive ? true : (Math.random() < this._escapeRatio);
+  var success = this._preemptive ? true : Math.random() < this._escapeRatio;
   if (success) {
     $gameParty.removeBattleStates();
     this.displayEscapeSuccessMessage();
@@ -1483,11 +1491,11 @@ Yanfly.Core.Game_BattlerBase_refresh = Game_BattlerBase.prototype.refresh;
 
 Game_BattlerBase.prototype.mapRegenUpdateCheck = function (type) {
   if ($gameParty.inBattle()) return true;
-  if (type === 'hp') {
+  if (type === "hp") {
     return Yanfly.Param.RefreshUpdateHp;
-  } else if (type === 'mp') {
+  } else if (type === "mp") {
     return Yanfly.Param.RefreshUpdateMp;
-  } else if (type === 'tp') {
+  } else if (type === "tp") {
     return Yanfly.Param.RefreshUpdateTp;
   }
 };
@@ -1495,7 +1503,7 @@ Game_BattlerBase.prototype.mapRegenUpdateCheck = function (type) {
 Game_BattlerBase.prototype.setHp = function (hp) {
   if (this._hp === hp) return;
   this._hp = hp;
-  if (this.mapRegenUpdateCheck('hp')) {
+  if (this.mapRegenUpdateCheck("hp")) {
     this.refresh();
   } else {
     Yanfly.Core.Game_BattlerBase_refresh.call(this);
@@ -1505,7 +1513,7 @@ Game_BattlerBase.prototype.setHp = function (hp) {
 Game_BattlerBase.prototype.setMp = function (mp) {
   if (this._mp === mp) return;
   this._mp = mp;
-  if (this.mapRegenUpdateCheck('mp')) {
+  if (this.mapRegenUpdateCheck("mp")) {
     this.refresh();
   } else {
     Yanfly.Core.Game_BattlerBase_refresh.call(this);
@@ -1515,7 +1523,7 @@ Game_BattlerBase.prototype.setMp = function (mp) {
 Game_BattlerBase.prototype.setTp = function (tp) {
   if (this._tp === tp) return;
   this._tp = tp;
-  if (this.mapRegenUpdateCheck('tp')) {
+  if (this.mapRegenUpdateCheck("tp")) {
     this.refresh();
   } else {
     Yanfly.Core.Game_BattlerBase_refresh.call(this);
@@ -1583,17 +1591,21 @@ Game_Actor.prototype.learnSkill = function (skillId) {
   }
 };
 
-if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.3.4') {
-
+if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.3.4") {
   Game_Actor.prototype.meetsUsableItemConditions = function (item) {
-    if ($gameParty.inBattle() && !BattleManager.canEscape() &&
-      this.testEscape(item)) {
+    if (
+      $gameParty.inBattle() &&
+      !BattleManager.canEscape() &&
+      this.testEscape(item)
+    ) {
       return false;
     }
-    return Game_BattlerBase.prototype.meetsUsableItemConditions.call(this, item);
+    return Game_BattlerBase.prototype.meetsUsableItemConditions.call(
+      this,
+      item
+    );
   };
-
-}; // Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.3.4'
+} // Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.3.4'
 
 //=============================================================================
 // Game_Party
@@ -1622,28 +1634,32 @@ Game_Party.prototype.onPlayerWalk = function () {
 //=============================================================================
 
 Yanfly.isPreventScreenJittering = function () {
-  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.5.0') return true;
-  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.3.4') return false;
+  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.5.0") return true;
+  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.3.4") return false;
   return true;
 };
 
 if (Yanfly.isPreventScreenJittering()) {
-
   Game_Map.prototype.displayX = function () {
-    return parseFloat(Math.floor(this._displayX *
-      this.tileWidth())) / this.tileWidth();
+    return (
+      parseFloat(Math.floor(this._displayX * this.tileWidth())) /
+      this.tileWidth()
+    );
   };
 
   Game_Map.prototype.displayY = function () {
-    return parseFloat(Math.floor(this._displayY *
-      this.tileHeight())) / this.tileHeight();
+    return (
+      parseFloat(Math.floor(this._displayY * this.tileHeight())) /
+      this.tileHeight()
+    );
   };
-
-}; // Yanfly.isPreventScreenJittering
+} // Yanfly.isPreventScreenJittering
 
 Game_Map.prototype.adjustX = function (x) {
-  if (this.isLoopHorizontal() && x < this.displayX() -
-    (this.width() - this.screenTileX()) / 2) {
+  if (
+    this.isLoopHorizontal() &&
+    x < this.displayX() - (this.width() - this.screenTileX()) / 2
+  ) {
     return x - this.displayX() + $dataMap.width;
   } else {
     return x - this.displayX();
@@ -1651,8 +1667,10 @@ Game_Map.prototype.adjustX = function (x) {
 };
 
 Game_Map.prototype.adjustY = function (y) {
-  if (this.isLoopVertical() && y < this.displayY() -
-    (this.height() - this.screenTileY()) / 2) {
+  if (
+    this.isLoopVertical() &&
+    y < this.displayY() - (this.height() - this.screenTileY()) / 2
+  ) {
     return y - this.displayY() + $dataMap.height;
   } else {
     return y - this.displayY();
@@ -1692,8 +1710,7 @@ Game_Character.prototype.queueMoveRoute = function (moveRoute) {
   this._originalMoveRouteIndex = 0;
 };
 
-Yanfly.Core.Game_Event_setMoveRoute =
-  Game_Event.prototype.setMoveRoute;
+Yanfly.Core.Game_Event_setMoveRoute = Game_Event.prototype.setMoveRoute;
 Game_Character.prototype.setMoveRoute = function (moveRoute) {
   if (!this._moveRouteForcing) {
     Yanfly.Core.Game_Event_setMoveRoute.call(this, moveRoute);
@@ -1712,7 +1729,7 @@ Game_Character.prototype.processMoveCommand = function (command) {
       try {
         eval(params[0]);
       } catch (e) {
-        Yanfly.Util.displayError(e, params[0], 'MOVE ROUTE SCRIPT ERROR');
+        Yanfly.Util.displayError(e, params[0], "MOVE ROUTE SCRIPT ERROR");
       }
       return;
       break;
@@ -1764,13 +1781,13 @@ Game_Action.prototype.evalDamageFormula = function (target) {
   var a = this.subject();
   var b = target;
   var v = $gameVariables._data;
-  var sign = ([3, 4].contains(item.damage.type) ? -1 : 1);
+  var sign = [3, 4].contains(item.damage.type) ? -1 : 1;
   try {
     var value = Math.max(eval(item.damage.formula), 0) * sign;
     if (isNaN(value)) value = 0;
     return value;
   } catch (e) {
-    Yanfly.Util.displayError(e, item.damage.formula, 'DAMAGE FORMULA ERROR');
+    Yanfly.Util.displayError(e, item.damage.formula, "DAMAGE FORMULA ERROR");
     return 0;
   }
 };
@@ -1780,8 +1797,7 @@ Game_Action.prototype.evalDamageFormula = function (target) {
 //=============================================================================
 
 // Conditional Branch
-Yanfly.Core.Game_Interpreter_command111 =
-  Game_Interpreter.prototype.command111;
+Yanfly.Core.Game_Interpreter_command111 = Game_Interpreter.prototype.command111;
 Game_Interpreter.prototype.command111 = function () {
   var result = false;
   switch (this._params[0]) {
@@ -1793,7 +1809,7 @@ Game_Interpreter.prototype.command111 = function () {
       }
       this._branch[this._indent] = result;
       if (this._branch[this._indent] === false) this.skipBranch();
-      return true
+      return true;
       break;
     case 2: // Self Switch
       if (this._eventId > 0) {
@@ -1806,36 +1822,35 @@ Game_Interpreter.prototype.command111 = function () {
       }
       this._branch[this._indent] = result;
       if (this._branch[this._indent] === false) this.skipBranch();
-      return true
+      return true;
       break;
-    case 12:  // Script
+    case 12: // Script
       var code = this._params[1];
       try {
         result = !!eval(code);
       } catch (e) {
         result = false;
-        Yanfly.Util.displayError(e, code, 'CONDITIONAL BRANCH SCRIPT ERROR');
+        Yanfly.Util.displayError(e, code, "CONDITIONAL BRANCH SCRIPT ERROR");
       }
       this._branch[this._indent] = result;
       if (this._branch[this._indent] === false) this.skipBranch();
-      return true
+      return true;
       break;
   }
   return Yanfly.Core.Game_Interpreter_command111.call(this);
 };
 
 // Control Variables
-Yanfly.Core.Game_Interpreter_command122 =
-  Game_Interpreter.prototype.command122;
+Yanfly.Core.Game_Interpreter_command122 = Game_Interpreter.prototype.command122;
 Game_Interpreter.prototype.command122 = function () {
   switch (this._params[3]) {
-    case 4:  // Script
+    case 4: // Script
       var value = 0;
       var code = this._params[4];
       try {
         value = eval(code);
       } catch (e) {
-        Yanfly.Util.displayError(e, code, 'CONTROL VARIABLE SCRIPT ERROR');
+        Yanfly.Util.displayError(e, code, "CONTROL VARIABLE SCRIPT ERROR");
       }
       for (var i = this._params[0]; i <= this._params[1]; i++) {
         this.operateVariable(i, this._params[2], value);
@@ -1848,15 +1863,15 @@ Game_Interpreter.prototype.command122 = function () {
 
 // Script
 Game_Interpreter.prototype.command355 = function () {
-  var script = this.currentCommand().parameters[0] + '\n';
+  var script = this.currentCommand().parameters[0] + "\n";
   while (this.nextEventCode() === 655) {
     this._index++;
-    script += this.currentCommand().parameters[0] + '\n';
+    script += this.currentCommand().parameters[0] + "\n";
   }
   try {
     eval(script);
   } catch (e) {
-    Yanfly.Util.displayError(e, script, 'SCRIPT CALL ERROR');
+    Yanfly.Util.displayError(e, script, "SCRIPT CALL ERROR");
   }
   return true;
 };
@@ -1865,10 +1880,10 @@ Yanfly.Core.Game_Interpreter_pluginCommand =
   Game_Interpreter.prototype.pluginCommand;
 Game_Interpreter.prototype.pluginCommand = function (command, args) {
   Yanfly.Core.Game_Interpreter_pluginCommand.call(this, command, args);
-  if (command === 'GainGold') {
+  if (command === "GainGold") {
     $gameParty.gainGold(parseInt(args[0]));
   }
-  if (command === 'LoseGold') {
+  if (command === "LoseGold") {
     $gameParty.loseGold(parseInt(args[0]));
   }
 };
@@ -1884,7 +1899,6 @@ Scene_Base.prototype.clearChildren = function () {
 };
 
 if (Yanfly.Param.CollectionClear) {
-
   Yanfly.Core.Scene_Base_terminate = Scene_Base.prototype.terminate;
   Scene_Base.prototype.terminate = function () {
     Yanfly.Core.Scene_Base_terminate.call(this);
@@ -1933,22 +1947,21 @@ if (Yanfly.Param.CollectionClear) {
     Yanfly.Core.Scene_Gameover_terminate.call(this);
     this.clearChildren();
   };
-
-}; // Yanfly.Param.CollectionClear
+} // Yanfly.Param.CollectionClear
 
 //=============================================================================
 // Scene_Boot
 //=============================================================================
 
 Scene_Boot.prototype.isGameFontLoaded = function () {
-  if (Graphics.isFontLoaded('GameFont')) {
+  if (Graphics.isFontLoaded("GameFont")) {
     return true;
   } else if (Yanfly.Param.GameFontTimer <= 0) {
     return false;
   } else {
     var elapsed = Date.now() - this._startDate;
     if (elapsed >= Yanfly.Param.GameFontTimer) {
-      throw new Error('Failed to load GameFont');
+      throw new Error("Failed to load GameFont");
     } else {
       return false;
     }
@@ -1960,12 +1973,10 @@ Scene_Boot.prototype.isGameFontLoaded = function () {
 //=============================================================================
 
 if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.6.0") {
-
   Scene_Item.prototype.update = function () {
     Scene_ItemBase.prototype.update.call(this);
   };
-
-}; // Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.6.0"
+} // Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.6.0"
 
 //=============================================================================
 // Scene_Title
@@ -2000,12 +2011,10 @@ Scene_Title.prototype.rescaleTitleSprite = function (sprite) {
 //=============================================================================
 
 if (Yanfly.Param.ShowEvTrans) {
-
   Scene_Map.prototype.startEncounterEffect = function () {
     this._encounterEffectDuration = this.encounterEffectSpeed();
   };
-
-}; // Yanfly.Param.ShowEvTrans
+} // Yanfly.Param.ShowEvTrans
 
 Yanfly.Core.Scene_Map_snapForBattleBackground =
   Scene_Map.prototype.snapForBattleBackground;
@@ -2062,18 +2071,16 @@ Sprite_Animation.prototype.setupRate = function () {
 //=============================================================================
 
 if (!Yanfly.Param.FlashTarget) {
-
   Yanfly.Core.Sprite_Battler_updateSelectionEffect =
     Sprite_Battler.prototype.updateSelectionEffect;
   Sprite_Battler.prototype.updateSelectionEffect = function () {
     if (this._battler.isActor()) {
       Yanfly.Core.Sprite_Battler_updateSelectionEffect.call(this);
     } else {
-      if (this._battler.isSelected()) this.startEffect('whiten');
+      if (this._battler.isSelected()) this.startEffect("whiten");
     }
   };
-
-}; // Yanfly.Param.FlashTarget
+} // Yanfly.Param.FlashTarget
 
 //=============================================================================
 // Sprite_Actor
@@ -2086,7 +2093,7 @@ if (Yanfly.Param.ReposBattlers) {
     this._homeX += Graphics.boxWidth - 816;
     this._homeY += Graphics.boxHeight - 624;
   };
-};
+}
 
 Sprite_Actor.prototype.retreat = function () {
   this.startMove(1200, 0, 120);
@@ -2097,7 +2104,6 @@ Sprite_Actor.prototype.retreat = function () {
 //=============================================================================
 
 if (Yanfly.Param.ReposBattlers) {
-
   Yanfly.Core.Sprite_Enemy_setBattler = Sprite_Enemy.prototype.setBattler;
   Sprite_Enemy.prototype.setBattler = function (battler) {
     Yanfly.Core.Sprite_Enemy_setBattler.call(this, battler);
@@ -2113,8 +2119,7 @@ if (Yanfly.Param.ReposBattlers) {
       this._enemy._alteredScreenX = true;
     }
   };
-
-}; // Yanfly.Param.ReposBattlers
+} // Yanfly.Param.ReposBattlers
 
 //=============================================================================
 // Sprite_StateIcon
@@ -2128,8 +2133,8 @@ Sprite_StateIcon._iconHeight = Yanfly.Param.IconHeight;
 //=============================================================================
 
 Sprite_Button.prototype.isButtonTouched = function () {
-  var x = this.canvasToLocalX(TouchInput.x) + (this.anchor.x * this.width);
-  var y = this.canvasToLocalY(TouchInput.y) + (this.anchor.y * this.height);
+  var x = this.canvasToLocalX(TouchInput.x) + this.anchor.x * this.width;
+  var y = this.canvasToLocalY(TouchInput.y) + this.anchor.y * this.height;
   return x >= 0 && y >= 0 && x < this.width && y < this.height;
 };
 
@@ -2152,7 +2157,7 @@ Sprite_Battleback.prototype.initialize = function (bitmapName, type) {
 };
 
 Sprite_Battleback.prototype.createBitmap = function () {
-  if (this._bitmapName === '') {
+  if (this._bitmapName === "") {
     this.bitmap = new Bitmap(Graphics.boxWidth, Graphics.boxHeight);
   } else {
     if (this._battlebackType === 1) {
@@ -2222,9 +2227,7 @@ Spriteset_Map.prototype.showCharacters = function () {
 //=============================================================================
 
 if (Yanfly.Param.ScaleBattleback) {
-
-  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.3.2') {
-
+  if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.3.2") {
     // Rewriting the battlebacks
     Spriteset_Battle.prototype.createBattleback = function () {
       this._back1Sprite = new Sprite_Battleback(this.battleback1Name(), 1);
@@ -2234,10 +2237,9 @@ if (Yanfly.Param.ScaleBattleback) {
     };
 
     // No more updateBattleback
-    Spriteset_Battle.prototype.updateBattleback = function () {
-    };
-
-  } else { // Version 1.3.0 and below
+    Spriteset_Battle.prototype.updateBattleback = function () {};
+  } else {
+    // Version 1.3.0 and below
 
     Yanfly.Core.Spriteset_Battle_locateBattleback =
       Spriteset_Battle.prototype.locateBattleback;
@@ -2277,9 +2279,7 @@ if (Yanfly.Param.ScaleBattleback) {
         sprite.y = 0;
       }
     };
-
   } // Version 1.3.0 and below
-
 } // Yanfly.Param.ScaleBattleback
 
 //=============================================================================
@@ -2429,28 +2429,33 @@ Window_Base.prototype.drawActorLevel = function (actor, x, y) {
   this.resetTextColor();
   var level = Yanfly.Util.toGroup(actor.level);
   var dw2 = this.textWidth(Yanfly.Util.toGroup(actor.maxLevel()));
-  this.drawText(level, x + dw1, y, dw2, 'right');
+  this.drawText(level, x + dw1, y, dw2, "right");
 };
 
-Window_Base.prototype.drawCurrentAndMax = function (current, max, x, y,
-  width, color1, color2) {
-  var labelWidth = this.textWidth('HP');
+Window_Base.prototype.drawCurrentAndMax = function (
+  current,
+  max,
+  x,
+  y,
+  width,
+  color1,
+  color2
+) {
+  var labelWidth = this.textWidth("HP");
   var valueWidth = this.textWidth(Yanfly.Util.toGroup(max));
-  var slashWidth = this.textWidth('/');
+  var slashWidth = this.textWidth("/");
   var x1 = x + width - valueWidth;
   var x2 = x1 - slashWidth;
   var x3 = x2 - valueWidth;
   if (x3 >= x + labelWidth) {
     this.changeTextColor(color1);
-    this.drawText(Yanfly.Util.toGroup(current), x3, y, valueWidth,
-      'right');
+    this.drawText(Yanfly.Util.toGroup(current), x3, y, valueWidth, "right");
     this.changeTextColor(color2);
-    this.drawText('/', x2, y, slashWidth, 'right');
-    this.drawText(Yanfly.Util.toGroup(max), x1, y, valueWidth, 'right');
+    this.drawText("/", x2, y, slashWidth, "right");
+    this.drawText(Yanfly.Util.toGroup(max), x1, y, valueWidth, "right");
   } else {
     this.changeTextColor(color1);
-    this.drawText(Yanfly.Util.toGroup(current), x1, y, valueWidth,
-      'right');
+    this.drawText(Yanfly.Util.toGroup(current), x1, y, valueWidth, "right");
   }
 };
 
@@ -2462,13 +2467,12 @@ Window_Base.prototype.drawActorTp = function (actor, x, y, width) {
   this.changeTextColor(this.systemColor());
   this.drawText(TextManager.tpA, x, y, 44);
   this.changeTextColor(this.tpColor(actor));
-  this.drawText(Yanfly.Util.toGroup(actor.tp), x + width - 64, y, 64,
-    'right');
+  this.drawText(Yanfly.Util.toGroup(actor.tp), x + width - 64, y, 64, "right");
 };
 
 Window_Base.prototype.drawActorSimpleStatus = function (actor, x, y, width) {
   var lineHeight = this.lineHeight();
-  var xpad = Window_Base._faceWidth + (2 * Yanfly.Param.TextPadding);
+  var xpad = Window_Base._faceWidth + 2 * Yanfly.Param.TextPadding;
   var x2 = x + xpad;
   var width2 = Math.max(180, width - xpad - this.textPadding());
   this.drawActorName(actor, x, y);
@@ -2494,12 +2498,12 @@ Window_Base.prototype.drawCurrencyValue = function (value, unit, wx, wy, ww) {
   if (this.textWidth(text) > ww - cx) {
     text = Yanfly.Param.GoldOverlap;
   }
-  this.drawText(text, wx, wy, ww - cx - 4, 'right');
+  this.drawText(text, wx, wy, ww - cx - 4, "right");
   if (this.usingGoldIcon(unit)) {
     this.drawIcon(Yanfly.Icon.Gold, wx + ww - Window_Base._iconWidth, wy + 2);
   } else {
     this.changeTextColor(this.systemColor());
-    this.drawText(unit, wx, wy, ww, 'right');
+    this.drawText(unit, wx, wy, ww, "right");
   }
   this.resetFontSettings();
 };
@@ -2549,14 +2553,14 @@ Window_MenuStatus.prototype.drawItemStatus = function (index) {
 //=============================================================================
 
 Window_ItemList.prototype.numberWidth = function () {
-  return this.textWidth('\u00d70,000');
+  return this.textWidth("\u00d70,000");
 };
 
 Window_ItemList.prototype.drawItemNumber = function (item, x, y, width) {
   if (!this.needsNumber()) return;
   var numItems = Yanfly.Util.toGroup($gameParty.numItems(item));
   this.contents.fontSize = Yanfly.Param.ItemQuantitySize;
-  this.drawText('\u00d7' + numItems, x, y, width, 'right');
+  this.drawText("\u00d7" + numItems, x, y, width, "right");
   this.resetFontSettings();
 };
 
@@ -2585,11 +2589,11 @@ Window_SkillList.prototype.drawSkillCost = function (skill, x, y, width) {
   if (this._actor.skillTpCost(skill) > 0) {
     this.changeTextColor(this.tpCostColor());
     var skillcost = Yanfly.Util.toGroup(this._actor.skillTpCost(skill));
-    this.drawText(skillcost, x, y, width, 'right');
+    this.drawText(skillcost, x, y, width, "right");
   } else if (this._actor.skillMpCost(skill) > 0) {
     this.changeTextColor(this.mpCostColor());
     var skillcost = Yanfly.Util.toGroup(this._actor.skillMpCost(skill));
-    this.drawText(skillcost, x, y, width, 'right');
+    this.drawText(skillcost, x, y, width, "right");
   }
 };
 
@@ -2600,7 +2604,7 @@ Window_SkillList.prototype.drawSkillCost = function (skill, x, y, width) {
 Window_EquipStatus.prototype.drawCurrentParam = function (x, y, paramId) {
   this.resetTextColor();
   var actorparam = Yanfly.Util.toGroup(this._actor.param(paramId));
-  this.drawText(actorparam, x, y, 48, 'right');
+  this.drawText(actorparam, x, y, 48, "right");
 };
 
 Window_EquipStatus.prototype.drawNewParam = function (x, y, paramId) {
@@ -2608,7 +2612,7 @@ Window_EquipStatus.prototype.drawNewParam = function (x, y, paramId) {
   var diffvalue = newValue - this._actor.param(paramId);
   var actorparam = Yanfly.Util.toGroup(newValue);
   this.changeTextColor(this.paramchangeTextColor(diffvalue));
-  this.drawText(actorparam, x, y, 48, 'right');
+  this.drawText(actorparam, x, y, 48, "right");
 };
 
 //=============================================================================
@@ -2618,10 +2622,12 @@ Window_EquipStatus.prototype.drawNewParam = function (x, y, paramId) {
 Window_SkillType.prototype.makeCommandList = function () {
   if (this._actor) {
     var skillTypes = this._actor.addedSkillTypes();
-    skillTypes.sort(function (a, b) { return a - b });
+    skillTypes.sort(function (a, b) {
+      return a - b;
+    });
     skillTypes.forEach(function (stypeId) {
       var name = $dataSystem.skillTypes[stypeId];
-      this.addCommand(name, 'skill', true, stypeId);
+      this.addCommand(name, "skill", true, stypeId);
     }, this);
   }
 };
@@ -2632,10 +2638,12 @@ Window_SkillType.prototype.makeCommandList = function () {
 
 Window_ActorCommand.prototype.addSkillCommands = function () {
   var skillTypes = this._actor.addedSkillTypes();
-  skillTypes.sort(function (a, b) { return a - b });
+  skillTypes.sort(function (a, b) {
+    return a - b;
+  });
   skillTypes.forEach(function (stypeId) {
     var name = $dataSystem.skillTypes[stypeId];
-    this.addCommand(name, 'skill', true, stypeId);
+    this.addCommand(name, "skill", true, stypeId);
   }, this);
 };
 
@@ -2653,7 +2661,7 @@ Window_Status.prototype.drawParameters = function (x, y) {
     this.resetTextColor();
     var actorParam = Yanfly.Util.toGroup(this._actor.param(paramId));
     var dw = this.textWidth(Yanfly.Util.toGroup(this._actor.paramMax(i + 2)));
-    this.drawText(actorParam, x + 160, y2, dw, 'right');
+    this.drawText(actorParam, x + 160, y2, dw, "right");
   }
 };
 
@@ -2664,8 +2672,8 @@ Window_Status.prototype.drawExpInfo = function (x, y) {
   var value1 = this._actor.currentExp();
   var value2 = this._actor.nextRequiredExp();
   if (this._actor.isMaxLevel()) {
-    value1 = '-------';
-    value2 = '-------';
+    value1 = "-------";
+    value2 = "-------";
   } else {
     value1 = Yanfly.Util.toGroup(value1);
     value2 = Yanfly.Util.toGroup(value2);
@@ -2674,8 +2682,8 @@ Window_Status.prototype.drawExpInfo = function (x, y) {
   this.drawText(expTotal, x, y + lineHeight * 0, 270);
   this.drawText(expNext, x, y + lineHeight * 2, 270);
   this.resetTextColor();
-  this.drawText(value1, x, y + lineHeight * 1, 270, 'right');
-  this.drawText(value2, x, y + lineHeight * 3, 270, 'right');
+  this.drawText(value1, x, y + lineHeight * 1, 270, "right");
+  this.drawText(value2, x, y + lineHeight * 3, 270, "right");
 };
 
 //=============================================================================
@@ -2690,7 +2698,7 @@ Window_ShopBuy.prototype.drawItem = function (index) {
   this.drawItemName(item, rect.x, rect.y, rect.width);
   this.contents.fontSize = Yanfly.Param.GoldFontSize;
   var itemPrice = Yanfly.Util.toGroup(this.price(item));
-  this.drawText(itemPrice, rect.x, rect.y, rect.width, 'right');
+  this.drawText(itemPrice, rect.x, rect.y, rect.width, "right");
   this.changePaintOpacity(true);
   this.resetFontSettings();
 };
@@ -2705,7 +2713,7 @@ Window_ShopNumber.prototype.drawNumber = function () {
   var width = this.cursorWidth() - this.textPadding();
   this.resetTextColor();
   var itemNumber = Yanfly.Util.toGroup(this._number);
-  this.drawText(itemNumber, x, y, width, 'right');
+  this.drawText(itemNumber, x, y, width, "right");
 };
 
 //=============================================================================
@@ -2726,7 +2734,7 @@ Window_BattleStatus.prototype.gaugeAreaWidth = function () {
 
 Window_BattleStatus.prototype.drawBasicArea = function (rect, actor) {
   var minIconArea = Window_Base._iconWidth * 2;
-  var nameLength = this.textWidth('0') * 16 + 6;
+  var nameLength = this.textWidth("0") * 16 + 6;
   var iconWidth = Math.max(rect.width - nameLength, minIconArea);
   var nameWidth = rect.width - iconWidth;
   this.drawActorName(actor, rect.x + 0, rect.y, nameWidth);
@@ -2735,8 +2743,8 @@ Window_BattleStatus.prototype.drawBasicArea = function (rect, actor) {
 
 Window_BattleStatus.prototype.drawGaugeAreaWithTp = function (rect, actor) {
   var totalArea = this.gaugeAreaWidth() - 30;
-  var hpW = Math.floor(parseInt(totalArea * 108 / 300));
-  var otW = Math.floor(parseInt(totalArea * 96 / 300));
+  var hpW = Math.floor(parseInt((totalArea * 108) / 300));
+  var otW = Math.floor(parseInt((totalArea * 96) / 300));
   this.drawActorHp(actor, rect.x + 0, rect.y, hpW);
   this.drawActorMp(actor, rect.x + hpW + 15, rect.y, otW);
   this.drawActorTp(actor, rect.x + hpW + otW + 30, rect.y, otW);
@@ -2744,8 +2752,8 @@ Window_BattleStatus.prototype.drawGaugeAreaWithTp = function (rect, actor) {
 
 Window_BattleStatus.prototype.drawGaugeAreaWithoutTp = function (rect, actor) {
   var totalArea = this.gaugeAreaWidth() - 15;
-  var hpW = Math.floor(parseInt(totalArea * 201 / 315));
-  var otW = Math.floor(parseInt(totalArea * 114 / 315));
+  var hpW = Math.floor(parseInt((totalArea * 201) / 315));
+  var otW = Math.floor(parseInt((totalArea * 114) / 315));
   this.drawActorHp(actor, rect.x + 0, rect.y, hpW);
   this.drawActorMp(actor, rect.x + hpW + 15, rect.y, otW);
 };
@@ -2754,8 +2762,11 @@ Window_BattleStatus.prototype.drawGaugeAreaWithoutTp = function (rect, actor) {
 // Window_BattleLog
 //=============================================================================
 
-Window_BattleLog.prototype.showNormalAnimation = function (targets,
-  animationId, mirror) {
+Window_BattleLog.prototype.showNormalAnimation = function (
+  targets,
+  animationId,
+  mirror
+) {
   var animation = $dataAnimations[animationId];
   if (animation) {
     if (animation.position === 3) {
@@ -2779,40 +2790,36 @@ Window_BattleLog.prototype.showNormalAnimation = function (targets,
 
 Yanfly.Util = Yanfly.Util || {};
 
-if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.5.0') {
-
+if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.5.0") {
   Yanfly.Util.toGroup = function (inVal) {
-    if (typeof inVal === 'string') return inVal;
+    if (typeof inVal === "string") return inVal;
     if (!Yanfly.Param.DigitGroup) return inVal;
-    return inVal.toLocaleString('en');
+    return inVal.toLocaleString("en");
     return inVal.replace(/(^|[^\w.])(\d{4,})/g, function ($0, $1, $2) {
       return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
     });
   };
-
 } else {
-
   Yanfly.Util.toGroup = function (inVal) {
-    if (typeof inVal !== 'string') { inVal = String(inVal); }
+    if (typeof inVal !== "string") {
+      inVal = String(inVal);
+    }
     if (!Yanfly.Param.DigitGroup) return inVal;
-    return inVal.toLocaleString('en');
+    return inVal.toLocaleString("en");
     return inVal.replace(/(^|[^\w.])(\d{4,})/g, function ($0, $1, $2) {
       return $1 + $2.replace(/\d(?=(?:\d\d\d)+(?!\d))/g, "$&,");
     });
   };
-
 } // Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= '1.5.0'
-
-
 
 Yanfly.Util.displayError = function (e, code, message) {
   console.log(message);
-  console.log(code || 'NON-EXISTENT');
+  console.log(code || "NON-EXISTENT");
   console.error(e);
   if (Utils.RPGMAKER_VERSION && Utils.RPGMAKER_VERSION >= "1.6.0") return;
-  if (Utils.isNwjs() && Utils.isOptionValid('test')) {
-    if (!require('nw.gui').Window.get().isDevToolsOpen()) {
-      require('nw.gui').Window.get().showDevTools();
+  if (Utils.isNwjs() && Utils.isOptionValid("test")) {
+    if (!require("nw.gui").Window.get().isDevToolsOpen()) {
+      require("nw.gui").Window.get().showDevTools();
     }
   }
 };

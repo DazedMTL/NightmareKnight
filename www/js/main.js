@@ -4,6 +4,6 @@
 
 PluginManager.setup($plugins);
 
-window.onload = function() {
-    SceneManager.run(Scene_Boot);
+window.onload = function () {
+  SceneManager.run(Scene_Boot);
 };

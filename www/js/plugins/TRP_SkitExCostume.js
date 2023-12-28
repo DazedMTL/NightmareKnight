@@ -2,468 +2,498 @@
 // TRP_SkitExCostume.js
 //=============================================================================
 // Copyright (c) 2019 Thirop
-//============================================================================= 
+//=============================================================================
 
 (function () {
-	var parameters = PluginManager.parameters('TRP_SkitExCostume');
-	parameters = JSON.parse(JSON.stringify(parameters, function (key, value) {
-		try {
-			return JSON.parse(value);
-		} catch (e) {
-			try {
-				return eval(value);
-			} catch (e) {
-				return value;
-			}
-		}
-	}));
+  var parameters = PluginManager.parameters("TRP_SkitExCostume");
+  parameters = JSON.parse(
+    JSON.stringify(parameters, function (key, value) {
+      try {
+        return JSON.parse(value);
+      } catch (e) {
+        try {
+          return eval(value);
+        } catch (e) {
+          return value;
+        }
+      }
+    })
+  );
 
-	var actorSetting = {};
-	parameters.actorSetting.forEach(function (setting) {
-		actorSetting[setting.fileName] = setting;
-	});
-	parameters.actorSetting = actorSetting;
-	parameters.costumeTypeMap = {};
-	var costumeTypes = {};
-	parameters.types.forEach(function (type) {
-		var length = type.costumes.length;
-		for (var i = 0; i < length; i = (i + 1) | 0) {
-			costumeTypes[type.name] = type;
+  var actorSetting = {};
+  parameters.actorSetting.forEach(function (setting) {
+    actorSetting[setting.fileName] = setting;
+  });
+  parameters.actorSetting = actorSetting;
+  parameters.costumeTypeMap = {};
+  var costumeTypes = {};
+  parameters.types.forEach(function (type) {
+    var length = type.costumes.length;
+    for (var i = 0; i < length; i = (i + 1) | 0) {
+      costumeTypes[type.name] = type;
 
-			var costume = type.costumes[i];
-			parameters.costumeTypeMap[costume] = type.name;
-		}
-	})
-	parameters.types = costumeTypes;
+      var costume = type.costumes[i];
+      parameters.costumeTypeMap[costume] = type.name;
+    }
+  });
+  parameters.types = costumeTypes;
 
+  if (!TRP_CORE.pushUnieqly) {
+    TRP_CORE.pushUnieqly = function (array, arg) {
+      if (!array.contains(arg)) {
+        array.push(arg);
+      }
+    };
+  }
 
+  if (!TRP_CORE.removeArrayObjectsInArray) {
+    TRP_CORE.removeArrayObjectsInArray = function (array, argArray) {
+      var length = argArray.length;
+      for (var i = 0; i < length; i = i + 1) {
+        this.removeArrayObject(array, argArray[i]);
+      }
+    };
+  }
 
+  //=============================================================================
+  // Skit
+  //=============================================================================
+  var _Skit_initialize = Skit.prototype.initialize;
+  Skit.prototype.initialize = function () {
+    _Skit_initialize.call(this);
+    this._costumes = {};
+  };
 
-	if (!TRP_CORE.pushUnieqly) {
-		TRP_CORE.pushUnieqly = function (array, arg) {
-			if (!array.contains(arg)) {
-				array.push(arg);
-			}
-		}
-	}
+  var _Skit_processCommand =
+    Skit.prototype._processCommand || Skit.prototype.processCommand;
+  Skit.prototype._processCommand = function (args, macroPos) {
+    _Skit_processCommand.call(this, args, macroPos);
 
-	if (!TRP_CORE.removeArrayObjectsInArray) {
-		TRP_CORE.removeArrayObjectsInArray = function (array, argArray) {
-			var length = argArray.length;
-			for (var i = 0; i < length; i = i + 1) {
-				this.removeArrayObject(array, argArray[i]);
-			}
-		};
-	}
+    var skitCommand = args[0];
+    switch (skitCommand) {
+      case "costume":
+      case Skit.COMMAND_COSTUME_J1:
+      case Skit.COMMAND_COSTUME_J2:
+        this.registerCostume(args);
+        return;
+    }
+  };
 
+  Skit.prototype.registerCostume = function (args) {
+    this._costumes = this._costumes || {};
 
+    var subCommand = args[1].toLowerCase();
+    var targetName = args[2];
+    var costumeName = args[3];
+    var fade = TRP_CORE.supplementDefBool(parameters.defaultFade, args[4]);
+    var isCommandOn = subCommand === "on" || subCommand === "オン";
+    var isCommandOff =
+      !isCommandOn && (subCommand === "off" || subCommand === "オフ");
+    var forAll = targetName === "all" || targetName === "全員";
 
-	//=============================================================================
-	// Skit
-	//=============================================================================
-	var _Skit_initialize = Skit.prototype.initialize;
-	Skit.prototype.initialize = function () {
-		_Skit_initialize.call(this);
-		this._costumes = {};
-	};
-
-	var _Skit_processCommand = Skit.prototype._processCommand || Skit.prototype.processCommand;
-	Skit.prototype._processCommand = function (args, macroPos) {
-		_Skit_processCommand.call(this, args, macroPos);
-
-		var skitCommand = args[0];
-		switch (skitCommand) {
-			case 'costume':
-			case Skit.COMMAND_COSTUME_J1:
-			case Skit.COMMAND_COSTUME_J2:
-				this.registerCostume(args);
-				return;
-		}
-	};
-
-	Skit.prototype.registerCostume = function (args) {
-		this._costumes = this._costumes || {};
-
-		var subCommand = args[1].toLowerCase();
-		var targetName = args[2];
-		var costumeName = args[3];
-		var fade = TRP_CORE.supplementDefBool(parameters.defaultFade, args[4]);
-		var isCommandOn = (subCommand === 'on' || subCommand === 'オン');
-		var isCommandOff = !isCommandOn && (subCommand === 'off' || subCommand === 'オフ');
-		var forAll = targetName === 'all' || targetName === '全員';
-
-		/* process resetAllCostume firstly
+    /* process resetAllCostume firstly
 		===================================*/
-		if (forAll) {
-			if (isCommandOn) return;
-			if (isCommandOff) return;
-			this._processResetAllActorsCostume(fade);
-			return;
-		}
+    if (forAll) {
+      if (isCommandOn) return;
+      if (isCommandOff) return;
+      this._processResetAllActorsCostume(fade);
+      return;
+    }
 
-		/* prepare target actor data
+    /* prepare target actor data
 		===================================*/
-		targetName = this.actorFolderName(targetName);
-		if (!targetName) return;
+    targetName = this.actorFolderName(targetName);
+    if (!targetName) return;
 
-		var targetData = this._costumes[targetName];
-		if (!targetData) {
-			this._costumes[targetName] = targetData = [];
-		}
+    var targetData = this._costumes[targetName];
+    if (!targetData) {
+      this._costumes[targetName] = targetData = [];
+    }
 
-
-		/* prepare targetCostumeType
+    /* prepare targetCostumeType
 		===================================*/
-		var targetType;
-		var typeName = parameters.costumeTypeMap[costumeName];
-		if (typeName) {
-			targetType = parameters.types[typeName];
-		} else {
-			targetType = parameters.types[costumeName];
-			if (targetType) {
-				typeName = costumeName;
-				costumeName = '';
-			} else {
-				targetType = null;
-			}
-		}
+    var targetType;
+    var typeName = parameters.costumeTypeMap[costumeName];
+    if (typeName) {
+      targetType = parameters.types[typeName];
+    } else {
+      targetType = parameters.types[costumeName];
+      if (targetType) {
+        typeName = costumeName;
+        costumeName = "";
+      } else {
+        targetType = null;
+      }
+    }
 
-		/* remove costumes at once
+    /* remove costumes at once
 		===================================*/
-		var costumeAll = costumeName.toLowerCase() === 'all' || costumeName === '全て';
-		if (targetType) {
-			TRP_CORE.removeArrayObject(targetData, 'NONE_' + targetType.name)
-			TRP_CORE.removeArrayObjectsInArray(targetData, targetType.costumes);
-		} else if (!costumeAll) {
-			TRP_CORE.removeArrayObject(targetData, costumeName);
-		}
+    var costumeAll =
+      costumeName.toLowerCase() === "all" || costumeName === "全て";
+    if (targetType) {
+      TRP_CORE.removeArrayObject(targetData, "NONE_" + targetType.name);
+      TRP_CORE.removeArrayObjectsInArray(targetData, targetType.costumes);
+    } else if (!costumeAll) {
+      TRP_CORE.removeArrayObject(targetData, costumeName);
+    }
 
-		/* processCommand
+    /* processCommand
 		===================================*/
-		if (isCommandOn) {
-			this._processCostumeOn(targetData, costumeName);
-		} else if (isCommandOff) {
-			this._processCostumeOff(targetData, targetType, costumeAll);
-		} else {
-			this._processCostumeReset(targetData, costumeAll)
-		}
+    if (isCommandOn) {
+      this._processCostumeOn(targetData, costumeName);
+    } else if (isCommandOff) {
+      this._processCostumeOff(targetData, targetType, costumeAll);
+    } else {
+      this._processCostumeReset(targetData, costumeAll);
+    }
 
-		/* apply costume if showing
+    /* apply costume if showing
 		===================================*/
-		if (forAll) {
-			this._applyAllActorsCostume(fade);
-		} else if (this.names().contains(targetName)) {
-			this.actor(targetName).applyCostume(fade);
-		}
-	};
+    if (forAll) {
+      this._applyAllActorsCostume(fade);
+    } else if (this.names().contains(targetName)) {
+      this.actor(targetName).applyCostume(fade);
+    }
+  };
 
+  Skit.prototype._processCostumeOn = function (targetData, costumeName) {
+    if (!costumeName || costumeName === "") return;
+    TRP_CORE.pushUnieqly(targetData, costumeName);
+  };
 
-	Skit.prototype._processCostumeOn = function (targetData, costumeName) {
-		if (!costumeName || costumeName === '') return;
-		TRP_CORE.pushUnieqly(targetData, costumeName);
-	};
+  Skit.prototype._processCostumeOff = function (
+    targetData,
+    targetType,
+    costumeAll
+  ) {
+    if (costumeAll) {
+      targetData.length = 0;
+      for (var typeName in parameters.types) {
+        var type = parameters.types[typeName];
+        targetData.push("NONE_" + type.name);
+      }
+    } else {
+      if (targetType.name) {
+        targetData.push("NONE_" + targetType.name);
+      }
+    }
+  };
 
-	Skit.prototype._processCostumeOff = function (targetData, targetType, costumeAll) {
-		if (costumeAll) {
-			targetData.length = 0;
-			for (var typeName in parameters.types) {
-				var type = parameters.types[typeName];
-				targetData.push('NONE_' + type.name);
-			}
-		} else {
-			if (targetType.name) {
-				targetData.push('NONE_' + targetType.name);
-			}
-		}
-	};
+  Skit.prototype._processCostumeReset = function (targetData, costumeAll) {
+    if (costumeAll) {
+      targetData.length = 0;
+    }
+  };
 
-	Skit.prototype._processCostumeReset = function (targetData, costumeAll) {
-		if (costumeAll) {
-			targetData.length = 0;
-		}
-	};
+  Skit.prototype._processResetAllActorsCostume = function (fade) {
+    this._costumes = {};
+    if (this.isSkitOn()) {
+      this._applyAllActorsCostume(fade);
+    }
+  };
+  Skit.prototype._applyAllActorsCostume = function (fade) {
+    var names = this.names();
+    var length = names.length;
+    for (var i = 0; i < length; i = (i + 1) | 0) {
+      var name = names[i];
+      var actor = this.actor(name);
+      if (actor && actor.isShowing()) {
+        actor.applyCostume(fade);
+      }
+    }
+  };
 
-	Skit.prototype._processResetAllActorsCostume = function (fade) {
-		this._costumes = {};
-		if (this.isSkitOn()) {
-			this._applyAllActorsCostume(fade);
-		}
-	};
-	Skit.prototype._applyAllActorsCostume = function (fade) {
-		var names = this.names();
-		var length = names.length;
-		for (var i = 0; i < length; i = (i + 1) | 0) {
-			var name = names[i];
-			var actor = this.actor(name);
-			if (actor && actor.isShowing()) {
-				actor.applyCostume(fade);
-			}
-		}
-	};
+  //=============================================================================
+  // SkitActor
+  //=============================================================================
+  SkitActor.prototype.setupCostume = function () {
+    var setting = parameters.actorSetting[this._name];
+    var costumes;
 
+    //defaultCostume
+    if (setting) {
+      this._costumes = costumes = setting.defaultCostumes.concat();
 
+      //equips
+      if (setting.actorId) {
+        var actor = $gameActors.actor(setting.actorId);
+        var equips = actor.equips();
+        var length = equips.length;
+        for (var i = 0; i < length; i = (i + 1) | 0) {
+          var equip = equips[i];
+          if (!equip) continue;
+          var costume = equip.meta.costume;
+          if (!costume) continue;
+          this._setupCostume(costumes, costume);
+        }
+      }
+    }
 
+    var actorData = $gameSkit._costumes[this._name];
+    if (!actorData) return;
+    if (!costumes) costumes = [];
 
-	//=============================================================================
-	// SkitActor
-	//=============================================================================
-	SkitActor.prototype.setupCostume = function () {
-		var setting = parameters.actorSetting[this._name]
-		var costumes;
+    var length = actorData.length;
+    for (var i = 0; i < length; i = (i + 1) | 0) {
+      var costume = actorData[i].toString();
+      this._setupCostume(costumes, costume);
+    }
 
-		//defaultCostume
-		if (setting) {
-			this._costumes = costumes = setting.defaultCostumes.concat();
+    this._costumes = costumes;
+  };
 
-			//equips
-			if (setting.actorId) {
-				var actor = $gameActors.actor(setting.actorId);
-				var equips = actor.equips();
-				var length = equips.length;
-				for (var i = 0; i < length; i = (i + 1) | 0) {
-					var equip = equips[i];
-					if (!equip) continue;
-					var costume = equip.meta.costume;
-					if (!costume) continue;
-					this._setupCostume(costumes, costume);
-				}
-			}
-		}
+  SkitActor.prototype._setupCostume = function (costumes, costume) {
+    var noneType = costume.replace("NONE_", "");
+    var targetType;
+    var isNone = noneType !== costume;
+    if (isNone) {
+      targetType = noneType;
+    } else {
+      targetType = parameters.costumeTypeMap[costume];
+      noneType = null;
+    }
+    // remove same type init-costume
+    if (targetType) {
+      var type = parameters.types[targetType];
+      TRP_CORE.removeArrayObjectsInArray(costumes, type.costumes);
+    }
+    //pushType
+    if (!isNone) {
+      costumes.push(costume);
+    }
+  };
 
-		var actorData = $gameSkit._costumes[this._name];
-		if (!actorData) return;
-		if (!costumes) costumes = [];
+  SkitActor.prototype.costumeImages = function () {
+    //check pose valid
+    var setting = parameters.actorSetting[this._name];
+    if (setting) {
+      if (setting.invalidPose.contains(this._pose)) {
+        return null;
+      }
+    }
 
-		var length = actorData.length;
-		for (var i = 0; i < length; i = (i + 1) | 0) {
-			var costume = actorData[i].toString();
-			this._setupCostume(costumes, costume);
-		}
+    if (this._costumes) {
+      return this._costumes.concat();
+    } else {
+      return null;
+    }
+  };
 
-		this._costumes = costumes;
-	};
-
-	SkitActor.prototype._setupCostume = function (costumes, costume) {
-		var noneType = costume.replace('NONE_', '');
-		var targetType;
-		var isNone = (noneType !== costume);
-		if (isNone) {
-			targetType = noneType;
-		} else {
-			targetType = parameters.costumeTypeMap[costume];
-			noneType = null;
-		}
-		// remove same type init-costume
-		if (targetType) {
-			var type = parameters.types[targetType];
-			TRP_CORE.removeArrayObjectsInArray(costumes, type.costumes);
-		}
-		//pushType
-		if (!isNone) {
-			costumes.push(costume);
-		}
-	};
-
-	SkitActor.prototype.costumeImages = function () {
-		//check pose valid
-		var setting = parameters.actorSetting[this._name];
-		if (setting) {
-			if (setting.invalidPose.contains(this._pose)) {
-				return null;
-			}
-		}
-
-		if (this._costumes) {
-			return this._costumes.concat();
-		} else {
-			return null;
-		}
-	};
-
-
-
-	/* apply Costume
+  /* apply Costume
 	===================================*/
-	SkitActor.prototype.applyCostume = function (animation, force) {
-		if (this.isShowing()) {
-			this.setupCostume();
-			var picture = this.picture();
-			var images = this.costumeImages()
-			picture.setExOverlays(images, animation, force);
-		}
-	};
+  SkitActor.prototype.applyCostume = function (animation, force) {
+    if (this.isShowing()) {
+      this.setupCostume();
+      var picture = this.picture();
+      var images = this.costumeImages();
+      picture.setExOverlays(images, animation, force);
+    }
+  };
 
-	var _SkitActor_changeImageWithoutAnimation = SkitActor.prototype.changeImageWithoutAnimation;
-	SkitActor.prototype.changeImageWithoutAnimation = function (wait, duration, poseChange, expressionChange) {
-		_SkitActor_changeImageWithoutAnimation.call(this, wait, duration, poseChange, expressionChange);
-		if (poseChange) {
-			this.applyCostume(false, true);
-		}
-	};
+  var _SkitActor_changeImageWithoutAnimation =
+    SkitActor.prototype.changeImageWithoutAnimation;
+  SkitActor.prototype.changeImageWithoutAnimation = function (
+    wait,
+    duration,
+    poseChange,
+    expressionChange
+  ) {
+    _SkitActor_changeImageWithoutAnimation.call(
+      this,
+      wait,
+      duration,
+      poseChange,
+      expressionChange
+    );
+    if (poseChange) {
+      this.applyCostume(false, true);
+    }
+  };
 
-	var _SkitActor_changeImageStartFlipEmerge = SkitActor.prototype.changeImageStartFlipEmerge;
-	SkitActor.prototype.changeImageStartFlipEmerge = function (wait, easeType, duration) {
-		_SkitActor_changeImageStartFlipEmerge.call(this, wait, easeType, duration);
-		this.applyCostume(false, true);
-	};
+  var _SkitActor_changeImageStartFlipEmerge =
+    SkitActor.prototype.changeImageStartFlipEmerge;
+  SkitActor.prototype.changeImageStartFlipEmerge = function (
+    wait,
+    easeType,
+    duration
+  ) {
+    _SkitActor_changeImageStartFlipEmerge.call(this, wait, easeType, duration);
+    this.applyCostume(false, true);
+  };
 
-	var _SkitActor_changeImageStartFadeEmerge = SkitActor.prototype.changeImageStartFadeEmerge;
-	SkitActor.prototype.changeImageStartFadeEmerge = function (wait, easeType, duration, opacity) {
-		_SkitActor_changeImageStartFadeEmerge.call(this, wait, easeType, duration, opacity);
-		this.applyCostume(false, true);
-	};
+  var _SkitActor_changeImageStartFadeEmerge =
+    SkitActor.prototype.changeImageStartFadeEmerge;
+  SkitActor.prototype.changeImageStartFadeEmerge = function (
+    wait,
+    easeType,
+    duration,
+    opacity
+  ) {
+    _SkitActor_changeImageStartFadeEmerge.call(
+      this,
+      wait,
+      easeType,
+      duration,
+      opacity
+    );
+    this.applyCostume(false, true);
+  };
 
-	var _SkitActor_show = SkitActor.prototype.show;
-	SkitActor.prototype.show = function (position, opacity) {
-		_SkitActor_show.call(this, position, opacity);
-		this.applyCostume(false, true);
-	};
+  var _SkitActor_show = SkitActor.prototype.show;
+  SkitActor.prototype.show = function (position, opacity) {
+    _SkitActor_show.call(this, position, opacity);
+    this.applyCostume(false, true);
+  };
 
+  //=============================================================================
+  // Game_Picture
+  //=============================================================================
+  var _Game_Picture_initBustPicture = Game_Picture.prototype.initBustPicture;
+  Game_Picture.prototype.initBustPicture = function () {
+    _Game_Picture_initBustPicture.call(this);
+    this._exOverlays = [];
+  };
 
+  Game_Picture.prototype.setExOverlays = function (
+    imageNames,
+    animation,
+    force
+  ) {
+    //check cache & args both not empty
+    if (!force && !imageNames && !this._exOverlays) return;
 
-	//=============================================================================
-	// Game_Picture
-	//=============================================================================
-	var _Game_Picture_initBustPicture = Game_Picture.prototype.initBustPicture;
-	Game_Picture.prototype.initBustPicture = function () {
-		_Game_Picture_initBustPicture.call(this);
-		this._exOverlays = [];
-	};
+    //check not equals
+    if (
+      !force &&
+      imageNames &&
+      this._exOverlays &&
+      imageNames.equals(this._exOverlays)
+    )
+      return;
 
-	Game_Picture.prototype.setExOverlays = function (imageNames, animation, force) {
-		//check cache & args both not empty
-		if (!force && !imageNames && !this._exOverlays) return;
+    this._exOverlays = imageNames || [];
+    this._exOverlaysChanged = true;
+    this._changeExOverlaysWithFade = animation || false;
+  };
+  Game_Picture.prototype.isExOverlayChangeWithFade = function () {
+    return this._changeExOverlaysWithFade || false;
+  };
+  Game_Picture.prototype.didChangeExOverlays = function () {
+    delete this._exOverlaysChanged;
+    delete this._changeExOverlaysWithFade;
+  };
 
-		//check not equals
-		if (!force && imageNames && this._exOverlays && imageNames.equals(this._exOverlays)) return;
+  //=============================================================================
+  // Sprite_Picture
+  //=============================================================================
+  var _Sprite_Picture_initialize = Sprite_Picture.prototype.initialize;
+  Sprite_Picture.prototype.initialize = function (pictureId) {
+    _Sprite_Picture_initialize.call(this, pictureId);
+    this._exOverlays = null;
+    this._exOverlayInitialized = false;
+  };
 
-		this._exOverlays = imageNames || [];
-		this._exOverlaysChanged = true;
-		this._changeExOverlaysWithFade = animation || false;
-	};
-	Game_Picture.prototype.isExOverlayChangeWithFade = function () {
-		return this._changeExOverlaysWithFade || false;
-	}
-	Game_Picture.prototype.didChangeExOverlays = function () {
-		delete this._exOverlaysChanged;
-		delete this._changeExOverlaysWithFade;
-	};
+  var _Sprite_Picture_updateOverlay = Sprite_Picture.prototype.updateOverlay;
+  Sprite_Picture.prototype.updateOverlay = function () {
+    _Sprite_Picture_updateOverlay.call(this);
+    var picture = this.picture();
+    if (picture) {
+      if (!this._exOverlayInitialized || picture._exOverlaysChanged) {
+        this.refreshExOverlays();
+        this._exOverlayInitialized = true;
+      }
+    }
+  };
 
+  Sprite_Picture.prototype.refreshExOverlays = function () {
+    var overlays = this._overlays;
+    var length = overlays.length;
+    var overlay, i;
 
-	//=============================================================================
-	// Sprite_Picture
-	//=============================================================================
-	var _Sprite_Picture_initialize = Sprite_Picture.prototype.initialize;
-	Sprite_Picture.prototype.initialize = function (pictureId) {
-		_Sprite_Picture_initialize.call(this, pictureId);
-		this._exOverlays = null;
-		this._exOverlayInitialized = false;
-	};
+    var picture = this.picture();
+    var fadeFlag = picture.isExOverlayChangeWithFade();
+    var fadeDur = fadeFlag ? parameters.fadeDuration || 1 : 0;
+    picture.didChangeExOverlays();
 
+    var overlayNames = picture._exOverlays.concat();
 
-	var _Sprite_Picture_updateOverlay = Sprite_Picture.prototype.updateOverlay;
-	Sprite_Picture.prototype.updateOverlay = function () {
-		_Sprite_Picture_updateOverlay.call(this);
-		var picture = this.picture();
-		if (picture) {
-			if (!this._exOverlayInitialized || picture._exOverlaysChanged) {
-				this.refreshExOverlays();
-				this._exOverlayInitialized = true;
-			}
-		}
-	};
-
-
-
-	Sprite_Picture.prototype.refreshExOverlays = function () {
-		var overlays = this._overlays;
-		var length = overlays.length;
-		var overlay, i;
-
-		var picture = this.picture();
-		var fadeFlag = picture.isExOverlayChangeWithFade();
-		var fadeDur = fadeFlag ? parameters.fadeDuration || 1 : 0;
-		picture.didChangeExOverlays();
-
-		var overlayNames = picture._exOverlays.concat();
-
-		/* remove old overlays
+    /* remove old overlays
 		===================================*/
-		var overlayNamePrefix = this._pictureName + '_costume_';
-		for (i = length; i >= 0; i = (i - 1) | 0) {
-			overlay = overlays[i];
-			if (overlay && overlay._isExOverlay) {
-				if (//check is cosutmeOverlay
-					overlayNames.contains(overlay._exOverlayName)
-					//check pose not changed
-					&& overlay._overlayName.indexOf(overlayNamePrefix) === 0
-				) {
-					//skip if current pose overlay
-					TRP_CORE.removeArrayObject(overlayNames, overlay._exOverlayName);
-					continue;
-				}
-				//remove old overlay
-				if (fadeFlag) {
-					overlay._fadeInDuration = 0;
-					overlay._fadeSpeed = -overlay.opacity / fadeDur;
-					overlay._fadeOutDuration = fadeDur;
-				} else {
-					this.removeChild(overlay);
-					overlays.splice(i, 1);
-				}
-			}
-		}
+    var overlayNamePrefix = this._pictureName + "_costume_";
+    for (i = length; i >= 0; i = (i - 1) | 0) {
+      overlay = overlays[i];
+      if (overlay && overlay._isExOverlay) {
+        if (
+          //check is cosutmeOverlay
+          overlayNames.contains(overlay._exOverlayName) &&
+          //check pose not changed
+          overlay._overlayName.indexOf(overlayNamePrefix) === 0
+        ) {
+          //skip if current pose overlay
+          TRP_CORE.removeArrayObject(overlayNames, overlay._exOverlayName);
+          continue;
+        }
+        //remove old overlay
+        if (fadeFlag) {
+          overlay._fadeInDuration = 0;
+          overlay._fadeSpeed = -overlay.opacity / fadeDur;
+          overlay._fadeOutDuration = fadeDur;
+        } else {
+          this.removeChild(overlay);
+          overlays.splice(i, 1);
+        }
+      }
+    }
 
-		/* add new overlays
+    /* add new overlays
 		===================================*/
-		length = overlayNames.length;
-		for (i = 0; i < length; i = (i + 1) | 0) {
-			var name = 'costume_' + overlayNames[i] + '_' + this._pictureName;
-			var bitmap = ImageManager.loadBust(this._skitActorName, name);
-			overlay = new Sprite(bitmap);
-			overlay.visible = true;
-			overlay.anchor.set(0.5, 0);
-			overlay._isExOverlay = true;
+    length = overlayNames.length;
+    for (i = 0; i < length; i = (i + 1) | 0) {
+      var name = "costume_" + overlayNames[i] + "_" + this._pictureName;
+      var bitmap = ImageManager.loadBust(this._skitActorName, name);
+      overlay = new Sprite(bitmap);
+      overlay.visible = true;
+      overlay.anchor.set(0.5, 0);
+      overlay._isExOverlay = true;
 
-			var overlayName = overlayNames[i].toString();
-			overlay._overlayName = overlayNamePrefix + overlayName;
-			overlay._exOverlayName = overlayName;
+      var overlayName = overlayNames[i].toString();
+      overlay._overlayName = overlayNamePrefix + overlayName;
+      overlay._exOverlayName = overlayName;
 
-			var typeName = parameters.costumeTypeMap[overlayName];
-			var type = parameters.types[typeName];
-			overlay.z = type ? (type.priority || 1) : 1;
-			overlays.push(overlay);
-			if (fadeFlag) {
-				overlay.opacity = 0;
-				overlay._fadeInDuration = fadeDur;
-				overlay._fadeSpeed = 255 / fadeDur;
-				overlay._fadeOutDuration = 0;
-			}
+      var typeName = parameters.costumeTypeMap[overlayName];
+      var type = parameters.types[typeName];
+      overlay.z = type ? type.priority || 1 : 1;
+      overlays.push(overlay);
+      if (fadeFlag) {
+        overlay.opacity = 0;
+        overlay._fadeInDuration = fadeDur;
+        overlay._fadeSpeed = 255 / fadeDur;
+        overlay._fadeOutDuration = 0;
+      }
 
-			this.addChild(overlay);
-			bitmap.addLoadListener(this.setOverlayPosition.bind(this));
-		}
-	}
+      this.addChild(overlay);
+      bitmap.addLoadListener(this.setOverlayPosition.bind(this));
+    }
+  };
 
-	var _Sprite_Picture_setOverlayPosition = Sprite_Picture.prototype.setOverlayPosition;
-	Sprite_Picture.prototype.setOverlayPosition = function () {
-		_Sprite_Picture_setOverlayPosition.call(this);
-		if (!this.bitmap || !this.bitmap.isReady()) { return; }
+  var _Sprite_Picture_setOverlayPosition =
+    Sprite_Picture.prototype.setOverlayPosition;
+  Sprite_Picture.prototype.setOverlayPosition = function () {
+    _Sprite_Picture_setOverlayPosition.call(this);
+    if (!this.bitmap || !this.bitmap.isReady()) {
+      return;
+    }
 
-		this.children.sort(this.sortChildren.bind(this));
-	};
+    this.children.sort(this.sortChildren.bind(this));
+  };
 
-	Sprite_Picture.prototype.sortChildren = function (a, b) {
-		return (a.z || 0) - (b.z || 0)
-	};
+  Sprite_Picture.prototype.sortChildren = function (a, b) {
+    return (a.z || 0) - (b.z || 0);
+  };
 
-
-
-
-	Skit.COMMAND_COSTUME_J1 = '衣装';
-	Skit.COMMAND_COSTUME_J2 = 'コスチューム';
+  Skit.COMMAND_COSTUME_J1 = "衣装";
+  Skit.COMMAND_COSTUME_J2 = "コスチューム";
 })();
-
 
 //=============================================================================
 /*:
@@ -565,7 +595,7 @@
  * @default 10
  *
  */
-//============================================================================= 
+//=============================================================================
 
 /*~struct~CostumeType:
  * @param name

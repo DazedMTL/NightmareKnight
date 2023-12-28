@@ -40,7 +40,7 @@
  * Ex.
  * <SkillCostText:\CNC[1]ALL\CCS[2]TP>  // ALL TP
  * <SkillCostText:\CCS[1]Random MP>  // Random MP
- * 
+ *
  * You can also include each cost in the text.
  * %1=Consume MP, %2=Consume TP and %3=Consume HP.
  * Ex.
@@ -98,7 +98,6 @@
  */
 
 (() => {
-
   //
   // check HPConsueSkill.js is included or not.
   //
@@ -106,8 +105,8 @@
 
   const hpCostColor = () => {
     if (hasHpSkill) {
-      const hpParam = PluginManager.parameters('HPConsumeSkill');
-      const color = +hpParam['Consume HP Color'];
+      const hpParam = PluginManager.parameters("HPConsumeSkill");
+      const color = +hpParam["Consume HP Color"];
       return color && color >= 0 ? color : 17;
     } else {
       return 17;
@@ -117,11 +116,17 @@
   //
   // Process when it consumes plural elements.
   //
-  const needsPluralKindCosts = skill => {
+  const needsPluralKindCosts = (skill) => {
     let kind = 0;
-    if (skill.mpCost) { kind++; }
-    if (skill.tpCost) { kind++; }
-    if (hasHpSkill && skill.hpCost) { kind++; }
+    if (skill.mpCost) {
+      kind++;
+    }
+    if (skill.tpCost) {
+      kind++;
+    }
+    if (hasHpSkill && skill.hpCost) {
+      kind++;
+    }
     return kind >= 2;
   };
 
@@ -133,17 +138,22 @@
     }
     if (skill.tpCost) {
       const tpCost = actor ? actor.skillTpCost(skill) : skill.tpCost;
-      if (text) { text = " " + text; }
+      if (text) {
+        text = " " + text;
+      }
       text = "\\CCS[2]" + tpCost + text;
     }
     if (hasHpSkill && skill.hpCost) {
-      if (text) { text = " " + text; }
+      if (text) {
+        text = " " + text;
+      }
       text = "\\CCS[3]" + String(skill.hpCost) + text;
     }
     return text;
   };
 
-  if (!Window_SkillList.prototype.textSizeEx) { // MV
+  if (!Window_SkillList.prototype.textSizeEx) {
+    // MV
     Window_SkillList.prototype.textSizeEx = function (text) {
       return { width: this.drawTextEx(text, 0, -1000) };
     };
@@ -156,10 +166,11 @@
   //
   // process note string
   //
-  const displayText = skill => {
+  const displayText = (skill) => {
     const originalText = skill.meta.SkillCostText;
-    return "\\CNC[0]" + originalText.format(skill.mpCost, skill.hpCost,
-      skill.hpCost || 0
+    return (
+      "\\CNC[0]" +
+      originalText.format(skill.mpCost, skill.hpCost, skill.hpCost || 0)
     );
   };
 
@@ -173,11 +184,13 @@
   //
   const _Window_SkillList_processEscapeCharacter =
     Window_SkillList.prototype.processEscapeCharacter;
-  Window_SkillList.prototype.processEscapeCharacter = function (code,
-    textState) {
-    const c = 'ColorManager' in window ? ColorManager : this;
+  Window_SkillList.prototype.processEscapeCharacter = function (
+    code,
+    textState
+  ) {
+    const c = "ColorManager" in window ? ColorManager : this;
     switch (code) {
-      case 'CNC':
+      case "CNC":
         switch (this.obtainEscapeParam(textState)) {
           case 0:
             this.changeTextColor(c.normalColor());
@@ -187,7 +200,7 @@
             break;
         }
         break;
-      case 'CCS':
+      case "CCS":
         switch (this.obtainEscapeParam(textState)) {
           case 1:
             this.changeTextColor(c.mpCostColor());
@@ -207,7 +220,8 @@
   //
   // display routine
   //
-  if (!Window_SkillList.prototype.itemAt) { // MV
+  if (!Window_SkillList.prototype.itemAt) {
+    // MV
     Window_SkillList.prototype.itemAt = function (index) {
       return this._data && index >= 0 ? this._data[index] : null;
     };
@@ -247,5 +261,4 @@
     }
     _Window_SkillList_drawSkillCost.call(this, skill, x, y, width);
   };
-
 })();

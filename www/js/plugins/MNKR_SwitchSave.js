@@ -34,19 +34,22 @@
 (() => {
   "use strict";
 
-  const pluginName = document.currentScript.src.split("/").pop().replace(/\.js$/, "");
+  const pluginName = document.currentScript.src
+    .split("/")
+    .pop()
+    .replace(/\.js$/, "");
   const parameters = PluginManager.parameters(pluginName);
-  const cancelSwitch = Number(parameters['cancelSwitch'] || 0);
+  const cancelSwitch = Number(parameters["cancelSwitch"] || 0);
 
   const _Scene_File_createListWindow = Scene_File.prototype.createListWindow;
   Scene_File.prototype.createListWindow = function () {
     _Scene_File_createListWindow.call(this);
-    const isSceneSave = SceneManager._scene.constructor.name === 'Scene_Save';
-    const cancelNg = cancelSwitch === 0 ? true : $gameSwitches.value(cancelSwitch);
+    const isSceneSave = SceneManager._scene.constructor.name === "Scene_Save";
+    const cancelNg =
+      cancelSwitch === 0 ? true : $gameSwitches.value(cancelSwitch);
 
     if (cancelNg && isSceneSave) {
-      this._listWindow.setHandler('cancel', this.onSaveFailure.bind(this));
+      this._listWindow.setHandler("cancel", this.onSaveFailure.bind(this));
     }
   };
-
 })();

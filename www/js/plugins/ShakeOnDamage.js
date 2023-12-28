@@ -149,132 +149,141 @@
  */
 
 (function () {
-    'use strict';
-    var pluginName = 'ShakeOnDamage';
+  "use strict";
+  var pluginName = "ShakeOnDamage";
 
-    //=============================================================================
-    // ローカル関数
-    //  プラグインパラメータやプラグインコマンドパラメータの整形やチェックをします
-    //=============================================================================
-    var getParamString = function (paramNames) {
-        if (!Array.isArray(paramNames)) paramNames = [paramNames];
-        for (var i = 0; i < paramNames.length; i++) {
-            var name = PluginManager.parameters(pluginName)[paramNames[i]];
-            if (name) return name;
-        }
-        return '';
-    };
+  //=============================================================================
+  // ローカル関数
+  //  プラグインパラメータやプラグインコマンドパラメータの整形やチェックをします
+  //=============================================================================
+  var getParamString = function (paramNames) {
+    if (!Array.isArray(paramNames)) paramNames = [paramNames];
+    for (var i = 0; i < paramNames.length; i++) {
+      var name = PluginManager.parameters(pluginName)[paramNames[i]];
+      if (name) return name;
+    }
+    return "";
+  };
 
-    var getParamBoolean = function (paramNames) {
-        var value = getParamString(paramNames).toUpperCase();
-        return value === 'TRUE';
-    };
+  var getParamBoolean = function (paramNames) {
+    var value = getParamString(paramNames).toUpperCase();
+    return value === "TRUE";
+  };
 
-    var convertEscapeCharacters = function (text) {
-        if (isNotAString(text)) text = '';
-        var windowLayer = SceneManager._scene._windowLayer;
-        return windowLayer ? windowLayer.children[0].convertEscapeCharacters(text) : text;
-    };
+  var convertEscapeCharacters = function (text) {
+    if (isNotAString(text)) text = "";
+    var windowLayer = SceneManager._scene._windowLayer;
+    return windowLayer
+      ? windowLayer.children[0].convertEscapeCharacters(text)
+      : text;
+  };
 
-    var isNotAString = function (args) {
-        return String(args) !== args;
-    };
+  var isNotAString = function (args) {
+    return String(args) !== args;
+  };
 
-    //=============================================================================
-    // パラメータの取得と整形
-    //=============================================================================
-    var param = {};
-    param.shakePower = getParamString(['ShakePower', 'シェイク強さ']);
-    param.criticalShakePower = getParamString(['CriticalShakePower', 'クリティカルシェイク強さ']);
-    param.effectiveShakePower = getParamString(['EffectiveShakePower', '弱点シェイク強さ']);
-    param.shakeSpeed = getParamString(['ShakeSpeed', 'シェイク速さ']);
-    param.shakeDuration = getParamString(['ShakeDuration', 'シェイク時間']);
-    param.applyActor = getParamBoolean(['ApplyActor', 'アクターに適用']);
-    param.applyEnemy = getParamBoolean(['ApplyEnemy', '敵キャラに適用']);
+  //=============================================================================
+  // パラメータの取得と整形
+  //=============================================================================
+  var param = {};
+  param.shakePower = getParamString(["ShakePower", "シェイク強さ"]);
+  param.criticalShakePower = getParamString([
+    "CriticalShakePower",
+    "クリティカルシェイク強さ",
+  ]);
+  param.effectiveShakePower = getParamString([
+    "EffectiveShakePower",
+    "弱点シェイク強さ",
+  ]);
+  param.shakeSpeed = getParamString(["ShakeSpeed", "シェイク速さ"]);
+  param.shakeDuration = getParamString(["ShakeDuration", "シェイク時間"]);
+  param.applyActor = getParamBoolean(["ApplyActor", "アクターに適用"]);
+  param.applyEnemy = getParamBoolean(["ApplyEnemy", "敵キャラに適用"]);
 
-    //=============================================================================
-    // Game_Battler
-    //  クリティカル判定を記憶します。
-    //=============================================================================
-    Game_Battler.prototype.setCriticalForShake = function (value) {
-        this._criticalForShake = value;
-    };
+  //=============================================================================
+  // Game_Battler
+  //  クリティカル判定を記憶します。
+  //=============================================================================
+  Game_Battler.prototype.setCriticalForShake = function (value) {
+    this._criticalForShake = value;
+  };
 
-    Game_Battler.prototype.isCriticalForShake = function () {
-        return this._criticalForShake;
-    };
+  Game_Battler.prototype.isCriticalForShake = function () {
+    return this._criticalForShake;
+  };
 
-    Game_Battler.prototype.setEffectiveForShake = function (value) {
-        this._effectiveForShake = value;
-    };
+  Game_Battler.prototype.setEffectiveForShake = function (value) {
+    this._effectiveForShake = value;
+  };
 
-    Game_Battler.prototype.isEffectiveForShake = function () {
-        return this._effectiveForShake;
-    };
+  Game_Battler.prototype.isEffectiveForShake = function () {
+    return this._effectiveForShake;
+  };
 
-    var _Game_Battler_performDamage = Game_Battler.prototype.performDamage;
-    Game_Battler.prototype.performDamage = function () {
-        _Game_Battler_performDamage.apply(this, arguments);
-        if (this.isShakeOnDamage()) {
-            this.shakeOnDamage();
-        }
-    };
+  var _Game_Battler_performDamage = Game_Battler.prototype.performDamage;
+  Game_Battler.prototype.performDamage = function () {
+    _Game_Battler_performDamage.apply(this, arguments);
+    if (this.isShakeOnDamage()) {
+      this.shakeOnDamage();
+    }
+  };
 
-    Game_Battler.prototype.shakeOnDamage = function () {
-        var power = this.getDamageShakePower();
-        var speed = this.convertShakeParameter(param.shakeSpeed);
-        var duration = this.convertShakeParameter(param.shakeDuration);
-        $gameScreen.startShake(power, speed, duration);
-        this.setCriticalForShake(false);
-        //シェイク時にボイスを鳴らすように改造
-        $gameTemp.reserveCommonEvent(47);
-    };
+  Game_Battler.prototype.shakeOnDamage = function () {
+    var power = this.getDamageShakePower();
+    var speed = this.convertShakeParameter(param.shakeSpeed);
+    var duration = this.convertShakeParameter(param.shakeDuration);
+    $gameScreen.startShake(power, speed, duration);
+    this.setCriticalForShake(false);
+    //シェイク時にボイスを鳴らすように改造
+    $gameTemp.reserveCommonEvent(47);
+  };
 
-    Game_Battler.prototype.getDamageShakePower = function () {
-        var power = param.shakePower;
-        if (param.criticalShakePower && this.isCriticalForShake()) {
-            power = param.criticalShakePower;
-        } else if (param.effectiveShakePower && this.isEffectiveForShake()) {
-            power = param.effectiveShakePower;
-        }
-        return this.convertShakeParameter(power);
-    };
+  Game_Battler.prototype.getDamageShakePower = function () {
+    var power = param.shakePower;
+    if (param.criticalShakePower && this.isCriticalForShake()) {
+      power = param.criticalShakePower;
+    } else if (param.effectiveShakePower && this.isEffectiveForShake()) {
+      power = param.effectiveShakePower;
+    }
+    return this.convertShakeParameter(power);
+  };
 
-    Game_Battler.prototype.convertShakeParameter = function (param) {
-        var convertParam = convertEscapeCharacters(param);
-        // use in eval
-        var a = this;
-        var r = a.hpRate() * 100;
-        return isNaN(Number(convertParam)) ? eval(convertParam) : parseInt(convertParam);
-    };
+  Game_Battler.prototype.convertShakeParameter = function (param) {
+    var convertParam = convertEscapeCharacters(param);
+    // use in eval
+    var a = this;
+    var r = a.hpRate() * 100;
+    return isNaN(Number(convertParam))
+      ? eval(convertParam)
+      : parseInt(convertParam);
+  };
 
-    Game_Battler.prototype.isShakeOnDamage = function () {
-        return false;
-    };
+  Game_Battler.prototype.isShakeOnDamage = function () {
+    return false;
+  };
 
-    Game_Actor.prototype.isShakeOnDamage = function () {
-        return param.applyActor;
-    };
+  Game_Actor.prototype.isShakeOnDamage = function () {
+    return param.applyActor;
+  };
 
-    Game_Enemy.prototype.isShakeOnDamage = function () {
-        return param.applyEnemy;
-    };
+  Game_Enemy.prototype.isShakeOnDamage = function () {
+    return param.applyEnemy;
+  };
 
-    //=============================================================================
-    // Game_Action
-    //  クリティカル判定を記憶します。
-    //=============================================================================
-    var _Game_Action_makeDamageValue = Game_Action.prototype.makeDamageValue;
-    Game_Action.prototype.makeDamageValue = function (target, critical) {
-        target.setCriticalForShake(critical);
-        return _Game_Action_makeDamageValue.apply(this, arguments);
-    };
+  //=============================================================================
+  // Game_Action
+  //  クリティカル判定を記憶します。
+  //=============================================================================
+  var _Game_Action_makeDamageValue = Game_Action.prototype.makeDamageValue;
+  Game_Action.prototype.makeDamageValue = function (target, critical) {
+    target.setCriticalForShake(critical);
+    return _Game_Action_makeDamageValue.apply(this, arguments);
+  };
 
-    var _Game_Action_calcElementRate = Game_Action.prototype.calcElementRate;
-    Game_Action.prototype.calcElementRate = function (target) {
-        var result = _Game_Action_calcElementRate.apply(this, arguments);
-        target.setEffectiveForShake(result > 1.0);
-        return result;
-    };
+  var _Game_Action_calcElementRate = Game_Action.prototype.calcElementRate;
+  Game_Action.prototype.calcElementRate = function (target) {
+    var result = _Game_Action_calcElementRate.apply(this, arguments);
+    target.setEffectiveForShake(result > 1.0);
+    return result;
+  };
 })();
-

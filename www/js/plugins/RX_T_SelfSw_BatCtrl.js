@@ -5,7 +5,6 @@
 // Copylight   : 2020 TYPE74RX-T
 //=============================================================================
 
-
 //=============================================================================
 /*:
  * @target MZ
@@ -83,21 +82,21 @@
  * @type switch
  *
  * @help Batch operation of self-switch
- * 
+ *
  * This plugin is compatible with RPG Maker MV and RPG Maker MZ.
  *
  * To use by MZ version, you need the official Plugin "CommonBase.js" plugin to use this plugin.
  * You need the official Plugin "CommonBase.js" plugin to use this plugin.
  * Stote:C:\Program Files\KADOKAWA\RPGMZ\dlc\BasicResources\plugins\official
  * Steam:C:\Program Files (x86)\Steam\steamapps\common\RPG Maker MZ\dlc\BasicResources\plugins\official
- * 
+ *
  * ◆Summary
  * You will be able to operate the self-switch in batches.
  * You can also use the game-switch to get information on self-switch.
  *
  * ◆Plugin Command for MZ
  * Plugin File：RX_T_SelfSw_BatCtrl
- * 
+ *
  * ★Self-Switches
  * Click "Events" under "Arguments".
  * When a new window appears, double-click on the blank space next to
@@ -118,7 +117,7 @@
  * individually.
  * If you want to initialize the self-switch to a large extent, this
  * may be easier.
- * However, be very careful not to make a mistake in setting up the 
+ * However, be very careful not to make a mistake in setting up the
  * self-switch, because it is mainly based on keyboard input.
  *
  * ★Get the Self-Switch infos
@@ -142,7 +141,7 @@
  * ◆License
  * This plugin is released under MIT license.
  * http://opensource.org/licenses/mit-license.php
-*/
+ */
 /*:ja
  * @target MZ
  * @plugindesc セルフスイッチを一括操作できるようになります。
@@ -228,14 +227,14 @@
  * MZ版でのご利用には公式プラグインの「PluginCommonBase.js」が必要です。
  * Stote:C:\Program Files\KADOKAWA\RPGMZ\dlc\BasicResources\plugins\official
  * Steam:C:\Program Files (x86)\Steam\steamapps\common\RPG Maker MZ\dlc\BasicResources\plugins\official
- * 
+ *
  * ◆概要
  * セルフスイッチの一括操作できるようになります。
  * また、セルフスイッチの情報をゲームスイッチで取得することもできます。
  *
  * ◆プラグインコマンド（MZ）
  * プラグインファイル：RX_T_SelfSw_BatCtrl
- * 
+ *
  * ★セルフスイッチ
  * 「引数」の「イベント」をクリックします。
  * 新しいウィンドウが現れたら、番号が振られた欄の横にある空白を
@@ -273,7 +272,7 @@
  * ◆ライセンス
  * このプラグインはMITライセンスで公開されています。
  * http://opensource.org/licenses/mit-license.php
-*/
+ */
 /*~struct~RXSelfSwitch:
  *
  * @param eventID
@@ -349,91 +348,105 @@
  */
 
 (() => {
-    'use strict';
-    const script = document.currentScript;
+  "use strict";
+  const script = document.currentScript;
 
-    if (PluginManager._commands !== undefined) {
-        //PluginManager
-        PluginManagerEx.registerCommand(script, "selfSwitches", args => {
-            const rx_selfSwParams = args.events
-            let imax = rx_selfSwParams.length
-            let rx_key = [];
-            for (let i = 0; i < imax; i++) {
-                rx_key = [rx_selfSwParams[i].mapID, rx_selfSwParams[i].eventID, rx_selfSwParams[i].switchType];
-                $gameSelfSwitches.setValue(rx_key, rx_selfSwParams[i].status === true);
+  if (PluginManager._commands !== undefined) {
+    //PluginManager
+    PluginManagerEx.registerCommand(script, "selfSwitches", (args) => {
+      const rx_selfSwParams = args.events;
+      let imax = rx_selfSwParams.length;
+      let rx_key = [];
+      for (let i = 0; i < imax; i++) {
+        rx_key = [
+          rx_selfSwParams[i].mapID,
+          rx_selfSwParams[i].eventID,
+          rx_selfSwParams[i].switchType,
+        ];
+        $gameSelfSwitches.setValue(rx_key, rx_selfSwParams[i].status === true);
+      }
+    });
+    PluginManager.registerCommand(
+      "RX_T_SelfSw_BatCtrl",
+      "selfSwitchesEX",
+      (args) => {
+        let rx_key = [];
+        let rx_mapID = [];
+        let rx_evID = [];
+        let rx_sswType = args.switchTypeEX;
+        let rx_sswState = args.statusEX;
+        let rx_getEX = args.mapIDEX.split(",");
+        for (let i = 0; i < rx_getEX.length; i++) {
+          if (rx_getEX[i].indexOf("-") > -1) {
+            let k = rx_getEX[i].split("-");
+            for (let j = parseInt(k[0]); j <= parseInt(k[1]); j++) {
+              rx_mapID.push(j);
             }
-        });
-        PluginManager.registerCommand("RX_T_SelfSw_BatCtrl", "selfSwitchesEX", args => {
-            let rx_key = [];
-            let rx_mapID = [];
-            let rx_evID = [];
-            let rx_sswType = args.switchTypeEX;
-            let rx_sswState = args.statusEX;
-            let rx_getEX = args.mapIDEX.split(',');
-            for (let i = 0; i < rx_getEX.length; i++) {
-                if (rx_getEX[i].indexOf('-') > -1) {
-                    let k = rx_getEX[i].split('-');
-                    for (let j = parseInt(k[0]); j <= parseInt(k[1]); j++) {
-                        rx_mapID.push(j);
-                    }
-                } else {
-                    rx_mapID.push(parseInt(rx_getEX[i]));
-                }
+          } else {
+            rx_mapID.push(parseInt(rx_getEX[i]));
+          }
+        }
+        rx_getEX = args.eventIDEX.split(",");
+        for (let i = 0; i < rx_getEX.length; i++) {
+          if (rx_getEX[i].indexOf("-") > -1) {
+            let k = rx_getEX[i].split("-");
+            for (let j = parseInt(k[0]); j <= parseInt(k[1]); j++) {
+              rx_evID.push(j);
             }
-            rx_getEX = args.eventIDEX.split(',');
-            for (let i = 0; i < rx_getEX.length; i++) {
-                if (rx_getEX[i].indexOf('-') > -1) {
-                    let k = rx_getEX[i].split('-');
-                    for (let j = parseInt(k[0]); j <= parseInt(k[1]); j++) {
-                        rx_evID.push(j);
-                    }
-                } else {
-                    rx_evID.push(parseInt(rx_getEX[i]));
-                }
+          } else {
+            rx_evID.push(parseInt(rx_getEX[i]));
+          }
+        }
+        for (let i = 0; i < rx_mapID.length; i++) {
+          for (let j = 0; j < rx_evID.length; j++) {
+            rx_key = [rx_mapID[i], rx_evID[j], rx_sswType];
+            $gameSelfSwitches.setValue(rx_key, rx_sswState === "true");
+          }
+        }
+      }
+    );
+    PluginManager.registerCommand(
+      "RX_T_SelfSw_BatCtrl",
+      "getSelfSwitches",
+      (args) => {
+        let rx_key = [];
+        let rx_mapID = args.getMapID;
+        let rx_evID = args.getEventID;
+        let rx_sswType = args.getSwitchType;
+        let rx_putSwitchID = args.putSwitchID;
+        rx_key = [rx_mapID, rx_evID, rx_sswType];
+        $gameSwitches.setValue(rx_putSwitchID, $gameSelfSwitches.value(rx_key));
+      }
+    );
+  } else {
+    //Game_Interpreter
+    const rx_t_gipc200916_pluginCommand =
+      Game_Interpreter.prototype.pluginCommand;
+    Game_Interpreter.prototype.pluginCommand = function (command, args) {
+      rx_t_gipc200916_pluginCommand.call(this, command, args);
+      if (command === "rx_selfsw") {
+        console.log(args);
+        const rx_sswType = args[args.length - 2];
+        const rx_sswState = args[args.length - 1] === "ON" ? true : false;
+        const rx_mapID =
+          parseInt(args[0]) < 1 ? $gameMap._mapId : parseInt(args[0]);
+        let rx_evID = [];
+        let rx_key = [];
+        for (let i = 1; i <= args.length - 3; i++) {
+          if (args[i].indexOf("-") > -1) {
+            let k = args[i].split("-");
+            for (let j = parseInt(k[0]); j <= parseInt(k[1]); j++) {
+              rx_evID.push(parseInt(j));
             }
-            for (let i = 0; i < rx_mapID.length; i++) {
-                for (let j = 0; j < rx_evID.length; j++) {
-                    rx_key = [rx_mapID[i], rx_evID[j], rx_sswType];
-                    $gameSelfSwitches.setValue(rx_key, rx_sswState === "true");
-                }
-            }
-        });
-        PluginManager.registerCommand("RX_T_SelfSw_BatCtrl", "getSelfSwitches", args => {
-            let rx_key = [];
-            let rx_mapID = args.getMapID;
-            let rx_evID = args.getEventID;
-            let rx_sswType = args.getSwitchType;
-            let rx_putSwitchID = args.putSwitchID;
-            rx_key = [rx_mapID, rx_evID, rx_sswType];
-            $gameSwitches.setValue(rx_putSwitchID, $gameSelfSwitches.value(rx_key));
-        });
-    } else {
-        //Game_Interpreter
-        const rx_t_gipc200916_pluginCommand = Game_Interpreter.prototype.pluginCommand;
-        Game_Interpreter.prototype.pluginCommand = function (command, args) {
-            rx_t_gipc200916_pluginCommand.call(this, command, args);
-            if (command === 'rx_selfsw') {
-                console.log(args);
-                const rx_sswType = args[args.length - 2];
-                const rx_sswState = args[args.length - 1] === "ON" ? true : false;
-                const rx_mapID = parseInt(args[0]) < 1 ? $gameMap._mapId : parseInt(args[0]);
-                let rx_evID = [];
-                let rx_key = [];
-                for (let i = 1; i <= args.length - 3; i++) {
-                    if (args[i].indexOf('-') > -1) {
-                        let k = args[i].split('-');
-                        for (let j = parseInt(k[0]); j <= parseInt(k[1]); j++) {
-                            rx_evID.push(parseInt(j));
-                        }
-                    } else {
-                        rx_evID.push(parseInt(args[i]));
-                    }
-                }
-                for (let i = 0; i < rx_evID.length; i++) {
-                    rx_key = [rx_mapID, rx_evID[i], rx_sswType];
-                    $gameSelfSwitches.setValue(rx_key, rx_sswState === true);
-                }
-            }
-        };
-    }
+          } else {
+            rx_evID.push(parseInt(args[i]));
+          }
+        }
+        for (let i = 0; i < rx_evID.length; i++) {
+          rx_key = [rx_mapID, rx_evID[i], rx_sswType];
+          $gameSelfSwitches.setValue(rx_key, rx_sswState === true);
+        }
+      }
+    };
+  }
 })();
