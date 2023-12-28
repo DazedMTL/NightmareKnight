@@ -1362,7 +1362,7 @@ var $plugins = [
     status: true,
     description: "ゴールドではなく、変数の値で売買を行うショップを表示します",
     parameters: {
-      "Currency Name": "枚",
+      "Currency Name": "C",
       "Variable Number": "214",
       "Buy Command Name": "Exchange",
       "Sell Command Name": "",
