@@ -4958,7 +4958,8 @@ var $plugins = [
       yesNoWindowHeight: "110",
       languageInfo: "",
       roleStruct:
-        '["{\\"strength\\":\\"1\\",\\"role\\":\\"ロイヤルストレートフラッシュ\\",\\"magni\\":\\"1000\\"}","{\\"strength\\":\\"2\\",\\"role\\":\\"ファイブカード\\",\\"magni\\":\\"500\\"}","{\\"strength\\":\\"3\\",\\"role\\":\\"ストレートフラッシュ\\",\\"magni\\":\\"300\\"}","{\\"strength\\":\\"4\\",\\"role\\":\\"フォーカード\\",\\"magni\\":\\"100\\"}","{\\"strength\\":\\"5\\",\\"role\\":\\"フルハウス\\",\\"magni\\":\\"50\\"}","{\\"strength\\":\\"6\\",\\"role\\":\\"フラッシュ\\",\\"magni\\":\\"40\\"}","{\\"strength\\":\\"7\\",\\"role\\":\\"ストレート\\",\\"magni\\":\\"30\\"}","{\\"strength\\":\\"8\\",\\"role\\":\\"スリーカード\\",\\"magni\\":\\"5\\"}","{\\"strength\\":\\"9\\",\\"role\\":\\"ツーペア\\",\\"magni\\":\\"2\\"}","{\\"strength\\":\\"10\\",\\"role\\":\\"ワンペア\\",\\"magni\\":\\"1\\"}"]',
+        '["{\\"strength\\":\\"1\\",\\"role\\":\\"Royal Straight Flush\\",\\"magni\\":\\"1000\\"}","{\\"strength\\":\\"2\\",\\"role\\":\\"Five Cards\\",\\"magni\\":\\"500\\"}","{\\"strength\\":\\"3\\",\\"role\\":\\"Straight Flush\\",\\"magni\\":\\"300\\"}","{\\"strength\\":\\"4\\",\\"role\\":\\"Four of a Kind\\",\\"magni\\":\\"100\\"}","{\\"strength\\":\\"5\\",\\"role\\":\\"Full House\\",\\"magni\\":\\"50\\"}","{\\"strength\\":\\"6\\",\\"role\\":\\"Flush\\",\\"magni\\":\\"40\\"}","{\\"strength\\":\\"7\\",\\"role\\":\\"Straight\\",\\"magni\\":\\"30\\"}","{\\"strength\\":\\"8\\",\\"role\\":\\"Three of a Kind\\",\\"magni\\":\\"5\\"}","{\\"strength\\":\\"9\\",\\"role\\":\\"Two Pairs\\",\\"magni\\":\\"2\\"}","{\\"strength\\":\\"10\\",\\"role\\":\\"One Pair\\",\\"magni\\":\\"1\\"}"]',
+
       betInfoStr: "Please select the number of BETs.",
       winMessage1: "YOU WIN!! %s!!",
       winMessage2: "%d Chips Acquired!!!",
